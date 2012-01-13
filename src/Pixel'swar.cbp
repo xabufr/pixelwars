@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Pixelswar" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="../build/bin/Debug/Pixelswar" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../build/" />
+				<Option object_output="../build/obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-std=c++0x" />
+					<Add option="-g" />
+					<Add option="-D_DEBUG" />
+					<Add option="-DSFML_DYNAMIC" />
+					<Add directory="/usr/include" />
+					<Add directory="/usr/include/c++/4.6" />
+					<Add directory="./" />
+					<Add directory="/usr/local/include" />
+				</Compiler>
+				<Linker>
+					<Add option="-lsfml-graphics" />
+					<Add option="-lsfml-window" />
+					<Add option="-lsfml-system" />
+					<Add option="-lnoise" />
+					<Add option="-lBox2D" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="../build/bin/Release/Pixelswar" prefix_auto="1" extension_auto="1" />
+				<Option working_dir="../build/" />
+				<Option object_output="../buid/obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add option="-std=c++0x" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+					<Add option="-lsfml-graphics" />
+					<Add option="-lsfml-window" />
+					<Add option="-lsfml-system" />
+					<Add option="-lnoise" />
+					<Add option="-lBox2D" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-std=c++0x" />
+			<Add option="-Wall" />
+		</Compiler>
+		<Linker>
+			<Add option="-lsfml-graphics" />
+			<Add option="-lsfml-window" />
+			<Add option="-lsfml-system" />
+			<Add option="-lnoise" />
+			<Add option="-lBox2D" />
+		</Linker>
+		<Unit filename="core/consolelogger.cpp" />
+		<Unit filename="core/consolelogger.h" />
+		<Unit filename="core/exception.cpp" />
+		<Unit filename="core/exception.h" />
+		<Unit filename="core/filelogger.cpp" />
+		<Unit filename="core/filelogger.h" />
+		<Unit filename="core/logger.cpp" />
+		<Unit filename="core/logger.h" />
+		<Unit filename="core/singleton.cpp" />
+		<Unit filename="core/singleton.h" />
+		<Unit filename="engines/game/gameengine.cpp" />
+		<Unit filename="engines/game/gameengine.h" />
+		<Unit filename="engines/graphics/cameramanager.cpp" />
+		<Unit filename="engines/graphics/cameramanager.h" />
+		<Unit filename="engines/graphics/graphicalengine.cpp" />
+		<Unit filename="engines/graphics/graphicalengine.h" />
+		<Unit filename="engines/graphics/gui/guibuttonitem.cpp" />
+		<Unit filename="engines/graphics/gui/guibuttonitem.h" />
+		<Unit filename="engines/graphics/gui/guiitem.cpp" />
+		<Unit filename="engines/graphics/gui/guiitem.h" />
+		<Unit filename="engines/graphics/gui/guimanager.cpp" />
+		<Unit filename="engines/graphics/gui/guimanager.h" />
+		<Unit filename="engines/graphics/gui/guinode.cpp" />
+		<Unit filename="engines/graphics/gui/guinode.h" />
+		<Unit filename="engines/graphics/gui/guitextitem.cpp" />
+		<Unit filename="engines/graphics/gui/guitextitem.h" />
+		<Unit filename="engines/graphics/gui/guiwindownode.cpp" />
+		<Unit filename="engines/graphics/gui/guiwindownode.h" />
+		<Unit filename="engines/graphics/positioninformations.h" />
+		<Unit filename="engines/graphics/scenemanager.cpp" />
+		<Unit filename="engines/graphics/scenemanager.h" />
+		<Unit filename="engines/graphics/scenenode.cpp" />
+		<Unit filename="engines/graphics/scenenode.h" />
+		<Unit filename="engines/graphics/scenenodecircleshapeitem.cpp" />
+		<Unit filename="engines/graphics/scenenodecircleshapeitem.h" />
+		<Unit filename="engines/graphics/scenenodeitem.cpp" />
+		<Unit filename="engines/graphics/scenenodeitem.h" />
+		<Unit filename="engines/graphics/scenenodeshapeitem.cpp" />
+		<Unit filename="engines/graphics/scenenodeshapeitem.h" />
+		<Unit filename="engines/graphics/scenenodespriteitem.cpp" />
+		<Unit filename="engines/graphics/scenenodespriteitem.h" />
+		<Unit filename="engines/graphics/scenenodetextureitem.cpp" />
+		<Unit filename="engines/graphics/scenenodetextureitem.h" />
+		<Unit filename="engines/graphics/texturemanager.cpp" />
+		<Unit filename="engines/graphics/texturemanager.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<code_completion />
+			<debugger />
+			<envvars />
+			<DoxyBlocks>
+				<comment_style block="5" line="2" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output html_help="1" />
+				<doxyfile_dot class_diagrams="1" />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
