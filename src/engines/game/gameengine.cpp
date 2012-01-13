@@ -25,20 +25,28 @@ inline void Fill(sf::Uint8 toFill[], int height)
             toFill[i-2]=0;
             toFill[i-3]=0;
         }
+        else if(i-12<height)
+        {
+            toFill[i]=255;//a
+            toFill[i-1]=0;//b
+            toFill[i-2]=255;//g
+            toFill[i-3]=0;//r
+        }
         else
         {
-            if(i<800)
+
+            if(i>height*2)
             {
                 toFill[i]=255;//a
-                toFill[i-1]=0;//b
-                toFill[i-2]=0;//g
-                toFill[i-3]=255;//r
+                toFill[i-1]=128;//b
+                toFill[i-2]=128;//g
+                toFill[i-3]=128;//r
             }
             else{
                 toFill[i]=255;
-                toFill[i-1]=255;
-                toFill[i-2]=0;
-                toFill[i-3]=0;
+                toFill[i-1]=0;
+                toFill[i-2]=65;
+                toFill[i-3]=108;
             }
         }
     }
@@ -172,10 +180,7 @@ void GameEngine::Start()
     float y;
     for(int i=0;i<600;++i)
     {
-        y = 200+150*gen.GetValue(float(i)*0.002,0.5,0.5);
-
-        shape.Set(b2Vec2(float(i-1)*0.1, -y*0.1), b2Vec2(float(i)*0.1, -y*0.1));
-        //ground->CreateFixture(&fd);
+        y = 200+150*gen.GetValue(float(i)*0.0015,0.5,0.5);
 
         Fill(tabFill, y);
         worldItem->UpdateTexture(tabFill, 1,400,i,0);
