@@ -3,12 +3,15 @@
 
 SceneNodeSpriteItem::SceneNodeSpriteItem()
 {
-    m_spr.SetTexture(TextureManager::GetInstance()->Get("test.png"));
 }
 
 SceneNodeSpriteItem::~SceneNodeSpriteItem()
 {
     //dtor
+}
+void SceneNodeSpriteItem::SetImage(const std::string& chemin)
+{
+    m_spr.SetTexture(TextureManager::GetInstance()->Get(chemin));
 }
 void SceneNodeSpriteItem::PositionChanged()
 {

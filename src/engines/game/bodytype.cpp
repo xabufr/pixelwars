@@ -1,8 +1,8 @@
 #include "bodytype.h"
 
-BodyType::BodyType(BodyTypeEnum t, void* ptr): type(t), proprietaire(ptr)
+BodyType::BodyType(BodyTypeEnum t, void* ptr): proprietaire(ptr)
 {
-    //ctor
+    type=t;
 }
 
 BodyType::~BodyType()

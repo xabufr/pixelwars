@@ -92,6 +92,10 @@
 		<Unit filename="engines/game/contactlistenner.h" />
 		<Unit filename="engines/game/gameengine.cpp" />
 		<Unit filename="engines/game/gameengine.h" />
+		<Unit filename="engines/game/inputmanager.cpp" />
+		<Unit filename="engines/game/inputmanager.h" />
+		<Unit filename="engines/game/projectile.cpp" />
+		<Unit filename="engines/game/projectile.h" />
 		<Unit filename="engines/game/unite.cpp" />
 		<Unit filename="engines/game/unite.h" />
 		<Unit filename="engines/game/uniteterrestre.cpp" />

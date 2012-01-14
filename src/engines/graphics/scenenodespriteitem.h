@@ -9,6 +9,7 @@ class SceneNodeSpriteItem : public SceneNodeItem
     public:
         SceneNodeSpriteItem();
         virtual ~SceneNodeSpriteItem();
+        void SetImage(const std::string&);
 
     protected:
         virtual void Draw(sf::RenderWindow* app);

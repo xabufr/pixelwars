@@ -1,5 +1,6 @@
 #include "carte.h"
 #include <libnoise/noise.h>
+#include "bodytype.h"
 
 Carte::Carte(b2World* world, const sf::Vector2i& taille, int seed)
 {
@@ -14,6 +15,9 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, int seed)
 
 Carte::~Carte()
 {
+    delete (BodyType*) m_bodyTerrain->GetUserData();
+    m_world->DestroyBody(m_bodyTerrain);
+    GraphicalEngine::GetInstance()->GetSceneManager()->RemoveNode(m_nodeTerrain);
 }
 void Carte::DemarrerDestruction()
 {
@@ -40,6 +44,7 @@ void Carte::Generer(const sf::Vector2i& taille, int seed)
         m_itemTerrain->UpdateTexture(filler, 1, taille.y, x, 0);
     }
     b2BodyDef bd;
+    bd.userData = (void*) new BodyType(BodyTypeEnum::TerrainE, (void*)this);
     m_bodyTerrain=m_world->CreateBody(&bd);
     RecalculerTerrain();
 }
@@ -56,8 +61,10 @@ void Carte::AjouterExplosion(sf::Vector2f position, float radius)
 }
 void Carte::RecreerTerrain()
 {
+    delete (BodyType*) m_bodyTerrain->GetUserData();
     m_world->DestroyBody(m_bodyTerrain);
     b2BodyDef bd;
+    bd.userData = (void*) new BodyType(BodyTypeEnum::TerrainE, (void*)this);
     m_bodyTerrain=m_world->CreateBody(&bd);
     RecalculerTerrain();
 }
