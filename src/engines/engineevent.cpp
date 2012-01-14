@@ -115,8 +115,8 @@ sf::Packet EngineEvent::ToPacket() const
 void EngineEvent::FromPacket(sf::Packet &packet)
 {
     sf::Uint32 taille,i;
-    sf::Int32 int32;
-    sf::Uint8 int8;
+    sf::Int32 int32_tmp;
+    sf::Uint8 int8_tmp;
     std::string str;
     float f1,f2;
 
@@ -131,32 +131,32 @@ void EngineEvent::FromPacket(sf::Packet &packet)
 
     for(i=0;i<taille;++i)
     {
-        packet>>int8;
-        m_recieverId.push_back((EngineType)int8);
+        packet>>int8_tmp;
+        m_recieverId.push_back((EngineType)int8_tmp);
     }
     packet>>taille;
     for(i=0;i<taille;++i)
     {
-        packet>>int8>>f1>>f2;
-        m_position[int8]=sf::Vector2f(f1,f2);
+        packet>>int8_tmp>>f1>>f2;
+        m_position[int8_tmp]=sf::Vector2f(f1,f2);
     }
     packet>>taille;
     for(i=0;i<taille;++i)
     {
-        packet>>int8>>int32;
-        m_int[int8]=int32;
+        packet>>int8_tmp>>int32_tmp;
+        m_int[int8_tmp]=int32_tmp;
     }
     packet>>taille;
     for(i=0;i<taille;++i)
     {
-        packet>>int8>>f1;
-        m_float[int8]=f1;
+        packet>>int8_tmp>>f1;
+        m_float[int8_tmp]=f1;
     }
     packet>>taille;
     for(i=0;i<taille;++i)
     {
-        packet>>int8>>str;
-        m_string[int8]=str;
+        packet>>int8_tmp>>str;
+        m_string[int8_tmp]=str;
     }
     CreateEngines();
 }

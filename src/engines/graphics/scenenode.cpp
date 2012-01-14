@@ -7,6 +7,8 @@ SceneNode::SceneNode(SceneManager* mng, SceneNode* parent)
 
     m_level=0;
     m_levelReel = this->CalculerLevel();
+    m_relative.rotation=0;
+    m_relative.scale=sf::Vector2f(1,1);
 
     m_manager=mng;
     m_manager->AddNodeLevel(m_levelReel, this);

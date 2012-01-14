@@ -1,8 +1,8 @@
 #ifndef SOUNDENGINE_H
 #define SOUNDENGINE_H
+#include "../engine.h"
 
-
-class SoundEngine
+class SoundEngine : public Engine
 {
     public:
         SoundEngine();

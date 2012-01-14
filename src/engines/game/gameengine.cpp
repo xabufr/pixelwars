@@ -1,7 +1,6 @@
 #include "gameengine.h"
 #include "engines/graphics/graphicalengine.h"
 #include "core/logger.h"
-#include <libnoise/noise.h>
 #include <SFML2/System.hpp>
 #include <Box2D/Box2D.h>
 GameEngine::GameEngine()
@@ -17,163 +16,20 @@ EngineType GameEngine::GetEngineId() const
 {
     return EngineType::Game_engine;
 }
-inline void Fill(sf::Uint8 toFill[], int height)
-{
-    height*=4;
-    for(int i=400*4-1;i>=0;i-=4)
-    {
-        if(i<height)
-        {
-            toFill[i]=0;
-            toFill[i-1]=0;
-            toFill[i-2]=0;
-            toFill[i-3]=0;
-        }
-        else if(i-12<height)
-        {
-            toFill[i]=255;//a
-            toFill[i-1]=0;//b
-            toFill[i-2]=255;//g
-            toFill[i-3]=0;//r
-        }
-        else
-        {
-
-            if(i>height*2)
-            {
-                toFill[i]=255;//a
-                toFill[i-1]=128;//b
-                toFill[i-2]=128;//g
-                toFill[i-3]=128;//r
-            }
-            else{
-                toFill[i]=255;
-                toFill[i-1]=0;
-                toFill[i-2]=65;
-                toFill[i-3]=108;
-            }
-        }
-    }
-}
-inline int DeterminerDeltaMin(int ordonnee, int listePts[], int nbPts)
-{
-    int delta=9999999, lastId, idRetour;
-
-    for(lastId=0;lastId<nbPts;++lastId)
-    {
-        if(delta>abs(listePts[lastId]-ordonnee))
-        {
-            delta=abs(listePts[lastId]-ordonnee);
-            idRetour=lastId;
-        }
-    }
-    return idRetour;
-}
-inline int DeterminerSecondDeltaMin(int ordonnee, int listePts[], int nbPts)
-{
-    int delta=9999999, lastId, idRetour, retour1;
-
-    for(lastId=0;lastId<nbPts;++lastId)
-    {
-        if(delta>abs(listePts[lastId]-ordonnee))
-        {
-            delta=abs(listePts[lastId]-ordonnee);
-            idRetour=retour1;
-            retour1=lastId;
-        }
-    }
-    return idRetour;
-}
-inline int DeterminerDeltaValeurMax(int ordonnee, int listePts[], int nbPts, int deltaMax)
-{
-    int lastId;
-
-    for(lastId=0;lastId<nbPts;++lastId)
-    {
-        if(deltaMax<abs(listePts[lastId]-ordonnee))
-        {
-            return lastId;
-        }
-    }
-}
-inline void CopierTableau(const int tab1[], int tab2[], const unsigned int Taille1)
-{
-    for(unsigned int i=0;i<Taille1; tab2[i]=tab1[i],++i);
-}
-inline void CreerTerrainBox(b2Body* body, SceneNodeTextureItem *itemTerrain)
-{
-    const unsigned int maxPtsLevel = 10; //Nombre de points stockable en mémoire au max
-    unsigned int nbPtsLast=1, nbPtsCourant;
-    int lastPts[maxPtsLevel], ptsEnCours[maxPtsLevel]; //Ordonnée des derniers points stockés
-    bool lastTransparent; //Détecter les changement
-
-    lastPts[0]=0;
-
-    b2EdgeShape shape;
-
-    b2FixtureDef fd;
-    fd.shape = &shape;
-    fd.density = 0.0f;
-    fd.friction = 0.6f;
-
-    const sf::Image& img = itemTerrain->GetImage();
-    unsigned int w = img.GetWidth();
-    unsigned int h = img.GetHeight();
-    unsigned int x,y;
-    for(x=0; x<w;++x)
-    {
-        nbPtsCourant=0;
-        lastTransparent=true;
-        for(y=0; y<h&&nbPtsCourant<maxPtsLevel; ++y)
-        {
-            if((img.GetPixel(x,y).a==0&&!lastTransparent)||
-                (img.GetPixel(x,y).a==255&&lastTransparent))
-            {
-                ptsEnCours[nbPtsCourant++]=y;
-                lastTransparent=!lastTransparent;//On a changé d'état
-            }
-
-        }
-        for(unsigned int indexPt=0;indexPt<nbPtsCourant;++indexPt)
-        {
-            if(nbPtsLast>=nbPtsCourant)
-            {
-                int id = DeterminerDeltaMin(ptsEnCours[indexPt], lastPts, nbPtsLast);
-
-                shape.Set(b2Vec2((float(x)-1.f)*0.1, -float(lastPts[id])*0.1), b2Vec2(float(x)*0.1, -float(ptsEnCours[indexPt])*0.1));
-                body->CreateFixture(&fd);
-            }
-
-
-        }
-        CopierTableau(ptsEnCours, lastPts, nbPtsCourant);
-        nbPtsLast=nbPtsCourant;
-    }
-}
 void GameEngine::Start()
 {
     GraphicalEngine* gengine = GraphicalEngine::GetInstance();
     sf::RenderWindow *app = gengine->CreateRenderWindow(sf::VideoMode(600,400), "Test");
 
-    SceneNode* worldNode = gengine->GetSceneManager()->GetRootNode()->AddSceneNode();
-    SceneNodeTextureItem* worldItem = (SceneNodeTextureItem*) worldNode->AddItem(new SceneNodeTextureItem);
-    worldItem->SetRelativePosition(0,0);
-    worldItem->CreateTexture(sf::Vector2i(600,400));
-    sf::Uint8 tabFill[400*4];
 
-    noise::module::Perlin gen;
-
-    srand(time(NULL));
-    gen.SetSeed(rand());
-
-    b2World* m_world;
     b2Vec2 gravity;
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
+	m_world->SetContactListener(&m_listner);
+	m_carte = new Carte(m_world, sf::Vector2i(600,400), 0);
 
-    b2Body* ground = NULL;
     b2BodyDef bd;
-    ground = m_world->CreateBody(&bd);
+    //ground = m_world->CreateBody(&bd);
     b2EdgeShape shape;
 
     b2FixtureDef fd;
@@ -181,15 +37,7 @@ void GameEngine::Start()
     fd.density = 0.0f;
     fd.friction = 0.6f;
 
-    float y;
-    for(int i=0;i<600;++i)
-    {
-        y = 200+150*gen.GetValue(float(i)*0.0015,0.5,0.5);
 
-        Fill(tabFill, y);
-        worldItem->UpdateTexture(tabFill, 1,400,i,0);
-    }
-    CreerTerrainBox(ground, worldItem);
 
     bd.position = b2Vec2(10, 0);
     bd.type=b2_dynamicBody;
@@ -277,20 +125,32 @@ void GameEngine::Start()
             }
             else if(event.Type == sf::Event::MouseButtonPressed)
             {
-                m_world->DestroyBody(ground);
-                b2BodyDef bdtemp;
-                ground = m_world->CreateBody(&bdtemp);
-                if(event.MouseButton.Button == sf::Mouse::Left)
-                    worldItem->DrawCircle(50.f, sf::Color(0,0,0,0), GuiManager::GetMousePosition());
-                else
-                    worldItem->DrawCircle(50.f, sf::Color(128,128,64,255), GuiManager::GetMousePosition());
-                CreerTerrainBox(ground, worldItem);
+
+                //if(event.MouseButton.Button == sf::Mouse::Left)
+                    //worldItem->DrawCircle(50.f, sf::Color(0,0,0,0), GuiManager::GetMousePosition());
+               // else
+                    //worldItem->DrawCircle(50.f, sf::Color(128,128,64,255), GuiManager::GetMousePosition());
+                //CreerTerrainBox(ground, worldItem);
             }
         }
         m_world->Step(1.f/60.f, 8, 3);
         nodeVoiture->SetAbsolutePosition(10*corpVoiture->GetWorldCenter().x, -corpVoiture->GetWorldCenter().y*10);
         nodeVoiture->SetAbsoluteRotation(-corpVoiture->GetAngle()*180/3.14);
         gengine->DrawScene();
+        GererExplosions();
+        //Logger::Log()<<roue1->GetAngle()<<Logger::endl;
     }
     GraphicalEngine::Kill();
+}
+void GameEngine::GererExplosions()
+{
+    const std::vector<ExplosionPosition> &explosions = m_listner.GetExplosions();
+    m_carte->DemarrerDestruction();
+    for(const ExplosionPosition &exp : explosions)
+    {
+        m_carte->AjouterExplosion(exp.position, exp.radius);
+    }
+    m_carte->FinirDestruction();
+
+    m_listner.Clear();
 }

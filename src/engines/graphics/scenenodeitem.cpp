@@ -2,7 +2,8 @@
 
 SceneNodeItem::SceneNodeItem()
 {
-    //ctor
+    m_relative.rotation=0;
+    m_relative.scale=sf::Vector2f(1,1);
 }
 
 SceneNodeItem::~SceneNodeItem()

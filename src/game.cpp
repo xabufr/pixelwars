@@ -13,9 +13,12 @@ Engine* Game::GetEngineFromId(EngineType id)
 {
     switch(id)
     {
-    case Network_engine:
+    case EngineType::Network_engine:
         return m_network;
-    default:;
+    case EngineType::Game_engine:
+        return m_game;
+    case EngineType::Audio_engine:
+        return m_sound;
     }
-    return 0;
+    return NULL;
 }

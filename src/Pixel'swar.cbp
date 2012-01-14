@@ -84,6 +84,10 @@
 		<Unit filename="engines/engine.h" />
 		<Unit filename="engines/engineevent.cpp" />
 		<Unit filename="engines/engineevent.h" />
+		<Unit filename="engines/game/carte.cpp" />
+		<Unit filename="engines/game/carte.h" />
+		<Unit filename="engines/game/contactlistenner.cpp" />
+		<Unit filename="engines/game/contactlistenner.h" />
 		<Unit filename="engines/game/gameengine.cpp" />
 		<Unit filename="engines/game/gameengine.h" />
 		<Unit filename="engines/graphics/cameramanager.cpp" />
@@ -121,6 +125,8 @@
 		<Unit filename="engines/graphics/texturemanager.h" />
 		<Unit filename="engines/network/networkengine.cpp" />
 		<Unit filename="engines/network/networkengine.h" />
+		<Unit filename="engines/sound/soundengine.cpp" />
+		<Unit filename="engines/sound/soundengine.h" />
 		<Unit filename="engines/type.h" />
 		<Unit filename="game.cpp" />
 		<Unit filename="game.h" />
