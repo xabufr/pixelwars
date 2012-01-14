@@ -276,7 +276,10 @@ void GameEngine::Start()
                 m_world->DestroyBody(ground);
                 b2BodyDef bdtemp;
                 ground = m_world->CreateBody(&bdtemp);
-                worldItem->DrawCircle(50.f, sf::Color(0,0,0,0), GuiManager::GetMousePosition());
+                if(event.MouseButton.Button == sf::Mouse::Left)
+                    worldItem->DrawCircle(50.f, sf::Color(0,0,0,0), GuiManager::GetMousePosition());
+                else
+                    worldItem->DrawCircle(50.f, sf::Color(128,128,64,255), GuiManager::GetMousePosition());
                 CreerTerrainBox(ground, worldItem);
             }
         }
