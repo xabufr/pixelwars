@@ -2742,11 +2742,10 @@
 	"guibuttonitem.h"
 	"guimanager.h"
 
-1326560437 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1326564359 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
-	<libnoise/noise.h>
 	<SFML2/System.hpp>
 	<Box2D/Box2D.h>
 
@@ -2970,11 +2969,25 @@
 1326557970 source:/home/thomas/pixelwar/pixelwar/src/engines/game/contactlistenner.cpp
 	"contactlistenner.h"
 
-1326559990 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
+1326563152 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
 	"carte.h"
 	<libnoise/noise.h>
+	<iostream>
 
-1326559945 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
+1326562337 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
 	<Box2D/Box2D.h>
 	"engines/graphics/graphicalengine.h"
+
+1326564426 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unite.cpp
+	"unite.h"
+	"bodytype.h"
+
+1326563292 /home/thomas/pixelwar/pixelwar/src/engines/game/unite.h
+	<Box2D/Box2D.h>
+	"engines/graphics/graphicalengine.h"
+
+1326564492 /home/thomas/pixelwar/pixelwar/src/engines/game/bodytype.h
+
+1326564480 source:/home/thomas/pixelwar/pixelwar/src/engines/game/bodytype.cpp
+	"bodytype.h"
 

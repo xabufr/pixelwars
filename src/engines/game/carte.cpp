@@ -28,6 +28,7 @@ void Carte::FinirDestruction()
 }
 void Carte::Generer(const sf::Vector2i& taille, int seed)
 {
+    m_taille=taille;
     m_itemTerrain->CreateTexture(taille);
     noise::module::Perlin gen;
     gen.SetSeed(seed);
@@ -110,10 +111,13 @@ void Carte::RecalculerTerrain()
         nbPtsLast=nbPtsCourant;
     }
 }
+#include <iostream>
+
 void Carte::Fill(sf::Uint8 toFill[], int height)
 {
-    height*=4;
-    for(int i=400*4-1;i>=0;i-=4)
+    height=(m_taille.y-height)*4;
+    int limiteRoche = height+m_taille.y*1.75;
+    for(int i=m_taille.y*4-1;i>=0;i-=4)
     {
         if(i<height)
         {
@@ -122,7 +126,7 @@ void Carte::Fill(sf::Uint8 toFill[], int height)
             toFill[i-2]=0;
             toFill[i-3]=0;
         }
-        else if(i-12<height)
+        else if(i-12<height)//3 pixels
         {
             toFill[i]=255;//a
             toFill[i-1]=0;//b
@@ -131,8 +135,7 @@ void Carte::Fill(sf::Uint8 toFill[], int height)
         }
         else
         {
-
-            if(i>height*2)
+            if(i>limiteRoche)
             {
                 toFill[i]=255;//a
                 toFill[i-1]=128;//b

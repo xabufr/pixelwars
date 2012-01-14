@@ -123,15 +123,6 @@ void GameEngine::Start()
                 jointure1->SetMotorSpeed(0);
                 jointure2->SetMotorSpeed(0);
             }
-            else if(event.Type == sf::Event::MouseButtonPressed)
-            {
-
-                //if(event.MouseButton.Button == sf::Mouse::Left)
-                    //worldItem->DrawCircle(50.f, sf::Color(0,0,0,0), GuiManager::GetMousePosition());
-               // else
-                    //worldItem->DrawCircle(50.f, sf::Color(128,128,64,255), GuiManager::GetMousePosition());
-                //CreerTerrainBox(ground, worldItem);
-            }
         }
         m_world->Step(1.f/60.f, 8, 3);
         nodeVoiture->SetAbsolutePosition(10*corpVoiture->GetWorldCenter().x, -corpVoiture->GetWorldCenter().y*10);

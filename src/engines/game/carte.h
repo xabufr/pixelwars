@@ -26,6 +26,7 @@ class Carte
         int DeterminerDeltaMin(int ordonnee, int listePts[], int nbPts);
 
         bool m_destruction, m_modified;
+        sf::Vector2i m_taille;
 };
 
 #endif // CARTE_H
