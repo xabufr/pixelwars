@@ -77,6 +77,10 @@
 		<Unit filename="core/logger.h" />
 		<Unit filename="core/singleton.cpp" />
 		<Unit filename="core/singleton.h" />
+		<Unit filename="engines/engine.cpp" />
+		<Unit filename="engines/engine.h" />
+		<Unit filename="engines/engineevent.cpp" />
+		<Unit filename="engines/engineevent.h" />
 		<Unit filename="engines/game/gameengine.cpp" />
 		<Unit filename="engines/game/gameengine.h" />
 		<Unit filename="engines/graphics/cameramanager.cpp" />
@@ -112,6 +116,10 @@
 		<Unit filename="engines/graphics/scenenodetextureitem.h" />
 		<Unit filename="engines/graphics/texturemanager.cpp" />
 		<Unit filename="engines/graphics/texturemanager.h" />
+		<Unit filename="engines/network/networkengine.cpp" />
+		<Unit filename="engines/network/networkengine.h" />
+		<Unit filename="game.cpp" />
+		<Unit filename="game.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<code_completion />
