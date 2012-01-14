@@ -9,3 +9,7 @@ NetworkEngine::~NetworkEngine()
 {
     //dtor
 }
+EngineType NetworkEngine::GetEngineId() const
+{
+    return EngineType::Network_engine;
+}

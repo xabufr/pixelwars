@@ -13,6 +13,10 @@ GameEngine::~GameEngine()
 {
     //dtor
 }
+EngineType GameEngine::GetEngineId() const
+{
+    return EngineType::Game_engine;
+}
 inline void Fill(sf::Uint8 toFill[], int height)
 {
     height*=4;
