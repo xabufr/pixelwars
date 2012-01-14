@@ -1,184 +1,202 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
 <CodeBlocks_layout_file>
 	<ActiveTarget name="Debug" />
-	<File name="engines/graphics/scenemanager.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1761" topLine="46" />
-	</File>
-	<File name="engines/graphics/gui/guitextitem.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1487" topLine="44" />
+	<File name="core/logger.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="12" topLine="0" />
 	</File>
 	<File name="engines/graphics/texturemanager.cpp" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor1 position="1455" topLine="28" />
 	</File>
-	<File name="engines/graphics/scenenodecircleshapeitem.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1771" topLine="61" />
-	</File>
-	<File name="main.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="214" topLine="0" />
-	</File>
-	<File name="engines/graphics/gui/guibuttonitem.cpp" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="2181" topLine="72" />
-	</File>
-	<File name="engines/graphics/gui/guimanager.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="233" topLine="32" />
-	</File>
-	<File name="core/filelogger.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="0" topLine="0" />
-	</File>
-	<File name="engines/graphics/positioninformations.h" open="0" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="82" topLine="0" />
-	</File>
-	<File name="core/logger.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1414" topLine="33" />
-	</File>
-	<File name="engines/graphics/graphicalengine.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1905" topLine="58" />
-	</File>
-	<File name="engines/game/gameengine.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="514" topLine="0" />
-	</File>
-	<File name="core/consolelogger.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="109" topLine="0" />
-	</File>
-	<File name="engines/graphics/gui/guibuttonitem.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="282" topLine="1" />
-	</File>
-	<File name="engines/graphics/cameramanager.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="561" topLine="0" />
-	</File>
-	<File name="engines/graphics/scenenodeshapeitem.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1388" topLine="27" />
-	</File>
-	<File name="core/exception.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="325" topLine="0" />
-	</File>
-	<File name="engines/network/networkengine.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="208" topLine="0" />
-	</File>
-	<File name="core/consolelogger.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="0" topLine="0" />
-	</File>
-	<File name="engines/graphics/scenenodeitem.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="127" topLine="0" />
-	</File>
-	<File name="engines/game/bodytype.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="332" topLine="0" />
-	</File>
-	<File name="engines/graphics/scenenodespriteitem.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="190" topLine="0" />
-	</File>
-	<File name="engines/graphics/gui/guiwindownode.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="159" topLine="0" />
-	</File>
-	<File name="engines/graphics/gui/guinode.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="132" topLine="0" />
-	</File>
-	<File name="engines/game/gameengine.cpp" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1290" topLine="42" />
-	</File>
-	<File name="engines/graphics/scenenodetextureitem.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="202" topLine="0" />
-	</File>
-	<File name="engines/graphics/scenemanager.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="345" topLine="0" />
-	</File>
-	<File name="core/exception.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="80" topLine="0" />
-	</File>
-	<File name="engines/game/carte.h" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="931" topLine="2" />
-	</File>
-	<File name="engines/sound/soundengine.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="101" topLine="0" />
-	</File>
-	<File name="engines/graphics/gui/guitextitem.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="1011" topLine="15" />
-	</File>
-	<File name="engines/graphics/gui/guinode.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="176" topLine="0" />
-	</File>
-	<File name="engines/game/carte.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="3642" topLine="64" />
-	</File>
-	<File name="engines/graphics/scenenode.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="272" topLine="0" />
-	</File>
-	<File name="engines/game/uniteterrestre.cpp" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="759" topLine="21" />
-	</File>
-	<File name="engines/graphics/gui/guimanager.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="504" topLine="0" />
-	</File>
-	<File name="engines/game/unite.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="290" topLine="0" />
-	</File>
-	<File name="core/filelogger.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="102" topLine="0" />
-	</File>
 	<File name="game.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor1 position="346" topLine="0" />
-	</File>
-	<File name="engines/graphics/scenenodespriteitem.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="330" topLine="0" />
-	</File>
-	<File name="core/singleton.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="255" topLine="0" />
-	</File>
-	<File name="engines/graphics/scenenode.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="277" topLine="3" />
-	</File>
-	<File name="engines/game/contactlistenner.cpp" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="511" topLine="0" />
-	</File>
-	<File name="engines/graphics/graphicalengine.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="286" topLine="25" />
-	</File>
-	<File name="core/logger.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="12" topLine="0" />
-	</File>
-	<File name="engines/graphics/gui/guiitem.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="632" topLine="30" />
-	</File>
-	<File name="engines/engine.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="87" topLine="0" />
-	</File>
-	<File name="engines/game/uniteterrestre.h" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="252" topLine="0" />
-	</File>
-	<File name="core/singleton.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="80" topLine="0" />
-	</File>
-	<File name="engines/network/networkengine.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="220" topLine="0" />
-	</File>
-	<File name="engines/graphics/gui/guiitem.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="273" topLine="0" />
-	</File>
-	<File name="engines/graphics/scenenodeitem.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="133" topLine="4" />
-	</File>
-	<File name="engines/graphics/gui/guiwindownode.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="662" topLine="4" />
-	</File>
-	<File name="engines/graphics/scenenodetextureitem.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="674" topLine="0" />
 	</File>
 	<File name="engines/engineevent.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor1 position="3046" topLine="55" />
 	</File>
+	<File name="engines/graphics/graphicalengine.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="286" topLine="25" />
+	</File>
+	<File name="engines/graphics/scenenodeshapeitem.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1388" topLine="27" />
+	</File>
+	<File name="engines/game/gameengine.cpp" open="1" top="1" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="300" topLine="13" />
+	</File>
+	<File name="engines/game/projectile.cpp" open="1" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="189" topLine="0" />
+	</File>
+	<File name="engines/sound/soundengine.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="101" topLine="0" />
+	</File>
 	<File name="engines/graphics/texturemanager.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor1 position="332" topLine="0" />
 	</File>
-	<File name="engines/graphics/cameramanager.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="122" topLine="0" />
+	<File name="engines/graphics/gui/guinode.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="132" topLine="0" />
 	</File>
-	<File name="engines/graphics/scenenodeshapeitem.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor1 position="727" topLine="0" />
+	<File name="engines/graphics/graphicalengine.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1905" topLine="40" />
+	</File>
+	<File name="core/filelogger.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="0" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenodetextureitem.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="674" topLine="0" />
 	</File>
 	<File name="engines/game/contactlistenner.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor1 position="107" topLine="0" />
 	</File>
+	<File name="engines/graphics/gui/guiitem.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="273" topLine="0" />
+	</File>
+	<File name="core/filelogger.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="102" topLine="0" />
+	</File>
+	<File name="engines/graphics/gui/guimanager.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="233" topLine="32" />
+	</File>
+	<File name="core/exception.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="80" topLine="0" />
+	</File>
+	<File name="engines/graphics/gui/guiwindownode.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="662" topLine="4" />
+	</File>
+	<File name="engines/game/inputmanager.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="142" topLine="0" />
+	</File>
+	<File name="engines/game/uniteterrestre.cpp" open="1" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="560" topLine="0" />
+	</File>
 	<File name="game.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor1 position="253" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenodecircleshapeitem.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1771" topLine="61" />
+	</File>
+	<File name="engines/graphics/scenemanager.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="345" topLine="0" />
+	</File>
+	<File name="engines/graphics/gui/guiitem.cpp" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="632" topLine="30" />
+	</File>
+	<File name="core/logger.h" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1414" topLine="33" />
+	</File>
+	<File name="engines/graphics/scenenodeitem.h" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="133" topLine="4" />
+	</File>
+	<File name="engines/game/unite.cpp" open="1" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="308" topLine="0" />
+	</File>
+	<File name="engines/game/bodytype.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="101" topLine="0" />
+	</File>
+	<File name="engines/engine.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="87" topLine="0" />
+	</File>
+	<File name="engines/graphics/gui/guitextitem.cpp" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1487" topLine="44" />
+	</File>
+	<File name="engines/game/carte.h" open="1" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="931" topLine="0" />
+	</File>
+	<File name="engines/game/inputmanager.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="524" topLine="0" />
+	</File>
+	<File name="core/singleton.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="255" topLine="0" />
+	</File>
+	<File name="engines/graphics/cameramanager.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="122" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenodespriteitem.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="330" topLine="0" />
+	</File>
+	<File name="engines/game/uniteterrestre.h" open="1" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="287" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenodespriteitem.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="190" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenemanager.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1761" topLine="46" />
+	</File>
+	<File name="engines/graphics/gui/guiwindownode.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="159" topLine="0" />
+	</File>
+	<File name="main.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="214" topLine="0" />
+	</File>
+	<File name="engines/game/contactlistenner.cpp" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="263" topLine="15" />
+	</File>
+	<File name="engines/graphics/gui/guimanager.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="504" topLine="0" />
+	</File>
+	<File name="core/consolelogger.cpp" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="0" topLine="0" />
+	</File>
+	<File name="engines/game/gameengine.h" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="514" topLine="0" />
+	</File>
+	<File name="engines/game/unite.h" open="1" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="360" topLine="0" />
+	</File>
+	<File name="core/singleton.cpp" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="80" topLine="0" />
+	</File>
+	<File name="core/exception.cpp" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="325" topLine="0" />
+	</File>
+	<File name="engines/graphics/positioninformations.h" open="0" top="0" tabpos="22" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="82" topLine="0" />
+	</File>
+	<File name="engines/game/bodytype.h" open="1" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="316" topLine="0" />
+	</File>
+	<File name="core/consolelogger.h" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="109" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenodetextureitem.cpp" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="202" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenodeitem.cpp" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="127" topLine="0" />
+	</File>
+	<File name="engines/network/networkengine.cpp" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="208" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenode.h" open="0" top="0" tabpos="15" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="277" topLine="3" />
+	</File>
+	<File name="engines/graphics/gui/guinode.cpp" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="176" topLine="0" />
+	</File>
+	<File name="engines/graphics/cameramanager.cpp" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="561" topLine="0" />
+	</File>
+	<File name="engines/graphics/gui/guibuttonitem.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="282" topLine="1" />
+	</File>
+	<File name="engines/graphics/gui/guibuttonitem.cpp" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="2181" topLine="72" />
+	</File>
+	<File name="engines/game/carte.cpp" open="1" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1389" topLine="40" />
+	</File>
+	<File name="engines/graphics/scenenodeshapeitem.h" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="727" topLine="0" />
+	</File>
+	<File name="engines/graphics/scenenode.cpp" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="272" topLine="0" />
+	</File>
+	<File name="engines/graphics/gui/guitextitem.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="1011" topLine="15" />
+	</File>
+	<File name="engines/game/projectile.h" open="1" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="472" topLine="0" />
+	</File>
+	<File name="engines/network/networkengine.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor1 position="220" topLine="0" />
 	</File>
 </CodeBlocks_layout_file>
