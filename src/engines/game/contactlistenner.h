@@ -3,6 +3,7 @@
 #include <Box2D/Box2D.h>
 #include <SFML2/System.hpp>
 
+class Projectile;
 struct ExplosionPosition
 {
     sf::Vector2f position;
@@ -16,9 +17,11 @@ class ContactListenner : public b2ContactListener
         void BeginContact (b2Contact *contact);
         void Clear();
         const std::vector<ExplosionPosition>& GetExplosions() const;
+        const std::vector<Projectile*>& GetProjectileToDestroy() const;
     protected:
     private:
         std::vector<ExplosionPosition> m_explosions;
+        std::vector<Projectile*> m_toDestroy;
 };
 
 #endif // CONTACTLISTENNER_H

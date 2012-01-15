@@ -74,6 +74,15 @@ void SceneNodeTextureItem::DrawCircle(float rayon, const sf::Color& col, const s
     sf::Vector2i tailleZone(rayon*2, rayon*2);
     sf::Vector2i positionHG(position.x-rayon, position.y-rayon);
     sf::Vector2i decallage(0,0);
+    if(position.y+rayon<0)
+        return;
+    if(position.x+rayon<0)
+        return;
+    if(position.x-rayon>m_img.GetWidth())
+        return;
+    if(position.y-rayon>m_img.GetHeight())
+        return;
+
     if(position.x+rayon>m_img.GetWidth())
     {
         tailleZone.x=m_img.GetWidth()-position.x+rayon;

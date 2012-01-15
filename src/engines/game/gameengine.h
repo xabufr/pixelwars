@@ -3,7 +3,9 @@
 #include "../engine.h"
 #include "carte.h"
 #include "contactlistenner.h"
+#include <deque>
 class SceneNodeTextureItem;
+class Projectile;
 class GameEngine : public Engine
 {
     public:
@@ -11,7 +13,7 @@ class GameEngine : public Engine
         virtual ~GameEngine();
         void Start();
         EngineType GetEngineId() const;
-    protected:
+
     private:
         ContactListenner m_listner;
         void GererExplosions();
@@ -19,6 +21,10 @@ class GameEngine : public Engine
         b2World* m_world;
         b2Body* ground;
         Carte *m_carte;
+        std::deque<Projectile*> m_projectiles;
+
+        void DeleteProjectile(Projectile *toDelete);
+        void MoveProjectiles();
 };
 
 #endif // GAMEENGINE_H

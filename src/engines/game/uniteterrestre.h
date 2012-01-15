@@ -9,14 +9,21 @@ class UniteTerrestre : public Unite
         virtual ~UniteTerrestre();
         virtual void Update();
         void Deplacer(const UnitInput& input);
+        void GetFireParameters(b2Vec2 &pos, b2Vec2 &direction, float &taille, float &poids, float &puissance);
         void Stop();
+        bool PeutTirer();
+        Projectile* Tirer();
+
     protected:
     private:
-        b2Body *m_roue1, *m_roue2;
+        b2Body *m_roue1, *m_roue2, *m_tourelle;
         b2WheelJoint *jointure1, *jointure2;
-        SceneNodeShapeItem *m_itemBody;
+        b2RevoluteJoint *m_jointureTourelle;
+        SceneNodeShapeItem *m_itemBody, *m_itemTourelle;
         SceneNodeSpriteItem *m_itemRoue1, *m_itemRoue2;
-        SceneNode *m_nodeRoue1, *m_nodeRoue2;
+        SceneNode *m_nodeRoue1, *m_nodeRoue2, *m_nodeTourelle;
+
+        bool m_fire;
 };
 
 #endif // UNITETERRESTRE_H

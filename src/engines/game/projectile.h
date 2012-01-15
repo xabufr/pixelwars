@@ -11,7 +11,6 @@ class Projectile
         virtual ~Projectile();
         void Update();
         float GetPuissance() const;
-    protected:
     private:
         SceneNode *m_node;
         SceneNodeCircleShapeItem *m_projectileItem;

@@ -24,6 +24,7 @@ class Carte
         void Generer(const sf::Vector2i& taille, int seed);
         void CopierTableau(const int tab1[], int tab2[], const unsigned int Taille1);
         int DeterminerDeltaMin(int ordonnee, int listePts[], int nbPts);
+        int DeterminerPotionVerticale(int x, int listePts[], int nbPts);
 
         bool m_destruction, m_modified;
         sf::Vector2i m_taille;

@@ -51,7 +51,7 @@ void SceneManager::AddNodeLevel(int level, SceneNode* node)
 {
     m_nodesLevel[level].push_back(node);
 }
-
+#include "core/logger.h"
 void SceneManager::RemoveNode(SceneNode* node)
 {
     int level = node->GetRealLevel();
@@ -64,7 +64,8 @@ void SceneManager::RemoveNode(SceneNode* node)
         {
             if(*it2==node)
             {
-                for(SceneNode* j : (*it2)->GetChildSceneNodes())
+                std::vector<SceneNode*> nodes= (*it2)->GetChildSceneNodes();
+                for(SceneNode* j : nodes)
                 {
                     RemoveNode(j);
                 }

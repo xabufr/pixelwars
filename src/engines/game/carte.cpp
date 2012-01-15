@@ -68,9 +68,10 @@ void Carte::RecreerTerrain()
     m_bodyTerrain=m_world->CreateBody(&bd);
     RecalculerTerrain();
 }
+#include <iostream>
 void Carte::RecalculerTerrain()
 {
-    const unsigned int maxPtsLevel = 10; //Nombre de points stockable en mémoire au max
+    const unsigned int maxPtsLevel = 200; //Nombre de points stockable en mémoire au max
     unsigned int nbPtsLast=1, nbPtsCourant;
     int lastPts[maxPtsLevel], ptsEnCours[maxPtsLevel]; //Ordonnée des derniers points stockés
     bool lastTransparent; //Détecter les changement
@@ -111,15 +112,42 @@ void Carte::RecalculerTerrain()
                 shape.Set(b2Vec2((float(x)-1.f)*0.1, -float(lastPts[id])*0.1), b2Vec2(float(x)*0.1, -float(ptsEnCours[indexPt])*0.1));
                 m_bodyTerrain->CreateFixture(&fd);
             }
-
-
         }
         CopierTableau(ptsEnCours, lastPts, nbPtsCourant);
         nbPtsLast=nbPtsCourant;
     }
+    /*Seconde passe pour gérer le case mur vertical*/
+    nbPtsLast=0;
+    for(y=0;y<h;++y)
+    {
+        lastTransparent=true;
+        nbPtsCourant=0;
+        for(x=0;nbPtsCourant<maxPtsLevel&&x<w;++x)
+        {
+            if((img.GetPixel(x,y).a==0&&!lastTransparent)||
+                (img.GetPixel(x,y).a==255&&lastTransparent))
+            {
+                ptsEnCours[nbPtsCourant++]=x;
+                lastTransparent=!lastTransparent;//On a changé d'état
+            }
+        }
+        for(unsigned int indexPt=0;indexPt<nbPtsCourant;++indexPt)
+        {
+            int id = DeterminerPotionVerticale(ptsEnCours[indexPt], lastPts, nbPtsLast);
+            if(id!=-1)
+            {
+                shape.Set(b2Vec2(float(lastPts[id])*0.1, -float(y-1.f)*0.1), b2Vec2(float(ptsEnCours[indexPt])*0.1, -float(y)*0.1));
+                m_bodyTerrain->CreateFixture(&fd);
+            }
+        }
+        CopierTableau(ptsEnCours, lastPts, nbPtsCourant);
+        nbPtsLast=nbPtsCourant;
+    }
+    shape.Set(b2Vec2(0, -100), b2Vec2(0, 100));
+    m_bodyTerrain->CreateFixture(&fd);
+    shape.Set(b2Vec2(float(m_taille.x)*0.1, -100), b2Vec2(float(m_taille.x)*0.1, 100));
+    m_bodyTerrain->CreateFixture(&fd);
 }
-#include <iostream>
-
 void Carte::Fill(sf::Uint8 toFill[], int height)
 {
     height=(m_taille.y-height)*4;
@@ -175,4 +203,13 @@ inline int Carte::DeterminerDeltaMin(int ordonnee, int listePts[], int nbPts)
         }
     }
     return idRetour;
+}
+int Carte::DeterminerPotionVerticale(int x, int listePts[], int nbPts)
+{
+    for(int i=0;i<nbPts;++i)
+    {
+        if(listePts[i]==x)
+            return i;
+    }
+    return -1;
 }

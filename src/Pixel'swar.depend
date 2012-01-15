@@ -2470,9 +2470,10 @@
 1315156264 /usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.cpp
+1326641217 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.cpp
 	"scenemanager.h"
 	"engines/graphics/graphicalengine.h"
+	"core/logger.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.h
 	"scenenode.h"
@@ -2686,7 +2687,7 @@
 	<SFML2/Graphics.hpp>
 	"guiitem.h"
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.cpp
+1326633558 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.cpp
 	"scenenodetextureitem.h"
 	"core/exception.h"
 	"core/logger.h"
@@ -2716,10 +2717,11 @@
 	"logger.h"
 	<iostream>
 
-1326559567 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
+1326636396 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
 	"../engine.h"
 	"carte.h"
 	"contactlistenner.h"
+	<deque>
 
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/core/logger.cpp
 	"logger.h"
@@ -2742,7 +2744,7 @@
 	"guibuttonitem.h"
 	"guimanager.h"
 
-1326576050 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1326640787 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2964,30 +2966,32 @@
 1326552941 /home/thomas/pixelwar/pixelwar/src/engines/type.h
 	<SFML2/System.hpp>
 
-1326555384 /home/thomas/pixelwar/pixelwar/src/engines/game/contactlistenner.h
+1326622341 /home/thomas/pixelwar/pixelwar/src/engines/game/contactlistenner.h
 	<Box2D/Box2D.h>
 	<SFML2/System.hpp>
 
-1326576388 source:/home/thomas/pixelwar/pixelwar/src/engines/game/contactlistenner.cpp
+1326640661 source:/home/thomas/pixelwar/pixelwar/src/engines/game/contactlistenner.cpp
 	"projectile.h"
 	"contactlistenner.h"
 	"bodytype.h"
+	"unite.h"
+	"core/logger.h"
 
-1326576332 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
+1326638151 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
 	"carte.h"
 	<libnoise/noise.h>
 	"bodytype.h"
 	<iostream>
 
-1326562337 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
+1326634494 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
 	<Box2D/Box2D.h>
 	"engines/graphics/graphicalengine.h"
 
-1326576297 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unite.cpp
+1326641423 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unite.cpp
 	"unite.h"
 	"bodytype.h"
 
-1326572305 /home/thomas/pixelwar/pixelwar/src/engines/game/unite.h
+1326640230 /home/thomas/pixelwar/pixelwar/src/engines/game/unite.h
 	<Box2D/Box2D.h>
 	"engines/graphics/graphicalengine.h"
 	"inputmanager.h"
@@ -2997,14 +3001,15 @@
 1326575744 source:/home/thomas/pixelwar/pixelwar/src/engines/game/bodytype.cpp
 	"bodytype.h"
 
-1326576307 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.cpp
+1326641148 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.cpp
 	"uniteterrestre.h"
 	"bodytype.h"
+	"projectile.h"
 
-1326572316 /home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.h
+1326638457 /home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.h
 	"unite.h"
 
-1326573159 /home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.h
+1326631651 /home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.h
 	<SFML2/Window.hpp>
 	<unordered_map>
 
@@ -3032,14 +3037,39 @@
 	<SFML/Config.hpp>
 	<SFML/System/Vector2.hpp>
 
-1326573191 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
+1326632319 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
 	"inputmanager.h"
 
-1326576535 source:/home/thomas/pixelwar/pixelwar/src/engines/game/projectile.cpp
+1326635515 source:/home/thomas/pixelwar/pixelwar/src/engines/game/projectile.cpp
 	"projectile.h"
 	"bodytype.h"
 
-1326576450 /home/thomas/pixelwar/pixelwar/src/engines/game/projectile.h
+1326622072 /home/thomas/pixelwar/pixelwar/src/engines/game/projectile.h
 	<Box2D/Box2D.h>
 	"engines/graphics/graphicalengine.h"
+
+1316183203 /usr/include/c++/4.6/list
+	<bits/stl_algobase.h>
+	<bits/allocator.h>
+	<bits/range_access.h>
+	<bits/stl_list.h>
+	<bits/list.tcc>
+	<debug/list>
+	<profile/list>
+
+1316183202 /usr/include/c++/4.6/bits/stl_list.h
+	<bits/concept_check.h>
+	<initializer_list>
+
+1316183202 /usr/include/c++/4.6/bits/list.tcc
+
+1316183203 /usr/include/c++/4.6/debug/list
+	<list>
+	<debug/safe_sequence.h>
+	<debug/safe_iterator.h>
+
+1316183203 /usr/include/c++/4.6/profile/list
+	<list>
+	<profile/base.h>
+	<profile/iterator_tracker.h>
 

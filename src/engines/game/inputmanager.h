@@ -5,7 +5,7 @@
 #include <unordered_map>
 
 struct UnitInput{
-    bool gauche, droite;
+    bool gauche, droite, haut, bas, tirer;
 };
 class InputManager
 {

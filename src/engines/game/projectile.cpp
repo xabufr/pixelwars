@@ -28,6 +28,7 @@ Projectile::Projectile(b2World* world, b2Vec2 pos, b2Vec2 direction, float taill
 
 Projectile::~Projectile()
 {
+    delete (BodyType*)m_body->GetUserData();
     m_body->GetWorld()->DestroyBody(m_body);
     GraphicalEngine::GetInstance()->GetSceneManager()->RemoveNode(m_node);
 }
