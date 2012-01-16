@@ -1,11 +1,12 @@
 #ifndef UNITETERRESTRE_H
 #define UNITETERRESTRE_H
 #include "unite.h"
+#include "uniteterrestremodel.h"
 
 class UniteTerrestre : public Unite
 {
     public:
-        UniteTerrestre(b2World*);
+        UniteTerrestre(b2World*, b2Vec2 pos=b2Vec2(0,0), const std::string& uid="default");
         virtual ~UniteTerrestre();
         virtual void Update();
         void Deplacer(const UnitInput& input);
@@ -22,6 +23,8 @@ class UniteTerrestre : public Unite
         SceneNodeShapeItem *m_itemBody, *m_itemTourelle;
         SceneNodeSpriteItem *m_itemRoue1, *m_itemRoue2;
         SceneNode *m_nodeRoue1, *m_nodeRoue2, *m_nodeTourelle;
+        b2Vec2 m_tailleCanon;
+        const UniteTerrestreParameters* const m_param;
 
         bool m_fire;
 };

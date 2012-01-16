@@ -43,7 +43,7 @@ void ContactListenner::BeginContact(b2Contact *contact)
                 unite = (Unite*)b1->proprietaire;
             else
                 unite = (Unite*)b2->proprietaire;
-            unite->SubirDegats(1000);
+            unite->SubirDegats(proj->GetPuissance());
         }
 
         b2WorldManifold manif;

@@ -5,6 +5,7 @@
 #include <Box2D/Box2D.h>
 #include "uniteterrestre.h"
 #include "projectile.h"
+#include "uniteterrestremodel.h"
 
 GameEngine::GameEngine()
 {
@@ -30,9 +31,9 @@ void GameEngine::Start()
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(&m_listner);
 	m_carte = new Carte(m_world, sf::Vector2i(600,400), 0);
+    UniteTerrestreModel::GetInstance();
 
-
-    UniteTerrestre *unit1 = new UniteTerrestre(m_world);
+    UniteTerrestre *unit1 = new UniteTerrestre(m_world, b2Vec2(10,0));
     InputManager imanager;
 
     sf::Event event;

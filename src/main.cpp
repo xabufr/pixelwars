@@ -15,5 +15,9 @@ int main()
     {
         std::cout<<e.What();
     }
+    catch(Exception &e)
+    {
+        std::cout<<e.What();
+    }
     return 0;
 }
