@@ -99,6 +99,8 @@
 		<Unit filename="engines/game/inputmanager.h" />
 		<Unit filename="engines/game/joueur.cpp" />
 		<Unit filename="engines/game/joueur.h" />
+		<Unit filename="engines/game/joueurhumain.cpp" />
+		<Unit filename="engines/game/joueurhumain.h" />
 		<Unit filename="engines/game/projectile.cpp" />
 		<Unit filename="engines/game/projectile.h" />
 		<Unit filename="engines/game/unite.cpp" />
