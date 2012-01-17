@@ -1,0 +1,15 @@
+Ajouter une force à l'impact pour faire bouger les unitées trop proches et leur infliger des dégât -> EC, revoir pour le calcul de l'impulsion
+Implémenter la classe joueur pour un contrôle des unités
+
+Écran splitté
+Utiliser la communication inter-module
+Implémenter type de jeu pour réagir en fct (càd serveur ou client)
+Gérer la création de nouveau types d'unitées I-G
+Synchroniser les types d'unitées des 2 cotés
+Gérer les sons
+Implémenter un menu de jeu
+Implémenter une console
+Écrire le moteur réseau
+
+Gestion de l'argent ?
+Implémenter les unitées aériennes ?

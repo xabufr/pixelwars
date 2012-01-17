@@ -40,3 +40,7 @@ float Projectile::GetPuissance() const
 {
     return m_puissance;
 }
+b2Body* Projectile::GetBody() const
+{
+    return m_body;
+}

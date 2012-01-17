@@ -78,6 +78,12 @@ void GameEngine::GererExplosions()
         m_carte->AjouterExplosion(exp.position, exp.radius);
     }
     m_carte->FinirDestruction();
+    const std::vector<ExplosionImpusle>& impulses = m_listner.GetImpulsions();
+    for(const ExplosionImpusle &impulse : impulses)
+    {
+        impulse.object->ApplyLinearImpulse(impulse.impulse, impulse.pts);
+    }
+
     const std::vector<Projectile*> &toDestroy = m_listner.GetProjectileToDestroy();
     for(Projectile *projectile : toDestroy)
     {
