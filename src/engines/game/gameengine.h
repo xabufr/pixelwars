@@ -17,11 +17,15 @@ class GameEngine : public Engine
     private:
         ContactListenner m_listner;
         void GererExplosions();
+        void EnleverUnit(Unite*);
+        void EnleverUnit(sf::Uint32);
+
         SceneNodeTextureItem* worldItem;
         b2World* m_world;
         b2Body* ground;
         Carte *m_carte;
         std::deque<Projectile*> m_projectiles;
+        std::unordered_map<sf::Uint32, Unite*> m_unites;
 
         void DeleteProjectile(Projectile *toDelete);
         void MoveProjectiles();

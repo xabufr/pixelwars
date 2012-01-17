@@ -4,8 +4,8 @@
 #include "bodytype.h"
 #include "unite.h"
 #include "core/logger.h"
-
-ContactListenner::ContactListenner()
+#include <iostream>
+ContactListenner::ContactListenner(const std::unordered_map<sf::Uint32, Unite*> & unites): m_unites(unites)
 {
     //ctor
 }
@@ -41,25 +41,11 @@ void ContactListenner::BeginContact(b2Contact *contact)
         {
             proj=(Projectile*)b2->proprietaire;
         }
+        if(aEteTraite(proj))
+            return;
+        m_traites.push_back(proj);
 
-        if(b1->type==BodyTypeEnum::UniteE||b2->type==BodyTypeEnum::UniteE)
-        {
-            Unite* unite;
-
-            if(b1->type==BodyTypeEnum::UniteE)
-            {
-                unite = (Unite*)b1->proprietaire;
-            }
-
-            else
-            {
-                unite = (Unite*)b2->proprietaire;
-            }
-
-            unite->SubirDegats(proj->GetPuissance());
-        }
         m_CalculerImpulsions(proj);
-
         b2WorldManifold manif;
         contact->GetWorldManifold(&manif);
         ExplosionPosition exp;
@@ -77,6 +63,7 @@ void ContactListenner::Clear()
     m_explosions.clear();
     m_toDestroy.clear();
     m_impulsions.clear();
+    m_traites.clear();
 }
 
 void ContactListenner::m_CalculerImpulsions(Projectile* proj)
@@ -85,31 +72,37 @@ void ContactListenner::m_CalculerImpulsions(Projectile* proj)
     static b2DistanceOutput out;
     static b2SimplexCache cache;
     static b2Shape *shapeProj;
-    static b2World* world;
-    world = proj->GetBody()->GetWorld();
+
     shapeProj = proj->GetBody()->GetFixtureList()->GetShape();
 
     input.proxyA.Set(shapeProj, 0);
     input.useRadii=false;
     input.transformA=proj->GetBody()->GetTransform();
-    for(b2Body* body = world->GetBodyList(); body!=0; body=body->GetNext())
+    b2Body* body;
+    const float coefAjustement = 0.5;
+    float coefDistance;
+    for(auto &it : m_unites)
     {
-        if(body==proj->GetBody())
-            continue;
-        cache.count=0;
+        body=it.second->GetBody();
         input.proxyB.Set(body->GetFixtureList()->GetShape(), 0);
         input.transformB=body->GetTransform();
         b2Distance(&out, &cache, &input);
-        if(out.distance<proj->GetPuissance()*0.5)
+        if(out.distance<proj->GetPuissance()*coefAjustement)
         {
+            coefDistance = 1-(out.distance/(proj->GetPuissance()*coefAjustement));
             ExplosionImpusle tmp;
             tmp.object=body;
             tmp.impulse=out.pointB-out.pointA;
-            tmp.impulse.x = 1/tmp.impulse.x;
-            tmp.impulse.y = 1/tmp.impulse.y;
-            tmp.impulse*=10;
+            tmp.impulse.x = tmp.impulse.x/out.distance;
+            tmp.impulse.y = tmp.impulse.y/out.distance;
+            tmp.impulse *= coefDistance;
+            tmp.impulse*=20*proj->GetPuissance()*coefAjustement;
             tmp.pts=out.pointB;
             m_impulsions.push_back(tmp);
+            if(out.distance<proj->GetPuissance()*0.1)
+            {
+                it.second->SubirDegats(proj->GetPuissance()*coefDistance);
+            }
         }
     }
 }
@@ -117,4 +110,13 @@ void ContactListenner::m_CalculerImpulsions(Projectile* proj)
 const std::vector<ExplosionImpusle>& ContactListenner::GetImpulsions() const
 {
     return m_impulsions;
+}
+bool ContactListenner::aEteTraite(Projectile* proj)
+{
+    for(Projectile* p: m_traites)
+    {
+        if(p==proj)
+            return true;
+    }
+    return false;
 }

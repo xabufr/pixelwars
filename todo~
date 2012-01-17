@@ -1,4 +1,5 @@
-Ajouter une force à l'impact pour faire bouger les unitées trop proches et leur infliger des dégât
+Ajouter une force à l'impact pour faire bouger les unitées trop proches et leur infliger des dégât -> EC, revoir pour le calcul de l'impulsion
+-------->OK
 Implémenter la classe joueur pour un contrôle des unités
 
 Écran splitté

@@ -30,3 +30,7 @@ bool Unite::EstVivant() const
 {
     return m_vie>0;
 }
+b2Body* Unite::GetBody() const
+{
+    return m_body;
+}

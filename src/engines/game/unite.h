@@ -19,6 +19,8 @@ class Unite
 
         virtual void SubirDegats(float degat);
 
+        b2Body* GetBody()const;
+
     protected:
         b2Body *m_body;
         SceneNode *m_node;

@@ -7,7 +7,7 @@
 #include "projectile.h"
 #include "uniteterrestremodel.h"
 
-GameEngine::GameEngine()
+GameEngine::GameEngine(): m_listner(m_unites)
 {
     //ctor
 }
@@ -34,6 +34,7 @@ void GameEngine::Start()
     UniteTerrestreModel::GetInstance();
 
     UniteTerrestre *unit1 = new UniteTerrestre(m_world, b2Vec2(10,0));
+    m_unites[0]=unit1;
     InputManager imanager;
 
     sf::Event event;
@@ -65,7 +66,7 @@ void GameEngine::Start()
         if(viv&&!unit1->EstVivant())
         {
             viv=false;
-            delete unit1;
+            EnleverUnit(unit1);
         }
     }
 }
@@ -118,4 +119,21 @@ void GameEngine::MoveProjectiles()
 {
     for(Projectile *proj : m_projectiles)
         proj->Update();
+}
+void GameEngine::EnleverUnit(Unite* unite)
+{
+    for(auto it = m_unites.begin();it!=m_unites.end();it++)
+    {
+        if(it->second==unite)
+        {
+            EnleverUnit(it->first);
+            return;
+        }
+    }
+}
+void GameEngine::EnleverUnit(sf::Uint32 id)
+{
+    auto it = m_unites.find(id);
+    delete it->second;
+    m_unites.erase(it);
 }
