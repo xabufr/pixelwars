@@ -7,7 +7,7 @@
 class JoueurHumain: public Joueur
 {
     public:
-        JoueurHumain(const sf::FloatRect &);
+        JoueurHumain(const sf::FloatRect & portion = sf::FloatRect(0,0,1,1));
         virtual ~JoueurHumain();
 
         virtual void Update();

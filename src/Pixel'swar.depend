@@ -2717,7 +2717,7 @@
 	"logger.h"
 	<iostream>
 
-1326820504 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
+1326833228 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
 	"../engine.h"
 	"carte.h"
 	"contactlistenner.h"
@@ -2744,7 +2744,7 @@
 	"guibuttonitem.h"
 	"guimanager.h"
 
-1326820706 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1326833446 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2753,6 +2753,7 @@
 	"uniteterrestre.h"
 	"projectile.h"
 	"uniteterrestremodel.h"
+	"joueurhumain.h"
 
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
 	"graphicalengine.h"
@@ -3100,10 +3101,12 @@
 	<sstream>
 	"tinystr.h"
 
-1326831663 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
+1326832478 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
 	"joueurhumain.h"
+	"engines/graphics/graphicalengine.h"
+	"unite.h"
 
-1326831836 /home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.h
+1326832649 /home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.h
 	"joueur.h"
 	<SFML2/Graphics.hpp>
 

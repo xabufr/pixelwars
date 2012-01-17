@@ -6,6 +6,7 @@
 #include "uniteterrestre.h"
 #include "projectile.h"
 #include "uniteterrestremodel.h"
+#include "joueurhumain.h"
 
 GameEngine::GameEngine(): m_listner(m_unites)
 {
@@ -35,7 +36,12 @@ void GameEngine::Start()
 
     UniteTerrestre *unit1 = new UniteTerrestre(m_world, b2Vec2(10,0));
     m_unites[0]=unit1;
+
     InputManager imanager;
+    m_joueurLocal[0] = new JoueurHumain;
+    m_joueurLocal[0]->AjouterUnite(0,unit1);
+
+    m_unitesJoueurs[unit1]=m_joueurLocal[0];
 
     sf::Event event;
     bool viv=true;
@@ -52,6 +58,7 @@ void GameEngine::Start()
         m_world->Step(1.f/60.f, 8, 3);
         if(viv)
         unit1->Update();
+        m_joueurLocal[0]->Update();
         gengine->DrawScene();
         GererExplosions();
         if(viv)
@@ -68,7 +75,9 @@ void GameEngine::Start()
             viv=false;
             EnleverUnit(unit1);
         }
+
     }
+    delete m_joueurLocal[0];
 }
 void GameEngine::GererExplosions()
 {
@@ -95,16 +104,6 @@ void GameEngine::GererExplosions()
 }
 void GameEngine::DeleteProjectile(Projectile* toDelete)
 {
-    /*const size_t taille = m_projectiles.size();
-    for(size_t i=0;i<taille;++i)
-    {
-        if(toDelete==m_projectiles[i])
-        {
-            delete toDelete;
-            m_projectiles.erase(m_projectiles.begin()+i);
-            return;
-        }
-    }*/
     for(auto it = m_projectiles.begin();it!=m_projectiles.end();it++)
     {
         if(toDelete==(*it))
@@ -122,6 +121,7 @@ void GameEngine::MoveProjectiles()
 }
 void GameEngine::EnleverUnit(Unite* unite)
 {
+    m_unitesJoueurs[unite]->EnleverUnite(unite);
     for(auto it = m_unites.begin();it!=m_unites.end();it++)
     {
         if(it->second==unite)

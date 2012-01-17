@@ -4,6 +4,9 @@
 #include "carte.h"
 #include "contactlistenner.h"
 #include <deque>
+
+class JoueurHumain;
+class Joueur;
 class SceneNodeTextureItem;
 class Projectile;
 class GameEngine : public Engine
@@ -26,6 +29,8 @@ class GameEngine : public Engine
         Carte *m_carte;
         std::deque<Projectile*> m_projectiles;
         std::unordered_map<sf::Uint32, Unite*> m_unites;
+        std::unordered_map<Unite*, Joueur*> m_unitesJoueurs;
+        JoueurHumain* m_joueurLocal[2];
 
         void DeleteProjectile(Projectile *toDelete);
         void MoveProjectiles();

@@ -30,6 +30,11 @@ void Joueur::EnleverUnite(sf::Uint32 id)
     if(it==m_unites.end())
         return;
     m_unites.erase(it);
+    if(m_idSelected==id)
+    {
+        m_idSelected=0;
+        m_selectedUnit=0;
+    }
 }
 
 void Joueur::EnleverUnite(Unite* unite)
