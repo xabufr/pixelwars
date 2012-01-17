@@ -1,8 +1,8 @@
 <?xml version="1.0" ?>
 <root>
   <model name="default" uid="default">
-    <blindage value="5" />
+    <blindage value="2.5" />
     <canon value="1.2" />
-    <projectile value="20" />
+    <projectile value="5" />
   </model>
 </root>

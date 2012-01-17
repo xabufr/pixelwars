@@ -41,9 +41,9 @@ void ContactListenner::BeginContact(b2Contact *contact)
         {
             proj=(Projectile*)b2->proprietaire;
         }
-        if(aEteTraite(proj))
+        /*if(aEteTraite(proj))
             return;
-        m_traites.push_back(proj);
+        m_traites.push_back(proj);*/
 
         m_CalculerImpulsions(proj);
         b2WorldManifold manif;
@@ -76,7 +76,7 @@ void ContactListenner::m_CalculerImpulsions(Projectile* proj)
     shapeProj = proj->GetBody()->GetFixtureList()->GetShape();
 
     input.proxyA.Set(shapeProj, 0);
-    input.useRadii=false;
+    input.useRadii=true;
     input.transformA=proj->GetBody()->GetTransform();
     b2Body* body;
     const float coefAjustement = 0.5;
@@ -86,6 +86,7 @@ void ContactListenner::m_CalculerImpulsions(Projectile* proj)
         body=it.second->GetBody();
         input.proxyB.Set(body->GetFixtureList()->GetShape(), 0);
         input.transformB=body->GetTransform();
+        cache.count=0;
         b2Distance(&out, &cache, &input);
         if(out.distance<proj->GetPuissance()*coefAjustement)
         {
@@ -93,14 +94,23 @@ void ContactListenner::m_CalculerImpulsions(Projectile* proj)
             ExplosionImpusle tmp;
             tmp.object=body;
             tmp.impulse=out.pointB-out.pointA;
-            tmp.impulse.x = tmp.impulse.x/out.distance;
-            tmp.impulse.y = tmp.impulse.y/out.distance;
+            if(out.distance!=0) // Pas de division par 0 !!!
+            {
+                tmp.impulse.x = tmp.impulse.x/out.distance;
+                tmp.impulse.y = tmp.impulse.y/out.distance;
+            }
+            else
+            {
+                tmp.impulse.x = 0;
+                tmp.impulse.y = 0;
+            }
             tmp.impulse *= coefDistance;
             tmp.impulse*=20*proj->GetPuissance()*coefAjustement;
             tmp.pts=out.pointB;
             m_impulsions.push_back(tmp);
             if(out.distance<proj->GetPuissance()*0.1)
             {
+                coefDistance = 1-(out.distance/(proj->GetPuissance()*0.1));
                 it.second->SubirDegats(proj->GetPuissance()*coefDistance);
             }
         }

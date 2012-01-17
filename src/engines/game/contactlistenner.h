@@ -32,7 +32,7 @@ class ContactListenner : public b2ContactListener
         std::vector<Projectile*> m_toDestroy;
         std::vector<ExplosionImpusle> m_impulsions;
         const std::unordered_map<sf::Uint32, Unite*> & m_unites;
-        std::deque <Projectile*> m_traites;
+        std::vector <Projectile*> m_traites;
 
         void m_CalculerImpulsions(Projectile*);
         bool aEteTraite(Projectile*);
