@@ -23,7 +23,6 @@ void Joueur::AjouterUnite(sf::Uint32 id, Unite* unit)
     if(m_selectedUnit==0)
         SelectFirstUnit();
 }
-
 void Joueur::EnleverUnite(sf::Uint32 id)
 {
     auto it = m_unites.find(id);
@@ -36,7 +35,6 @@ void Joueur::EnleverUnite(sf::Uint32 id)
         m_selectedUnit=0;
     }
 }
-
 void Joueur::EnleverUnite(Unite* unite)
 {
     for(auto &u : m_unites)
