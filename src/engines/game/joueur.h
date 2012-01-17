@@ -1,17 +1,18 @@
 #ifndef JOUEUR_H
 #define JOUEUR_H
 
-#include <SFML2/Graphics.hpp>
 #include <unordered_map>
+#include <SFML2/System.hpp>
+
 struct UnitInput;
 class Unite;
 class Joueur
 {
     public:
-        Joueur(const sf::FloatRect &portionEcran=sf::FloatRect(0.f,0.f,1.f,1.f));
+        Joueur();
         virtual ~Joueur();
 
-        void SetInput(const UnitInput &);
+        virtual void SetInput(const UnitInput &);
 
         void AjouterUnite(sf::Uint32, Unite*);
 
@@ -22,12 +23,9 @@ class Joueur
         void SelectFirstUnit();
         void SelectedUnit(sf::Uint32 id);
 
-        void PositionnerCamera();
+        virtual void Update() = 0;
 
-        void Update();
-
-    private:
-        sf::View *m_camera;
+    protected:
         std::unordered_map<sf::Uint32, Unite*> m_unites;
         Unite *m_selectedUnit;
         sf::Uint32 m_idSelected;

@@ -3100,3 +3100,19 @@
 	<sstream>
 	"tinystr.h"
 
+1326831663 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
+	"joueurhumain.h"
+
+1326831836 /home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.h
+	"joueur.h"
+	<SFML2/Graphics.hpp>
+
+1326831985 /home/thomas/pixelwar/pixelwar/src/engines/game/joueur.h
+	<unordered_map>
+	<SFML2/System.hpp>
+
+1326831708 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueur.cpp
+	"joueur.h"
+	"inputmanager.h"
+	"unite.h"
+

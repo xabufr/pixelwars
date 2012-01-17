@@ -1,18 +1,14 @@
 #include "joueur.h"
-#include <engines/graphics/graphicalengine.h>
 #include "inputmanager.h"
 #include "unite.h"
 
-Joueur::Joueur(const sf::FloatRect &portionEcran)
+Joueur::Joueur()
 {
     m_selectedUnit = 0;
-    m_camera = GraphicalEngine::GetInstance()->GetCameraManager()->AddCamera();
-    m_camera->SetViewport(portionEcran);
 }
 
 Joueur::~Joueur()
 {
-    GraphicalEngine::GetInstance()->GetCameraManager()->RemoveCamera(m_camera);
 }
 
 void Joueur::SetInput(const UnitInput &input)
@@ -24,6 +20,8 @@ void Joueur::SetInput(const UnitInput &input)
 void Joueur::AjouterUnite(sf::Uint32 id, Unite* unit)
 {
     m_unites[id] = unit;
+    if(m_selectedUnit==0)
+        SelectFirstUnit();
 }
 
 void Joueur::EnleverUnite(sf::Uint32 id)
