@@ -12,6 +12,7 @@ class Carte
         void DemarrerDestruction();
         void FinirDestruction();
         void AjouterExplosion(sf::Vector2f position, float radius);
+        int Width();
     protected:
     private:
         b2World *m_world;

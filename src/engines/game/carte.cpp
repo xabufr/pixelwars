@@ -265,3 +265,7 @@ void Carte::RegenererZonesModifiees()
         RegenererZone(i);
     m_zonesARegenrer.clear();
 }
+int Carte::Width()
+{
+    return m_taille.x;
+}

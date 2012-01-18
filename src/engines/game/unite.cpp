@@ -10,6 +10,7 @@ Unite::Unite(b2World *world, b2Vec2 pos)
     bd.position=pos;
     bd.userData = (void*) new BodyType(BodyTypeEnum::UniteE, (void*)this);
     m_body =world->CreateBody(&bd);
+    m_fire = false;
 }
 
 Unite::~Unite()

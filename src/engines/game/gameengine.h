@@ -4,6 +4,8 @@
 #include "carte.h"
 #include "contactlistenner.h"
 #include <deque>
+#include "joueurmanager.h"
+#include "unitemanager.h"
 
 class JoueurHumain;
 class Joueur;
@@ -18,7 +20,7 @@ class GameEngine : public Engine
         EngineType GetEngineId() const;
 
     private:
-        ContactListenner m_listner;
+        ContactListenner *m_listner;
         void GererExplosions();
         void EnleverUnit(Unite*);
         void EnleverUnit(sf::Uint32);
@@ -27,13 +29,11 @@ class GameEngine : public Engine
         b2World* m_world;
         b2Body* ground;
         Carte *m_carte;
-        std::deque<Projectile*> m_projectiles;
-        std::unordered_map<sf::Uint32, Unite*> m_unites;
-        std::unordered_map<Unite*, Joueur*> m_unitesJoueurs;
-        JoueurHumain* m_joueurLocal[2];
+
+        JoueurManager *joueurManager;
+        UniteManager *uniteManager;
 
         void DeleteProjectile(Projectile *toDelete);
-        void MoveProjectiles();
 };
 
 #endif // GAMEENGINE_H

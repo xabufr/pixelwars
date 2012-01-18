@@ -28,6 +28,7 @@ class Unite
         float m_tempRechargement;
 
         float m_vie;
+        bool m_fire;
 };
 
 #endif // UNITE_H

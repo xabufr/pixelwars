@@ -1,11 +1,16 @@
 -------->OK
 Ajouter une force à l'impact pour faire bouger les unitées trop proches et leur infliger des dégât -> EC, revoir pour le calcul de l'impulsion
+Amélioration de l'algo de création de la physique du terrain
+caméra ne sort plus de la carte
 ---------->En cours
-Implémenter la classe joueur pour un contrôle des unités -> Caméra ok
-Classe de base des joueurs
------------>À Faire
+Implémenter la classe joueur pour un contrôle des unités -> Caméra ok, 
+Classe de base des joueurs, p-ê faire en sorte que tous les joueurs aient la même interface pour simplifier ?
 Camps des joueurs (intervalle, sf::FloatRect ?)
 Écran splitté
+|->Classe JoueurManager
+----------->À Faire
+
+
 Utiliser la communication inter-module
 Implémenter type de jeu pour réagir en fct (càd serveur ou client)
 Gérer la création de nouveau types d'unitées I-G

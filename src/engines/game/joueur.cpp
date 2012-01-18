@@ -2,7 +2,7 @@
 #include "inputmanager.h"
 #include "unite.h"
 
-Joueur::Joueur()
+Joueur::Joueur(Carte &carte): m_carte(carte)
 {
     m_selectedUnit = 0;
 }
@@ -80,4 +80,8 @@ void Joueur::SelectedUnit(sf::Uint32 id)
             m_idSelected = it.first;
         }
     }
+}
+Unite* Joueur::GetSelectedUnit() const
+{
+    return m_selectedUnit;
 }

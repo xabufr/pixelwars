@@ -96,7 +96,6 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& ui
 
     m_node->SetAbsolutePosition(0,0);
 
-    m_fire = false;
     m_timerFire.Reset();
     float coef = float(factory->GetReloadTimeMax()-factory->GetReloadTimeMin())/
                           (factory->GetCanonMax()-factory->GetCanonMin());

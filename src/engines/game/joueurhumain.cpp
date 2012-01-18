@@ -1,8 +1,9 @@
 #include "joueurhumain.h"
 #include "engines/graphics/graphicalengine.h"
 #include "unite.h"
+#include "carte.h"
 
-JoueurHumain::JoueurHumain(const sf::FloatRect& portion)
+JoueurHumain::JoueurHumain(Carte &carte, const sf::FloatRect& portion): Joueur(carte)
 {
     m_camera = GraphicalEngine::GetInstance()->GetCameraManager()->AddCamera();
     m_camera->SetViewport(portion);
@@ -42,6 +43,14 @@ void JoueurHumain::Update()
                 move.y = centre.y-ancienCentre.y-tailleZone;
             else
                 move.y = centre.y-ancienCentre.y+tailleZone;
+        }
+        if(ancienCentre.x+move.x-newSize.x*0.5<0)
+        {
+            move.x = -ancienCentre.x+newSize.x*0.5;
+        }
+        else if(ancienCentre.x+move.x+newSize.x*0.5>m_carte.Width())
+        {
+            move.x= m_carte.Width()-ancienCentre.x-newSize.x*0.5;
         }
         m_camera->Move(move);
 

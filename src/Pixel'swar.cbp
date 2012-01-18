@@ -101,10 +101,14 @@
 		<Unit filename="engines/game/joueur.h" />
 		<Unit filename="engines/game/joueurhumain.cpp" />
 		<Unit filename="engines/game/joueurhumain.h" />
+		<Unit filename="engines/game/joueurmanager.cpp" />
+		<Unit filename="engines/game/joueurmanager.h" />
 		<Unit filename="engines/game/projectile.cpp" />
 		<Unit filename="engines/game/projectile.h" />
 		<Unit filename="engines/game/unite.cpp" />
 		<Unit filename="engines/game/unite.h" />
+		<Unit filename="engines/game/unitemanager.cpp" />
+		<Unit filename="engines/game/unitemanager.h" />
 		<Unit filename="engines/game/uniteterrestre.cpp" />
 		<Unit filename="engines/game/uniteterrestre.h" />
 		<Unit filename="engines/game/uniteterrestremodel.cpp" />

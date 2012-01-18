@@ -6,13 +6,15 @@
 
 struct UnitInput;
 class Unite;
+class Carte;
 class Joueur
 {
     public:
-        Joueur();
+        Joueur(Carte &carte);
         virtual ~Joueur();
 
         virtual void SetInput(const UnitInput &);
+        void SetCamp(float xMin, float xMax);
 
         void AjouterUnite(sf::Uint32, Unite*);
 
@@ -23,12 +25,16 @@ class Joueur
         void SelectFirstUnit();
         void SelectedUnit(sf::Uint32 id);
 
+        Unite* GetSelectedUnit() const;
+
         virtual void Update() = 0;
 
     protected:
         std::unordered_map<sf::Uint32, Unite*> m_unites;
         Unite *m_selectedUnit;
         sf::Uint32 m_idSelected;
+        float xMinCamp, xMaxCamp;
+        Carte &m_carte;
 };
 
 #endif // JOUEUR_H

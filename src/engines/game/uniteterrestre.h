@@ -15,7 +15,6 @@ class UniteTerrestre : public Unite
         bool PeutTirer();
         Projectile* Tirer();
 
-    protected:
     private:
         b2Body *m_roue1, *m_roue2, *m_tourelle;
         b2WheelJoint *jointure1, *jointure2;
