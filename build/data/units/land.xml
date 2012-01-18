@@ -3,6 +3,6 @@
   <model name="default" uid="default">
     <blindage value="2.5" />
     <canon value="1.2" />
-    <projectile value="5" />
+    <projectile value="25" />
   </model>
 </root>

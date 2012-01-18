@@ -8,8 +8,11 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, int seed)
     m_nodeTerrain = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     m_itemTerrain = new SceneNodeTextureItem;
     m_nodeTerrain->AddItem(m_itemTerrain);
+    m_itemDessousTerrain = new SceneNodeShapeItem;
+    m_nodeTerrain->AddItem(m_itemDessousTerrain);
     m_destruction = false;
     m_modified = false;
+    m_tailleZone = 100;
     Generer(taille, seed);
 }
 
@@ -28,18 +31,23 @@ void Carte::FinirDestruction()
 {
     m_destruction = false;
     if(m_modified)
-        RecreerTerrain();
+        RegenererZonesModifiees();
 }
 void Carte::Generer(const sf::Vector2i& taille, int seed)
 {
     m_taille=taille;
+    m_fixturesMapZone.resize((taille.x/m_tailleZone)+(taille.x%m_tailleZone!=0?1:0));
+
     m_itemTerrain->CreateTexture(taille);
+    m_itemDessousTerrain->SetSize(taille.x, 1000);
+    m_itemDessousTerrain->SetColor(sf::Color(128,128,128));
+    m_itemDessousTerrain->SetRelativePosition(0, taille.y);
     noise::module::Perlin gen;
     gen.SetSeed(seed);
     sf::Uint8 filler[taille.y*4];
     for(int y,x=0;x<taille.x;++x)
     {
-        y = taille.y*0.5+((taille.y*0.25)*gen.GetValue(float(x)*0.0015, 0.5,0.5));
+        y = taille.y*0.5+((taille.y*0.5)*gen.GetValue(float(x)*0.0015, 0.5,0.5));
         Fill(filler, y);
         m_itemTerrain->UpdateTexture(filler, 1, taille.y, x, 0);
     }
@@ -52,9 +60,13 @@ void Carte::Generer(const sf::Vector2i& taille, int seed)
 void Carte::AjouterExplosion(sf::Vector2f position, float radius)
 {
     m_itemTerrain->DrawCircle(radius, sf::Color(0,0,0,0), position);
+    AjouterZoneListeRegen(DeterminerZone(position.x+radius));
+    AjouterZoneListeRegen(DeterminerZone(position.x-radius));
+    AjouterZoneListeRegen(DeterminerZone(position.x));
+
     if(!m_destruction)
     {
-        RecreerTerrain();
+        RegenererZonesModifiees();
     }
     else
         m_modified = true;
@@ -68,15 +80,9 @@ void Carte::RecreerTerrain()
     m_bodyTerrain=m_world->CreateBody(&bd);
     RecalculerTerrain();
 }
-#include <iostream>
 void Carte::RecalculerTerrain()
 {
-    const unsigned int maxPtsLevel = 200; //Nombre de points stockable en mémoire au max
-    unsigned int nbPtsLast=1, nbPtsCourant;
-    int lastPts[maxPtsLevel], ptsEnCours[maxPtsLevel]; //Ordonnée des derniers points stockés
     bool lastTransparent; //Détecter les changement
-
-    lastPts[0]=0;
 
     b2EdgeShape shape;
 
@@ -89,60 +95,36 @@ void Carte::RecalculerTerrain()
     unsigned int w = img.GetWidth();
     unsigned int h = img.GetHeight();
     unsigned int x,y;
+
     for(x=0; x<w;++x)
     {
-        nbPtsCourant=0;
         lastTransparent=true;
-        for(y=0; y<h&&nbPtsCourant<maxPtsLevel; ++y)
+        for(y=0; y<h; ++y)
         {
             if((img.GetPixel(x,y).a==0&&!lastTransparent)||
                 (img.GetPixel(x,y).a==255&&lastTransparent))
             {
-                ptsEnCours[nbPtsCourant++]=y;
-                lastTransparent=!lastTransparent;//On a changé d'état
+                shape.Set(b2Vec2((float(x))*0.1, -float(y)*0.1), b2Vec2((float(x)+1)*0.1, -float(y)*0.1));
+                m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
+                lastTransparent=!lastTransparent;
+            }
+            else if(img.GetPixel(x,y).a==255&&x>0&&x<w-1)
+            {
+                if(img.GetPixel(x-1,y).a==0)
+                {
+                    shape.Set(b2Vec2((float(x))*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x))*0.1, -(float(y)+0.5)*0.1));
+                    m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
+                }
+                if(img.GetPixel(x+1,y).a==0)
+                {
+                    shape.Set(b2Vec2((float(x)+1)*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x)+1)*0.1, -(float(y)+0.5)*0.1));
+                    m_fixturesMapZone[DeterminerZone(x+1)].push_back(m_bodyTerrain->CreateFixture(&fd));
+                }
             }
 
         }
-        for(unsigned int indexPt=0;indexPt<nbPtsCourant;++indexPt)
-        {
-            if(nbPtsLast>=nbPtsCourant)
-            {
-                int id = DeterminerDeltaMin(ptsEnCours[indexPt], lastPts, nbPtsLast);
+    }
 
-                shape.Set(b2Vec2((float(x)-1.f)*0.1, -float(lastPts[id])*0.1), b2Vec2(float(x)*0.1, -float(ptsEnCours[indexPt])*0.1));
-                m_bodyTerrain->CreateFixture(&fd);
-            }
-        }
-        CopierTableau(ptsEnCours, lastPts, nbPtsCourant);
-        nbPtsLast=nbPtsCourant;
-    }
-    /*Seconde passe pour gérer le case mur vertical*/
-    nbPtsLast=0;
-    for(y=0;y<h;++y)
-    {
-        lastTransparent=true;
-        nbPtsCourant=0;
-        for(x=0;nbPtsCourant<maxPtsLevel&&x<w;++x)
-        {
-            if((img.GetPixel(x,y).a==0&&!lastTransparent)||
-                (img.GetPixel(x,y).a==255&&lastTransparent))
-            {
-                ptsEnCours[nbPtsCourant++]=x;
-                lastTransparent=!lastTransparent;//On a changé d'état
-            }
-        }
-        for(unsigned int indexPt=0;indexPt<nbPtsCourant;++indexPt)
-        {
-            int id = DeterminerPotionVerticale(ptsEnCours[indexPt], lastPts, nbPtsLast);
-            if(id!=-1)
-            {
-                shape.Set(b2Vec2(float(lastPts[id])*0.1, -float(y-1.f)*0.1), b2Vec2(float(ptsEnCours[indexPt])*0.1, -float(y)*0.1));
-                m_bodyTerrain->CreateFixture(&fd);
-            }
-        }
-        CopierTableau(ptsEnCours, lastPts, nbPtsCourant);
-        nbPtsLast=nbPtsCourant;
-    }
     shape.Set(b2Vec2(0, -100), b2Vec2(0, 100));
     m_bodyTerrain->CreateFixture(&fd);
     shape.Set(b2Vec2(float(m_taille.x)*0.1, -100), b2Vec2(float(m_taille.x)*0.1, 100));
@@ -212,4 +194,74 @@ int Carte::DeterminerPotionVerticale(int x, int listePts[], int nbPts)
             return i;
     }
     return -1;
+}
+int Carte::DeterminerZone(int x)
+{
+    return x/m_tailleZone;
+}
+void Carte::AjouterZoneListeRegen(int zone)
+{
+    for(int i : m_zonesARegenrer)
+    {
+        if(i==zone)
+            return;
+    }
+    m_zonesARegenrer.push_back(zone);
+}
+void Carte::RegenererZone(int zone)
+{
+    bool lastTransparent; //Détecter les changement
+
+    b2EdgeShape shape;
+
+    b2FixtureDef fd;
+    fd.shape = &shape;
+    fd.density = 0.0f;
+    fd.friction = 0.6f;
+
+    const sf::Image& img = m_itemTerrain->GetImage();
+    unsigned int w = img.GetWidth();
+    unsigned int h = img.GetHeight();
+    unsigned int x,y;
+    if(w>(unsigned int)((zone+1)*m_tailleZone-1))
+        w=(zone+1)*m_tailleZone-1;
+
+    for(b2Fixture *fix : m_fixturesMapZone[zone])
+        m_bodyTerrain->DestroyFixture(fix);
+    m_fixturesMapZone[zone].clear();
+
+    for(x=zone*m_tailleZone; x<w;++x)
+    {
+        lastTransparent=true;
+        for(y=0; y<h; ++y)
+        {
+            if((img.GetPixel(x,y).a==0&&!lastTransparent)||
+                (img.GetPixel(x,y).a==255&&lastTransparent))
+            {
+                shape.Set(b2Vec2((float(x))*0.1, -float(y)*0.1), b2Vec2((float(x)+1)*0.1, -float(y)*0.1));
+                m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
+                lastTransparent=!lastTransparent;
+            }
+            else if(img.GetPixel(x,y).a==255&&x>0&&x<w-1)
+            {
+                if(img.GetPixel(x-1,y).a==0)
+                {
+                    shape.Set(b2Vec2((float(x))*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x))*0.1, -(float(y)+0.5)*0.1));
+                    m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
+                }
+                if(img.GetPixel(x+1,y).a==0)
+                {
+                    shape.Set(b2Vec2((float(x)+1)*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x)+1)*0.1, -(float(y)+0.5)*0.1));
+                    m_fixturesMapZone[DeterminerZone(x+1)].push_back(m_bodyTerrain->CreateFixture(&fd));
+                }
+            }
+
+        }
+    }
+}
+void Carte::RegenererZonesModifiees()
+{
+    for(int i: m_zonesARegenrer)
+        RegenererZone(i);
+    m_zonesARegenrer.clear();
 }

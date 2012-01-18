@@ -31,15 +31,17 @@ void GameEngine::Start()
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(&m_listner);
-	m_carte = new Carte(m_world, sf::Vector2i(600,400), 0);
+	m_carte = new Carte(m_world, sf::Vector2i(8192,200), 0);
     UniteTerrestreModel::GetInstance();
 
     UniteTerrestre *unit1 = new UniteTerrestre(m_world, b2Vec2(10,0));
     m_unites[0]=unit1;
 
     InputManager imanager;
-    m_joueurLocal[0] = new JoueurHumain;
+    m_joueurLocal[0] = new JoueurHumain(sf::FloatRect(0,0,0.5,1));
     m_joueurLocal[0]->AjouterUnite(0,unit1);
+    m_joueurLocal[1] = new JoueurHumain(sf::FloatRect(0.5,0,0.5,1));
+    m_joueurLocal[1]->AjouterUnite(0,unit1);
 
     m_unitesJoueurs[unit1]=m_joueurLocal[0];
 
@@ -59,6 +61,7 @@ void GameEngine::Start()
         if(viv)
         unit1->Update();
         m_joueurLocal[0]->Update();
+        m_joueurLocal[1]->Update();
         gengine->DrawScene();
         GererExplosions();
         if(viv)

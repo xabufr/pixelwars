@@ -2708,7 +2708,7 @@
 	<sstream>
 	"exception.h"
 
-1326737891 source:/home/thomas/pixelwar/pixelwar/src/main.cpp
+1326916647 source:/home/thomas/pixelwar/pixelwar/src/main.cpp
 	"core/consolelogger.h"
 	"core/exception.h"
 	"engines/game/gameengine.h"
@@ -2744,7 +2744,7 @@
 	"guibuttonitem.h"
 	"guimanager.h"
 
-1326833446 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1326919153 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2981,15 +2981,15 @@
 	"core/logger.h"
 	<iostream>
 
-1326638151 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
+1326918919 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
 	"carte.h"
 	<libnoise/noise.h>
 	"bodytype.h"
-	<iostream>
 
-1326634494 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
+1326918782 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
 	<Box2D/Box2D.h>
 	"engines/graphics/graphicalengine.h"
+	<deque>
 
 1326826558 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unite.cpp
 	"unite.h"
@@ -3101,7 +3101,7 @@
 	<sstream>
 	"tinystr.h"
 
-1326832478 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
+1326834546 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
 	"joueurhumain.h"
 	"engines/graphics/graphicalengine.h"
 	"unite.h"
