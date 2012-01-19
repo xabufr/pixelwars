@@ -9,12 +9,12 @@ Implémenter la classe joueur pour un contrôle des unités -> Caméra ok,
 Écran splitté
 |-> Possibilité de positionner une unitée en fonction du joueur
 Camps des joueurs (intervalle, sf::FloatRect ?)
+Possibilité de changer d'unité
+Possibilité d'ajouter des unitées sans GUI
+
 ---------->En cours
 
-
-Possibilité d'ajouter des unitées sans GUI
 Possibilité d'ajouter des unitées avec GUI
-
 
 
 
@@ -29,6 +29,7 @@ Gérer les sons
 Implémenter un menu de jeu
 Implémenter une console
 Écrire le moteur réseau
+Menu principal
 
 Gestion de l'argent ?
 Implémenter les unitées aériennes ?

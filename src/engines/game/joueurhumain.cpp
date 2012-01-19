@@ -59,7 +59,6 @@ void JoueurHumain::Update()
     {
         m_camera->SetCenter(m_xMaxCamp-m_xMinCamp,0);
     }
-    m_camera->Zoom(5);
 }
 sf::View* JoueurHumain::GetCam() const
 {

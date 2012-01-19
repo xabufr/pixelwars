@@ -10,7 +10,7 @@
 
 GameEngine::GameEngine()
 {
-    //ctor
+    m_lastId = 0;
 }
 
 GameEngine::~GameEngine()
@@ -43,8 +43,8 @@ void GameEngine::Start()
     joueurManager->SetJoueur(0, TypeJoueur::JOUEUR_LOCAL);
     joueurManager->SetJoueur(1, TypeJoueur::JOUEUR_LOCAL);
 
-    uniteManager->AjouterUniteTerrestre(0,0,m_world);
-    uniteManager->AjouterUniteTerrestre(1,1,m_world);
+    uniteManager->AjouterUniteTerrestre(0,m_lastId++,m_world);
+    uniteManager->AjouterUniteTerrestre(1,m_lastId++,m_world);
 
     sf::Event event;
     while(app->IsOpened())
@@ -54,6 +54,14 @@ void GameEngine::Start()
             gengine->GetGuiManager()->HandleEvent(event);
             if(event.Type==sf::Event::Closed)
                 app->Close();
+            if(event.Type==sf::Event::KeyReleased)
+            {
+                if(event.Key.Code == sf::Keyboard::Key::A)
+                {
+                    uniteManager->AjouterUniteTerrestre(1,m_lastId++,m_world);
+                }
+            }
+            imanager.HandleEvent(event);
         }
 
 

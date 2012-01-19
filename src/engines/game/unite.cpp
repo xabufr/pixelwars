@@ -11,6 +11,7 @@ Unite::Unite(b2World *world, b2Vec2 pos)
     bd.userData = (void*) new BodyType(BodyTypeEnum::UniteE, (void*)this);
     m_body =world->CreateBody(&bd);
     m_fire = false;
+    m_node->SetAbsolutePosition(pos.x*10, -pos.y*10);
 }
 
 Unite::~Unite()

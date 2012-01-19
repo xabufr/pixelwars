@@ -46,6 +46,7 @@ void Joueur::EnleverUnite(sf::Uint32 id)
     {
         m_idSelected=0;
         m_selectedUnit=0;
+        SelectFirstUnit();
     }
 }
 void Joueur::EnleverUnite(Unite* unite)
@@ -67,6 +68,8 @@ void Joueur::SelectedFollowingUnit()
     }
     else
     {
+        if(m_selectedUnit)
+            m_selectedUnit->Stop();
         auto it = m_unites.find(m_idSelected);
         it++;
         if(it==m_unites.end())
@@ -80,6 +83,10 @@ void Joueur::SelectedFollowingUnit()
 }
 void Joueur::SelectFirstUnit()
 {
+    if(m_selectedUnit)
+        m_selectedUnit->Stop();
+    if(m_unites.size()==0)
+        return;
     m_selectedUnit=m_unites.begin()->second;
     m_idSelected = m_unites.begin()->first;
 }
@@ -105,6 +112,5 @@ b2Vec2 Joueur::GetPositionNouvelleUnite() const
     float tailleUnite = UniteTerrestreModel::GetInstance()->GetTailleXTotale()/2.f;
     float tailleRoues = UniteTerrestreModel::GetInstance()->GetTailleRoue();
     toReturn.y = -(m_carte.YMin(toReturn.x-tailleUnite-tailleRoues, toReturn.x+tailleUnite+tailleRoues)-tailleRoues*40);
-    std::cout << toReturn.y << std::endl;
     return 0.1*toReturn;
 }

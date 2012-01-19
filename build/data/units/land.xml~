@@ -2,7 +2,7 @@
 <root>
   <model name="default" uid="default">
     <blindage value="2.5" />
-    <canon value="4" />
-    <projectile value="10" />
+    <canon value="3.5" />
+    <projectile value="5" />
   </model>
 </root>

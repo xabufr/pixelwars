@@ -7,17 +7,29 @@ InputManager::InputManager()
     m_touchesJ1["haut"] = sf::Keyboard::Key::Up;
     m_touchesJ1["bas"] = sf::Keyboard::Key::Down;
     m_touchesJ1["tirer"] = sf::Keyboard::Key::Space;
+    m_touchesJ1["changer_unite"] = sf::Keyboard::Key::RControl;
 
     m_touchesJ2["droite"] = sf::Keyboard::Key::D;
     m_touchesJ2["gauche"] = sf::Keyboard::Key::Q;
     m_touchesJ2["haut"] = sf::Keyboard::Key::Z;
     m_touchesJ2["bas"] = sf::Keyboard::Key::S;
     m_touchesJ2["tirer"] = sf::Keyboard::Key::LControl;
+    m_touchesJ2["changer_unite"] = sf::Keyboard::Key::E;
 }
 
 InputManager::~InputManager()
 {
     //dtor
+}
+void InputManager::HandleEvent(const sf::Event& event)
+{
+    if(event.Type == sf::Event::KeyReleased)
+    {
+        if(event.Key.Code == m_touchesJ1["changer_unite"])
+            m_input[0].changer=true;
+        else if(event.Key.Code == m_touchesJ2["changer_unite"])
+            m_input[1].changer=true;
+    }
 }
 bool InputManager::GetSate(const std::string &clef, int joueur)
 {
@@ -40,11 +52,14 @@ bool InputManager::GetSate(const std::string &clef, int joueur)
 
 UnitInput InputManager::GetAll(int joueur)
 {
-    UnitInput i;
-    i.gauche = GetSate("gauche", joueur);
-    i.droite = GetSate("droite", joueur);
-    i.bas = GetSate("bas", joueur);
-    i.haut = GetSate("haut", joueur);
-    i.tirer = GetSate("tirer",joueur);
-    return i;
+    m_input[joueur].gauche = GetSate("gauche", joueur);
+    m_input[joueur].droite = GetSate("droite", joueur);
+    m_input[joueur].bas = GetSate("bas", joueur);
+    m_input[joueur].haut = GetSate("haut", joueur);
+    m_input[joueur].tirer = GetSate("tirer",joueur);
+
+    UnitInput tmp = m_input[joueur];
+    m_input[joueur].changer=false;
+
+    return tmp;
 }

@@ -34,6 +34,8 @@ class GameEngine : public Engine
         UniteManager *uniteManager;
 
         void DeleteProjectile(Projectile *toDelete);
+
+        sf::Uint32 m_lastId;
 };
 
 #endif // GAMEENGINE_H

@@ -2,6 +2,7 @@
 #include "carte.h"
 #include "joueur.h"
 #include "joueurhumain.h"
+#include "inputmanager.h"
 
 JoueurManager::JoueurManager(Carte& carte): m_carte(carte)
 {
@@ -58,5 +59,7 @@ Joueur* JoueurManager::GetJoueur(int id)
 }
 void JoueurManager::Input(int id, const UnitInput& input)
 {
+    if(input.changer)
+        m_joueurs[id]->SelectedFollowingUnit();
     m_joueurs[id]->SetInput(input);
 }

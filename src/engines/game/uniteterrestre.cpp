@@ -94,8 +94,6 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& ui
     m_itemTourelle->SetSize(m_tailleCanon.x*20, m_tailleCanon.y*20);
     m_itemTourelle->SetRelativePosition(0,-m_tailleCanon.y*10);
 
-    m_node->SetAbsolutePosition(0,0);
-
     m_timerFire.Reset();
     float coef = float(factory->GetReloadTimeMax()-factory->GetReloadTimeMin())/
                           (factory->GetCanonMax()-factory->GetCanonMin());
