@@ -116,7 +116,6 @@ void ContactListenner::m_CalculerImpulsions(Projectile* proj)
         }
     }
 }
-
 const std::vector<ExplosionImpusle>& ContactListenner::GetImpulsions() const
 {
     return m_impulsions;

@@ -19,6 +19,8 @@ class GuiButtonItem : public GuiItem
         float GetWidth() const;
         float GetHeight() const;
 
+        virtual sf::Vector2f GetSize() const;
+
         void SetCharacterSize(unsigned int);
         unsigned int GetCharacterSize() const;
 

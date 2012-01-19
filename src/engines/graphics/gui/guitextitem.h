@@ -40,6 +40,8 @@ class GuiTextItem: public GuiItem
         float GetWidth() const;
         float GetHeigth() const;
 
+        virtual sf::Vector2f GetSize() const;
+
         virtual ~GuiTextItem();
 
     protected:

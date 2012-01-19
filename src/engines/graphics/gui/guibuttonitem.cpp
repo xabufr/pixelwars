@@ -113,3 +113,7 @@ unsigned int GuiButtonItem::GetCharacterSize() const
 {
     return m_btn_txt.GetCharacterSize();
 }
+sf::Vector2f GuiButtonItem::GetSize() const
+{
+    return sf::Vector2f(GetWidth(), GetHeight());
+}

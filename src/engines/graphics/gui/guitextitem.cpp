@@ -73,3 +73,7 @@ float GuiTextItem::GetHeigth() const
 {
     return m_texte.GetLocalBounds().Height;
 }
+sf::Vector2f GuiTextItem::GetSize() const
+{
+    return sf::Vector2f(GetWidth(), GetHeigth());
+}

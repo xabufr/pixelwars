@@ -119,6 +119,8 @@
 		<Unit filename="engines/graphics/graphicalengine.h" />
 		<Unit filename="engines/graphics/gui/guibuttonitem.cpp" />
 		<Unit filename="engines/graphics/gui/guibuttonitem.h" />
+		<Unit filename="engines/graphics/gui/guicontener.cpp" />
+		<Unit filename="engines/graphics/gui/guicontener.h" />
 		<Unit filename="engines/graphics/gui/guiitem.cpp" />
 		<Unit filename="engines/graphics/gui/guiitem.h" />
 		<Unit filename="engines/graphics/gui/guimanager.cpp" />

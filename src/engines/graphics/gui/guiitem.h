@@ -23,6 +23,8 @@ class GuiItem : public SceneNodeItem
         void SetData(const std::string&, void*);
         void* GetData(const std::string&);
 
+        virtual sf::Vector2f GetSize() const = 0;
+
     protected:
         virtual void Draw(sf::RenderWindow*)=0;
         virtual void CallCallBack(const std::string &);
