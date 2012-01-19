@@ -27,6 +27,7 @@ class JoueurManager
         Joueur *m_joueurs[2];
         Carte &m_carte;
         std::unordered_map<Unite*, Joueur*> m_unitesJoueur;
+        int m_nbLocal;
 };
 
 #endif // JOUEURMANAGER_H

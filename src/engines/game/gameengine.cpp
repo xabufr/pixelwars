@@ -32,7 +32,7 @@ void GameEngine::Start()
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(m_listner);
-	m_carte = new Carte(m_world, sf::Vector2i(800,200), 0);
+	m_carte = new Carte(m_world, sf::Vector2i(8000,200), 0);
     UniteTerrestreModel::GetInstance();
 
 
@@ -40,6 +40,11 @@ void GameEngine::Start()
     joueurManager = new JoueurManager(*m_carte);
     uniteManager->SetJoueurManager(joueurManager);
 
+    joueurManager->SetJoueur(0, TypeJoueur::JOUEUR_LOCAL);
+    joueurManager->SetJoueur(1, TypeJoueur::JOUEUR_LOCAL);
+
+    uniteManager->AjouterUniteTerrestre(0,0,m_world);
+    uniteManager->AjouterUniteTerrestre(1,1,m_world);
 
     sf::Event event;
     while(app->IsOpened())
@@ -53,10 +58,12 @@ void GameEngine::Start()
 
 
         m_world->Step(1.f/60.f, 8, 3);
-
         gengine->DrawScene();
         GererExplosions();
         uniteManager->Update();
+        joueurManager->Input(0, imanager.GetAll());
+        joueurManager->Input(1, imanager.GetAll(1));
+        joueurManager->Update();
     }
 }
 void GameEngine::GererExplosions()

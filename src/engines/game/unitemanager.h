@@ -5,6 +5,7 @@
 #include <SFML2/System.hpp>
 #include <deque>
 
+class b2World;
 class Unite;
 class Joueur;
 class JoueurManager;
@@ -24,6 +25,7 @@ class UniteManager
 
         void AjouterUnite(int, sf::Uint32, Unite*);
         void AjouterUnite(sf::Uint32, Unite*);
+        void AjouterUniteTerrestre(int, sf::Uint32, b2World*, const std::string& uid = "default");
 
         Unite* GetUnite(sf::Uint32);
 

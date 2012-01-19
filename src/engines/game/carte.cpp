@@ -1,6 +1,7 @@
 #include "carte.h"
 #include <libnoise/noise.h>
 #include "bodytype.h"
+#include <SFML2/Graphics.hpp>
 
 Carte::Carte(b2World* world, const sf::Vector2i& taille, int seed)
 {
@@ -268,4 +269,23 @@ void Carte::RegenererZonesModifiees()
 int Carte::Width()
 {
     return m_taille.x;
+}
+int Carte::YMin(int x_debut, int x_fin)
+{
+    const sf::Image &img = m_itemTerrain->GetImage();
+    int y_return = img.GetHeight();
+    int h = img.GetHeight();
+    for(int x = x_debut; x <= x_fin; ++x)
+    {
+        for(int y=0;y<h;++y)
+        {
+            if(img.GetPixel(x,y).a!=0)
+            {
+                if(y<y_return)
+                    y_return=y;
+                break;
+            }
+        }
+    }
+    return y_return;
 }

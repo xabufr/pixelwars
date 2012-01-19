@@ -1,10 +1,23 @@
 #include "joueur.h"
 #include "inputmanager.h"
 #include "unite.h"
+#include "carte.h"
+#include "uniteterrestremodel.h"
 
-Joueur::Joueur(Carte &carte): m_carte(carte)
+Joueur::Joueur(Carte &carte, int numero): m_carte(carte)
 {
     m_selectedUnit = 0;
+    m_tailleCamp = 250;
+    if(numero==0)
+    {
+        m_xMinCamp = 0;
+        m_xMaxCamp = m_tailleCamp;
+    }
+    else
+    {
+        m_xMaxCamp = m_carte.Width();
+        m_xMaxCamp = m_carte.Width()-m_tailleCamp;
+    }
 }
 
 Joueur::~Joueur()
@@ -84,4 +97,14 @@ void Joueur::SelectedUnit(sf::Uint32 id)
 Unite* Joueur::GetSelectedUnit() const
 {
     return m_selectedUnit;
+}
+b2Vec2 Joueur::GetPositionNouvelleUnite() const
+{
+    b2Vec2 toReturn;
+    toReturn.x=m_xMaxCamp-m_xMinCamp;
+    float tailleUnite = UniteTerrestreModel::GetInstance()->GetTailleXTotale()/2.f;
+    float tailleRoues = UniteTerrestreModel::GetInstance()->GetTailleRoue();
+    toReturn.y = -(m_carte.YMin(toReturn.x-tailleUnite-tailleRoues, toReturn.x+tailleUnite+tailleRoues)-tailleRoues*40);
+    std::cout << toReturn.y << std::endl;
+    return 0.1*toReturn;
 }

@@ -7,6 +7,7 @@ JoueurManager::JoueurManager(Carte& carte): m_carte(carte)
 {
     m_joueurs[0]=0;
     m_joueurs[1]=0;
+    m_nbLocal=0;
 }
 
 JoueurManager::~JoueurManager()
@@ -21,10 +22,16 @@ void JoueurManager::SetJoueur(int num, TypeJoueur type)
     switch(type)
     {
     case JOUEUR_LOCAL:
-        m_joueurs[num] = new JoueurHumain(m_carte);
+        m_joueurs[num] = new JoueurHumain(m_carte, num);
+        ++m_nbLocal;
     case JOUEUR_IA:
     case JOUEUR_DISTANT:
         break;
+    }
+    if(m_nbLocal==2)
+    {
+        ((JoueurHumain*)m_joueurs[0])->GetCam()->SetViewport(sf::FloatRect(0,0,0.5,1));
+        ((JoueurHumain*)m_joueurs[1])->GetCam()->SetViewport(sf::FloatRect(0.5,0,0.5,1));
     }
 }
 void JoueurManager::AjouterUnite(int id_j, sf::Uint32 id_u, Unite* unite)

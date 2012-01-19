@@ -174,3 +174,7 @@ float UniteTerrestreModel::GetCanonMin() const
 {
     return m_tailleCanonMin;
 }
+float UniteTerrestreModel::GetTailleXTotale() const
+{
+    return m_tailleRoues*2 + m_tailleUnite.x;
+}

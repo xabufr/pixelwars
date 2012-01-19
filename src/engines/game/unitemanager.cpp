@@ -3,6 +3,8 @@
 #include "unite.h"
 #include "joueur.h"
 #include "projectile.h"
+#include "uniteterrestre.h"
+#include <Box2D/Box2D.h>
 
 UniteManager::UniteManager(JoueurManager* j_manager): m_joueurManager(j_manager)
 {
@@ -53,6 +55,11 @@ void UniteManager::AjouterUnite(sf::Uint32 id, Unite* unit)
 {
     m_unites[id] = unit;
 }
+void UniteManager::AjouterUniteTerrestre(int joueur, sf::Uint32 id, b2World* world, const std::string& uid)
+{
+    UniteTerrestre *nouvelleUnit = new UniteTerrestre(world, m_joueurManager->GetJoueur(joueur)->GetPositionNouvelleUnite(), uid);
+    AjouterUnite(joueur, id, nouvelleUnit);
+}
 Unite* UniteManager::GetUnite(sf::Uint32 id)
 {
     return m_unites[id];
@@ -71,9 +78,19 @@ void UniteManager::Update()
     {
         proj->Update();
     }
-    for(auto &it: m_unites)
+    for(auto it=m_unites.begin();it!=m_unites.end();)
     {
-        it.second->Update();
+        if(it->second->EstVivant())
+        {
+            it->second->Update();
+            it++;
+        }
+        else
+        {
+            m_joueurManager->SupprimerUnite(it->second);
+            delete it->second;
+            it = m_unites.erase(it);
+        }
     }
 }
 const std::unordered_map<sf::Uint32, Unite*>& UniteManager::GetListe() const

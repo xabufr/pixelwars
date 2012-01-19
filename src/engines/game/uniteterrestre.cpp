@@ -182,8 +182,8 @@ Projectile* UniteTerrestre::Tirer()
     poids=UniteTerrestreModel::GetInstance()->GetDensiteProjectile()*puissance*0.5;
     m_tourelle->ApplyLinearImpulse(-poids*0.2*direction, pos);
 
-    direction.x *= 3;
-    direction.y *= 3;
+    direction.x *= 9;
+    direction.y *= 9;
 
     return new Projectile(m_body->GetWorld(), pos, direction, taille, poids, puissance);
 }

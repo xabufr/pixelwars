@@ -33,6 +33,8 @@ class UniteTerrestreModel: public Singleton<UniteTerrestreModel>
         float GetCanonMax() const;
         float GetCanonMin() const;
 
+        float GetTailleXTotale() const;
+
 
     protected:
         UniteTerrestreModel();

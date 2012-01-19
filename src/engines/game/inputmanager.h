@@ -12,11 +12,12 @@ class InputManager
     public:
         InputManager();
         virtual ~InputManager();
-        bool GetSate(const std::string&);
-        UnitInput GetAll();
+        bool GetSate(const std::string&, int joueur);
+        UnitInput GetAll(int joueur=0);
     private:
         sf::Keyboard m_keyboard;
         std::unordered_map<std::string, sf::Keyboard::Key> m_touchesJ1;
+        std::unordered_map<std::string, sf::Keyboard::Key> m_touchesJ2;
 };
 
 #endif // INPUTMANAGER_H

@@ -13,7 +13,8 @@ class Carte
         void FinirDestruction();
         void AjouterExplosion(sf::Vector2f position, float radius);
         int Width();
-    protected:
+        int YMin(int x_debut, int x_fin);
+
     private:
         b2World *m_world;
         b2Body *m_bodyTerrain;

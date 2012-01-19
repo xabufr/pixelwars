@@ -3,7 +3,7 @@
 #include "unite.h"
 #include "carte.h"
 
-JoueurHumain::JoueurHumain(Carte &carte, const sf::FloatRect& portion): Joueur(carte)
+JoueurHumain::JoueurHumain(Carte &carte, int numero, const sf::FloatRect& portion): Joueur(carte, numero)
 {
     m_camera = GraphicalEngine::GetInstance()->GetCameraManager()->AddCamera();
     m_camera->SetViewport(portion);
@@ -57,6 +57,11 @@ void JoueurHumain::Update()
     }
     else
     {
-        m_camera->SetCenter(newSize/2.f);
+        m_camera->SetCenter(m_xMaxCamp-m_xMinCamp,0);
     }
+    m_camera->Zoom(5);
+}
+sf::View* JoueurHumain::GetCam() const
+{
+    return m_camera;
 }
