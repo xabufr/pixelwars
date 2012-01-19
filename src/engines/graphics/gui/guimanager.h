@@ -18,7 +18,7 @@ class GuiManager: public SceneManager
         GuiNode* GetRootNode();
         virtual void RemoveNode(SceneNode*);
 
-        static sf::Vector2f GetMousePosition();
+        sf::Vector2f GetMousePosition();
 
         void LockEvent(GuiNode*);
         void UnlockEvent();
@@ -26,10 +26,12 @@ class GuiManager: public SceneManager
         void AddToRemoveNode(GuiNode*);
 
     private:
+        void CalculerCamera();
         GuiNode* m_guiRootNode;
         GuiNode* m_eventLockedBy;
 
         std::vector<GuiNode*> m_toRemove;
+        sf::View m_view;
 };
 
 #endif // GUIMANAGER_H

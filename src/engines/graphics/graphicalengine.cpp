@@ -8,9 +8,11 @@ GraphicalEngine *Singleton<GraphicalEngine>::m_singleton = 0;
 GraphicalEngine::GraphicalEngine()
 {
     Logger::Log()<<"Initialisation du moteur graphique" << Logger::endl;
+
+    m_cameraManager = new CameraManager;
     m_sceneManager = new SceneManager;
     m_guiManager = new GuiManager;
-    m_cameraManager = new CameraManager;
+
     m_listeViews = &m_cameraManager->GetCamerasList();
 
     m_tempFramerate=1000;
@@ -31,9 +33,10 @@ sf::RenderWindow* GraphicalEngine::GetRenderWindow()
 }
 GraphicalEngine::~GraphicalEngine()
 {
+    delete m_cameraManager;
     delete m_sceneManager;
     delete m_guiManager;
-    delete m_cameraManager;
+
     TextureManager::Kill();
     Logger::Log()<<"Destruction moteur graphique" << Logger::endl;
     delete m_app;

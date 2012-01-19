@@ -31,10 +31,10 @@ void GuiWindowNode::HandleEvent(const sf::Event& event)
 {
     if(event.Type==sf::Event::MouseButtonPressed)
     {
-        if(m_windowShape->GetGlobalBounds().Contains(GuiManager::GetMousePosition()))
+        if(m_windowShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
         {
             m_moving=true;
-            m_posClickMoving = GuiManager::GetMousePosition() - m_absolute.position;
+            m_posClickMoving = ((GuiManager*)m_manager)->GetMousePosition() - m_absolute.position;
             ((GuiManager*)m_manager)->LockEvent(this);
         }
     }
@@ -46,7 +46,7 @@ void GuiWindowNode::HandleEvent(const sf::Event& event)
     }
     if(event.Type==sf::Event::MouseMoved&&m_moving)
     {
-        SetAbsolutePosition(GuiManager::GetMousePosition()-m_posClickMoving);
+        SetAbsolutePosition(((GuiManager*)m_manager)->GetMousePosition()-m_posClickMoving);
     }
     for(SceneNodeItem* i : m_childItems)
     {

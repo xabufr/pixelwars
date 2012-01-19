@@ -2555,7 +2555,7 @@
 	<SFML2/Graphics/View.hpp>
 	<vector>
 
-1326490981 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guimanager.h
+1327005177 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guimanager.h
 	"../scenemanager.h"
 	"guiitem.h"
 	"guinode.h"
@@ -2656,7 +2656,7 @@
 	"scenenodeitem.h"
 	<SFML2/Graphics/CircleShape.hpp>
 
-1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.h
+1327005177 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.h
 	"../scenemanager.h"
 	"guiitem.h"
 	"guinode.h"
@@ -2742,11 +2742,12 @@
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/core/singleton.cpp
 	"singleton.h"
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.cpp
+1327005586 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.cpp
 	"guibuttonitem.h"
 	"guimanager.h"
+	"../graphicalengine.h"
 
-1326999710 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1327003230 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2757,7 +2758,7 @@
 	"uniteterrestremodel.h"
 	"joueurhumain.h"
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
+1327004952 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
 	"graphicalengine.h"
 	"core/logger.h"
 	"engines/graphics/scenemanager.h"
@@ -2770,7 +2771,7 @@
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.cpp
 	"scenenodecircleshapeitem.h"
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiwindownode.cpp
+1327005514 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiwindownode.cpp
 	"guiwindownode.h"
 	"guiitem.h"
 	"guimanager.h"
@@ -2794,7 +2795,7 @@
 1326557748 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeitem.cpp
 	"scenenodeitem.h"
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.cpp
+1327005691 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.cpp
 	"guimanager.h"
 	"core/logger.h"
 	"../graphicalengine.h"
@@ -3150,4 +3151,10 @@
 	<unordered_map>
 	<SFML2/System.hpp>
 	<deque>
+
+1327005406 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicontener.cpp
+	"guicontener.h"
+
+1327005401 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicontener.h
+	"guinode.h"
 

@@ -1,5 +1,6 @@
 #include "guibuttonitem.h"
 #include "guimanager.h"
+#include "../graphicalengine.h"
 
 GuiButtonItem::GuiButtonItem()
 {
@@ -19,7 +20,7 @@ void GuiButtonItem::HandleEvent(const sf::Event& event)
 {
     if(event.Type == sf::Event::MouseMoved)
     {
-        if(m_btn_fond.GetGlobalBounds().Contains(GuiManager::GetMousePosition()))
+        if(m_btn_fond.GetGlobalBounds().Contains(GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition()))
         {
             if(!m_mouveOver)
                 CallCallBack("mouse_over");

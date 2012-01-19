@@ -47,6 +47,9 @@ void GameEngine::Start()
     uniteManager->AjouterUniteTerrestre(1,m_lastId++,m_world);
 
     sf::Event event;
+
+    GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow()->SetWindowTitle("salut");
+
     while(app->IsOpened())
     {
         while(app->PollEvent(event))

@@ -15,8 +15,7 @@ Possibilité d'ajouter des unitées sans GUI
 ---------->En cours
 
 Possibilité d'ajouter des unitées avec GUI
-
-
+|--> Implémenter la GUI au mieux
 
 ----------->À Faire
 
@@ -30,6 +29,7 @@ Implémenter un menu de jeu
 Implémenter une console
 Écrire le moteur réseau
 Menu principal
+Progress-bar pour la vie
+Gestion de l'argent
 
-Gestion de l'argent ?
 Implémenter les unitées aériennes ?
