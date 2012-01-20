@@ -120,13 +120,13 @@ void UniteTerrestre::Deplacer(const UnitInput& input)
 {
     if(input.droite)
     {
-        jointure1->SetMotorSpeed(-5);
-        jointure2->SetMotorSpeed(-5);
+        jointure1->SetMotorSpeed(-6.28);
+        jointure2->SetMotorSpeed(-6.28);
     }
     else if(input.gauche)
     {
-        jointure1->SetMotorSpeed(5);
-        jointure2->SetMotorSpeed(5);
+        jointure1->SetMotorSpeed(6.28);
+        jointure2->SetMotorSpeed(6.28);
     }
     else
     {

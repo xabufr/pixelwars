@@ -7,7 +7,7 @@
 class Carte
 {
     public:
-        Carte(b2World *world, const sf::Vector2i& taille, int seed);
+        Carte(b2World *world, const sf::Vector2i& taille, float valMoy, float diff, int seed);
         virtual ~Carte();
         void DemarrerDestruction();
         void FinirDestruction();
@@ -26,7 +26,7 @@ class Carte
 
         void RecreerTerrain();
         void Fill(sf::Uint8 *toFill, int height);
-        void Generer(const sf::Vector2i& taille, int seed);
+        void Generer(const sf::Vector2i& taille, int seed, float valMoy, float diff);
         void CopierTableau(const int tab1[], int tab2[], const unsigned int Taille1);
         int DeterminerDeltaMin(int ordonnee, int listePts[], int nbPts);
         int DeterminerPotionVerticale(int x, int listePts[], int nbPts);

@@ -129,6 +129,8 @@
 		<Unit filename="engines/graphics/gui/guinode.h" />
 		<Unit filename="engines/graphics/gui/guitextitem.cpp" />
 		<Unit filename="engines/graphics/gui/guitextitem.h" />
+		<Unit filename="engines/graphics/gui/guiwindowcontener.cpp" />
+		<Unit filename="engines/graphics/gui/guiwindowcontener.h" />
 		<Unit filename="engines/graphics/gui/guiwindownode.cpp" />
 		<Unit filename="engines/graphics/gui/guiwindownode.h" />
 		<Unit filename="engines/graphics/positioninformations.h" />

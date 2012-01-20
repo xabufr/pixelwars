@@ -3,7 +3,7 @@
 #include "bodytype.h"
 #include <SFML2/Graphics.hpp>
 
-Carte::Carte(b2World* world, const sf::Vector2i& taille, int seed)
+Carte::Carte(b2World* world, const sf::Vector2i& taille, float valMoy, float diff, int seed)
 {
     m_world=world;
     m_nodeTerrain = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
@@ -14,7 +14,7 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, int seed)
     m_destruction = false;
     m_modified = false;
     m_tailleZone = 100;
-    Generer(taille, seed);
+    Generer(taille, seed, valMoy, diff);
 }
 
 Carte::~Carte()
@@ -34,7 +34,7 @@ void Carte::FinirDestruction()
     if(m_modified)
         RegenererZonesModifiees();
 }
-void Carte::Generer(const sf::Vector2i& taille, int seed)
+void Carte::Generer(const sf::Vector2i& taille, int seed, float valMoy, float diff)
 {
     m_taille=taille;
     m_fixturesMapZone.resize((taille.x/m_tailleZone)+(taille.x%m_tailleZone!=0?1:0));
@@ -48,7 +48,7 @@ void Carte::Generer(const sf::Vector2i& taille, int seed)
     sf::Uint8 filler[taille.y*4];
     for(int y,x=0;x<taille.x;++x)
     {
-        y = taille.y*0.5+((taille.y*0.5)*gen.GetValue(float(x)*0.0015, 0.5,0.5));
+        y = valMoy+(diff*gen.GetValue(float(x)*0.0015, 0.5,0.5));
         Fill(filler, y);
         m_itemTerrain->UpdateTexture(filler, 1, taille.y, x, 0);
     }

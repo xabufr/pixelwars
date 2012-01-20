@@ -9,14 +9,15 @@ class GuiContener: public GuiNode
 {
     public:
         GuiContener(SceneManager* mng, SceneNode* parent);
-        void AjouterItem(GuiItem*, int, int);
+        virtual void AjouterItem(GuiItem*, int, int);
         sf::Vector2f & GetSize();
         void SetMaxSize(const sf::Vector2f&);
         const sf::Vector2f & GetMaxSize();
         void SetEspacement(const sf::Vector2f&);
         virtual ~GuiContener();
         void HandleEvent(const sf::Event&);
-    private:
+
+    public:
         void CalculerPositions();
 
         sf::Vector2f m_maxSize, m_size, m_espacement;

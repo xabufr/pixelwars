@@ -47,8 +47,9 @@ void GuiContener::SetEspacement(const sf::Vector2f& esp)
 {
     m_espacement=esp;
 }
-void GuiContener::HandleEvent(const sf::Event&)
+void GuiContener::HandleEvent(const sf::Event& event)
 {
+    GuiNode::HandleEvent(event);
 }
 void GuiContener::CalculerPositions()
 {
@@ -57,19 +58,20 @@ void GuiContener::CalculerPositions()
     size_t tailleY = m_items.size(), tailleX;
     for(size_t y_curr=0;y_curr<tailleY;++y_curr)
     {
-        tailleX=m_items.size();
-        xMax=0;
+        tailleX=m_items[y_curr].size();
+        xMax=m_espacement.x*0.5;
         yMax=0;
         for(size_t x_curr=0;x_curr<tailleX;++x_curr)
         {
-            m_items[y_curr][x_curr]->SetRelativePosition(xMax, posY);
+            m_items[y_curr][x_curr]->SetRelativePosition(xMax, posY+0.5*m_espacement.y);
             xMax+=m_items[y_curr][x_curr]->GetSize().x+m_espacement.x;
             if(yMax<m_items[y_curr][x_curr]->GetSize().y)
                 yMax=m_items[y_curr][x_curr]->GetSize().y;
             if(xMax>m_size.x)
                 m_size.x=xMax;
         }
-        posY+=yMax+m_espacement.y;
+        posY+=yMax+m_espacement.y*0.5;
     }
-    m_size.y = posY-m_espacement.y;
+    m_size.x-=m_espacement.x*0.5;
+    m_size.y = posY+m_espacement.y*0.5;
 }

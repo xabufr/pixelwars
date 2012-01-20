@@ -6,6 +6,7 @@
 #include "../scenenodeshapeitem.h"
 #include "guibuttonitem.h"
 #include "guitextitem.h"
+#include "guiwindowcontener.h"
 
 class GuiWindowNode: public GuiNode
 {
@@ -20,15 +21,20 @@ class GuiWindowNode: public GuiNode
 
         void SetWindowTitle(const sf::String&);
 
+        GuiWindowContener* GetContener() const;
+        void CalculerTaille();
+
     protected:
-        SceneNodeShapeItem *m_windowShape;
+        SceneNodeShapeItem *m_windowShape, *m_contenerShape;
         GuiButtonItem *m_btnClose;
         GuiTextItem *m_windowTitle;
         bool m_moving, m_closable;
+        float m_hauteurTitle;
         sf::Vector2f m_posClickMoving;
+        GuiWindowContener *m_contener;
 
         void ClosableChanged();
-
+        void CalculerCoord();
 };
 
 #endif // GUIWINDOWITEM_H

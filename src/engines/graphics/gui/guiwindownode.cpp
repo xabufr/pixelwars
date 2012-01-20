@@ -5,13 +5,17 @@
 GuiWindowNode::GuiWindowNode(SceneManager* mng, SceneNode* parent): GuiNode(mng,parent)
 {
     m_windowShape = new SceneNodeShapeItem;
+    m_contenerShape = new SceneNodeShapeItem;
     m_windowTitle = new GuiTextItem;
+
 
     m_windowTitle->SetRelativePosition(0,0);
     m_windowTitle->SetCharacterSize(10);
 
+    AddItem(m_contenerShape);
     AddItem(m_windowShape);
     AddItem(m_windowTitle);
+
 
     m_windowShape->SetSize(100,100);
     m_windowShape->SetColor(sf::Color(207,204,201));
@@ -19,6 +23,15 @@ GuiWindowNode::GuiWindowNode(SceneManager* mng, SceneNode* parent): GuiNode(mng,
     m_windowShape->SetOutlineThickness(1.f);
     m_windowShape->SetRelativePosition(0,0);
 
+    m_contenerShape->SetSize(0,0);
+    m_contenerShape->SetColor(sf::Color(200,200,200));
+    m_contenerShape->SetOutlineColor(sf::Color(100,100,100));
+    m_contenerShape->SetOutlineThickness(1.f);
+    m_contenerShape->SetRelativePosition(0,100);
+
+    m_contener = new GuiWindowContener(m_manager, this);
+    AddSceneNode(m_contener);
+    m_contener->SetRelativePosition(0,101);
 
     m_moving=false;
     m_closable=false;
@@ -50,7 +63,7 @@ void GuiWindowNode::HandleEvent(const sf::Event& event)
     }
     for(SceneNodeItem* i : m_childItems)
     {
-        if(i!=m_windowShape)
+        if(i!=m_windowShape&&i!=m_contenerShape)
             ((GuiItem*)(i))->HandleEvent(event);
     }
     for(SceneNode* i : m_childNodes)
@@ -88,6 +101,7 @@ void GuiWindowNode::ClosableChanged()
         delete m_btnClose;
         m_btnClose=0;
     }
+    CalculerCoord();
 }
 void GuiWindowNode::CloseWindowCallBack(GuiItem* item)
 {
@@ -96,6 +110,10 @@ void GuiWindowNode::CloseWindowCallBack(GuiItem* item)
 void GuiWindowNode::SetWindowTitle(const sf::String& title)
 {
     m_windowTitle->SetText(title);
+    CalculerCoord();
+}
+void GuiWindowNode::CalculerCoord()
+{
     sf::Vector2f t(m_windowTitle->GetWidth(), m_windowTitle->GetHeigth());
     if(m_closable)
     {
@@ -103,6 +121,24 @@ void GuiWindowNode::SetWindowTitle(const sf::String& title)
         t.y=(t.y<m_btnClose->GetHeight())?m_btnClose->GetHeight():t.y;
     }
     m_windowShape->SetSize(t);
+    m_hauteurTitle=t.y;
     if(m_closable)
         m_btnClose->SetRelativePosition(m_windowShape->GetGlobalBounds().Width-m_btnClose->GetWidth()-3, 0);
+    m_contener->SetRelativePosition(0, t.y+1);
+    m_contenerShape->SetRelativePosition(0, t.y+1);
+}
+GuiWindowContener* GuiWindowNode::GetContener() const
+{
+    return m_contener;
+}
+void GuiWindowNode::CalculerTaille()
+{
+    sf::Vector2f tailleContener(m_contener->GetSize());
+    m_contenerShape->SetSize(tailleContener);
+    if(tailleContener.x>m_windowTitle->GetWidth())
+    {
+        m_windowShape->SetSize(tailleContener.x, m_hauteurTitle);
+        if(m_closable)
+            m_btnClose->SetRelativePosition(m_windowShape->GetGlobalBounds().Width-m_btnClose->GetWidth()-3, 0);
+    }
 }

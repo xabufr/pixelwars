@@ -32,7 +32,7 @@ void GameEngine::Start()
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(m_listner);
-	m_carte = new Carte(m_world, sf::Vector2i(8000,200), 0);
+	m_carte = new Carte(m_world, sf::Vector2i(8000,600), 400, 100, 0);
     UniteTerrestreModel::GetInstance();
 
 
@@ -48,7 +48,16 @@ void GameEngine::Start()
 
     sf::Event event;
 
-    GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow()->SetWindowTitle("salut");
+    GuiWindowNode *windowTest = GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow();
+    windowTest->SetWindowTitle("salut");
+    //windowTest->SetClosable(false);
+    GuiButtonItem *b1, *b2;
+    b1 = new GuiButtonItem;
+    b2 = new GuiButtonItem;
+    b1->SetText("boutton 1");
+    b2->SetText("boutton 2");
+    windowTest->GetContener()->AjouterItem(b1, 0, 0);
+    windowTest->GetContener()->AjouterItem(b2, 1, 0);
 
     while(app->IsOpened())
     {

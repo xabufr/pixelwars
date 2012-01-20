@@ -85,7 +85,7 @@ void SceneNodeTextureItem::DrawCircle(float rayon, const sf::Color& col, const s
 
     if(position.x+rayon>m_img.GetWidth())
     {
-        tailleZone.x=m_img.GetWidth()-position.x+rayon;
+        tailleZone.x=m_img.GetWidth()-position.x+rayon+1;
     }
     else if(position.x-rayon<0)
     {
