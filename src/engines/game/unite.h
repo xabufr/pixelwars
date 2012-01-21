@@ -16,6 +16,7 @@ class Unite
         virtual bool PeutTirer()=0;
         virtual Projectile* Tirer()=0;
         virtual bool EstVivant()const;
+        virtual void SetColor(const sf::Color& col) = 0;
 
         virtual void SubirDegats(float degat);
 

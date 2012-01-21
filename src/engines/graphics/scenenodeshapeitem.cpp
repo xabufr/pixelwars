@@ -21,6 +21,8 @@ void SceneNodeShapeItem::SetSize(float x, float y)
 }
 void SceneNodeShapeItem::Draw(sf::RenderWindow *app)
 {
+    if(!m_visible)
+        return;
     sf::Vector2f PosCam(app->GetView().GetCenter()-(app->GetView().GetSize()/2.f));
     sf::FloatRect rect(PosCam.x, PosCam.y, app->GetView().GetSize().x, app->GetView().GetSize().y);
 

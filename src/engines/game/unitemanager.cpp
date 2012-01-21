@@ -57,7 +57,7 @@ void UniteManager::AjouterUnite(sf::Uint32 id, Unite* unit)
 }
 void UniteManager::AjouterUniteTerrestre(int joueur, sf::Uint32 id, b2World* world, const std::string& uid)
 {
-    UniteTerrestre *nouvelleUnit = new UniteTerrestre(world, m_joueurManager->GetJoueur(joueur)->GetPositionNouvelleUnite(), uid);
+    UniteTerrestre *nouvelleUnit = new UniteTerrestre(world, m_joueurManager->GetJoueur(joueur)->GetPositionNouvelleUnite()+b2Vec2(0, 10), uid);
     AjouterUnite(joueur, id, nouvelleUnit);
 }
 Unite* UniteManager::GetUnite(sf::Uint32 id)
@@ -107,6 +107,7 @@ void UniteManager::DeleteProjectile(Projectile* proj)
         {
             m_projectiles.erase(m_projectiles.begin()+i);
             delete proj;
+            return;
         }
     }
 }

@@ -3,6 +3,7 @@
 #include "unite.h"
 #include "uniteterrestremodel.h"
 
+class GuiProgressBarItem;
 class UniteTerrestre : public Unite
 {
     public:
@@ -14,6 +15,7 @@ class UniteTerrestre : public Unite
         void Stop();
         bool PeutTirer();
         Projectile* Tirer();
+        virtual void SetColor(const sf::Color& col);
 
     private:
         b2Body *m_roue1, *m_roue2, *m_tourelle;
@@ -22,6 +24,7 @@ class UniteTerrestre : public Unite
         SceneNodeShapeItem *m_itemBody, *m_itemTourelle;
         SceneNodeSpriteItem *m_itemRoue1, *m_itemRoue2;
         SceneNode *m_nodeRoue1, *m_nodeRoue2, *m_nodeTourelle;
+        GuiProgressBarItem *m_barreVie;
         b2Vec2 m_tailleCanon;
         const UniteTerrestreParameters* const m_param;
 

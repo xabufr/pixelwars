@@ -127,6 +127,8 @@
 		<Unit filename="engines/graphics/gui/guimanager.h" />
 		<Unit filename="engines/graphics/gui/guinode.cpp" />
 		<Unit filename="engines/graphics/gui/guinode.h" />
+		<Unit filename="engines/graphics/gui/guiprogressbaritem.cpp" />
+		<Unit filename="engines/graphics/gui/guiprogressbaritem.h" />
 		<Unit filename="engines/graphics/gui/guitextitem.cpp" />
 		<Unit filename="engines/graphics/gui/guitextitem.h" />
 		<Unit filename="engines/graphics/gui/guiwindowcontener.cpp" />

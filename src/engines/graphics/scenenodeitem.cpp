@@ -4,6 +4,7 @@ SceneNodeItem::SceneNodeItem()
 {
     m_relative.rotation=0;
     m_relative.scale=sf::Vector2f(1,1);
+    m_visible=true;
 }
 
 SceneNodeItem::~SceneNodeItem()
@@ -95,4 +96,16 @@ void SceneNodeItem::SetAbsolutePosition(float x, float y)
 void SceneNodeItem::SetAbsoluteScale(float x, float y)
 {
     SetAbsoluteScale(sf::Vector2f(x,y));
+}
+void SceneNodeItem::Show()
+{
+    SetVisible(true);
+}
+void SceneNodeItem::Hide()
+{
+    SetVisible(false);
+}
+void SceneNodeItem::SetVisible(bool vis)
+{
+    m_visible=vis;
 }

@@ -42,7 +42,7 @@ class Carte
 
         std::deque<std::deque<b2Fixture*>>m_fixturesMapZone;
         std::vector<int> m_zonesARegenrer;
-        int m_tailleZone;
+        int m_tailleZone, m_nb_zones;;
 };
 
 #endif // CARTE_H

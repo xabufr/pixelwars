@@ -15,8 +15,8 @@ void UniteTerrestreModel::m_SetDefaultValues()
     /*Valeurs par défaut, pour toutes les unités*/
     m_densiteProjectile = 10.f;
     m_densiteRoue = 10.f;
-    m_frictionRoue = 3000.f;
-    m_puissanceRoues = 700.f;
+    m_frictionRoue = 30000.f;
+    m_puissanceRoues = 800.f;
     m_tailleRoues = 1.f;
 
 
@@ -27,7 +27,7 @@ void UniteTerrestreModel::m_SetDefaultValues()
     m_poidMin = 2.5f;
     m_poidMax = 20.f;
 
-    m_tempReloadMax=1500;
+    m_tempReloadMax=3000;
     m_tempReloadMin=50;
 
     m_tailleUnite.Set(2.5, 1);

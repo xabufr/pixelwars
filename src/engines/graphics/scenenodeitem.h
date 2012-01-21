@@ -34,6 +34,10 @@ class SceneNodeItem
         virtual float GetRelativeRotation() const;
         virtual const sf::Vector2f& GetRelativeScale() const;
 
+        void Show();
+        void Hide();
+        void SetVisible(bool);
+
     protected:
         virtual void Draw(sf::RenderWindow* app)=0;
         PositionInformations m_relative, m_parent;
@@ -41,6 +45,8 @@ class SceneNodeItem
         virtual void PositionChanged()=0;
         virtual void RotationChanged()=0;
         virtual void ScaleChanged()=0;
+
+        bool m_visible;
 };
 
 #endif // SCENENODEITEM_H

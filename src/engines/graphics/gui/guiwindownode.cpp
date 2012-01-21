@@ -42,6 +42,15 @@ GuiWindowNode::~GuiWindowNode()
 }
 void GuiWindowNode::HandleEvent(const sf::Event& event)
 {
+    if(m_contenerShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
+    {
+        ((GuiManager*)m_manager)->LockEvent(this);
+    }
+    else if(((GuiManager*)m_manager)->GetEventLockerNode()==this&&m_moving==false)
+    {
+        ((GuiManager*)m_manager)->UnlockEvent();
+    }
+
     if(event.Type==sf::Event::MouseButtonPressed)
     {
         if(m_windowShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
@@ -49,6 +58,13 @@ void GuiWindowNode::HandleEvent(const sf::Event& event)
             m_moving=true;
             m_posClickMoving = ((GuiManager*)m_manager)->GetMousePosition() - m_absolute.position;
             ((GuiManager*)m_manager)->LockEvent(this);
+            ((GuiManager*)m_manager)->ResetLevels();
+            SetLevel(1);
+        }
+        else if(m_contenerShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
+        {
+            ((GuiManager*)m_manager)->ResetLevels();
+            SetLevel(1);
         }
     }
     if(event.Type==sf::Event::MouseButtonReleased)
@@ -66,6 +82,10 @@ void GuiWindowNode::HandleEvent(const sf::Event& event)
         if(i!=m_windowShape&&i!=m_contenerShape)
             ((GuiItem*)(i))->HandleEvent(event);
     }
+}
+void GuiWindowNode::HandleEventRecurse(const sf::Event& event)
+{
+    HandleEvent(event);
     for(SceneNode* i : m_childNodes)
     {
         ((GuiNode*)(i))->HandleEvent(event);

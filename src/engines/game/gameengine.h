@@ -11,6 +11,7 @@ class JoueurHumain;
 class Joueur;
 class SceneNodeTextureItem;
 class Projectile;
+class TiXmlNode;
 class GameEngine : public Engine
 {
     public:
@@ -18,6 +19,11 @@ class GameEngine : public Engine
         virtual ~GameEngine();
         void Start();
         EngineType GetEngineId() const;
+        void LoadGuiModels(GuiWindowNode*, Joueur*);
+        void AddModel(GuiWindowContener*, Joueur*, TiXmlNode*);
+        void DesalouerModel(GuiWindowContener*);
+
+        static void CallbackAjoutUnite(GuiItem*);
 
     private:
         ContactListenner *m_listner;

@@ -94,6 +94,14 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& ui
     m_itemTourelle->SetSize(m_tailleCanon.x*20, m_tailleCanon.y*20);
     m_itemTourelle->SetRelativePosition(0,-m_tailleCanon.y*10);
 
+    m_barreVie = (GuiProgressBarItem*) m_node->AddItem(new GuiProgressBarItem);
+    m_barreVie->SetRange(0, m_param->poidsCorp*10);
+    m_barreVie->SetValue(m_param->poidsCorp*10);
+    m_barreVie->SetValueColor(sf::Color(0,0,255));
+    m_barreVie->SetFondColor(sf::Color(255,0,0));
+    m_barreVie->SetSize(sf::Vector2f(50,5));
+    m_barreVie->SetRelativePosition(-25, factory->GetTailleUnit().y*20+20);
+
     m_timerFire.Reset();
     float coef = float(factory->GetReloadTimeMax()-factory->GetReloadTimeMin())/
                           (factory->GetCanonMax()-factory->GetCanonMin());
@@ -115,6 +123,7 @@ void UniteTerrestre::Update()
     m_nodeRoue2->SetAbsoluteRotation(-m_roue2->GetAngle()*180/3.14);
     m_nodeTourelle->SetAbsolutePosition(m_tourelle->GetPosition().x*10, -m_tourelle->GetPosition().y*10);
     m_nodeTourelle->SetAbsoluteRotation(-m_tourelle->GetAngle()*180/3.14);
+    m_barreVie->SetValue(m_vie);
 }
 void UniteTerrestre::Deplacer(const UnitInput& input)
 {
@@ -184,4 +193,8 @@ Projectile* UniteTerrestre::Tirer()
     direction.y *= 9;
 
     return new Projectile(m_body->GetWorld(), pos, direction, taille, poids, puissance);
+}
+void UniteTerrestre::SetColor(const sf::Color& col)
+{
+    m_itemBody->SetColor(col);
 }

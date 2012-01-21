@@ -41,6 +41,8 @@ void GuiButtonItem::HandleEvent(const sf::Event& event)
 
 void GuiButtonItem::Draw(sf::RenderWindow* app)
 {
+    if(!m_visible)
+        return;
     if(m_mouveOver)
     {
         m_btn_fond.SetFillColor(m_clr_ovr_fnd);

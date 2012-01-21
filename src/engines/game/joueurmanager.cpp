@@ -24,7 +24,7 @@ void JoueurManager::SetJoueur(int num, TypeJoueur type)
     {
     case JOUEUR_LOCAL:
         m_joueurs[num] = new JoueurHumain(m_carte, num);
-        ++m_nbLocal;
+        m_nbLocal++;
     case JOUEUR_IA:
     case JOUEUR_DISTANT:
         break;
@@ -62,4 +62,10 @@ void JoueurManager::Input(int id, const UnitInput& input)
     if(input.changer)
         m_joueurs[id]->SelectedFollowingUnit();
     m_joueurs[id]->SetInput(input);
+}
+int JoueurManager::GetId(Joueur* joueur)
+{
+    if(m_joueurs[0]==joueur)
+        return 0;
+    return 1;
 }

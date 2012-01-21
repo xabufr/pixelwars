@@ -3,8 +3,7 @@
 #include "unite.h"
 #include "carte.h"
 #include "uniteterrestremodel.h"
-
-Joueur::Joueur(Carte &carte, int numero): m_carte(carte)
+Joueur::Joueur(Carte &carte, int numero): m_couleur(255,0,0), m_carte(carte)
 {
     m_selectedUnit = 0;
     m_tailleCamp = 250;
@@ -16,7 +15,7 @@ Joueur::Joueur(Carte &carte, int numero): m_carte(carte)
     else
     {
         m_xMaxCamp = m_carte.Width();
-        m_xMaxCamp = m_carte.Width()-m_tailleCamp;
+        m_xMinCamp = m_carte.Width()-m_tailleCamp;
     }
 }
 
@@ -35,6 +34,7 @@ void Joueur::AjouterUnite(sf::Uint32 id, Unite* unit)
     m_unites[id] = unit;
     if(m_selectedUnit==0)
         SelectFirstUnit();
+    unit->SetColor(m_couleur);
 }
 void Joueur::EnleverUnite(sf::Uint32 id)
 {
@@ -108,9 +108,13 @@ Unite* Joueur::GetSelectedUnit() const
 b2Vec2 Joueur::GetPositionNouvelleUnite() const
 {
     b2Vec2 toReturn;
-    toReturn.x=m_xMaxCamp-m_xMinCamp;
+    toReturn.x=m_xMinCamp+m_tailleCamp*0.5;
     float tailleUnite = UniteTerrestreModel::GetInstance()->GetTailleXTotale()/2.f;
     float tailleRoues = UniteTerrestreModel::GetInstance()->GetTailleRoue();
     toReturn.y = -(m_carte.YMin(toReturn.x-tailleUnite-tailleRoues, toReturn.x+tailleUnite+tailleRoues)-tailleRoues*40);
     return 0.1*toReturn;
+}
+void Joueur::SetColor(const sf::Color& col)
+{
+    m_couleur=col;
 }

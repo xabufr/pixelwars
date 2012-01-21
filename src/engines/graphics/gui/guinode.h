@@ -10,6 +10,7 @@ class GuiNode : public SceneNode
         GuiNode(SceneManager* mng, SceneNode* parent=0);
         virtual ~GuiNode();
         virtual void HandleEvent(const sf::Event&);
+        virtual void HandleEventRecurse(const sf::Event&);
         GuiWindowNode* AddWindow();
 
     protected:

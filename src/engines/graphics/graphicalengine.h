@@ -22,6 +22,7 @@
 #include "gui/guibuttonitem.h"
 #include "gui/guiwindownode.h"
 #include "gui/guitextitem.h"
+#include "gui/guiprogressbaritem.h"
 
 /// @todo Documenter
 class GraphicalEngine : public Singleton<GraphicalEngine>

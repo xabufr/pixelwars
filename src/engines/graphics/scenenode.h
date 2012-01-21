@@ -22,6 +22,11 @@ class SceneNode
         const std::vector<SceneNode*>& GetChildSceneNodes() const;
         const std::vector<SceneNodeItem*>& GetChildItems() const;
 
+        void Show();
+        void Hide();
+        void SetVisible(bool);
+        bool IsVisible();
+
         void SetLevel(int level);
         void MoveLevel(int level);
 
@@ -54,6 +59,10 @@ class SceneNode
 
         int CalculerLevel() const;//Niveau réel
         void UpdateLevel();
+
+        void VisibilityChanged();
+
+        bool m_visible;
 
         PositionInformations m_absolute, m_relative;
 

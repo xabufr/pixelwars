@@ -1,5 +1,4 @@
 #include "guitextitem.h"
-#include <iostream>
 GuiTextItem::GuiTextItem()
 {
     //ctor
@@ -41,6 +40,8 @@ void GuiTextItem::PositionChanged()
   */
 void GuiTextItem::Draw(sf::RenderWindow* app)
 {
+    if(!m_visible)
+        return;
     app->Draw(m_texte);
 }
 

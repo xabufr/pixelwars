@@ -2,10 +2,11 @@
 #include "core/logger.h"
 #include "../graphicalengine.h"
 
-GuiManager::GuiManager()
+GuiManager::GuiManager(): SceneManager()
 {
+    delete m_rootSceneNode;
     Logger::Log()<<"Création du GuiManager"<<Logger::endl;
-    m_guiRootNode = new GuiNode(this);
+    m_rootSceneNode = new GuiNode(this);
     m_eventLockedBy=0;
 }
 
@@ -16,7 +17,7 @@ GuiManager::~GuiManager()
 
 GuiItem* GuiManager::AddItem(GuiItem* item)
 {
-    m_guiRootNode->AddItem((SceneNodeItem*)item);
+    m_rootSceneNode->AddItem((SceneNodeItem*)item);
     return item;
 }
 
@@ -38,12 +39,24 @@ void GuiManager::HandleEvent(const sf::Event& event)
     {
         CalculerCamera();
     }
-    if(m_eventLockedBy) m_eventLockedBy->HandleEvent(event);
-    else m_guiRootNode->HandleEvent(event);
+    if(isEventLocked())
+        m_eventLockedBy->HandleEventRecurse(event);
+    else
+    {
+        for(auto it = m_nodesLevel.rbegin();it!=m_nodesLevel.rend();it++)
+        {
+            for(auto itTab = it->second.rbegin();itTab != it->second.rend();itTab++)
+            {
+                ((GuiNode*)(*itTab))->HandleEvent(event);
+                if(isEventLocked())
+                    return;
+            }
+        }
+    }
 }
 GuiNode* GuiManager::GetRootNode()
 {
-    return m_guiRootNode;
+    return (GuiNode*)m_rootSceneNode;
 }
 sf::Vector2f GuiManager::GetMousePosition()
 {
@@ -73,4 +86,28 @@ void GuiManager::CalculerCamera()
     sf::RenderWindow *app = GraphicalEngine::GetInstance()->GetRenderWindow();
     m_view.SetSize(app->GetWidth(), app->GetHeight());
     m_view.SetCenter(app->GetWidth()/2, app->GetHeight()/2);
+}
+bool GuiManager::isEventLocked() const
+{
+    return m_eventLockedBy!=0;
+}
+GuiNode* GuiManager::GetEventLockerNode() const
+{
+    return m_eventLockedBy;
+}
+void GuiManager::ResetLevels()
+{
+    for(auto it = m_nodesLevel.begin();it!=m_nodesLevel.end();)
+    {
+        if(it->first==0)
+        {
+            it++;
+            continue;
+        }
+        for(SceneNode* n: it->second)
+        {
+            m_nodesLevel[0].push_back(n);
+        }
+        it = m_nodesLevel.erase(it);
+    }
 }

@@ -1,8 +1,23 @@
 <?xml version="1.0" ?>
 <root>
   <model name="default" uid="default">
-    <blindage value="20" />
+    <blindage value="10" />
+    <canon value="2" />
+    <projectile value="5" />
+  </model>
+  <model name="DCA" uid="DCA">
+    <blindage value="5" />
     <canon value="1" />
-    <projectile value="20" />
+    <projectile value="5" />
+  </model>
+  <model name="Artillerie Lourde" uid="Artillerie L">
+    <blindage value="20" />
+    <canon value="4" />
+    <projectile value="25" />
+  </model>
+  <model name="Artillerie Legere" uid="Artillerie Le">
+    <blindage value="10" />
+    <canon value="4" />
+    <projectile value="10" />
   </model>
 </root>

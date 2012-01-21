@@ -9,10 +9,16 @@ class JoueurHumain: public Joueur
     public:
         JoueurHumain(Carte &, int numero,const sf::FloatRect & portion = sf::FloatRect(0,0,1,1));
         virtual ~JoueurHumain();
+        virtual void SetInput(const UnitInput&);
 
         virtual void Update();
         sf::View* GetCam() const;
     private:
+
+        void Zoomer();
+        void Dezoomer();
+
+        float m_zoom;
         sf::View *m_camera;
         sf::RenderWindow *m_app;
 };

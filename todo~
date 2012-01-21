@@ -11,12 +11,13 @@ Implémenter la classe joueur pour un contrôle des unités -> Caméra ok,
 Camps des joueurs (intervalle, sf::FloatRect ?)
 Possibilité de changer d'unité
 Possibilité d'ajouter des unitées sans GUI
+Possibilité d'ajouter des unitées avec GUI
 
 ---------->En cours
 
-Possibilité d'ajouter des unitées avec GUI
 
-
+Implémenter la GUI au mieux -> Gérer les focus, les levels
+|-> Possibilité de créer de nouveaux type I-G
 
 ----------->À Faire
 

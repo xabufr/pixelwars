@@ -11,11 +11,14 @@ Implémenter la classe joueur pour un contrôle des unités -> Caméra ok,
 Camps des joueurs (intervalle, sf::FloatRect ?)
 Possibilité de changer d'unité
 Possibilité d'ajouter des unitées sans GUI
+Possibilité d'ajouter des unitées avec GUI
 
 ---------->En cours
 
-Possibilité d'ajouter des unitées avec GUI
-|--> Implémenter la GUI au mieux
+
+Implémenter la GUI au mieux -> Gérer les focus, les levels
+|-> Possibilité de créer de nouveaux type I-G
+Progress-bar pour la vie
 
 ----------->À Faire
 
@@ -29,7 +32,7 @@ Implémenter un menu de jeu
 Implémenter une console
 Écrire le moteur réseau
 Menu principal
-Progress-bar pour la vie
+
 Gestion de l'argent
 
 Implémenter les unitées aériennes ?

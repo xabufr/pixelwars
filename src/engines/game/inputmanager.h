@@ -5,7 +5,7 @@
 #include <unordered_map>
 
 struct UnitInput{
-    bool gauche, droite, haut, bas, tirer, changer;
+    bool gauche, droite, haut, bas, tirer, changer, zoomer, dezoomer;
 };
 class InputManager
 {
@@ -19,6 +19,7 @@ class InputManager
         sf::Keyboard m_keyboard;
         std::unordered_map<std::string, sf::Keyboard::Key> m_touchesJ1;
         std::unordered_map<std::string, sf::Keyboard::Key> m_touchesJ2;
+        std::unordered_map<std::string, sf::Keyboard::Key> m_touches[2];
 
         UnitInput m_input[2];
 };

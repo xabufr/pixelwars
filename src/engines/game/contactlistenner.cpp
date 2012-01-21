@@ -4,7 +4,6 @@
 #include "bodytype.h"
 #include "unite.h"
 #include "core/logger.h"
-#include <iostream>
 ContactListenner::ContactListenner(const std::unordered_map<sf::Uint32, Unite*> & unites): m_unites(unites)
 {
     //ctor

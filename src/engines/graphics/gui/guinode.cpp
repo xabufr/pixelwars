@@ -17,12 +17,15 @@ void GuiNode::HandleEvent(const sf::Event& event)
     {
         ((GuiItem*)(i))->HandleEvent(event);
     }
+}
+void GuiNode::HandleEventRecurse(const sf::Event& event)
+{
+    GuiNode::HandleEvent(event);
     for(SceneNode* i : m_childNodes)
     {
         ((GuiNode*)(i))->HandleEvent(event);
     }
 }
-
 GuiWindowNode* GuiNode::AddWindow()
 {
     GuiWindowNode *window = new GuiWindowNode(m_manager, this);

@@ -1,6 +1,5 @@
 #include "unite.h"
 #include "bodytype.h"
-#include <iostream>
 
 Unite::Unite(b2World *world, b2Vec2 pos)
 {

@@ -14,6 +14,7 @@ class GuiWindowNode: public GuiNode
         GuiWindowNode(SceneManager*, SceneNode*);
         virtual ~GuiWindowNode();
         virtual void HandleEvent(const sf::Event&);
+        virtual void HandleEventRecurse(const sf::Event&);
 
         void SetClosable(bool);
         bool IsClosable()const;

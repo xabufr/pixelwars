@@ -22,12 +22,15 @@ class GuiManager: public SceneManager
 
         void LockEvent(GuiNode*);
         void UnlockEvent();
+        bool isEventLocked() const;
+        GuiNode* GetEventLockerNode() const;
 
         void AddToRemoveNode(GuiNode*);
 
+        void ResetLevels();
+
     private:
         void CalculerCamera();
-        GuiNode* m_guiRootNode;
         GuiNode* m_eventLockedBy;
 
         std::vector<GuiNode*> m_toRemove;

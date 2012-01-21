@@ -13,11 +13,13 @@ SceneNode::SceneNode(SceneManager* mng, SceneNode* parent)
     m_manager=mng;
     m_manager->AddNodeLevel(m_levelReel, this);
     SetRelativePosition(m_relative.position);
+    m_visible=true;
     if(m_parent)
     {
         m_absolute = m_parent->m_absolute;
+        m_visible = m_parent->m_visible;
     }
-
+    VisibilityChanged();
 }
 
 SceneNode::~SceneNode()
@@ -48,6 +50,7 @@ SceneNodeItem *SceneNode::AddItem(SceneNodeItem *item)
     item->SetParentPosition(m_absolute.position);
     item->SetAbsoluteRotation(m_absolute.rotation);
     item->SetAbsoluteScale(m_absolute.scale);
+    item->SetVisible(m_visible);
     return item;
 }
 
@@ -233,5 +236,33 @@ void SceneNode::RemoveItem(SceneNodeItem* item)
             m_childItems.erase(m_childItems.begin()+i);
             return;
         }
+    }
+}
+void SceneNode::Show()
+{
+    SetVisible(true);
+}
+void SceneNode::Hide()
+{
+    SetVisible(false);
+}
+void SceneNode::SetVisible(bool vis)
+{
+    m_visible=vis;
+    VisibilityChanged();
+}
+bool SceneNode::IsVisible()
+{
+    return m_visible;
+}
+void SceneNode::VisibilityChanged()
+{
+    for(SceneNodeItem *i : m_childItems)
+    {
+        i->SetVisible(m_visible);
+    }
+    for(SceneNode *n: m_childNodes)
+    {
+        n->SetVisible(m_visible);
     }
 }

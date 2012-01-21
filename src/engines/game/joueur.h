@@ -4,6 +4,7 @@
 #include <unordered_map>
 #include <SFML2/System.hpp>
 #include <Box2D/Box2D.h>
+#include <SFML2/Graphics.hpp>
 
 struct UnitInput;
 class Unite;
@@ -28,12 +29,15 @@ class Joueur
 
         Unite* GetSelectedUnit() const;
 
+        void SetColor(const sf::Color& col);
+
         b2Vec2 GetPositionNouvelleUnite() const;
 
         virtual void Update() = 0;
 
     protected:
         std::unordered_map<sf::Uint32, Unite*> m_unites;
+        sf::Color m_couleur;
         Unite *m_selectedUnit;
         sf::Uint32 m_idSelected;
         float m_xMinCamp, m_xMaxCamp, m_tailleCamp;

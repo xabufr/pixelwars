@@ -13,6 +13,7 @@ GuiContener::~GuiContener()
 void GuiContener::AjouterItem(GuiItem* item, int x, int y)
 {
     GuiNode::AddItem((SceneNodeItem*)item);
+    item->SetVisible(m_visible);
     if(int(m_items.size())> y)
     {
         if(int(m_items[y].size())>x)

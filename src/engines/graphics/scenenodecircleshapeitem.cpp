@@ -60,6 +60,8 @@ sf::FloatRect SceneNodeCircleShapeItem::GetGlobalBounds() const
   */
 void SceneNodeCircleShapeItem::Draw(sf::RenderWindow* app)
 {
+    if(!m_visible)
+        return;
     app->Draw(m_shape);
 }
 

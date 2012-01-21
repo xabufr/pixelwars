@@ -37,7 +37,8 @@ void Carte::FinirDestruction()
 void Carte::Generer(const sf::Vector2i& taille, int seed, float valMoy, float diff)
 {
     m_taille=taille;
-    m_fixturesMapZone.resize((taille.x/m_tailleZone)+(taille.x%m_tailleZone!=0?1:0));
+    m_nb_zones = (taille.x/m_tailleZone)+(taille.x%m_tailleZone!=0?1:0);
+    m_fixturesMapZone.resize(m_nb_zones);
 
     m_itemTerrain->CreateTexture(taille);
     m_itemDessousTerrain->SetSize(taille.x, 1000);
@@ -126,9 +127,11 @@ void Carte::RecalculerTerrain()
         }
     }
 
-    shape.Set(b2Vec2(0, -100), b2Vec2(0, 100));
+    shape.Set(b2Vec2(0, -m_taille.y*0.1), b2Vec2(0, 25000));
     m_bodyTerrain->CreateFixture(&fd);
-    shape.Set(b2Vec2(float(m_taille.x)*0.1, -100), b2Vec2(float(m_taille.x)*0.1, 100));
+    shape.Set(b2Vec2(float(m_taille.x)*0.1, -m_taille.y*0.1), b2Vec2(float(m_taille.x)*0.1, 25000));
+    m_bodyTerrain->CreateFixture(&fd);
+    shape.Set(b2Vec2(0, 25000), b2Vec2(float(m_taille.x)*0.1, 25000));
     m_bodyTerrain->CreateFixture(&fd);
 }
 void Carte::Fill(sf::Uint8 toFill[], int height)
@@ -202,12 +205,15 @@ int Carte::DeterminerZone(int x)
 }
 void Carte::AjouterZoneListeRegen(int zone)
 {
-    for(int i : m_zonesARegenrer)
+    if(zone>=0&&zone<m_nb_zones)
     {
-        if(i==zone)
-            return;
+        for(int i : m_zonesARegenrer)
+        {
+            if(i==zone)
+                return;
+        }
+        m_zonesARegenrer.push_back(zone);
     }
-    m_zonesARegenrer.push_back(zone);
 }
 void Carte::RegenererZone(int zone)
 {

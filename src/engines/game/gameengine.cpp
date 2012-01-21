@@ -32,7 +32,7 @@ void GameEngine::Start()
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(m_listner);
-	m_carte = new Carte(m_world, sf::Vector2i(8000,600), 400, 100, 0);
+	m_carte = new Carte(m_world, sf::Vector2i(800,600), 400, 100, 0);
     UniteTerrestreModel::GetInstance();
 
 
@@ -42,22 +42,21 @@ void GameEngine::Start()
 
     joueurManager->SetJoueur(0, TypeJoueur::JOUEUR_LOCAL);
     joueurManager->SetJoueur(1, TypeJoueur::JOUEUR_LOCAL);
+    joueurManager->GetJoueur(0)->SetColor(sf::Color(255,255,0));
+    joueurManager->GetJoueur(1)->SetColor(sf::Color(0,0,255));
 
-    uniteManager->AjouterUniteTerrestre(0,m_lastId++,m_world);
-    uniteManager->AjouterUniteTerrestre(1,m_lastId++,m_world);
 
     sf::Event event;
 
-    GuiWindowNode *windowTest = GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow();
-    windowTest->SetWindowTitle("salut");
-    //windowTest->SetClosable(false);
-    GuiButtonItem *b1, *b2;
-    b1 = new GuiButtonItem;
-    b2 = new GuiButtonItem;
-    b1->SetText("boutton 1");
-    b2->SetText("boutton 2");
-    windowTest->GetContener()->AjouterItem(b1, 0, 0);
-    windowTest->GetContener()->AjouterItem(b2, 1, 0);
+    GuiWindowNode *windowJ1 = GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow();
+    windowJ1->SetWindowTitle("Joueur 1");
+    LoadGuiModels(windowJ1, joueurManager->GetJoueur(0));
+    windowJ1->SetAbsolutePosition(0,0);
+
+    GuiWindowNode *windowJ2 = GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow();
+    windowJ2->SetWindowTitle("Joueur 2");
+    LoadGuiModels(windowJ2, joueurManager->GetJoueur(1));
+    windowJ2->SetAbsolutePosition(300,0);
 
     while(app->IsOpened())
     {
@@ -68,9 +67,9 @@ void GameEngine::Start()
                 app->Close();
             if(event.Type==sf::Event::KeyReleased)
             {
-                if(event.Key.Code == sf::Keyboard::Key::A)
+                if(event.Key.Code == sf::Keyboard::Key::Escape)
                 {
-                    uniteManager->AjouterUniteTerrestre(1,m_lastId++,m_world);
+                    app->Close();
                 }
             }
             imanager.HandleEvent(event);
@@ -85,6 +84,8 @@ void GameEngine::Start()
         joueurManager->Input(1, imanager.GetAll(1));
         joueurManager->Update();
     }
+    DesalouerModel(windowJ1->GetContener());
+    DesalouerModel(windowJ2->GetContener());
 }
 void GameEngine::GererExplosions()
 {
@@ -121,4 +122,50 @@ void GameEngine::EnleverUnit(Unite* unite)
 void GameEngine::EnleverUnit(sf::Uint32 id)
 {
     uniteManager->DetruireUnite(id);
+}
+void GameEngine::LoadGuiModels(GuiWindowNode* window, Joueur* joueur)
+{
+    GuiWindowContener* contener = window->GetContener();
+    TiXmlDocument fichier("data/units/land.xml");
+    if(!fichier.LoadFile())
+        throw Exception("Impossible de charger le fichier: data/units/land.xml");
+    TiXmlElement *rootNode = fichier.RootElement();
+    TiXmlNode *model = 0;
+    while((model=rootNode->IterateChildren("model",model)))
+    {
+        AddModel(contener, joueur, model);
+    }
+}
+void GameEngine::AddModel(GuiWindowContener* contener, Joueur* joueur, TiXmlNode* node)
+{
+    char *modelUid;
+    const char* nodeUid = node->ToElement()->Attribute("uid");
+    const size_t taille = strlen(nodeUid);
+    modelUid=new char[taille];
+    strcpy(modelUid, nodeUid);
+
+    GuiButtonItem* btn = new GuiButtonItem;
+    btn->SetText(node->ToElement()->Attribute("name"));
+    btn->SetNormalColor(sf::Color(0,0,0), sf::Color(0,0,0,0));
+    btn->SetMouseOverColor(sf::Color(255,0,0), sf::Color(0,0,0,0));
+    contener->AjouterItem(btn, 0, 999);
+    btn->SetData("game", this);
+    btn->SetData("joueur", joueur);
+    btn->SetData("model", modelUid);
+    btn->SetCallBack("clicked", CallbackAjoutUnite);
+}
+void GameEngine::DesalouerModel(GuiWindowContener* contener)
+{
+    const std::vector<SceneNodeItem*>& btns = contener->GetChildItems();
+    for(SceneNodeItem* item : btns)
+    {
+        delete[] (char*)((GuiButtonItem*)item)->GetData("model");
+    }
+}
+void GameEngine::CallbackAjoutUnite(GuiItem* item)
+{
+    GameEngine* game = (GameEngine*)item->GetData("game");
+    Joueur* joueur = (Joueur*)item->GetData("joueur");
+    sf::Uint32 id = game->m_lastId++;
+    game->uniteManager->AjouterUniteTerrestre(game->joueurManager->GetId(joueur), id, game->m_world, std::string((char*)item->GetData("model")));
 }
