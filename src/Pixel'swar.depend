@@ -2470,7 +2470,7 @@
 1315156264 /usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1326641217 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.cpp
+1327237871 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.cpp
 	"scenemanager.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2480,7 +2480,7 @@
 	<map>
 	<SFML2/Graphics.hpp>
 
-1327160502 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.h
+1327238706 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.h
 	<vector>
 	"scenenodeitem.h"
 	"positioninformations.h"
@@ -2491,7 +2491,7 @@
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/positioninformations.h
 
-1327168107 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
+1327228804 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2511,6 +2511,8 @@
 	"gui/guiwindownode.h"
 	"gui/guitextitem.h"
 	"gui/guiprogressbaritem.h"
+	"gui/guicontener.h"
+	"gui/guiwindowcontener.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src//core/singleton.h
 
@@ -2542,7 +2544,7 @@
 	"scenenodeitem.h"
 	<SFML2/Graphics/CircleShape.hpp>
 
-1327160502 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenode.h
+1327238706 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenode.h
 	<vector>
 	"scenenodeitem.h"
 	"positioninformations.h"
@@ -2567,7 +2569,7 @@
 	"../scenenodeitem.h"
 	<unordered_map>
 
-1327157713 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guinode.h
+1327228817 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guinode.h
 	"../scenenode.h"
 
 1327007916 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guibuttonitem.h
@@ -2614,7 +2616,7 @@
 	<exception>
 	<string>
 
-1327168107 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
+1327228804 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2634,6 +2636,8 @@
 	"gui/guiwindownode.h"
 	"gui/guitextitem.h"
 	"gui/guiprogressbaritem.h"
+	"gui/guicontener.h"
+	"gui/guiwindowcontener.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/core/singleton.h
 
@@ -2670,7 +2674,7 @@
 	"../scenenodeitem.h"
 	<unordered_map>
 
-1327157713 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.h
+1327228817 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.h
 	"../scenenode.h"
 
 1327007916 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.h
@@ -2711,16 +2715,17 @@
 	<sstream>
 	"exception.h"
 
-1326916647 source:/home/thomas/pixelwar/pixelwar/src/main.cpp
+1327228943 source:/home/thomas/pixelwar/pixelwar/src/main.cpp
 	"core/consolelogger.h"
 	"core/exception.h"
 	"engines/game/gameengine.h"
+	"engines/game/menus/menuprincipal.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/core/consolelogger.h
 	"logger.h"
 	<iostream>
 
-1327142142 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
+1327236924 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
 	"../engine.h"
 	"carte.h"
 	"contactlistenner.h"
@@ -2738,7 +2743,7 @@
 	"scenenodeshapeitem.h"
 	<SFML2/Graphics/ConvexShape.hpp>
 
-1327160745 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.cpp
+1327238735 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.cpp
 	"scenenode.h"
 	"engines/graphics/scenemanager.h"
 
@@ -2750,7 +2755,7 @@
 	"guimanager.h"
 	"../graphicalengine.h"
 
-1327162592 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1327238373 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2761,7 +2766,7 @@
 	"uniteterrestremodel.h"
 	"joueurhumain.h"
 
-1327004952 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
+1327231778 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
 	"graphicalengine.h"
 	"core/logger.h"
 	"engines/graphics/scenemanager.h"
@@ -2774,7 +2779,7 @@
 1327160633 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.cpp
 	"scenenodecircleshapeitem.h"
 
-1327159325 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiwindownode.cpp
+1327228379 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiwindownode.cpp
 	"guiwindownode.h"
 	"guiitem.h"
 	"guimanager.h"
@@ -2786,11 +2791,12 @@
 	"scenenodespriteitem.h"
 	"core/logger.h"
 
-1327157756 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.cpp
+1327228831 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.cpp
 	"guinode.h"
 	"guiitem.h"
 	"guiwindownode.h"
 	"guimanager.h"
+	"guicontener.h"
 
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiitem.cpp
 	"guiitem.h"
@@ -2798,7 +2804,7 @@
 1327160594 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeitem.cpp
 	"scenenodeitem.h"
 
-1327159396 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.cpp
+1327238759 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.cpp
 	"guimanager.h"
 	"core/logger.h"
 	"../graphicalengine.h"
@@ -2986,7 +2992,7 @@
 	"unite.h"
 	"core/logger.h"
 
-1327163461 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
+1327227339 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
 	"carte.h"
 	<libnoise/noise.h>
 	"bodytype.h"
@@ -3011,7 +3017,7 @@
 1326575744 source:/home/thomas/pixelwar/pixelwar/src/engines/game/bodytype.cpp
 	"bodytype.h"
 
-1327169780 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.cpp
+1327170493 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.cpp
 	"uniteterrestre.h"
 	"bodytype.h"
 	"projectile.h"
@@ -3140,7 +3146,7 @@
 	<SFML2/System.hpp>
 	<unordered_map>
 
-1327166485 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unitemanager.cpp
+1327237411 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unitemanager.cpp
 	"unitemanager.h"
 	"joueurmanager.h"
 	"unite.h"
@@ -3188,4 +3194,12 @@
 1327169115 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guiprogressbaritem.h
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
+
+1327233585 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
+	"menuprincipal.h"
+	"../gameengine.h"
+	"core/logger.h"
+
+1327233519 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.h
+	"engines/graphics/graphicalengine.h"
 

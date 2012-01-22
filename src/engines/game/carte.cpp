@@ -227,11 +227,11 @@ void Carte::RegenererZone(int zone)
     fd.friction = 0.6f;
 
     const sf::Image& img = m_itemTerrain->GetImage();
-    unsigned int w = img.GetWidth();
+    unsigned int w = img.GetWidth()-1;
     unsigned int h = img.GetHeight();
     unsigned int x,y;
-    if(w>(unsigned int)((zone+1)*m_tailleZone-1))
-        w=(zone+1)*m_tailleZone-1;
+    if(w>(unsigned int)((zone+1)*m_tailleZone))
+        w=(zone+1)*m_tailleZone;
 
     for(b2Fixture *fix : m_fixturesMapZone[zone])
         m_bodyTerrain->DestroyFixture(fix);
@@ -249,7 +249,7 @@ void Carte::RegenererZone(int zone)
                 m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
                 lastTransparent=!lastTransparent;
             }
-            else if(img.GetPixel(x,y).a==255&&x>0&&x<w-1)
+            else if(img.GetPixel(x,y).a==255&&x>0&&x<w)
             {
                 if(img.GetPixel(x-1,y).a==0)
                 {

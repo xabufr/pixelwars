@@ -93,6 +93,10 @@ void SceneNode::UpdateLevel()
         i->UpdateLevel();
     }
 }
+void SceneNode::SetRealLevelNotUpdate(int level)
+{
+    m_levelReel = level;
+}
 int SceneNode::GetLevel() const
 {
     return m_level;

@@ -23,6 +23,8 @@
 #include "gui/guiwindownode.h"
 #include "gui/guitextitem.h"
 #include "gui/guiprogressbaritem.h"
+#include "gui/guicontener.h"
+#include "gui/guiwindowcontener.h"
 
 /// @todo Documenter
 class GraphicalEngine : public Singleton<GraphicalEngine>

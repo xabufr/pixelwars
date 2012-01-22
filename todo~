@@ -12,26 +12,29 @@ Camps des joueurs (intervalle, sf::FloatRect ?)
 Possibilité de changer d'unité
 Possibilité d'ajouter des unitées sans GUI
 Possibilité d'ajouter des unitées avec GUI
+Menu principal
+Progress-bar pour la vie
 
 ---------->En cours
 
 
 Implémenter la GUI au mieux -> Gérer les focus, les levels
 |-> Possibilité de créer de nouveaux type I-G
+Gérer la création de nouveau types d'unitées I-G
 
 ----------->À Faire
 
 
 Utiliser la communication inter-module
 Implémenter type de jeu pour réagir en fct (càd serveur ou client)
-Gérer la création de nouveau types d'unitées I-G
+
 Synchroniser les types d'unitées des 2 cotés
 Gérer les sons
 Implémenter un menu de jeu
 Implémenter une console
 Écrire le moteur réseau
-Menu principal
-Progress-bar pour la vie
+
+
 Gestion de l'argent
 
 Implémenter les unitées aériennes ?

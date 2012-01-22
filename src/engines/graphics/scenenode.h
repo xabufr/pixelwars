@@ -29,6 +29,7 @@ class SceneNode
 
         void SetLevel(int level);
         void MoveLevel(int level);
+        void SetRealLevelNotUpdate(int level);
 
         int GetLevel() const;
         int GetRealLevel() const;

@@ -4,6 +4,7 @@
 #include "../scenenode.h"
 
 class GuiWindowNode;
+class GuiContener;
 class GuiNode : public SceneNode
 {
     public:
@@ -12,6 +13,7 @@ class GuiNode : public SceneNode
         virtual void HandleEvent(const sf::Event&);
         virtual void HandleEventRecurse(const sf::Event&);
         GuiWindowNode* AddWindow();
+        GuiContener* AddContener();
 
     protected:
         void m_RemoveMeNextDraw();

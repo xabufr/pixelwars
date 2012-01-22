@@ -15,6 +15,8 @@ GraphicalEngine::GraphicalEngine()
 
     m_listeViews = &m_cameraManager->GetCamerasList();
 
+    m_app = 0;
+
     m_tempFramerate=1000;
 }
 
@@ -39,7 +41,8 @@ GraphicalEngine::~GraphicalEngine()
 
     TextureManager::Kill();
     Logger::Log()<<"Destruction moteur graphique" << Logger::endl;
-    delete m_app;
+    if(m_app)
+        delete m_app;
 }
 SceneManager* GraphicalEngine::GetSceneManager() const
 {
@@ -53,13 +56,13 @@ void GraphicalEngine::DrawScene()
 {
     m_app->Clear();
 
-    if(m_listeViews->size()==0)
+    /*if(m_listeViews->size()==0)
     {
         sf::View* nCam = m_cameraManager->AddCamera();
         nCam->SetSize(m_app->GetWidth(), m_app->GetHeight());
         nCam->SetViewport(sf::FloatRect(0,0,1,1));
         nCam->SetCenter(nCam->GetSize()/2.f);
-    }
+    }*/
     for(sf::View *view: *m_listeViews )
     {
         m_app->SetView(*view);

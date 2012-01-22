@@ -11,11 +11,15 @@
 GameEngine::GameEngine()
 {
     m_lastId = 0;
+    m_running=true;
 }
 
 GameEngine::~GameEngine()
 {
-    GraphicalEngine::Kill();
+    delete joueurManager;
+    delete uniteManager;
+    delete m_carte;
+    delete m_world;
 }
 EngineType GameEngine::GetEngineId() const
 {
@@ -24,7 +28,7 @@ EngineType GameEngine::GetEngineId() const
 void GameEngine::Start()
 {
     GraphicalEngine* gengine = GraphicalEngine::GetInstance();
-    sf::RenderWindow *app = gengine->CreateRenderWindow(sf::VideoMode(600,400), "Test");
+    sf::RenderWindow *app = gengine->GetRenderWindow();
 
     uniteManager = new UniteManager;
     m_listner = new ContactListenner(uniteManager->GetListe());
@@ -47,7 +51,6 @@ void GameEngine::Start()
 
 
     sf::Event event;
-
     GuiWindowNode *windowJ1 = GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow();
     windowJ1->SetWindowTitle("Joueur 1");
     LoadGuiModels(windowJ1, joueurManager->GetJoueur(0));
@@ -58,18 +61,18 @@ void GameEngine::Start()
     LoadGuiModels(windowJ2, joueurManager->GetJoueur(1));
     windowJ2->SetAbsolutePosition(300,0);
 
-    while(app->IsOpened())
+    while(m_running)
     {
         while(app->PollEvent(event))
         {
             gengine->GetGuiManager()->HandleEvent(event);
             if(event.Type==sf::Event::Closed)
-                app->Close();
+                m_running=false;
             if(event.Type==sf::Event::KeyReleased)
             {
                 if(event.Key.Code == sf::Keyboard::Key::Escape)
                 {
-                    app->Close();
+                    m_running=false;
                 }
             }
             imanager.HandleEvent(event);
@@ -86,6 +89,8 @@ void GameEngine::Start()
     }
     DesalouerModel(windowJ1->GetContener());
     DesalouerModel(windowJ2->GetContener());
+    gengine->GetGuiManager()->RemoveNode(windowJ1);
+    gengine->GetGuiManager()->RemoveNode(windowJ2);
 }
 void GameEngine::GererExplosions()
 {

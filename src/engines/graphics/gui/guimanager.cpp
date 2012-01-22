@@ -65,7 +65,7 @@ sf::Vector2f GuiManager::GetMousePosition()
 }
 void GuiManager::RemoveNode(SceneNode* node)
 {
-    if(node==m_eventLockedBy)
+    //if(node==m_eventLockedBy)
         m_eventLockedBy=0;
     SceneManager::RemoveNode(node);
 }
@@ -107,6 +107,7 @@ void GuiManager::ResetLevels()
         for(SceneNode* n: it->second)
         {
             m_nodesLevel[0].push_back(n);
+            n->SetRealLevelNotUpdate(0);
         }
         it = m_nodesLevel.erase(it);
     }

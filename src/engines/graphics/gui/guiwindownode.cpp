@@ -42,6 +42,7 @@ GuiWindowNode::~GuiWindowNode()
 }
 void GuiWindowNode::HandleEvent(const sf::Event& event)
 {
+    if(!m_visible) return;
     if(m_contenerShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
     {
         ((GuiManager*)m_manager)->LockEvent(this);

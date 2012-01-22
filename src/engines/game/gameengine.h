@@ -41,6 +41,8 @@ class GameEngine : public Engine
 
         void DeleteProjectile(Projectile *toDelete);
 
+        bool m_running;
+
         sf::Uint32 m_lastId;
 };
 

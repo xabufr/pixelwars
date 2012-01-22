@@ -1,5 +1,6 @@
 #include "scenemanager.h"
 #include "engines/graphics/graphicalengine.h"
+#include "core/logger.h"
 
 SceneManager::SceneManager()
 {
@@ -51,7 +52,6 @@ void SceneManager::AddNodeLevel(int level, SceneNode* node)
 {
     m_nodesLevel[level].push_back(node);
 }
-#include "core/logger.h"
 void SceneManager::RemoveNode(SceneNode* node)
 {
     int level = node->GetRealLevel();
@@ -62,9 +62,9 @@ void SceneManager::RemoveNode(SceneNode* node)
         std::vector<SceneNode*>::iterator it2;
         for(it2=it->second.begin();it2!=it->second.end();it2++)
         {
-            if(*it2==node)
+            if((*it2)==node)
             {
-                std::vector<SceneNode*> nodes= (*it2)->GetChildSceneNodes();
+                std::vector<SceneNode*> nodes= (*it2)->GetChildSceneNodes(); // Ici on fait une copie, puisque cela est modifié dans la boucle, on évite de se couper l'herbe sous le pied...
                 for(SceneNode* j : nodes)
                 {
                     RemoveNode(j);

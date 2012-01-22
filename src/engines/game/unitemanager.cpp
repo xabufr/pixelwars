@@ -12,6 +12,10 @@ UniteManager::UniteManager(JoueurManager* j_manager): m_joueurManager(j_manager)
 
 UniteManager::~UniteManager()
 {
+    for(auto &it: m_unites)
+        delete it.second;
+    for(Projectile *p: m_projectiles)
+        delete p;
 }
 void UniteManager::EnleverUnite(sf::Uint32 id)
 {
