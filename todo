@@ -19,7 +19,8 @@ Menu principal
 
 
 Implémenter la GUI au mieux -> Gérer les focus, les levels
-|-> Possibilité de créer de nouveaux type I-G
+-> Ajout des items de saisie de texte, de saisie de chiffre (slidder), de conteneur avec slider vertical
+Possibilité de personnaliser ses unités depuis le menu principal
 Gérer la création de nouveau types d'unitées I-G
 
 ----------->À Faire
@@ -27,7 +28,7 @@ Gérer la création de nouveau types d'unitées I-G
 
 Utiliser la communication inter-module
 Implémenter type de jeu pour réagir en fct (càd serveur ou client)
-
+Possibilité de créer de nouveaux type I-G
 Synchroniser les types d'unitées des 2 cotés
 Gérer les sons
 Implémenter un menu de jeu

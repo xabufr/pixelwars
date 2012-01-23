@@ -28,6 +28,7 @@ void UniteTerrestreModel::m_SetDefaultValues()
     m_poidMax = 20.f;
 
     m_tempReloadMax=3000;
+    //m_tempReloadMax=100;
     m_tempReloadMin=50;
 
     m_tailleUnite.Set(2.5, 1);

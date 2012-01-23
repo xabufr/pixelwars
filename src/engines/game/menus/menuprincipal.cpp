@@ -9,6 +9,8 @@ MenuPrincipal::MenuPrincipal()
 
     m_btn_quitter = new GuiButtonItem;
     m_btn_jouer_scinde = new GuiButtonItem;
+    GuiTextInputItem *inputItem = new GuiTextInputItem;
+    inputItem->SetBgColor(sf::Color(255,0,0));
 
     m_btn_quitter->SetText("Quitter");
     m_btn_jouer_scinde->SetText(L"Jouer en écran scindé");
@@ -26,6 +28,7 @@ MenuPrincipal::MenuPrincipal()
 
     m_contenerMenu->AjouterItem(m_btn_jouer_scinde, 0, 0);
     m_contenerMenu->AjouterItem(m_btn_quitter, 0, 1);
+    m_contenerMenu->AjouterItem(inputItem, 0, 2);
 
     m_gameToStart = false;
 }

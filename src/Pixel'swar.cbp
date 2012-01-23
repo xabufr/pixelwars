@@ -103,6 +103,8 @@
 		<Unit filename="engines/game/joueurhumain.h" />
 		<Unit filename="engines/game/joueurmanager.cpp" />
 		<Unit filename="engines/game/joueurmanager.h" />
+		<Unit filename="engines/game/menus/menuprincipal.cpp" />
+		<Unit filename="engines/game/menus/menuprincipal.h" />
 		<Unit filename="engines/game/projectile.cpp" />
 		<Unit filename="engines/game/projectile.h" />
 		<Unit filename="engines/game/unite.cpp" />

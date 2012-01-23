@@ -36,7 +36,7 @@ void GameEngine::Start()
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(m_listner);
-	m_carte = new Carte(m_world, sf::Vector2i(800,600), 400, 100, 0);
+	m_carte = new Carte(m_world, sf::Vector2i(5000,600), 400, 100, 0);
     UniteTerrestreModel::GetInstance();
 
 

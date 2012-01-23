@@ -25,6 +25,7 @@
 #include "gui/guiprogressbaritem.h"
 #include "gui/guicontener.h"
 #include "gui/guiwindowcontener.h"
+#include "gui/guitextinputitem.h"
 
 /// @todo Documenter
 class GraphicalEngine : public Singleton<GraphicalEngine>
