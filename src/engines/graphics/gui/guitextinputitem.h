@@ -29,9 +29,10 @@ class GuiTextInputItem: public GuiItem
         unsigned int m_CalculerLargeurTexte(const sf::String&);
 
         sf::Text m_text;
-        sf::RectangleShape m_fond;
+        sf::RectangleShape m_fond, m_pos;
         sf::Vector2f m_maxSize;
         sf::String m_string;
+        sf::Clock m_timer;
         unsigned int m_maxCharacters;
 };
 

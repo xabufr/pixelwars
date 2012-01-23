@@ -5,6 +5,7 @@
 GuiTextInputItem::GuiTextInputItem(): GuiItem(), m_maxSize(100,30)
 {
     m_fond.SetSize(m_maxSize);
+    m_pos.SetSize(sf::Vector2f(2,30));
     m_maxCharacters=255;
 }
 
@@ -38,7 +39,10 @@ void GuiTextInputItem::HandleEvent(const sf::Event& event)
         if(m_fond.GetGlobalBounds().Contains(GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition()))
         {
             if(!m_focus)
+            {
                 CallCallBack("focus_in");
+                m_timer.Reset();
+            }
             m_focus=true;
         }
         else
@@ -61,6 +65,7 @@ void GuiTextInputItem::SetMaxSize(const sf::Vector2f& size)
 {
     m_maxSize=size;
     m_fond.SetSize(size);
+    m_pos.SetSize(sf::Vector2f(2,size.y));
 }
 void GuiTextInputItem::SetCharacterSize(unsigned int taille)
 {
@@ -71,6 +76,12 @@ void GuiTextInputItem::Draw(sf::RenderWindow* app)
     m_CalculerTexte();
     app->Draw(m_fond);
     app->Draw(m_text);
+    if(m_focus&&m_timer.GetElapsedTime()>500)
+    {
+        app->Draw(m_pos);
+        if(m_timer.GetElapsedTime()>1000)
+            m_timer.Reset();
+    }
 }
 void GuiTextInputItem::PositionChanged()
 {
@@ -81,7 +92,9 @@ void GuiTextInputItem::PositionChanged()
     m_text.SetOrigin(rel);
 
     m_fond.SetOrigin(-m_relative.position.x, -m_relative.position.y);
+    m_pos.SetOrigin(-m_relative.position.x, -m_relative.position.y);
     m_fond.SetPosition(m_parent.position);
+    m_pos.SetPosition(m_parent.position);
 }
 void GuiTextInputItem::RotationChanged()
 {
@@ -110,6 +123,7 @@ void GuiTextInputItem::m_CalculerTexte()
             tmpStr.Erase(0);
         m_text.SetString(tmpStr);
     }
+    m_pos.SetPosition(m_text.GetPosition().x+m_text.GetGlobalBounds().Width, m_text.GetPosition().y);
 }
 sf::Vector2f GuiTextInputItem::GetSize() const
 {
