@@ -2491,7 +2491,7 @@
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/positioninformations.h
 
-1327339924 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
+1327350686 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2514,6 +2514,7 @@
 	"gui/guicontener.h"
 	"gui/guiwindowcontener.h"
 	"gui/guitextinputitem.h"
+	"gui/guislidernumberitem.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src//core/singleton.h
 
@@ -2617,7 +2618,7 @@
 	<exception>
 	<string>
 
-1327339924 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
+1327350686 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2640,6 +2641,7 @@
 	"gui/guicontener.h"
 	"gui/guiwindowcontener.h"
 	"gui/guitextinputitem.h"
+	"gui/guislidernumberitem.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/core/singleton.h
 
@@ -3197,7 +3199,7 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1327340872 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
+1327426722 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
 	"menuprincipal.h"
 	"../gameengine.h"
 	"core/logger.h"
@@ -3209,7 +3211,7 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1327348416 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextinputitem.cpp
+1327348658 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextinputitem.cpp
 	"guitextinputitem.h"
 	"../graphicalengine.h"
 	"core/logger.h"
@@ -3217,4 +3219,17 @@
 1327348187 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextinputitem.h
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
+
+1327351517 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guislidernumberitem.h
+	<SFML2/Graphics.hpp>
+	"guiitem.h"
+
+1327351517 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guislidernumberitem.h
+	<SFML2/Graphics.hpp>
+	"guiitem.h"
+
+1327427053 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guislidernumberitem.cpp
+	"guislidernumberitem.h"
+	"../graphicalengine.h"
+	<iostream>
 

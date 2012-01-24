@@ -26,6 +26,7 @@
 #include "gui/guicontener.h"
 #include "gui/guiwindowcontener.h"
 #include "gui/guitextinputitem.h"
+#include "gui/guislidernumberitem.h"
 
 /// @todo Documenter
 class GraphicalEngine : public Singleton<GraphicalEngine>

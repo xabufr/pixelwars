@@ -131,6 +131,10 @@
 		<Unit filename="engines/graphics/gui/guinode.h" />
 		<Unit filename="engines/graphics/gui/guiprogressbaritem.cpp" />
 		<Unit filename="engines/graphics/gui/guiprogressbaritem.h" />
+		<Unit filename="engines/graphics/gui/guislidernumberitem.cpp" />
+		<Unit filename="engines/graphics/gui/guislidernumberitem.h" />
+		<Unit filename="engines/graphics/gui/guitextinputitem.cpp" />
+		<Unit filename="engines/graphics/gui/guitextinputitem.h" />
 		<Unit filename="engines/graphics/gui/guitextitem.cpp" />
 		<Unit filename="engines/graphics/gui/guitextitem.h" />
 		<Unit filename="engines/graphics/gui/guiwindowcontener.cpp" />

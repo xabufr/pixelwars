@@ -9,8 +9,11 @@ MenuPrincipal::MenuPrincipal()
 
     m_btn_quitter = new GuiButtonItem;
     m_btn_jouer_scinde = new GuiButtonItem;
-    GuiTextInputItem *inputItem = new GuiTextInputItem;
-    inputItem->SetBgColor(sf::Color(255,0,0));
+    GuiSliderNumberItem *inputItem = new GuiSliderNumberItem;
+    inputItem->SetColor(sf::Color(255,0,0));
+    inputItem->SetFocusColor(sf::Color(0,255,0));
+    inputItem->SetValue(50);
+    inputItem->SetRange(500,1000);
 
     m_btn_quitter->SetText("Quitter");
     m_btn_jouer_scinde->SetText(L"Jouer en écran scindé");
