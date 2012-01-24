@@ -43,3 +43,7 @@ void GuiNode::m_RemoveMeNextDraw()
 {
     ((GuiManager*)m_manager)->AddToRemoveNode(this);
 }
+GuiNode* GuiNode::AddGuiNode()
+{
+    return (GuiNode*)AddSceneNode(new GuiNode(m_manager, this));
+}

@@ -2571,7 +2571,7 @@
 	"../scenenodeitem.h"
 	<unordered_map>
 
-1327228817 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guinode.h
+1327430838 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guinode.h
 	"../scenenode.h"
 
 1327007916 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guibuttonitem.h
@@ -2678,7 +2678,7 @@
 	"../scenenodeitem.h"
 	<unordered_map>
 
-1327228817 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.h
+1327430838 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.h
 	"../scenenode.h"
 
 1327007916 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.h
@@ -2754,7 +2754,7 @@
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/core/singleton.cpp
 	"singleton.h"
 
-1327160676 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.cpp
+1327431078 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.cpp
 	"guibuttonitem.h"
 	"guimanager.h"
 	"../graphicalengine.h"
@@ -2795,7 +2795,7 @@
 	"scenenodespriteitem.h"
 	"core/logger.h"
 
-1327228831 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.cpp
+1327430943 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guinode.cpp
 	"guinode.h"
 	"guiitem.h"
 	"guiwindownode.h"
@@ -3199,10 +3199,11 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1327426722 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
+1327430545 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
 	"menuprincipal.h"
 	"../gameengine.h"
 	"core/logger.h"
+	"menuoptionspartie.h"
 
 1327233519 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.h
 	"engines/graphics/graphicalengine.h"
@@ -3211,7 +3212,7 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1327348658 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextinputitem.cpp
+1327431043 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextinputitem.cpp
 	"guitextinputitem.h"
 	"../graphicalengine.h"
 	"core/logger.h"
@@ -3228,8 +3229,30 @@
 	<SFML2/Graphics.hpp>
 	"guiitem.h"
 
-1327427053 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guislidernumberitem.cpp
+1327431308 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guislidernumberitem.cpp
 	"guislidernumberitem.h"
 	"../graphicalengine.h"
 	<iostream>
+
+1327429399 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+	"menuoptions.h"
+
+1327429399 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
+
+1327431933 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
+
+1327431689 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.cpp
+	"menuoptionspartie.h"
+	"engines/graphics/graphicalengine.h"
+	"core/conversion.h"
+
+1327431735 source:/home/thomas/pixelwar/pixelwar/src/core/conversion.cpp
+	"conversion.h"
+	<sstream>
+
+1327431727 /home/thomas/pixelwar/pixelwar/src/core/conversion.h
+	<string>
+
+1327431727 /home/thomas/pixelwar/pixelwar/src//core/conversion.h
+	<string>
 

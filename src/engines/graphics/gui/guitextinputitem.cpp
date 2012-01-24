@@ -15,6 +15,8 @@ GuiTextInputItem::~GuiTextInputItem()
 }
 void GuiTextInputItem::HandleEvent(const sf::Event& event)
 {
+    if(!m_visible)
+        return;
     if(m_focus)
     {
         if(event.Type == sf::Event::TextEntered)
@@ -73,6 +75,8 @@ void GuiTextInputItem::SetCharacterSize(unsigned int taille)
 }
 void GuiTextInputItem::Draw(sf::RenderWindow* app)
 {
+    if(!m_visible)
+        return;
     m_CalculerTexte();
     app->Draw(m_fond);
     app->Draw(m_text);

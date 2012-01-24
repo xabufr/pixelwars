@@ -1,6 +1,8 @@
 #include "menuprincipal.h"
 #include "../gameengine.h"
 #include "core/logger.h"
+#include "menuoptionspartie.h"
+
 MenuPrincipal::MenuPrincipal()
 {
     GraphicalEngine* engine = GraphicalEngine::GetInstance();
@@ -58,8 +60,10 @@ void MenuPrincipal::Show()
         {
             m_gameToStart=false;
             this->m_contenerMenu->Hide();
-            GameEngine game;
-            game.Start();
+            /*GameEngine game;
+            game.Start();*/
+            MenuOptionsPartie menuSc(TypePartie::ECRAN_SCINDE);
+
             this->m_contenerMenu->Show();
         }
     }

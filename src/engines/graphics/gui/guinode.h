@@ -14,6 +14,7 @@ class GuiNode : public SceneNode
         virtual void HandleEventRecurse(const sf::Event&);
         GuiWindowNode* AddWindow();
         GuiContener* AddContener();
+        GuiNode* AddGuiNode();
 
     protected:
         void m_RemoveMeNextDraw();

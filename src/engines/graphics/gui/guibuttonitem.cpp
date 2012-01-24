@@ -18,6 +18,8 @@ GuiButtonItem::~GuiButtonItem()
 
 void GuiButtonItem::HandleEvent(const sf::Event& event)
 {
+    if(!m_visible)
+        return;
     if(event.Type == sf::Event::MouseMoved)
     {
         if(m_btn_fond.GetGlobalBounds().Contains(GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition()))
