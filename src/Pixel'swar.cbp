@@ -75,6 +75,8 @@
 		</Linker>
 		<Unit filename="core/consolelogger.cpp" />
 		<Unit filename="core/consolelogger.h" />
+		<Unit filename="core/conversion.cpp" />
+		<Unit filename="core/conversion.h" />
 		<Unit filename="core/exception.cpp" />
 		<Unit filename="core/exception.h" />
 		<Unit filename="core/filelogger.cpp" />
@@ -103,6 +105,10 @@
 		<Unit filename="engines/game/joueurhumain.h" />
 		<Unit filename="engines/game/joueurmanager.cpp" />
 		<Unit filename="engines/game/joueurmanager.h" />
+		<Unit filename="engines/game/menus/menuoptions.cpp" />
+		<Unit filename="engines/game/menus/menuoptions.h" />
+		<Unit filename="engines/game/menus/menuoptionspartie.cpp" />
+		<Unit filename="engines/game/menus/menuoptionspartie.h" />
 		<Unit filename="engines/game/menus/menuprincipal.cpp" />
 		<Unit filename="engines/game/menus/menuprincipal.h" />
 		<Unit filename="engines/game/projectile.cpp" />
