@@ -166,6 +166,8 @@
 		<Unit filename="engines/graphics/texturemanager.h" />
 		<Unit filename="engines/network/networkengine.cpp" />
 		<Unit filename="engines/network/networkengine.h" />
+		<Unit filename="engines/sound/soundbuffermanager.cpp" />
+		<Unit filename="engines/sound/soundbuffermanager.h" />
 		<Unit filename="engines/sound/soundengine.cpp" />
 		<Unit filename="engines/sound/soundengine.h" />
 		<Unit filename="engines/type.h" />

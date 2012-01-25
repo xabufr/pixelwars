@@ -17,8 +17,8 @@ InputManager::InputManager()
     m_touches[1]["bas"] = sf::Keyboard::Key::S;
     m_touches[1]["tirer"] = sf::Keyboard::Key::LControl;
     m_touches[1]["changer_unite"] = sf::Keyboard::Key::E;
-    m_touches[1]["zoomer"] = sf::Keyboard::Key::E;
-    m_touches[1]["dezoomer"] = sf::Keyboard::Key::E;
+    m_touches[1]["zoomer"] = sf::Keyboard::Key::W;
+    m_touches[1]["dezoomer"] = sf::Keyboard::Key::X;
 }
 
 InputManager::~InputManager()

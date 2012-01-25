@@ -2760,7 +2760,7 @@
 	"guimanager.h"
 	"../graphicalengine.h"
 
-1327512418 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1327513273 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2770,6 +2770,7 @@
 	"projectile.h"
 	"uniteterrestremodel.h"
 	"joueurhumain.h"
+	"../engineevent.h"
 
 1327231778 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
 	"graphicalengine.h"
@@ -2835,8 +2836,9 @@
 1326553391 /home/thomas/pixelwar/pixelwar/src/engines/network/networkengine.h
 	"../engine.h"
 
-1327512262 source:/home/thomas/pixelwar/pixelwar/src/game.cpp
+1327513142 source:/home/thomas/pixelwar/pixelwar/src/game.cpp
 	"game.h"
+	"engines/engineevent.h"
 
 1327512917 /home/thomas/pixelwar/pixelwar/src/game.h
 	"engines/engine.h"
@@ -2845,11 +2847,12 @@
 	"engines/game/gameengine.h"
 	"engines/type.h"
 
-1326543792 source:/home/thomas/pixelwar/pixelwar/src/engines/sound/soundengine.cpp
+1327517137 source:/home/thomas/pixelwar/pixelwar/src/engines/sound/soundengine.cpp
 	"soundengine.h"
 
-1326553815 /home/thomas/pixelwar/pixelwar/src/engines/sound/soundengine.h
+1327516815 /home/thomas/pixelwar/pixelwar/src/engines/sound/soundengine.h
 	"../engine.h"
+	"soundbuffermanager.h"
 
 1327512389 source:/home/thomas/pixelwar/pixelwar/src/engines/engine.cpp
 	"engine.h"
@@ -3062,7 +3065,7 @@
 	<SFML/Config.hpp>
 	<SFML/System/Vector2.hpp>
 
-1327148103 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
+1327514028 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
 	"inputmanager.h"
 
 1327150945 source:/home/thomas/pixelwar/pixelwar/src/engines/game/projectile.cpp
@@ -3274,8 +3277,9 @@
 1326553391 /home/thomas/pixelwar/pixelwar/src//engines/network/networkengine.h
 	"../engine.h"
 
-1326553815 /home/thomas/pixelwar/pixelwar/src//engines/sound/soundengine.h
+1327516815 /home/thomas/pixelwar/pixelwar/src//engines/sound/soundengine.h
 	"../engine.h"
+	"soundbuffermanager.h"
 
 1327513188 /home/thomas/pixelwar/pixelwar/src//engines/game/gameengine.h
 	"../engine.h"
@@ -3308,4 +3312,70 @@
 1327146544 /home/thomas/pixelwar/pixelwar/src//engines/game/inputmanager.h
 	<SFML2/Window.hpp>
 	<unordered_map>
+
+1327515661 /home/thomas/pixelwar/pixelwar/src/engines/sound/soundbuffermanager.h
+	"core/singleton.h"
+	<SFML2/Audio.hpp>
+	<unordered_map>
+
+1325788462 /usr/include/SFML2/Audio.hpp
+	<SFML/System.hpp>
+	<SFML/Audio/Listener.hpp>
+	<SFML/Audio/Music.hpp>
+	<SFML/Audio/Sound.hpp>
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundBufferRecorder.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<SFML/Audio/SoundStream.hpp>
+
+1316626163 /usr/include/SFML/Audio/Listener.hpp
+	<SFML/Config.hpp>
+	<SFML/System/Vector3.hpp>
+
+1316626163 /usr/include/SFML/Audio/Music.hpp
+	<cstddef>
+	<SFML/Audio/SoundStream.hpp>
+	<string>
+	<vector>
+
+1316626163 /usr/include/SFML/Audio/SoundStream.hpp
+	<SFML/Audio/Sound.hpp>
+	<SFML/System/Thread.hpp>
+	<cstdlib>
+
+1316626163 /usr/include/SFML/Audio/Sound.hpp
+	<cstddef>
+	<SFML/System/Resource.hpp>
+	<SFML/System/Vector3.hpp>
+	<SFML/Audio/AudioResource.hpp>
+	<cstdlib>
+
+1316626163 /usr/include/SFML/Audio/AudioResource.hpp
+	<SFML/Config.hpp>
+
+1316626163 /usr/include/SFML/Audio/SoundBuffer.hpp
+	<cstddef>
+	<SFML/System/Resource.hpp>
+	<SFML/Audio/AudioResource.hpp>
+	<string>
+	<vector>
+	<set>
+
+1316626163 /usr/include/SFML/Audio/SoundBufferRecorder.hpp
+	<SFML/Audio/SoundBuffer.hpp>
+	<SFML/Audio/SoundRecorder.hpp>
+	<vector>
+
+1316626163 /usr/include/SFML/Audio/SoundRecorder.hpp
+	<SFML/System/Thread.hpp>
+	<vector>
+
+1327515661 /home/thomas/pixelwar/pixelwar/src//engines/sound/soundbuffermanager.h
+	"core/singleton.h"
+	<SFML2/Audio.hpp>
+	<unordered_map>
+
+1327515657 source:/home/thomas/pixelwar/pixelwar/src/engines/sound/soundbuffermanager.cpp
+	"soundbuffermanager.h"
+	"core/logger.h"
 

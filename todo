@@ -14,26 +14,31 @@ Possibilité d'ajouter des unitées sans GUI
 Possibilité d'ajouter des unitées avec GUI
 Progress-bar pour la vie
 Menu principal
+gérer le hide/show dans les nouveaux widgets
+Ajout des items de saisie de texte, de saisie de chiffre (slidder)
+Implémenter la GUI au mieux -> Gérer les focus, les levels
 
 ---------->En cours
 
-
-Implémenter la GUI au mieux -> Gérer les focus, les levels
--> Ajout des items de saisie de texte, de saisie de chiffre (slidder), de conteneur avec slider vertical
-Possibilité de personnaliser ses unités depuis le menu principal
-Gérer la création de nouveau types d'unitées I-G
-gérer le hide/show dans les nouveaux widgets
+Implémenter un menu de jeu
+Gérer les sons
+Utiliser la communication inter-module
 
 ----------->À Faire
+-> conteneur avec slider vertical
+Possibilité de personnaliser ses unités depuis le menu principal
+Gérer la création de nouveau types d'unitées I-G
 
-
-Utiliser la communication inter-module
-Implémenter type de jeu pour réagir en fct (càd serveur ou client)
 Possibilité de créer de nouveaux type I-G
-Synchroniser les types d'unitées des 2 cotés
-Gérer les sons
-Implémenter un menu de jeu
+
+
+
+
+
 Implémenter une console
+
+Implémenter type de jeu pour réagir en fct (càd serveur ou client)
+Synchroniser les types d'unitées des 2 cotés
 Écrire le moteur réseau
 
 
