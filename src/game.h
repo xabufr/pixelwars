@@ -11,12 +11,21 @@ class Game
     public:
         Game();
         ~Game();
+        void Start();
+        void SetTailleCarte(int largeur);
         Engine* GetEngineFromId(EngineType id);
     protected:
     private:
         NetworkEngine* m_network;
         GameEngine *m_game;
         SoundEngine *m_sound;
+        std::vector<Engine*> m_engines;
+
+        bool m_run;
+
+        int m_largeurCarte;
+
+        void Work();
 };
 
 #endif // GAME_H

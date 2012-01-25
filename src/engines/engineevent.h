@@ -5,6 +5,11 @@
 #include <vector>
 #include <SFML2/Network.hpp>
 
+namespace TypeMessage
+{
+    sf::Uint8 const Quitter = 0;
+}
+
 class Game;
 class Engine;
 class EngineEvent
@@ -32,6 +37,9 @@ class EngineEvent
 
         const std::vector<Engine*>& GetEngines() const;
         const std::vector<sf::Uint8> GetEnginesById() const;
+
+        sf::Uint8 GetMessage() const;
+        void SetMessage(sf::Uint8);
 
         static void SetGame(Game*);
 

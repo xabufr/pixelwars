@@ -6,12 +6,15 @@
 #include <deque>
 #include "joueurmanager.h"
 #include "unitemanager.h"
+#include "inputmanager.h"
 
 class JoueurHumain;
 class Joueur;
 class SceneNodeTextureItem;
 class Projectile;
 class TiXmlNode;
+class GraphicalEngine;
+class GuiWindowNode;
 class GameEngine : public Engine
 {
     public:
@@ -19,9 +22,14 @@ class GameEngine : public Engine
         virtual ~GameEngine();
         void Start();
         EngineType GetEngineId() const;
+
+        void Work();
+        void HandleEngineEvent(EngineEvent*);
+
         void LoadGuiModels(GuiWindowNode*, Joueur*);
         void AddModel(GuiWindowContener*, Joueur*, TiXmlNode*);
         void DesalouerModel(GuiWindowContener*);
+        void SetTailleMap(int);
 
         static void CallbackAjoutUnite(GuiItem*);
 
@@ -35,11 +43,18 @@ class GameEngine : public Engine
         b2World* m_world;
         b2Body* ground;
         Carte *m_carte;
+        GraphicalEngine *m_gengine;
 
         JoueurManager *joueurManager;
         UniteManager *uniteManager;
+        GuiWindowNode *m_windowJ1, *m_windowJ2;
+        InputManager m_inputManager;
+        sf::RenderWindow *m_app;
+
+        int m_tailleCarte;
 
         void DeleteProjectile(Projectile *toDelete);
+        void SendEndMessage();
 
         bool m_running;
 

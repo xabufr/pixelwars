@@ -7,15 +7,22 @@
 #include "projectile.h"
 #include "uniteterrestremodel.h"
 #include "joueurhumain.h"
+#include "../engineevent.h"
 
 GameEngine::GameEngine()
 {
     m_lastId = 0;
     m_running=true;
+    m_tailleCarte=100;
 }
 
 GameEngine::~GameEngine()
 {
+    DesalouerModel(m_windowJ1->GetContener());
+    DesalouerModel(m_windowJ2->GetContener());
+    m_gengine->GetGuiManager()->RemoveNode(m_windowJ1);
+    m_gengine->GetGuiManager()->RemoveNode(m_windowJ2);
+
     delete joueurManager;
     delete uniteManager;
     delete m_carte;
@@ -25,10 +32,15 @@ EngineType GameEngine::GetEngineId() const
 {
     return EngineType::Game_engine;
 }
+void GameEngine::SetTailleMap(int taille)
+{
+    m_tailleCarte=taille;
+}
 void GameEngine::Start()
 {
-    GraphicalEngine* gengine = GraphicalEngine::GetInstance();
-    sf::RenderWindow *app = gengine->GetRenderWindow();
+    m_gengine = GraphicalEngine::GetInstance();
+    m_app = m_gengine->GetRenderWindow();
+
 
     uniteManager = new UniteManager;
     m_listner = new ContactListenner(uniteManager->GetListe());
@@ -36,11 +48,10 @@ void GameEngine::Start()
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(m_listner);
-	m_carte = new Carte(m_world, sf::Vector2i(5000,600), 400, 100, 0);
+	m_carte = new Carte(m_world, sf::Vector2i(m_tailleCarte,600), 400, 100, 0);
     UniteTerrestreModel::GetInstance();
 
 
-    InputManager imanager;
     joueurManager = new JoueurManager(*m_carte);
     uniteManager->SetJoueurManager(joueurManager);
 
@@ -49,48 +60,16 @@ void GameEngine::Start()
     joueurManager->GetJoueur(0)->SetColor(sf::Color(255,255,0));
     joueurManager->GetJoueur(1)->SetColor(sf::Color(0,0,255));
 
+    m_windowJ1 = m_gengine->GetGuiManager()->GetRootNode()->AddWindow();
+    m_windowJ1->SetWindowTitle("Joueur 1");
+    LoadGuiModels(m_windowJ1, joueurManager->GetJoueur(0));
+    m_windowJ1->SetAbsolutePosition(0,0);
 
-    sf::Event event;
-    GuiWindowNode *windowJ1 = GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow();
-    windowJ1->SetWindowTitle("Joueur 1");
-    LoadGuiModels(windowJ1, joueurManager->GetJoueur(0));
-    windowJ1->SetAbsolutePosition(0,0);
+    m_windowJ2 = m_gengine->GetGuiManager()->GetRootNode()->AddWindow();
+    m_windowJ2->SetWindowTitle("Joueur 2");
+    LoadGuiModels(m_windowJ2, joueurManager->GetJoueur(1));
+    m_windowJ2->SetAbsolutePosition(300,0);
 
-    GuiWindowNode *windowJ2 = GraphicalEngine::GetInstance()->GetGuiManager()->GetRootNode()->AddWindow();
-    windowJ2->SetWindowTitle("Joueur 2");
-    LoadGuiModels(windowJ2, joueurManager->GetJoueur(1));
-    windowJ2->SetAbsolutePosition(300,0);
-
-    while(m_running)
-    {
-        while(app->PollEvent(event))
-        {
-            gengine->GetGuiManager()->HandleEvent(event);
-            if(event.Type==sf::Event::Closed)
-                m_running=false;
-            if(event.Type==sf::Event::KeyReleased)
-            {
-                if(event.Key.Code == sf::Keyboard::Key::Escape)
-                {
-                    m_running=false;
-                }
-            }
-            imanager.HandleEvent(event);
-        }
-
-
-        m_world->Step(1.f/60.f, 8, 3);
-        gengine->DrawScene();
-        GererExplosions();
-        uniteManager->Update();
-        joueurManager->Input(0, imanager.GetAll());
-        joueurManager->Input(1, imanager.GetAll(1));
-        joueurManager->Update();
-    }
-    DesalouerModel(windowJ1->GetContener());
-    DesalouerModel(windowJ2->GetContener());
-    gengine->GetGuiManager()->RemoveNode(windowJ1);
-    gengine->GetGuiManager()->RemoveNode(windowJ2);
 }
 void GameEngine::GererExplosions()
 {
@@ -173,4 +152,41 @@ void GameEngine::CallbackAjoutUnite(GuiItem* item)
     Joueur* joueur = (Joueur*)item->GetData("joueur");
     sf::Uint32 id = game->m_lastId++;
     game->uniteManager->AjouterUniteTerrestre(game->joueurManager->GetId(joueur), id, game->m_world, std::string((char*)item->GetData("model")));
+}
+
+void GameEngine::Work()
+{
+    sf::Event event;
+    while(m_app->PollEvent(event))
+    {
+        m_gengine->GetGuiManager()->HandleEvent(event);
+        if(event.Type==sf::Event::Closed)
+            SendEndMessage();
+        if(event.Type==sf::Event::KeyReleased)
+        {
+            if(event.Key.Code == sf::Keyboard::Key::Escape)
+            {
+                SendEndMessage();
+            }
+        }
+        m_inputManager.HandleEvent(event);
+    }
+
+
+    m_world->Step(1.f/60.f, 8, 3);
+    m_gengine->DrawScene();
+    GererExplosions();
+    uniteManager->Update();
+    joueurManager->Input(0, m_inputManager.GetAll());
+    joueurManager->Input(1, m_inputManager.GetAll(1));
+    joueurManager->Update();
+}
+void GameEngine::HandleEngineEvent(EngineEvent*)
+{
+
+}
+void GameEngine::SendEndMessage()
+{
+    m_engineEvents.push_back(new EngineEvent);
+    m_engineEvents.back()->SetMessage(TypeMessage::Quitter);
 }

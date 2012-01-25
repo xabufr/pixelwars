@@ -2,6 +2,7 @@
 #include "engines/graphics/graphicalengine.h"
 #include "core/conversion.h"
 #include "../gameengine.h"
+#include "game.h"
 MenuOptionsPartie::MenuOptionsPartie(TypePartie type)
 {
     m_tailleCarte=2000;
@@ -25,7 +26,7 @@ void MenuOptionsPartie::StartMenuEcranScinde()
     btn->SetText("Jouer");
     btn->SetData("this", this);
     btn->SetCallBack("clicked", CommencerPartie);
-    tailleCarteItem->SetSize(sf::Vector2f(1000,20));
+    tailleCarteItem->SetSize(sf::Vector2f(200,20));
     tailleCarteItem->SetRange(2000, 8000);
     tailleCarteItem->SetValue(2000);
     tailleCarteItem->SetColor(sf::Color(255,0,0));
@@ -52,10 +53,12 @@ void MenuOptionsPartie::StartMenuEcranScinde()
         if(m_start)
             continuer=false;
     }
+    int taille = tailleCarteItem->GetValue();
     engine->GetGuiManager()->RemoveNode(node);
     if(m_start)
     {
-        GameEngine game;
+        Game game;
+        game.SetTailleCarte(taille);
         game.Start();
     }
 }

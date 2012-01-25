@@ -63,6 +63,14 @@ void EngineEvent::SetGame(Game* g)
 {
     m_game=g;
 }
+void EngineEvent::SetMessage(sf::Uint8 message)
+{
+    m_message=message;
+}
+sf::Uint8 EngineEvent::GetMessage() const
+{
+    return m_message;
+}
 void EngineEvent::CreateId()
 {
     m_recieverId.clear();
