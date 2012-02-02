@@ -114,6 +114,8 @@
 		<Unit filename="engines/game/menus/menuprincipal.h" />
 		<Unit filename="engines/game/projectile.cpp" />
 		<Unit filename="engines/game/projectile.h" />
+		<Unit filename="engines/game/soundproprities.cpp" />
+		<Unit filename="engines/game/soundproprities.h" />
 		<Unit filename="engines/game/unite.cpp" />
 		<Unit filename="engines/game/unite.h" />
 		<Unit filename="engines/game/unitemanager.cpp" />

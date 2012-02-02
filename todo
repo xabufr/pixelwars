@@ -17,13 +17,16 @@ Menu principal
 gérer le hide/show dans les nouveaux widgets
 Ajout des items de saisie de texte, de saisie de chiffre (slidder)
 Implémenter la GUI au mieux -> Gérer les focus, les levels
-
+-> implémenter des sons paramétrables, en fct de la cadence et de la puissance OK
 ---------->En cours
 
 Implémenter un menu de jeu
+---> débuté
 Gérer les sons
--> implémenter des sons paramétrables, en fct de la cadence et de la puissance
+--> en cours
+
 Utiliser la communication inter-module
+--> en cours pour audio
 
 ----------->À Faire
 -> conteneur avec slider vertical
