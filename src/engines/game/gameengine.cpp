@@ -42,7 +42,7 @@ void GameEngine::Start()
     m_app = m_gengine->GetRenderWindow();
 
 
-    uniteManager = new UniteManager;
+    uniteManager = new UniteManager(this);
     m_listner = new ContactListenner(uniteManager->GetListe());
     b2Vec2 gravity;
 	gravity.Set(0.0f, -10.0f);

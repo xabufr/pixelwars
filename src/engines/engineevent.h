@@ -8,8 +8,12 @@
 namespace TypeMessage
 {
     sf::Uint8 const Quitter = 0;
+    sf::Uint8 const JouerSon = 1;
 }
-
+namespace IndexMessages
+{
+    sf::Uint8 const Chemin = 0;
+}
 class Game;
 class Engine;
 class EngineEvent
@@ -25,6 +29,7 @@ class EngineEvent
         ///
         /////////////////////////////////////////////////
         void To(Engine* engine);
+        void To(EngineType type);
         void AddPosition(sf::Uint8 index, const sf::Vector2f&);
         void AddInt(sf::Uint8 index, sf::Int32);
         void AddFloat(sf::Uint8 index, float);

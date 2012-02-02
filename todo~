@@ -22,12 +22,13 @@ Implémenter la GUI au mieux -> Gérer les focus, les levels
 
 Implémenter un menu de jeu
 Gérer les sons
+Utiliser la communication inter-module
 
 ----------->À Faire
 -> conteneur avec slider vertical
 Possibilité de personnaliser ses unités depuis le menu principal
 Gérer la création de nouveau types d'unitées I-G
-Utiliser la communication inter-module
+
 Possibilité de créer de nouveaux type I-G
 
 

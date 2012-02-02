@@ -13,6 +13,7 @@ class Engine
         virtual const std::vector<EngineEvent*>& GetEvents() const;
         virtual void ClearEvents();
         virtual void HandleEngineEvent(EngineEvent*) = 0;
+        virtual void AddEvent(EngineEvent*);
     protected:
         std::vector<EngineEvent*> m_engineEvents;
 };

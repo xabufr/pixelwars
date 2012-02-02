@@ -198,3 +198,7 @@ void UniteTerrestre::SetColor(const sf::Color& col)
 {
     m_itemBody->SetColor(col);
 }
+float UniteTerrestre::GetTailleCanon() const
+{
+    return m_param->tailleCanon;
+}

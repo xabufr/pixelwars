@@ -5,8 +5,12 @@
 #include "projectile.h"
 #include "uniteterrestre.h"
 #include <Box2D/Box2D.h>
+#include "engines/type.h"
+#include "engines/engineevent.h"
+#include "gameengine.h"
+#include "soundproprities.h"
 
-UniteManager::UniteManager(JoueurManager* j_manager): m_joueurManager(j_manager)
+UniteManager::UniteManager(GameEngine* g_engine, JoueurManager* j_manager): m_joueurManager(j_manager), m_engine(g_engine)
 {
 }
 
@@ -16,6 +20,7 @@ UniteManager::~UniteManager()
         delete it.second;
     for(Projectile *p: m_projectiles)
         delete p;
+    SoundProprities::Kill();
 }
 void UniteManager::EnleverUnite(sf::Uint32 id)
 {
@@ -76,6 +81,11 @@ void UniteManager::Update()
         if(unit&&unit->PeutTirer())
         {
             m_projectiles.push_back(unit->Tirer());
+            EngineEvent *eventSon = new EngineEvent;
+            eventSon->To(EngineType::Audio_engine);
+            eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetUniteTerrestreSound((UniteTerrestre*)unit));
+            eventSon->SetMessage(TypeMessage::JouerSon);
+            m_engine->AddEvent(eventSon);
         }
     }
     for(Projectile *proj: m_projectiles)
@@ -109,8 +119,15 @@ void UniteManager::DeleteProjectile(Projectile* proj)
     {
         if(m_projectiles[i]==proj)
         {
+            EngineEvent *eventSon = new EngineEvent;
+            eventSon->To(EngineType::Audio_engine);
+            eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetProjectileSound(proj));
+            eventSon->SetMessage(TypeMessage::JouerSon);
+            m_engine->AddEvent(eventSon);
+
             m_projectiles.erase(m_projectiles.begin()+i);
             delete proj;
+
             return;
         }
     }

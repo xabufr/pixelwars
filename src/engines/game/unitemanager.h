@@ -10,10 +10,11 @@ class Unite;
 class Joueur;
 class JoueurManager;
 class Projectile;
+class GameEngine;
 class UniteManager
 {
     public:
-        UniteManager(JoueurManager *j_manager=0);
+        UniteManager(GameEngine* g_engine, JoueurManager *j_manager=0);
         void SetJoueurManager(JoueurManager *j_manager);
         virtual ~UniteManager();
 
@@ -39,6 +40,7 @@ class UniteManager
         std::unordered_map<sf::Uint32, Unite*> m_unites;
         std::deque<Projectile*> m_projectiles;
         JoueurManager *m_joueurManager;
+        GameEngine *m_engine;
 };
 
 #endif // UNITEMANAGER_H

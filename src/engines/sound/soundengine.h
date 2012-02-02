@@ -10,7 +10,7 @@ struct SoundParams
     bool spacialized;
     SoundParams()
     {
-        removeWhenFinished=false;
+        removeWhenFinished=true;
         spacialized=false;
     }
 };
@@ -29,9 +29,12 @@ class SoundEngine : public Engine
 
         sf::Sound* GetSound(unsigned int);
 
-        void RemoveWhenFinished(unsigned int);
+        void RemoveWhenFinished(unsigned int, bool=true);
 
-        void Work();
+        virtual void Work();
+        virtual void HandleEngineEvent(EngineEvent*);
+
+        virtual EngineType GetEngineId() const;
 
     protected:
     private:

@@ -19,6 +19,12 @@ void EngineEvent::To(Engine* engine)
     CreateId();
 }
 
+void EngineEvent::To(EngineType type)
+{
+    m_recieverId.push_back(type);
+    CreateEngines();
+}
+
 void EngineEvent::AddPosition(sf::Uint8 index, const sf::Vector2f& pos)
 {
     m_position[index]=pos;

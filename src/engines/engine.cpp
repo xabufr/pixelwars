@@ -20,3 +20,7 @@ const std::vector<EngineEvent*>& Engine::GetEvents() const
 {
     return m_engineEvents;
 }
+void Engine::AddEvent(EngineEvent *event)
+{
+    m_engineEvents.push_back(event);
+}

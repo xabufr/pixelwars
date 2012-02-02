@@ -4,13 +4,16 @@
 Game::Game()
 {
     m_game = new GameEngine;
+    m_sound = new SoundEngine;
     m_engines.push_back(m_game);
+    m_engines.push_back(m_sound);
     EngineEvent::SetGame(this);
 }
 
 Game::~Game()
 {
     delete m_game;
+    delete m_sound;
 }
 Engine* Game::GetEngineFromId(EngineType id)
 {
@@ -32,6 +35,7 @@ void Game::Start()
     while(m_run)
     {
         m_game->Work();
+        m_sound->Work();
         this->Work();
     }
 }
@@ -53,8 +57,12 @@ void Game::Work()
             }
             else
             {
-
+                for(Engine* engineHandle : event->GetEngines())
+                {
+                    engineHandle->HandleEngineEvent(event);
+                }
             }
         }
+        engine->ClearEvents();
     }
 }

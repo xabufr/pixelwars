@@ -1,0 +1,12 @@
+<root>
+  <tirs>
+    <intervalle min="0" max="2" son="data/sons/" />
+    <intervalle min="2" max="3" son="data/sons/" />
+    <intervalle min="3" max="4" son="data/sons/" />
+  </tirs>
+  <explosions>
+    <intervalle min="5" max="10" son="data/sons/" />
+    <intervalle min="10" max="20" son="data/sons/" />
+    <intervalle min="20" max="25" son="data/sons/" />
+  </explosions>
+</root>
