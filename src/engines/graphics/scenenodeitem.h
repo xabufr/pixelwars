@@ -34,6 +34,8 @@ class SceneNodeItem
         virtual float GetRelativeRotation() const;
         virtual const sf::Vector2f& GetRelativeScale() const;
 
+        virtual sf::Vector2f GetSize() const = 0;
+
         void Show();
         void Hide();
         void SetVisible(bool);

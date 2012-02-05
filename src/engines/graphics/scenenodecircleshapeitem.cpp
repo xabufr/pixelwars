@@ -92,3 +92,8 @@ void SceneNodeCircleShapeItem::ScaleChanged()
 {
     m_shape.SetScale(m_parent.scale.x*m_relative.scale.x, m_parent.scale.y*m_relative.scale.y);
 }
+
+sf::Vector2f SceneNodeCircleShapeItem::GetSize() const
+{
+    return sf::Vector2f(m_shape.GetRadius()*2, m_shape.GetRadius()*2);
+}

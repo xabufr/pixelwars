@@ -17,6 +17,7 @@ class SceneNodeTextureItem : public SceneNodeItem
         void DrawCircle(float, const sf::Color&, float, float);
 
         const sf::Image& GetImage()const;
+        virtual sf::Vector2f GetSize() const;
 
     protected:
         virtual void Draw(sf::RenderWindow* app);

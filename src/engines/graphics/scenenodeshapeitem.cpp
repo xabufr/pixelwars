@@ -58,3 +58,7 @@ sf::FloatRect SceneNodeShapeItem::GetGlobalBounds() const
 {
     return m_shape.GetGlobalBounds();
 }
+sf::Vector2f SceneNodeShapeItem::GetSize() const
+{
+    return sf::Vector2f(m_shape.GetGlobalBounds().Width, m_shape.GetGlobalBounds().Height);
+}

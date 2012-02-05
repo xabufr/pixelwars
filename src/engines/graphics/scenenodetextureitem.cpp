@@ -140,3 +140,7 @@ const sf::Image& SceneNodeTextureItem::GetImage()const
 {
     return m_img;
 }
+sf::Vector2f SceneNodeTextureItem::GetSize() const
+{
+    return sf::Vector2f(m_spr.GetGlobalBounds().Width, m_spr.GetGlobalBounds().Height);
+}

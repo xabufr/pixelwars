@@ -11,6 +11,8 @@ class SceneNodeSpriteItem : public SceneNodeItem
         virtual ~SceneNodeSpriteItem();
         void SetImage(const std::string&);
 
+        virtual sf::Vector2f GetSize() const;
+
     protected:
         virtual void Draw(sf::RenderWindow* app);
 

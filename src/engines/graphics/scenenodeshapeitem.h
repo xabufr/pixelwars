@@ -16,6 +16,7 @@ class SceneNodeShapeItem: public SceneNodeItem
         void SetOutlineThickness(float);
 
         sf::FloatRect GetGlobalBounds() const;
+        virtual sf::Vector2f GetSize() const;
 
         virtual ~SceneNodeShapeItem();
     protected:

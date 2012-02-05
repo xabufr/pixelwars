@@ -31,7 +31,6 @@ SceneNode::~SceneNode()
     {
         delete m_childItems[i];
     }
-
 }
 
 SceneNode* SceneNode::AddSceneNode()

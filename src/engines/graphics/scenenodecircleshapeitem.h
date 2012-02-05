@@ -17,6 +17,8 @@ class SceneNodeCircleShapeItem: public SceneNodeItem
 
         sf::FloatRect GetGlobalBounds() const;
 
+        sf::Vector2f GetSize() const;
+
     protected:
         virtual void Draw(sf::RenderWindow* app);
 

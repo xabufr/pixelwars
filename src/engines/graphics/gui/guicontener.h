@@ -17,7 +17,7 @@ class GuiContener: public GuiNode
         virtual ~GuiContener();
         void HandleEvent(const sf::Event&);
 
-    public:
+    private:
         void CalculerPositions();
 
         sf::Vector2f m_maxSize, m_size, m_espacement;

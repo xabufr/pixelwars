@@ -130,6 +130,8 @@
 		<Unit filename="engines/graphics/graphicalengine.h" />
 		<Unit filename="engines/graphics/gui/guibuttonitem.cpp" />
 		<Unit filename="engines/graphics/gui/guibuttonitem.h" />
+		<Unit filename="engines/graphics/gui/guicolorselector.cpp" />
+		<Unit filename="engines/graphics/gui/guicolorselector.h" />
 		<Unit filename="engines/graphics/gui/guicontener.cpp" />
 		<Unit filename="engines/graphics/gui/guicontener.h" />
 		<Unit filename="engines/graphics/gui/guiitem.cpp" />

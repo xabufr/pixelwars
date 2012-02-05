@@ -2485,13 +2485,13 @@
 	"scenenodeitem.h"
 	"positioninformations.h"
 
-1327160491 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeitem.h
+1328440707 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeitem.h
 	<SFML2/Graphics.hpp>
 	"positioninformations.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/positioninformations.h
 
-1327350686 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
+1328440184 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2515,15 +2515,16 @@
 	"gui/guiwindowcontener.h"
 	"gui/guitextinputitem.h"
 	"gui/guislidernumberitem.h"
+	"gui/guicolorselector.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src//core/singleton.h
 
-1326490981 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodetextureitem.h
+1328440827 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodetextureitem.h
 	"scenenodeitem.h"
 	<SFML2/Graphics.hpp>
 	"texturemanager.h"
 
-1327160491 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodeitem.h
+1328440707 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodeitem.h
 	<SFML2/Graphics.hpp>
 	"positioninformations.h"
 
@@ -2535,14 +2536,14 @@
 	<SFML2/Graphics/Texture.hpp>
 	"core/singleton.h"
 
-1326568035 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodespriteitem.h
+1328441013 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodespriteitem.h
 	"scenenodeitem.h"
 	"engines/graphics/texturemanager.h"
 
-1326490981 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodeshapeitem.h
+1328440911 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodeshapeitem.h
 	"scenenodeitem.h"
 
-1326490981 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodecircleshapeitem.h
+1328440732 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodecircleshapeitem.h
 	"scenenodeitem.h"
 	<SFML2/Graphics/CircleShape.hpp>
 
@@ -2567,7 +2568,7 @@
 	<vector>
 	<map>
 
-1327007702 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guiitem.h
+1328440701 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guiitem.h
 	"../scenenodeitem.h"
 	<unordered_map>
 
@@ -2618,7 +2619,7 @@
 	<exception>
 	<string>
 
-1327350686 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
+1328440184 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2642,10 +2643,11 @@
 	"gui/guiwindowcontener.h"
 	"gui/guitextinputitem.h"
 	"gui/guislidernumberitem.h"
+	"gui/guicolorselector.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/core/singleton.h
 
-1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.h
+1328440827 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.h
 	"scenenodeitem.h"
 	<SFML2/Graphics.hpp>
 	"texturemanager.h"
@@ -2656,14 +2658,14 @@
 	<SFML2/Graphics/Texture.hpp>
 	"core/singleton.h"
 
-1326568035 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodespriteitem.h
+1328441013 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodespriteitem.h
 	"scenenodeitem.h"
 	"engines/graphics/texturemanager.h"
 
-1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.h
+1328440911 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.h
 	"scenenodeitem.h"
 
-1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.h
+1328440732 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.h
 	"scenenodeitem.h"
 	<SFML2/Graphics/CircleShape.hpp>
 
@@ -2674,7 +2676,7 @@
 	<vector>
 	<map>
 
-1327007702 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiitem.h
+1328440701 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiitem.h
 	"../scenenodeitem.h"
 	<unordered_map>
 
@@ -2699,7 +2701,7 @@
 	<SFML2/Graphics.hpp>
 	"guiitem.h"
 
-1327160614 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.cpp
+1328441178 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.cpp
 	"scenenodetextureitem.h"
 	"core/exception.h"
 	"core/logger.h"
@@ -2744,11 +2746,11 @@
 	<cstdio>
 	<sstream>
 
-1327160575 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.cpp
+1328440972 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.cpp
 	"scenenodeshapeitem.h"
 	<SFML2/Graphics/ConvexShape.hpp>
 
-1327238735 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.cpp
+1328439058 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.cpp
 	"scenenode.h"
 	"engines/graphics/scenemanager.h"
 
@@ -2782,7 +2784,7 @@
 	"texturemanager.h"
 	"core/logger.h"
 
-1327160633 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.cpp
+1328440791 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.cpp
 	"scenenodecircleshapeitem.h"
 
 1327228379 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiwindownode.cpp
@@ -2793,7 +2795,7 @@
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/core/consolelogger.cpp
 	"consolelogger.h"
 
-1327160620 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodespriteitem.cpp
+1328441212 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodespriteitem.cpp
 	"scenenodespriteitem.h"
 	"core/logger.h"
 
@@ -3158,7 +3160,7 @@
 	<SFML2/System.hpp>
 	<unordered_map>
 
-1328220154 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unitemanager.cpp
+1328221134 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unitemanager.cpp
 	"unitemanager.h"
 	"joueurmanager.h"
 	"unite.h"
@@ -3180,12 +3182,12 @@
 	"guicontener.h"
 	"guiitem.h"
 
-1327073554 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicontener.h
+1328439398 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicontener.h
 	"guinode.h"
 	<SFML2/Graphics.hpp>
 	<deque>
 
-1327073554 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guicontener.h
+1328439398 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guicontener.h
 	"guinode.h"
 	<SFML2/Graphics.hpp>
 	<deque>
@@ -3211,14 +3213,15 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1327430545 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
+1328436405 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
 	"menuprincipal.h"
+	"engines/graphics/graphicalengine.h"
 	"../gameengine.h"
 	"core/logger.h"
 	"menuoptionspartie.h"
+	"menuoptions.h"
 
-1327233519 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.h
-	"engines/graphics/graphicalengine.h"
+1328437297 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.h
 
 1327348187 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guitextinputitem.h
 	"guiitem.h"
@@ -3246,10 +3249,11 @@
 	"../graphicalengine.h"
 	<iostream>
 
-1327429399 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+1328441523 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
 	"menuoptions.h"
+	"engines/graphics/graphicalengine.h"
 
-1327429399 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
+1328440308 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
 
 1327431933 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
 
@@ -3396,11 +3400,24 @@
 	<string>
 	"core/singleton.h"
 
-1328220546 source:/home/thomas/pixelwar/pixelwar/src/engines/game/soundproprities.cpp
+1328220880 source:/home/thomas/pixelwar/pixelwar/src/engines/game/soundproprities.cpp
 	"soundproprities.h"
 	<tinyxml.h>
 	"uniteterrestre.h"
 	"projectile.h"
 	"core/exception.h"
 	"core/logger.h"
+
+1328439594 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guicolorselector.h
+	"guicontener.h"
+	<SFML2/Graphics.hpp>
+
+1328439594 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicolorselector.h
+	"guicontener.h"
+	<SFML2/Graphics.hpp>
+
+1328441295 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicolorselector.cpp
+	"guicolorselector.h"
+	"../graphicalengine.h"
+	"../../../core/conversion.h"
 
