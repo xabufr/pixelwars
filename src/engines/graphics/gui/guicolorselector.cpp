@@ -96,3 +96,7 @@ void GuiColorSelector::SetColor(const sf::Color& color)
     m_selectB->SetValue(color.b);
     Update();
 }
+const sf::Color& GuiColorSelector::GetColor() const
+{
+    return m_affCouleur->GetColor();
+}

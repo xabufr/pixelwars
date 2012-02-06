@@ -20,6 +20,7 @@ class GuiColorSelector: protected GuiContener
         static void CallbackCouleurChanged(GuiItem*);
 
         void SetColor(const sf::Color&);
+        const sf::Color& GetColor() const;
 
     protected:
     private:

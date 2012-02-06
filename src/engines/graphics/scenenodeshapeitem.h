@@ -12,6 +12,7 @@ class SceneNodeShapeItem: public SceneNodeItem
         void SetSize(float,float);
 
         void SetColor(const sf::Color&);
+        const sf::Color& GetColor() const;
         void SetOutlineColor(const sf::Color&);
         void SetOutlineThickness(float);
 

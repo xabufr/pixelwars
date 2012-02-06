@@ -2540,7 +2540,7 @@
 	"scenenodeitem.h"
 	"engines/graphics/texturemanager.h"
 
-1328440911 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodeshapeitem.h
+1328551184 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodeshapeitem.h
 	"scenenodeitem.h"
 
 1328440732 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenenodecircleshapeitem.h
@@ -2662,7 +2662,7 @@
 	"scenenodeitem.h"
 	"engines/graphics/texturemanager.h"
 
-1328440911 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.h
+1328551184 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.h
 	"scenenodeitem.h"
 
 1328440732 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.h
@@ -2746,7 +2746,7 @@
 	<cstdio>
 	<sstream>
 
-1328440972 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.cpp
+1328551331 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.cpp
 	"scenenodeshapeitem.h"
 	<SFML2/Graphics/ConvexShape.hpp>
 
@@ -3249,11 +3249,12 @@
 	"../graphicalengine.h"
 	<iostream>
 
-1328441523 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+1328552281 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
 	"menuoptions.h"
 	"engines/graphics/graphicalengine.h"
+	"../playerparameters.h"
 
-1328440308 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
+1328552152 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
 
 1327431933 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
 
@@ -3408,16 +3409,26 @@
 	"core/exception.h"
 	"core/logger.h"
 
-1328439594 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guicolorselector.h
+1328550932 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guicolorselector.h
 	"guicontener.h"
 	<SFML2/Graphics.hpp>
 
-1328439594 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicolorselector.h
+1328550932 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicolorselector.h
 	"guicontener.h"
 	<SFML2/Graphics.hpp>
 
-1328441295 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicolorselector.cpp
+1328551231 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guicolorselector.cpp
 	"guicolorselector.h"
 	"../graphicalengine.h"
 	"../../../core/conversion.h"
+
+1328560809 source:/home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.cpp
+	"playerparameters.h"
+	"../../core/exception.h"
+	"../../core/logger.h"
+
+1328560109 /home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.h
+	"../../core/singleton.h"
+	<SFML2/Graphics.hpp>
+	<tinyxml.h>
 

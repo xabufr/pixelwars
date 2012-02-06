@@ -62,3 +62,7 @@ sf::Vector2f SceneNodeShapeItem::GetSize() const
 {
     return sf::Vector2f(m_shape.GetGlobalBounds().Width, m_shape.GetGlobalBounds().Height);
 }
+const sf::Color& SceneNodeShapeItem::GetColor() const
+{
+    return m_shape.GetFillColor();
+}
