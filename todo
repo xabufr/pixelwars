@@ -18,10 +18,11 @@ gérer le hide/show dans les nouveaux widgets
 Ajout des items de saisie de texte, de saisie de chiffre (slidder)
 Implémenter la GUI au mieux -> Gérer les focus, les levels
 -> implémenter des sons paramétrables, en fct de la cadence et de la puissance OK
+Contener peux contenir item et nodes et conteneur
 ---------->En cours
 
 Implémenter un menu de jeu
----> débuté
+---> débuté,
 Gérer les sons
 --> en cours
 

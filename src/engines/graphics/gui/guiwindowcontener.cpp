@@ -10,7 +10,7 @@ GuiWindowContener::~GuiWindowContener()
 {
     //dtor
 }
-void GuiWindowContener::AjouterItem(GuiItem* item, int x, int y)
+void GuiWindowContener::AjouterItem(GuiElement* item, int x, int y)
 {
     GuiContener::AjouterItem(item, x, y);
     ((GuiWindowNode*)m_parent)->CalculerTaille();

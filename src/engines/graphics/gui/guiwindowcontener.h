@@ -7,7 +7,7 @@ class GuiWindowContener: public GuiContener
     public:
         GuiWindowContener(SceneManager*, SceneNode*);
         virtual ~GuiWindowContener();
-        virtual void AjouterItem(GuiItem*, int, int);
+        virtual void AjouterItem(GuiElement*, int, int);
     protected:
     private:
 };

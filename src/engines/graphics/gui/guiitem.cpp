@@ -76,3 +76,7 @@ void* GuiItem::GetData(const std::string& key)
         return it->second;
     return 0;
 }
+GuiElementType GuiItem::GetType() const
+{
+    return GuiElementType::TypeItem;
+}

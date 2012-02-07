@@ -136,6 +136,8 @@
 		<Unit filename="engines/graphics/gui/guicolorselector.h" />
 		<Unit filename="engines/graphics/gui/guicontener.cpp" />
 		<Unit filename="engines/graphics/gui/guicontener.h" />
+		<Unit filename="engines/graphics/gui/guielement.cpp" />
+		<Unit filename="engines/graphics/gui/guielement.h" />
 		<Unit filename="engines/graphics/gui/guiitem.cpp" />
 		<Unit filename="engines/graphics/gui/guiitem.h" />
 		<Unit filename="engines/graphics/gui/guimanager.cpp" />
@@ -144,6 +146,8 @@
 		<Unit filename="engines/graphics/gui/guinode.h" />
 		<Unit filename="engines/graphics/gui/guiprogressbaritem.cpp" />
 		<Unit filename="engines/graphics/gui/guiprogressbaritem.h" />
+		<Unit filename="engines/graphics/gui/guirectangleitem.cpp" />
+		<Unit filename="engines/graphics/gui/guirectangleitem.h" />
 		<Unit filename="engines/graphics/gui/guislidernumberitem.cpp" />
 		<Unit filename="engines/graphics/gui/guislidernumberitem.h" />
 		<Unit filename="engines/graphics/gui/guitextinputitem.cpp" />

@@ -3,12 +3,13 @@
 
 #include "../scenenodeitem.h"
 #include <unordered_map>
+#include "guielement.h"
 
 class GuiItem;
 typedef void (*ptr_function)(GuiItem*);
 typedef void (&ref_function)(GuiItem*);
 /// @todo Documenter
-class GuiItem : public SceneNodeItem
+class GuiItem : public SceneNodeItem, public GuiElement
 {
     public:
         GuiItem();
@@ -24,6 +25,8 @@ class GuiItem : public SceneNodeItem
         void* GetData(const std::string&);
 
         virtual sf::Vector2f GetSize() const = 0;
+
+        virtual GuiElementType GetType() const;
 
     protected:
         virtual void Draw(sf::RenderWindow*)=0;

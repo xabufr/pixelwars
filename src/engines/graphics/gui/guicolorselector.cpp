@@ -1,6 +1,7 @@
 #include "guicolorselector.h"
 #include "../graphicalengine.h"
 #include "../../../core/conversion.h"
+#include "../../../core/logger.h"
 
 GuiColorSelector::GuiColorSelector(SceneManager* mng, SceneNode* parent): GuiContener(mng, parent)
 {
@@ -36,7 +37,7 @@ GuiColorSelector::GuiColorSelector(SceneManager* mng, SceneNode* parent): GuiCon
     m_textB->SetText("Bleu");
 
 
-    m_affCouleur = new SceneNodeShapeItem;
+    m_affCouleur = new GuiRectangleItem;
     m_affCouleur->SetSize(100, 100);
 
     this->AjouterItem(m_textR, 0, 0);
@@ -51,7 +52,7 @@ GuiColorSelector::GuiColorSelector(SceneManager* mng, SceneNode* parent): GuiCon
     this->AjouterItem(m_levelG, 2, 1);
     this->AjouterItem(m_levelB, 2, 2);
 
-    this->AjouterItem((GuiItem*)m_affCouleur, 1, 3);
+    this->AjouterItem(m_affCouleur, 1, 3);
 
     m_selectR->SetData("this", this);
     m_selectG->SetData("this", this);
@@ -66,7 +67,6 @@ GuiColorSelector::GuiColorSelector(SceneManager* mng, SceneNode* parent): GuiCon
 
 GuiColorSelector::~GuiColorSelector()
 {
-    //dtor
 }
 void GuiColorSelector::CallbackCouleurChanged(GuiItem* item)
 {
@@ -84,8 +84,7 @@ void GuiColorSelector::HandleEvent(const sf::Event& event)
     if(!m_visible) return;
     for(SceneNodeItem* i : m_childItems)
     {
-        if(i!=m_affCouleur)
-            ((GuiItem*)(i))->HandleEvent(event);
+        ((GuiItem*)(i))->HandleEvent(event);
     }
 }
 

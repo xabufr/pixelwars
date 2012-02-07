@@ -99,10 +99,10 @@ std::string PlayerParameters::Sanitanyse(const std::string& str)
            (c>='0'&&c<='9')||
            c=='|'||
            c=='"'||
-           c=='\''||
+           c=='\\'||
            c=='&'||
            c=='('||
-                c==')'||
+           c==')'||
            c=='['||
            c==']'||
            c=='-'||
@@ -117,10 +117,12 @@ std::string PlayerParameters::Sanitanyse(const std::string& str)
            c=='>'||
            c=='{'||
            c=='}'||
-           c=='/')
+           c=='/'||
+           c=='_'||
+           c=='@')
             ret[i]=c;
         else
-            ret[i]=' ';
+            ret[i]='_';
     }
     return ret;
 }

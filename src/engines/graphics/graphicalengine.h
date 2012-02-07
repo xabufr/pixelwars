@@ -28,6 +28,7 @@
 #include "gui/guitextinputitem.h"
 #include "gui/guislidernumberitem.h"
 #include "gui/guicolorselector.h"
+#include "gui/guirectangleitem.h"
 
 /// @todo Documenter
 class GraphicalEngine : public Singleton<GraphicalEngine>
