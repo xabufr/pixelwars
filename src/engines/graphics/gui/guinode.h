@@ -15,6 +15,7 @@ class GuiNode : public SceneNode
         GuiWindowNode* AddWindow();
         GuiContener* AddContener();
         GuiNode* AddGuiNode();
+        void Remove();
 
     protected:
         void m_RemoveMeNextDraw();

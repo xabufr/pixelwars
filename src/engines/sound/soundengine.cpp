@@ -13,7 +13,6 @@ SoundEngine::~SoundEngine()
 }
 unsigned int SoundEngine::PlaySound(const std::string& chemin)
 {
-    Logger::Log()<<chemin<<Logger::endl;
     m_sounds[m_last] = SoundParams();
     m_sounds[m_last].sound = new sf::Sound;
     m_sounds[m_last].sound->SetRelativeToListener(true);
@@ -57,11 +56,9 @@ void SoundEngine::Work()
 }
 void SoundEngine::HandleEngineEvent(EngineEvent* event)
 {
-    Logger::Log()<<"handle"<<Logger::endl;
     switch(event->GetMessage())
     {
     case TypeMessage::JouerSon:
-        Logger::Log()<<"son"<<Logger::endl;
         this->PlaySound(event->GetStrings().find(IndexMessages::Chemin)->second);
         break;
     }

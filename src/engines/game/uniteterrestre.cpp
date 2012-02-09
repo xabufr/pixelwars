@@ -102,7 +102,7 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& ui
     m_barreVie->SetSize(sf::Vector2f(50,5));
     m_barreVie->SetRelativePosition(-25, factory->GetTailleUnit().y*20+20);
 
-    m_timerFire.Reset();
+    m_timerFire.Restart();
     float coef = float(factory->GetReloadTimeMax()-factory->GetReloadTimeMin())/
                           (factory->GetCanonMax()-factory->GetCanonMin());
     m_tempRechargement= coef*m_param->tailleCanon;
@@ -161,7 +161,7 @@ void UniteTerrestre::Stop()
 }
 bool UniteTerrestre::PeutTirer()
 {
-    if(m_tempRechargement>m_timerFire.GetElapsedTime())
+    if(m_tempRechargement>m_timerFire.GetElapsedTime().AsMilliseconds())
         return false;
     return m_fire;
 }
@@ -170,7 +170,7 @@ Projectile* UniteTerrestre::Tirer()
     b2Vec2 pos, direction;
     float taille, poids, puissance;
 
-    m_timerFire.Reset();
+    m_timerFire.Restart();
     taille=0.2;
     float angle = -m_tourelle->GetAngle()*180/3.14;
     sf::Transform trans;

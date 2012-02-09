@@ -146,8 +146,8 @@ void SceneNode::PositionChanged()
     }
     for(auto i: m_childItems)
     {
-        i->SetRelativePosition(i->GetRelativePosition());
         i->SetParentPosition(m_absolute.position);
+        i->SetRelativePosition(i->GetRelativePosition());
     }
 }
 void SceneNode::RotationChanged()

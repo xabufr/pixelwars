@@ -53,7 +53,7 @@ void MenuPrincipal::Show()
     sf::RenderWindow *app = engine->GetRenderWindow();
     sf::Event event;
 
-    while(app->IsOpened())
+    while(app->IsOpen())
     {
         while(app->PollEvent(event))
         {

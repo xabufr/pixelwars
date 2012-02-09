@@ -43,7 +43,7 @@ void GuiTextInputItem::HandleEvent(const sf::Event& event)
             if(!m_focus)
             {
                 CallCallBack("focus_in");
-                m_timer.Reset();
+                m_timer.Restart();
             }
             m_focus=true;
         }
@@ -80,11 +80,11 @@ void GuiTextInputItem::Draw(sf::RenderWindow* app)
     m_CalculerTexte();
     app->Draw(m_fond);
     app->Draw(m_text);
-    if(m_focus&&m_timer.GetElapsedTime()>500)
+    if(m_focus&&m_timer.GetElapsedTime().AsMilliseconds()>500)
     {
         app->Draw(m_pos);
-        if(m_timer.GetElapsedTime()>1000)
-            m_timer.Reset();
+        if(m_timer.GetElapsedTime().AsMilliseconds()>1000)
+            m_timer.Restart();
     }
 }
 void GuiTextInputItem::PositionChanged()
@@ -92,7 +92,7 @@ void GuiTextInputItem::PositionChanged()
     m_text.SetOrigin(-m_relative.position.x, -m_relative.position.y);
     m_text.SetPosition(m_parent.position);
     //Correction d'un de SFML2 qui décalle le texte
-    sf::Vector2f rel = -(m_relative.position*2.f) + sf::Vector2f(m_text.GetGlobalBounds().Left, m_text.GetGlobalBounds().Top)-m_parent.position;
+    sf::Vector2f rel = -(m_relative.position*2.f) + sf::Vector2f(m_text.GetGlobalBounds().Left, m_text.GetGlobalBounds().Top+7)-m_parent.position;
     m_text.SetOrigin(rel);
 
     m_fond.SetOrigin(-m_relative.position.x, -m_relative.position.y);

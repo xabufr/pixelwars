@@ -32,6 +32,10 @@ GuiColorSelector::GuiColorSelector(SceneManager* mng, SceneNode* parent): GuiCon
     m_levelG = new GuiTextItem;
     m_levelB = new GuiTextItem;
 
+    m_levelR->SetText("255");
+    m_levelG->SetText("255");
+    m_levelB->SetText("255");
+
     m_textR->SetText("Rouge");
     m_textG->SetText("Vert");
     m_textB->SetText("Bleu");

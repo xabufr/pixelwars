@@ -22,7 +22,6 @@
 					<Add option="-std=c++0x" />
 					<Add option="-g" />
 					<Add option="-D_DEBUG" />
-					<Add option="-DSFML_DYNAMIC" />
 					<Add directory="/usr/include" />
 					<Add directory="/usr/include/c++/4.6" />
 					<Add directory="./" />

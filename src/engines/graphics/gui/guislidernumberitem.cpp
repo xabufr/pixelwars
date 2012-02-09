@@ -1,6 +1,7 @@
 #include "guislidernumberitem.h"
 #include "../graphicalengine.h"
 #include <iostream>
+#include "../../../core/logger.h"
 
 GuiSliderNumberItem::GuiSliderNumberItem()
 {

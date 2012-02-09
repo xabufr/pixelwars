@@ -3,6 +3,7 @@
 #include "guiwindownode.h"
 #include "guimanager.h"
 #include "guicontener.h"
+#include "../../../core/logger.h"
 
 GuiNode::GuiNode(SceneManager* mng, SceneNode* parent): SceneNode(mng,parent)
 {
@@ -41,9 +42,17 @@ GuiContener* GuiNode::AddContener()
 }
 void GuiNode::m_RemoveMeNextDraw()
 {
+    for(SceneNode *n : m_childNodes)
+    {
+        ((GuiNode*)n)->m_RemoveMeNextDraw();
+    }
     ((GuiManager*)m_manager)->AddToRemoveNode(this);
 }
 GuiNode* GuiNode::AddGuiNode()
 {
     return (GuiNode*)AddSceneNode(new GuiNode(m_manager, this));
+}
+void GuiNode::Remove()
+{
+    m_RemoveMeNextDraw();
 }

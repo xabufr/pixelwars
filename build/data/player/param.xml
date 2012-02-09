@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <root>
-    <player numero="0" name="">
-        <rouge value="141" />
-        <vert value="121" />
-        <bleu value="147" />
+    <player numero="0" name="azerty">
+        <rouge value="0" />
+        <vert value="127" />
+        <bleu value="204" />
     </player>
     <player numero="1" name="Player 2">
         <rouge value="255" />

@@ -65,8 +65,7 @@ sf::Vector2f GuiManager::GetMousePosition()
 }
 void GuiManager::RemoveNode(SceneNode* node)
 {
-    //if(node==m_eventLockedBy)
-        m_eventLockedBy=0;
+    m_eventLockedBy=0;
     SceneManager::RemoveNode(node);
 }
 void GuiManager::LockEvent(GuiNode* node)

@@ -18,6 +18,9 @@ class GuiContener: public GuiNode, public GuiElement
         void HandleEvent(const sf::Event&);
         virtual GuiElementType GetType() const;
 
+    protected:
+        virtual void PositionChanged();
+
     private:
         void CalculerPositions();
 

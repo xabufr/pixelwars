@@ -82,9 +82,15 @@ void GuiContener::CalculerPositions()
         for(size_t x_curr=0;x_curr<tailleX;++x_curr)
         {
             if(m_items[y_curr][x_curr]->GetType()==GuiElementType::TypeItem)
+            {
                 ((GuiItem*)m_items[y_curr][x_curr])->SetRelativePosition(xMax, posY+0.5*m_espacement.y);
+            }
+
             else if(m_items[y_curr][x_curr]->GetType()==GuiElementType::TypeContener)
+            {
                 ((GuiContener*)m_items[y_curr][x_curr])->SetRelativePosition(xMax, posY+0.5*m_espacement.y);
+            }
+
             else
                 ((GuiNode*)m_items[y_curr][x_curr])->SetRelativePosition(xMax, posY+0.5*m_espacement.y);
             xMax+=m_items[y_curr][x_curr]->GetSize().x+m_espacement.x;
@@ -102,4 +108,8 @@ void GuiContener::CalculerPositions()
 GuiElementType GuiContener::GetType() const
 {
     return GuiElementType::TypeContener;
+}
+void GuiContener::PositionChanged()
+{
+    SceneNode::PositionChanged();
 }

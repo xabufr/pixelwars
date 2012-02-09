@@ -70,10 +70,15 @@ void SceneManager::RemoveNode(SceneNode* node)
                     RemoveNode(j);
                 }
                 it->second.erase(it2);
+
                 delete node;
                 return;
             }
         }
+    }
+    else
+    {
+        Logger::Log()<<"Level not found !"<<Logger::endl;
     }
 }
 

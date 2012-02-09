@@ -49,10 +49,10 @@ class SceneNode
         void SetAbsoluteScale(float x, float y);
 
     protected:
-        void PositionChanged();
-        void RotationChanged();
-        void ScaleChanged();
-        void InformedParentBeforeDeletion(SceneNode*);
+        virtual void PositionChanged();
+        virtual void RotationChanged();
+        virtual void ScaleChanged();
+        virtual void InformedParentBeforeDeletion(SceneNode*);
 
         SceneNode* m_parent;
         int m_level, m_levelReel; //Niveau relatif au parent
