@@ -4,10 +4,12 @@
         <rouge value="0" />
         <vert value="127" />
         <bleu value="204" />
+        <touches />
     </player>
     <player numero="1" name="Player 2">
         <rouge value="255" />
         <vert value="0" />
         <bleu value="0" />
+        <touches />
     </player>
 </root>

@@ -19,6 +19,8 @@ class MenuOptions
         GuiColorSelector *m_couleurJ1, *m_couleurJ2;
         GuiTextInputItem *m_nameJ1, *m_nameJ2;
         GuiTextItem *m_labelJ1, *m_labelJ2;
+        GuiButtonItem *m_btn_droite[2], *m_btn_gauche[2], *m_btn_haut[2], *m_btn_bas[2];
+        GuiTextItem *m_labelHaut[2], *m_labelBas[2], *m_labelGauche[2], *m_labelDroite[2];
 };
 
 #endif // MENUOPTIONS_H

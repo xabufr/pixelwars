@@ -3264,13 +3264,14 @@
 	<iostream>
 	"../../../core/logger.h"
 
-1328794790 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+1328799087 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
 	"menuoptions.h"
 	"engines/graphics/graphicalengine.h"
 	"../playerparameters.h"
 	"../../../core/logger.h"
+	"../../../core/conversion.h"
 
-1328727064 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
+1328796686 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
 
 1327431933 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
 
@@ -3281,15 +3282,17 @@
 	"../gameengine.h"
 	"game.h"
 
-1327431735 source:/home/thomas/pixelwar/pixelwar/src/core/conversion.cpp
+1328798977 source:/home/thomas/pixelwar/pixelwar/src/core/conversion.cpp
 	"conversion.h"
 	<sstream>
 
-1327431727 /home/thomas/pixelwar/pixelwar/src/core/conversion.h
+1328798352 /home/thomas/pixelwar/pixelwar/src/core/conversion.h
 	<string>
+	<SFML2/Graphics.hpp>
 
-1327431727 /home/thomas/pixelwar/pixelwar/src//core/conversion.h
+1328798352 /home/thomas/pixelwar/pixelwar/src//core/conversion.h
 	<string>
+	<SFML2/Graphics.hpp>
 
 1327512917 /home/thomas/pixelwar/pixelwar/src//game.h
 	"engines/engine.h"
@@ -3439,15 +3442,17 @@
 	"../../../core/conversion.h"
 	"../../../core/logger.h"
 
-1328636595 source:/home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.cpp
+1328799770 source:/home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.cpp
 	"playerparameters.h"
 	"../../core/exception.h"
 	"../../core/logger.h"
+	"../../core/conversion.h"
 
-1328560109 /home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.h
+1328799751 /home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.h
 	"../../core/singleton.h"
 	<SFML2/Graphics.hpp>
 	<tinyxml.h>
+	<unordered_map>
 
 1328646159 /home/thomas/pixelwar/pixelwar/src//engines/graphics/gui/guielement.h
 	<SFML2/Graphics.hpp>
