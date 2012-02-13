@@ -36,13 +36,13 @@ std::string key2string(sf::Keyboard::Key key)
         name+='0'-sf::Keyboard::Key::F10 + key;
     }
     else if(key==sf::Keyboard::Key::Left)
-        name="Flèche gauche";
+        name="Fleche gauche";
     else if(key==sf::Keyboard::Key::Right)
-        name="Flèche droite";
+        name="Fleche droite";
     else if(key==sf::Keyboard::Key::Up)
-        name="Flèche haut";
+        name="Fleche haut";
     else if(key==sf::Keyboard::Key::Down)
-        name="Flèche bas";
+        name="Fleche bas";
     else if(key==sf::Keyboard::Key::LControl)
         name="Ctrl gauche";
     else if(key==sf::Keyboard::Key::RControl)
@@ -59,5 +59,7 @@ std::string key2string(sf::Keyboard::Key key)
         name="MAJ droit";
     else if(key==sf::Keyboard::Key::Tab)
         name="Tab.";
+    else
+        name="Aucune touche";
     return name;
 }

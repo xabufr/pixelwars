@@ -4,6 +4,7 @@
 #include "core/logger.h"
 #include "menuoptionspartie.h"
 #include "menuoptions.h"
+#include "../playerparameters.h"
 
 MenuPrincipal::MenuPrincipal()
 {
@@ -45,6 +46,7 @@ MenuPrincipal::MenuPrincipal()
 MenuPrincipal::~MenuPrincipal()
 {
     GraphicalEngine::Kill();
+    PlayerParameters::Kill();
 }
 void MenuPrincipal::Show()
 {

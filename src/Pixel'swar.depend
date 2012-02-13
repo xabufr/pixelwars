@@ -2731,7 +2731,7 @@
 	<sstream>
 	"exception.h"
 
-1327228943 source:/home/thomas/pixelwar/pixelwar/src/main.cpp
+1328800322 source:/home/thomas/pixelwar/pixelwar/src/main.cpp
 	"core/consolelogger.h"
 	"core/exception.h"
 	"engines/game/gameengine.h"
@@ -3227,13 +3227,14 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1328723397 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
+1328800353 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
 	"menuprincipal.h"
 	"engines/graphics/graphicalengine.h"
 	"../gameengine.h"
 	"core/logger.h"
 	"menuoptionspartie.h"
 	"menuoptions.h"
+	"../playerparameters.h"
 
 1328437297 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.h
 
@@ -3264,14 +3265,17 @@
 	<iostream>
 	"../../../core/logger.h"
 
-1328799087 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+1329155729 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
 	"menuoptions.h"
 	"engines/graphics/graphicalengine.h"
 	"../playerparameters.h"
 	"../../../core/logger.h"
 	"../../../core/conversion.h"
+	"menutouche.h"
 
-1328796686 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
+1329155119 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
+	<string>
+	<unordered_map>
 
 1327431933 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
 
@@ -3282,7 +3286,7 @@
 	"../gameengine.h"
 	"game.h"
 
-1328798977 source:/home/thomas/pixelwar/pixelwar/src/core/conversion.cpp
+1329154858 source:/home/thomas/pixelwar/pixelwar/src/core/conversion.cpp
 	"conversion.h"
 	<sstream>
 
@@ -3442,7 +3446,7 @@
 	"../../../core/conversion.h"
 	"../../../core/logger.h"
 
-1328799770 source:/home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.cpp
+1329154311 source:/home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.cpp
 	"playerparameters.h"
 	"../../core/exception.h"
 	"../../core/logger.h"
@@ -3814,4 +3818,12 @@
 	<SFML2/Network/Export.hpp>
 	<SFML2/Network/Socket.hpp>
 	<vector>
+
+1328802202 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menutouche.cpp
+	"menutouche.h"
+	"../../graphics/graphicalengine.h"
+
+1328801545 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menutouche.h
+	<string>
+	<SFML2/Graphics.hpp>
 

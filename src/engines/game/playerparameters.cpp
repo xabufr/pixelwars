@@ -85,6 +85,14 @@ void PlayerParameters::SaveParam(int index)
             player->FirstChild("bleu")->ToElement()->SetAttribute("value", m_param[index].couleur.b);
             player->FirstChild("touches")->Clear();
             player->ToElement()->SetAttribute("name", Sanitanyse(m_param[index].nom));
+            for(auto it: m_param[index].touches)
+            {
+                TiXmlNode *toucheNode = new TiXmlElement("touche");
+                toucheNode->ToElement()->SetAttribute("name", it.first);
+                toucheNode->ToElement()->SetAttribute("code", it.second);
+                player->FirstChild("touches")->ToElement()->LinkEndChild(toucheNode);
+            }
+
             fichier.SaveFile("data/player/param.xml");
             return;
         }
@@ -142,6 +150,7 @@ std::string PlayerParameters::Sanitanyse(const std::string& str)
 void PlayerParameters::SetTouche(const std::string& clef, sf::Keyboard::Key touche, int index)
 {
     m_param[index].touches[clef]=touche;
+    SaveParam(index);
 }
 sf::Keyboard::Key PlayerParameters::GetTouche(const std::string& clef, int index) const
 {

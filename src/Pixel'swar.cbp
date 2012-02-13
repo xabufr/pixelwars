@@ -111,6 +111,8 @@
 		<Unit filename="engines/game/menus/menuoptionspartie.h" />
 		<Unit filename="engines/game/menus/menuprincipal.cpp" />
 		<Unit filename="engines/game/menus/menuprincipal.h" />
+		<Unit filename="engines/game/menus/menutouche.cpp" />
+		<Unit filename="engines/game/menus/menutouche.h" />
 		<Unit filename="engines/game/playerparameters.cpp" />
 		<Unit filename="engines/game/playerparameters.h" />
 		<Unit filename="engines/game/projectile.cpp" />
