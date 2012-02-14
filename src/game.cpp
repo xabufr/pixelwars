@@ -15,6 +15,10 @@ Game::~Game()
     delete m_game;
     delete m_sound;
 }
+void Game::SetSeed(int seed)
+{
+    m_game->SetSeed(seed);
+}
 Engine* Game::GetEngineFromId(EngineType id)
 {
     switch(id)

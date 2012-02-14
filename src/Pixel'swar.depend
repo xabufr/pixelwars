@@ -2741,7 +2741,7 @@
 	"logger.h"
 	<iostream>
 
-1327513188 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
+1329244154 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
 	"../engine.h"
 	"carte.h"
 	"contactlistenner.h"
@@ -2772,7 +2772,7 @@
 	"guimanager.h"
 	"../graphicalengine.h"
 
-1328204449 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1329244200 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2849,11 +2849,11 @@
 1326553391 /home/thomas/pixelwar/pixelwar/src/engines/network/networkengine.h
 	"../engine.h"
 
-1328205152 source:/home/thomas/pixelwar/pixelwar/src/game.cpp
+1329244265 source:/home/thomas/pixelwar/pixelwar/src/game.cpp
 	"game.h"
 	"engines/engineevent.h"
 
-1327512917 /home/thomas/pixelwar/pixelwar/src/game.h
+1329244067 /home/thomas/pixelwar/pixelwar/src/game.h
 	"engines/engine.h"
 	"engines/network/networkengine.h"
 	"engines/sound/soundengine.h"
@@ -3080,8 +3080,9 @@
 	<SFML/Config.hpp>
 	<SFML/System/Vector2.hpp>
 
-1327514028 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
+1329241152 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
 	"inputmanager.h"
+	"playerparameters.h"
 
 1327150945 source:/home/thomas/pixelwar/pixelwar/src/engines/game/projectile.cpp
 	"projectile.h"
@@ -3265,7 +3266,7 @@
 	<iostream>
 	"../../../core/logger.h"
 
-1329155729 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+1329242566 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
 	"menuoptions.h"
 	"engines/graphics/graphicalengine.h"
 	"../playerparameters.h"
@@ -3273,20 +3274,20 @@
 	"../../../core/conversion.h"
 	"menutouche.h"
 
-1329155119 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
+1329241743 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.h
 	<string>
 	<unordered_map>
 
-1327431933 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
+1329243610 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
 
-1327511124 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.cpp
+1329244014 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.cpp
 	"menuoptionspartie.h"
 	"engines/graphics/graphicalengine.h"
 	"core/conversion.h"
 	"../gameengine.h"
 	"game.h"
 
-1329154858 source:/home/thomas/pixelwar/pixelwar/src/core/conversion.cpp
+1329242294 source:/home/thomas/pixelwar/pixelwar/src/core/conversion.cpp
 	"conversion.h"
 	<sstream>
 
@@ -3298,7 +3299,7 @@
 	<string>
 	<SFML2/Graphics.hpp>
 
-1327512917 /home/thomas/pixelwar/pixelwar/src//game.h
+1329244067 /home/thomas/pixelwar/pixelwar/src//game.h
 	"engines/engine.h"
 	"engines/network/networkengine.h"
 	"engines/sound/soundengine.h"
@@ -3315,7 +3316,7 @@
 	"../engine.h"
 	"soundbuffermanager.h"
 
-1327513188 /home/thomas/pixelwar/pixelwar/src//engines/game/gameengine.h
+1329244154 /home/thomas/pixelwar/pixelwar/src//engines/game/gameengine.h
 	"../engine.h"
 	"carte.h"
 	"contactlistenner.h"

@@ -12,10 +12,12 @@ class MenuOptionsPartie
         virtual ~MenuOptionsPartie();
         static void ChangerTailleCarte(GuiItem*);
         static void CommencerPartie(GuiItem*);
+        static void ChangerSeed(GuiItem*);
     protected:
     private:
         void StartMenuEcranScinde();
         float m_tailleCarte;
+        int m_seed;
         bool m_start;
 };
 

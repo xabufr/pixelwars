@@ -14,6 +14,7 @@ GameEngine::GameEngine()
     m_lastId = 0;
     m_running=true;
     m_tailleCarte=100;
+    m_seed = 0;
 }
 
 GameEngine::~GameEngine()
@@ -27,6 +28,10 @@ GameEngine::~GameEngine()
     delete uniteManager;
     delete m_carte;
     delete m_world;
+}
+void GameEngine::SetSeed(int seed)
+{
+    m_seed=seed;
 }
 EngineType GameEngine::GetEngineId() const
 {
@@ -48,7 +53,7 @@ void GameEngine::Start()
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
 	m_world->SetContactListener(m_listner);
-	m_carte = new Carte(m_world, sf::Vector2i(m_tailleCarte,600), 400, 100, 0);
+	m_carte = new Carte(m_world, sf::Vector2i(m_tailleCarte,600), 400, 100, m_seed);
     UniteTerrestreModel::GetInstance();
 
 

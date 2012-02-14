@@ -20,15 +20,17 @@ Implémenter la GUI au mieux -> Gérer les focus, les levels
 -> implémenter des sons paramétrables, en fct de la cadence et de la puissance OK
 Contener peux contenir item et nodes et conteneur
 |->correction de bugs divers
----------->En cours
-
+Utiliser les touches configurées
+Seed
 Implémenter un menu de jeu
----> débuté,
+---------->En cours
 Gérer les sons
 --> en cours
 
 Utiliser la communication inter-module
 --> en cours pour audio
+Scores
+
 
 ----------->À Faire
 -> conteneur avec slider vertical
@@ -36,7 +38,7 @@ Possibilité de personnaliser ses unités depuis le menu principal
 Gérer la création de nouveau types d'unitées I-G
 
 Possibilité de créer de nouveaux type I-G
-
+Seed carte
 
 
 

@@ -31,6 +31,8 @@ class GameEngine : public Engine
         void DesalouerModel(GuiWindowContener*);
         void SetTailleMap(int);
 
+        void SetSeed(int);
+
         static void CallbackAjoutUnite(GuiItem*);
 
     private:
@@ -51,7 +53,7 @@ class GameEngine : public Engine
         InputManager m_inputManager;
         sf::RenderWindow *m_app;
 
-        int m_tailleCarte;
+        int m_tailleCarte, m_seed;
 
         void DeleteProjectile(Projectile *toDelete);
         void SendEndMessage();

@@ -1,24 +1,20 @@
 #include "inputmanager.h"
+#include "playerparameters.h"
 
 InputManager::InputManager()
 {
-    m_touches[0]["droite"] = sf::Keyboard::Key::Right;
-    m_touches[0]["gauche"] = sf::Keyboard::Key::Left;
-    m_touches[0]["haut"] = sf::Keyboard::Key::Up;
-    m_touches[0]["bas"] = sf::Keyboard::Key::Down;
-    m_touches[0]["tirer"] = sf::Keyboard::Key::Space;
-    m_touches[0]["changer_unite"] = sf::Keyboard::Key::RControl;
-    m_touches[0]["zoomer"] = sf::Keyboard::Key::Add;
-    m_touches[0]["dezoomer"] = sf::Keyboard::Key::Subtract;
-
-    m_touches[1]["droite"] = sf::Keyboard::Key::D;
-    m_touches[1]["gauche"] = sf::Keyboard::Key::Q;
-    m_touches[1]["haut"] = sf::Keyboard::Key::Z;
-    m_touches[1]["bas"] = sf::Keyboard::Key::S;
-    m_touches[1]["tirer"] = sf::Keyboard::Key::LControl;
-    m_touches[1]["changer_unite"] = sf::Keyboard::Key::E;
-    m_touches[1]["zoomer"] = sf::Keyboard::Key::W;
-    m_touches[1]["dezoomer"] = sf::Keyboard::Key::X;
+    PlayerParameters *playerParam = PlayerParameters::GetInstance();
+    for(int i=0;i<2;++i)
+    {
+        m_touches[i]["droite"] = playerParam->GetTouche("droite", i);
+        m_touches[i]["gauche"] = playerParam->GetTouche("gauche", i);
+        m_touches[i]["haut"] = playerParam->GetTouche("haut", i);
+        m_touches[i]["bas"] = playerParam->GetTouche("bas", i);
+        m_touches[i]["tirer"] = playerParam->GetTouche("tirer", i);
+        m_touches[i]["changer_unite"] = playerParam->GetTouche("changer_unite", i);
+        m_touches[i]["zoomer"] = playerParam->GetTouche("zoomer", i);
+        m_touches[i]["dezoomer"] = playerParam->GetTouche("dezoomer", i);
+    }
 }
 
 InputManager::~InputManager()

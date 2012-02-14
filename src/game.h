@@ -13,6 +13,7 @@ class Game
         ~Game();
         void Start();
         void SetTailleCarte(int largeur);
+        void SetSeed(int);
         Engine* GetEngineFromId(EngineType id);
     protected:
     private:

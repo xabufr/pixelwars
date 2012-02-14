@@ -59,6 +59,10 @@ std::string key2string(sf::Keyboard::Key key)
         name="MAJ droit";
     else if(key==sf::Keyboard::Key::Tab)
         name="Tab.";
+    else if(key==sf::Keyboard::Key::Add)
+        name="+";
+    else if(key==sf::Keyboard::Key::Subtract)
+        name="-";
     else
         name="Aucune touche";
     return name;

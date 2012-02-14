@@ -29,8 +29,8 @@ class MenuOptions
         GuiColorSelector *m_couleurJ1, *m_couleurJ2;
         GuiTextInputItem *m_nameJ1, *m_nameJ2;
         GuiTextItem *m_labelJ1, *m_labelJ2;
-        GuiButtonItem *m_btn_droite[2], *m_btn_gauche[2], *m_btn_haut[2], *m_btn_bas[2], *m_btn_tirer[2], *m_btn_zoom[2], *m_btn_dezoom[2];
-        GuiTextItem *m_labelHaut[2], *m_labelBas[2], *m_labelGauche[2], *m_labelDroite[2], *m_labelTirer[2], *m_labelZoom[2], *m_labelDezoom[2];
+        GuiButtonItem *m_btn_droite[2], *m_btn_gauche[2], *m_btn_haut[2], *m_btn_bas[2], *m_btn_tirer[2], *m_btn_zoom[2], *m_btn_dezoom[2], *m_btn_changer[2];
+        GuiTextItem *m_labelHaut[2], *m_labelBas[2], *m_labelGauche[2], *m_labelDroite[2], *m_labelTirer[2], *m_labelZoom[2], *m_labelDezoom[2], *m_labelChanger[2];
 
         std::unordered_map<GuiItem*, btnToucheData> m_dataBtnTouches;
 

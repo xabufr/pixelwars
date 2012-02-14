@@ -32,6 +32,8 @@ MenuOptions::MenuOptions()
     m_btn_zoom[1] = new GuiButtonItem;
     m_btn_dezoom[0] = new GuiButtonItem;
     m_btn_dezoom[1] = new GuiButtonItem;
+    m_btn_changer[0] = new GuiButtonItem;
+    m_btn_changer[1] = new GuiButtonItem;
     m_labelBas[0] = new GuiTextItem;
     m_labelBas[1] = new GuiTextItem;
     m_labelHaut[0] = new GuiTextItem;
@@ -46,6 +48,8 @@ MenuOptions::MenuOptions()
     m_labelZoom[1] = new GuiTextItem;
     m_labelDezoom[0] = new GuiTextItem;
     m_labelDezoom[1] = new GuiTextItem;
+    m_labelChanger[0] = new GuiTextItem;
+    m_labelChanger[1] = new GuiTextItem;
 
     m_labelBas[0]->SetText("Bas");
     m_labelBas[1]->SetText("Bas");
@@ -61,6 +65,8 @@ MenuOptions::MenuOptions()
     m_labelZoom[1]->SetText("Zoomer");
     m_labelDezoom[0]->SetText("Dezoomer");
     m_labelDezoom[1]->SetText("Dezoomer");
+    m_labelChanger[0]->SetText("Changer");
+    m_labelChanger[1]->SetText("Changer");
 
     m_couleurJ1->SetColor(PlayerParameters::GetInstance()->GetParam(0).couleur);
     m_couleurJ2->SetColor(PlayerParameters::GetInstance()->GetParam(1).couleur);
@@ -94,13 +100,16 @@ MenuOptions::MenuOptions()
         m_btn_zoom[i]->SetCallBack("clicked", CallbackChangerTouche);
         m_btn_dezoom[i]->SetData("this", this);
         m_btn_dezoom[i]->SetCallBack("clicked", CallbackChangerTouche);
+        m_btn_changer[i]->SetData("this", this);
+        m_btn_changer[i]->SetCallBack("clicked", CallbackChangerTouche);
         m_btn_bas[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("bas", i));
         m_btn_haut[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("haut", i));
         m_btn_gauche[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("gauche", i));
         m_btn_droite[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("droite", i));
         m_btn_tirer[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("tirer", i));
-        m_btn_zoom[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("zoom", i));
-        m_btn_dezoom[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("dezoom", i));
+        m_btn_zoom[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("zoomer", i));
+        m_btn_dezoom[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("dezoomer", i));
+        m_btn_changer[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("changer_unite", i));
 
         btnToucheData data;
         data.index=i;
@@ -125,16 +134,20 @@ MenuOptions::MenuOptions()
         data.item=m_btn_tirer[i];
         m_dataBtnTouches[m_btn_tirer[i]] = data;
 
-        data.cible="zoom";
+        data.cible="zoomer";
         data.item=m_btn_zoom[i];
         m_dataBtnTouches[m_btn_zoom[i]] = data;
 
-        data.cible="dezoom";
+        data.cible="dezoomer";
         data.item=m_btn_dezoom[i];
         m_dataBtnTouches[m_btn_dezoom[i]] = data;
+
+        data.cible="changer_unite";
+        data.item=m_btn_changer[i];
+        m_dataBtnTouches[m_btn_changer[i]] = data;
     }
 
-    m_contener->SetEspacement(sf::Vector2f(20, 5));
+    m_contener->SetEspacement(sf::Vector2f(100, 5));
 
     contJ1->AjouterItem(m_labelJ1, 1, 0);
     contJ1->AjouterItem(m_nameJ1, 1, 1);
@@ -153,6 +166,8 @@ MenuOptions::MenuOptions()
     contJ1->AjouterItem(m_btn_zoom[0], 2, 8);
     contJ1->AjouterItem(m_labelDezoom[0], 1, 9);
     contJ1->AjouterItem(m_btn_dezoom[0], 2, 9);
+    contJ1->AjouterItem(m_labelChanger[0], 1, 10);
+    contJ1->AjouterItem(m_btn_changer[0], 2, 10);
 
     contJ2->AjouterItem(m_labelJ2, 1, 0);
     contJ2->AjouterItem(m_nameJ2, 1, 1);
@@ -171,6 +186,8 @@ MenuOptions::MenuOptions()
     contJ2->AjouterItem(m_btn_zoom[1], 1, 8);
     contJ2->AjouterItem(m_labelDezoom[1], 1, 9);
     contJ2->AjouterItem(m_btn_dezoom[1], 1, 9);
+    contJ2->AjouterItem(m_labelChanger[1], 1, 10);
+    contJ2->AjouterItem(m_btn_changer[1], 2, 10);
 
     m_contener->AjouterItem(contJ1, 1, 0);
     m_contener->AjouterItem(contJ2, 2, 0);
