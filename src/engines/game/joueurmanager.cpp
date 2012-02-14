@@ -69,3 +69,7 @@ int JoueurManager::GetId(Joueur* joueur)
         return 0;
     return 1;
 }
+Joueur* JoueurManager::GetJoueur(Unite* unit) const
+{
+    return m_unitesJoueur.find(unit)->second;
+}

@@ -8,6 +8,7 @@
 #include "uniteterrestremodel.h"
 #include "joueurhumain.h"
 #include "../engineevent.h"
+#include "core/conversion.h"
 
 GameEngine::GameEngine()
 {
@@ -67,11 +68,22 @@ void GameEngine::Start()
 
     m_windowJ1 = m_gengine->GetGuiManager()->GetRootNode()->AddWindow();
     m_windowJ1->SetWindowTitle("Joueur 1");
-    LoadGuiModels(m_windowJ1, joueurManager->GetJoueur(0));
+
     m_windowJ1->SetAbsolutePosition(0,0);
+    m_scoreText[0] = new GuiTextItem;
+    m_scoreText[1] = new GuiTextItem;
+    m_scoreText[0]->SetText("Score: 0      ");
+    m_scoreText[1]->SetText("Score: 0      ");
+    m_score[0]=0;
+    m_score[1]=0;
 
     m_windowJ2 = m_gengine->GetGuiManager()->GetRootNode()->AddWindow();
     m_windowJ2->SetWindowTitle("Joueur 2");
+
+    m_windowJ1->GetContener()->AjouterItem(m_scoreText[0],1,0);
+    m_windowJ2->GetContener()->AjouterItem(m_scoreText[1],1,0);
+
+    LoadGuiModels(m_windowJ1, joueurManager->GetJoueur(0));
     LoadGuiModels(m_windowJ2, joueurManager->GetJoueur(1));
     m_windowJ2->SetAbsolutePosition(300,0);
 
@@ -194,4 +206,16 @@ void GameEngine::SendEndMessage()
 {
     m_engineEvents.push_back(new EngineEvent);
     m_engineEvents.back()->SetMessage(TypeMessage::Quitter);
+}
+void GameEngine::ChangerScores()
+{
+    for(int i=0;i<2;++i)
+    {
+        m_scoreText[i]->SetText("Score: "+int2string(m_score[i]));
+    }
+}
+void GameEngine::AddScore(int add, int index)
+{
+    m_score[index]+=add;
+    ChangerScores();
 }

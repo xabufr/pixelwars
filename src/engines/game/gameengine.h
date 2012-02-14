@@ -33,6 +33,8 @@ class GameEngine : public Engine
 
         void SetSeed(int);
 
+        void AddScore(int,int);
+
         static void CallbackAjoutUnite(GuiItem*);
 
     private:
@@ -40,6 +42,7 @@ class GameEngine : public Engine
         void GererExplosions();
         void EnleverUnit(Unite*);
         void EnleverUnit(sf::Uint32);
+        void ChangerScores();
 
         SceneNodeTextureItem* worldItem;
         b2World* m_world;
@@ -52,6 +55,8 @@ class GameEngine : public Engine
         GuiWindowNode *m_windowJ1, *m_windowJ2;
         InputManager m_inputManager;
         sf::RenderWindow *m_app;
+        GuiTextItem *m_scoreText[2];
+        int m_score[2];
 
         int m_tailleCarte, m_seed;
 

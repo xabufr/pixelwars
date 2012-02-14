@@ -21,6 +21,7 @@ class JoueurManager
         void SupprimerUnite(Unite*);
         void Update();
         Joueur* GetJoueur(int);
+        Joueur* GetJoueur(Unite*) const;
         int GetId(Joueur*);
         void Input(int, const UnitInput&);
 

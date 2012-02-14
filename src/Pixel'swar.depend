@@ -2741,7 +2741,7 @@
 	"logger.h"
 	<iostream>
 
-1329244154 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
+1329245540 /home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.h
 	"../engine.h"
 	"carte.h"
 	"contactlistenner.h"
@@ -2772,7 +2772,7 @@
 	"guimanager.h"
 	"../graphicalengine.h"
 
-1329244200 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1329245772 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2783,6 +2783,7 @@
 	"uniteterrestremodel.h"
 	"joueurhumain.h"
 	"../engineevent.h"
+	"core/conversion.h"
 
 1328793449 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
 	"graphicalengine.h"
@@ -3161,18 +3162,18 @@
 	"carte.h"
 	"uniteterrestremodel.h"
 
-1327145656 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurmanager.cpp
+1329245882 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurmanager.cpp
 	"joueurmanager.h"
 	"carte.h"
 	"joueur.h"
 	"joueurhumain.h"
 	"inputmanager.h"
 
-1327140630 /home/thomas/pixelwar/pixelwar/src/engines/game/joueurmanager.h
+1329245634 /home/thomas/pixelwar/pixelwar/src/engines/game/joueurmanager.h
 	<SFML2/System.hpp>
 	<unordered_map>
 
-1328221134 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unitemanager.cpp
+1329245934 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unitemanager.cpp
 	"unitemanager.h"
 	"joueurmanager.h"
 	"unite.h"
@@ -3280,7 +3281,7 @@
 
 1329243610 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
 
-1329244014 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.cpp
+1329244321 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.cpp
 	"menuoptionspartie.h"
 	"engines/graphics/graphicalengine.h"
 	"core/conversion.h"
@@ -3316,7 +3317,7 @@
 	"../engine.h"
 	"soundbuffermanager.h"
 
-1329244154 /home/thomas/pixelwar/pixelwar/src//engines/game/gameengine.h
+1329245540 /home/thomas/pixelwar/pixelwar/src//engines/game/gameengine.h
 	"../engine.h"
 	"carte.h"
 	"contactlistenner.h"
@@ -3335,7 +3336,7 @@
 	<SFML2/System.hpp>
 	<deque>
 
-1327140630 /home/thomas/pixelwar/pixelwar/src//engines/game/joueurmanager.h
+1329245634 /home/thomas/pixelwar/pixelwar/src//engines/game/joueurmanager.h
 	<SFML2/System.hpp>
 	<unordered_map>
 

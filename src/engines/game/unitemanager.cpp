@@ -101,6 +101,7 @@ void UniteManager::Update()
         }
         else
         {
+            m_engine->AddScore(1, m_joueurManager->GetId(m_joueurManager->GetJoueur(it->second))==0?1:0);
             m_joueurManager->SupprimerUnite(it->second);
             delete it->second;
             it = m_unites.erase(it);
