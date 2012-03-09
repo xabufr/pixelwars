@@ -83,6 +83,8 @@
 		<Unit filename="core/filelogger.h" />
 		<Unit filename="core/logger.cpp" />
 		<Unit filename="core/logger.h" />
+		<Unit filename="core/random.cpp" />
+		<Unit filename="core/random.h" />
 		<Unit filename="core/singleton.cpp" />
 		<Unit filename="core/singleton.h" />
 		<Unit filename="engines/engine.cpp" />
@@ -159,6 +161,8 @@
 		<Unit filename="engines/graphics/gui/guiwindowcontener.h" />
 		<Unit filename="engines/graphics/gui/guiwindownode.cpp" />
 		<Unit filename="engines/graphics/gui/guiwindownode.h" />
+		<Unit filename="engines/graphics/particlemanager.cpp" />
+		<Unit filename="engines/graphics/particlemanager.h" />
 		<Unit filename="engines/graphics/positioninformations.h" />
 		<Unit filename="engines/graphics/scenemanager.cpp" />
 		<Unit filename="engines/graphics/scenemanager.h" />
