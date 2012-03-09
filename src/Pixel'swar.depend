@@ -2772,7 +2772,7 @@
 	"guimanager.h"
 	"../graphicalengine.h"
 
-1329245772 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1331281538 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2784,6 +2784,7 @@
 	"joueurhumain.h"
 	"../engineevent.h"
 	"core/conversion.h"
+	"playerparameters.h"
 
 1328793449 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
 	"graphicalengine.h"
@@ -3454,7 +3455,7 @@
 	"../../core/logger.h"
 	"../../core/conversion.h"
 
-1328799751 /home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.h
+1331281435 /home/thomas/pixelwar/pixelwar/src/engines/game/playerparameters.h
 	"../../core/singleton.h"
 	<SFML2/Graphics.hpp>
 	<tinyxml.h>

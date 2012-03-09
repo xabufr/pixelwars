@@ -202,6 +202,8 @@ MenuOptions::~MenuOptions()
 {
     PlayerParameters::GetInstance()->SetPlayerColor(m_couleurJ1->GetColor(), 0);
     PlayerParameters::GetInstance()->SetPlayerName(m_nameJ1->GetText(), 0);
+    PlayerParameters::GetInstance()->SetPlayerColor(m_couleurJ2->GetColor(), 1);
+    PlayerParameters::GetInstance()->SetPlayerName(m_nameJ2->GetText(), 1);
     m_contener->Remove();
 }
 void MenuOptions::Afficher()

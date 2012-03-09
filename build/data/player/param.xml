@@ -2,8 +2,8 @@
 <root>
     <player numero="0" name="Thomas">
         <rouge value="0" />
-        <vert value="127" />
-        <bleu value="204" />
+        <vert value="255" />
+        <bleu value="0" />
         <touches>
             <touche name="dezoomer" code="68" />
             <touche name="droite" code="72" />
@@ -17,21 +17,21 @@
             <touche name="zoom" code="76" />
         </touches>
     </player>
-    <player numero="1" name="Player_2">
+    <player numero="1" name="Thomas">
         <rouge value="255" />
         <vert value="0" />
-        <bleu value="0" />
+        <bleu value="255" />
         <touches>
-            <touche name="dezoomer" code="5" />
-            <touche name="droite" code="3" />
             <touche name="changer_unite" code="0" />
+            <touche name="droite" code="3" />
+            <touche name="dezoomer" code="5" />
             <touche name="bas" code="18" />
-            <touche name="zoomer" code="17" />
             <touche name="haut" code="25" />
+            <touche name="zoomer" code="17" />
             <touche name="dezoom" code="5" />
             <touche name="tirer" code="60" />
-            <touche name="gauche" code="16" />
             <touche name="zoom" code="17" />
+            <touche name="gauche" code="16" />
         </touches>
     </player>
 </root>

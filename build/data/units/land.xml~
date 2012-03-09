@@ -13,7 +13,7 @@
   <model name="Artillerie Lourde" uid="Artillerie L">
     <blindage value="20" />
     <canon value="4" />
-    <projectile value="20" />
+    <projectile value="25" />
   </model>
   <model name="Artillerie Legere" uid="Artillerie Le">
     <blindage value="10" />

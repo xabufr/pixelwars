@@ -9,6 +9,7 @@
 #include "joueurhumain.h"
 #include "../engineevent.h"
 #include "core/conversion.h"
+#include "playerparameters.h"
 
 GameEngine::GameEngine()
 {
@@ -63,8 +64,8 @@ void GameEngine::Start()
 
     joueurManager->SetJoueur(0, TypeJoueur::JOUEUR_LOCAL);
     joueurManager->SetJoueur(1, TypeJoueur::JOUEUR_LOCAL);
-    joueurManager->GetJoueur(0)->SetColor(sf::Color(255,255,0));
-    joueurManager->GetJoueur(1)->SetColor(sf::Color(0,0,255));
+    joueurManager->GetJoueur(0)->SetColor(PlayerParameters::GetInstance()->GetParam(0).couleur);
+    joueurManager->GetJoueur(1)->SetColor(PlayerParameters::GetInstance()->GetParam(1).couleur);
 
     m_windowJ1 = m_gengine->GetGuiManager()->GetRootNode()->AddWindow();
     m_windowJ1->SetWindowTitle("Joueur 1");
