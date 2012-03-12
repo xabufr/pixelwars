@@ -267,7 +267,7 @@
 	<bits/c++config.h>
 	<stdio.h>
 
-1317761715 /usr/include/stdio.h
+1331086269 /usr/include/stdio.h
 	<features.h>
 	<stddef.h>
 	<bits/types.h>
@@ -280,12 +280,12 @@
 	<bits/stdio2.h>
 	<bits/stdio-ldbl.h>
 
-1317761698 /usr/include/features.h
+1331086225 /usr/include/features.h
 	<bits/predefs.h>
 	<sys/cdefs.h>
 	<gnu/stubs.h>
 
-1317761715 /usr/include/libio.h
+1331086269 /usr/include/libio.h
 	<_G_config.h>
 	<stdarg.h>
 	<sys/cdefs.h>
@@ -293,13 +293,13 @@
 	<shlib-compat.h>
 	<bits/libio-ldbl.h>
 
-1317761715 /usr/include/_G_config.h
+1331086269 /usr/include/_G_config.h
 	<bits/types.h>
 	<stddef.h>
 	<wchar.h>
 	<gconv.h>
 
-1317761717 /usr/include/wchar.h
+1331086275 /usr/include/wchar.h
 	<features.h>
 	<stdio.h>
 	<stdarg.h>
@@ -313,29 +313,29 @@
 	<bits/wchar2.h>
 	<bits/wchar-ldbl.h>
 
-1317761723 /usr/include/wctype.h
+1331086291 /usr/include/wctype.h
 	<features.h>
 	<bits/types.h>
 	<wchar.h>
 	<endian.h>
 	<xlocale.h>
 
-1317761717 /usr/include/endian.h
+1331086273 /usr/include/endian.h
 	<features.h>
 	<bits/endian.h>
 	<bits/byteswap.h>
 
-1317761699 /usr/include/xlocale.h
+1331086228 /usr/include/xlocale.h
 
-1317761698 /usr/include/gconv.h
+1331086226 /usr/include/gconv.h
 	<features.h>
 	<wchar.h>
 	<stddef.h>
 
-1317761720 /usr/include/getopt.h
+1331086282 /usr/include/getopt.h
 	<ctype.h>
 
-1317761711 /usr/include/ctype.h
+1331086254 /usr/include/ctype.h
 	<features.h>
 	<bits/types.h>
 	<endian.h>
@@ -350,7 +350,7 @@
 	<bits/c++config.h>
 	<stdlib.h>
 
-1317761714 /usr/include/stdlib.h
+1331086266 /usr/include/stdlib.h
 	<features.h>
 	<stddef.h>
 	<bits/waitflags.h>
@@ -361,7 +361,7 @@
 	<bits/stdlib.h>
 	<bits/stdlib-ldbl.h>
 
-1317761714 /usr/include/alloca.h
+1331086266 /usr/include/alloca.h
 	<features.h>
 	<stddef.h>
 
@@ -372,7 +372,7 @@
 	<bits/c++config.h>
 	<stdint.h>
 
-1317761714 /usr/include/stdint.h
+1331086266 /usr/include/stdint.h
 	<features.h>
 	<bits/wchar.h>
 	<bits/wordsize.h>
@@ -399,14 +399,14 @@
 	<Windows.h>
 	<intrin.h>
 
-1317761720 /usr/include/sched.h
+1331086282 /usr/include/sched.h
 	<features.h>
 	<bits/types.h>
 	<stddef.h>
 	<time.h>
 	<bits/sched.h>
 
-1317761719 /usr/include/time.h
+1331086278 /usr/include/time.h
 	<features.h>
 	<stddef.h>
 	<bits/time.h>
@@ -491,7 +491,7 @@
 1316183203 /usr/include/c++/4.6/cerrno
 	<errno.h>
 
-1317761714 /usr/include/errno.h
+1331086266 /usr/include/errno.h
 	<features.h>
 	<bits/errno.h>
 
@@ -739,7 +739,7 @@
 	<vector>
 	<execinfo.h>
 
-1317761732 /usr/include/execinfo.h
+1331086312 /usr/include/execinfo.h
 	<features.h>
 
 1316183203 /usr/include/c++/4.6/profile/impl/profiler_trace.h
@@ -882,7 +882,7 @@
 1316183203 /usr/include/c++/4.6/climits
 	<limits.h>
 
-1317761698 /usr/include/limits.h
+1331086225 /usr/include/limits.h
 	<features.h>
 	<bits/wordsize.h>
 	<bits/posix1_lim.h>
@@ -952,7 +952,7 @@
 	<ext/type_traits.h>
 	<math.h>
 
-1317761712 /usr/include/math.h
+1331086260 /usr/include/math.h
 	<features.h>
 	<bits/huge_val.h>
 	<bits/huge_valf.h>
@@ -2005,7 +2005,7 @@
 	"../exception.h"
 	"../noisegen.h"
 
-1317761710 /usr/include/assert.h
+1331086254 /usr/include/assert.h
 	<features.h>
 
 1268227746 /usr/include/libnoise/basictypes.h
@@ -2352,7 +2352,7 @@
 	<bits/c++config.h>
 	<string.h>
 
-1317761717 /usr/include/string.h
+1331086273 /usr/include/string.h
 	<features.h>
 	<stddef.h>
 	<xlocale.h>
@@ -2476,12 +2476,13 @@
 1315156264 /usr/local/include/Box2D/Dynamics/Joints/b2WeldJoint.h
 	<Box2D/Dynamics/Joints/b2Joint.h>
 
-1328728874 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.cpp
+1331557562 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.cpp
 	"scenemanager.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
+	"particlemanager.h"
 
-1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.h
+1331303254 /home/thomas/pixelwar/pixelwar/src/engines/graphics/scenemanager.h
 	"scenenode.h"
 	<map>
 	<SFML2/Graphics.hpp>
@@ -2497,7 +2498,7 @@
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/engines/graphics/positioninformations.h
 
-1328638904 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
+1331556474 /home/thomas/pixelwar/pixelwar/src//engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2523,6 +2524,7 @@
 	"gui/guislidernumberitem.h"
 	"gui/guicolorselector.h"
 	"gui/guirectangleitem.h"
+	"particlemanager.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src//core/singleton.h
 
@@ -2559,7 +2561,7 @@
 	"scenenodeitem.h"
 	"positioninformations.h"
 
-1326490981 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenemanager.h
+1331303254 /home/thomas/pixelwar/pixelwar/src//engines/graphics/scenemanager.h
 	"scenenode.h"
 	<map>
 	<SFML2/Graphics.hpp>
@@ -2627,7 +2629,7 @@
 	<exception>
 	<string>
 
-1328638904 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
+1331556474 /home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.h
 	"../../core/singleton.h"
 	<vector>
 	<unordered_map>
@@ -2653,6 +2655,7 @@
 	"gui/guislidernumberitem.h"
 	"gui/guicolorselector.h"
 	"gui/guirectangleitem.h"
+	"particlemanager.h"
 
 1326490981 /home/thomas/pixelwar/pixelwar/src/core/singleton.h
 
@@ -2772,7 +2775,7 @@
 	"guimanager.h"
 	"../graphicalengine.h"
 
-1331281538 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1331566757 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -3012,7 +3015,7 @@
 	<SFML2/System.hpp>
 	<deque>
 
-1327146357 source:/home/thomas/pixelwar/pixelwar/src/engines/game/contactlistenner.cpp
+1331563033 source:/home/thomas/pixelwar/pixelwar/src/engines/game/contactlistenner.cpp
 	"projectile.h"
 	"contactlistenner.h"
 	"bodytype.h"
@@ -3268,7 +3271,7 @@
 	<iostream>
 	"../../../core/logger.h"
 
-1329242566 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+1331281696 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
 	"menuoptions.h"
 	"engines/graphics/graphicalengine.h"
 	"../playerparameters.h"
@@ -3829,4 +3832,42 @@
 1328801545 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menutouche.h
 	<string>
 	<SFML2/Graphics.hpp>
+
+1331567094 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/particlemanager.cpp
+	"particlemanager.h"
+	"scenenode.h"
+	"scenenodecircleshapeitem.h"
+	"scenemanager.h"
+	"../../core/trigo.h"
+
+1331566924 /home/thomas/pixelwar/pixelwar/src/engines/graphics/particlemanager.h
+	<unordered_map>
+	<vector>
+	<SFML2/Graphics.hpp>
+	<SFML2/System.hpp>
+	"../../core/random.h"
+	<Box2D/Box2D.h>
+
+1331301524 /home/thomas/pixelwar/pixelwar/src/core/random.h
+
+1331302849 source:/home/thomas/pixelwar/pixelwar/src/core/random.cpp
+	"random.h"
+	<cstdlib>
+	<algorithm>
+
+1331566924 /home/thomas/pixelwar/pixelwar/src//engines/graphics/particlemanager.h
+	<unordered_map>
+	<vector>
+	<SFML2/Graphics.hpp>
+	<SFML2/System.hpp>
+	"../../core/random.h"
+	<Box2D/Box2D.h>
+
+1331301524 /home/thomas/pixelwar/pixelwar/src//core/random.h
+
+1331565794 /home/thomas/pixelwar/pixelwar/src/core/trigo.h
+	<SFML2/System.hpp>
+
+1331565775 source:/home/thomas/pixelwar/pixelwar/src/core/trigo.cpp
+	"trigo.h"
 

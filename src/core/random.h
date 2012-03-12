@@ -7,8 +7,8 @@ class Random
     public:
         Random();
         virtual ~Random();
-        static int Random(int,int);
-        static float Random(float,float);
+        static int Rand(int,int);
+        static float Rand(float,float);
     protected:
     private:
 };

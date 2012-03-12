@@ -1,5 +1,6 @@
 #include "random.h"
 #include <cstdlib>
+#include <algorithm>
 
 Random::Random()
 {
@@ -10,15 +11,19 @@ Random::~Random()
 {
     //dtor
 }
-int Random::Random(int min, int max)
+int Random::Rand(int min, int max)
 {
     if(min==max)
         return min;
-    return int(Random(float(min), float(max)));
+    return int(Rand(float(min), float(max)));
 }
 
-float Random::Random(float min, float max)
+float Random::Rand(float min, float max)
 {
+    if(min>max)
+    {
+        std::swap(min,max);
+    }
     static bool inited=false;
     if(!inited)
     {
@@ -27,5 +32,6 @@ float Random::Random(float min, float max)
     }
     if(min==max)
         return min;
-    return (rand()%(max-min+1)+min);
+    float r = (float)rand()/(float)RAND_MAX;
+    return r*(max-min+1)+min;
 }

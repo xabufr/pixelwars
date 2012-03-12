@@ -1,12 +1,13 @@
 #include "scenemanager.h"
 #include "engines/graphics/graphicalengine.h"
 #include "core/logger.h"
+#include "particlemanager.h"
 
 SceneManager::SceneManager()
 {
     m_rootSceneNode = new SceneNode(this);
+    m_particleManager = new ParticleManager(this);
 }
-
 SceneManager::~SceneManager()
 {
     delete m_rootSceneNode;
@@ -17,6 +18,7 @@ SceneNode *SceneManager::GetRootNode()
 }
 void SceneManager::Draw()
 {
+    m_particleManager->Update();
     std::map<int,std::vector<SceneNode*>>::iterator it;
     sf::RenderWindow *app = GraphicalEngine::GetInstance()->GetRenderWindow();
     for(it=m_nodesLevel.begin();it!=m_nodesLevel.end();it++)
@@ -78,7 +80,11 @@ void SceneManager::RemoveNode(SceneNode* node)
     }
     else
     {
-        Logger::Log()<<"Level not found !"<<Logger::endl;
+        Logger::Log()<<"Level "<< level <<" not found !"<<Logger::endl;
     }
+}
+ParticleManager* SceneManager::GetParticleManager() const
+{
+    return m_particleManager;
 }
 

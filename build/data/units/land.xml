@@ -8,7 +8,7 @@
   <model name="DCA" uid="DCA">
     <blindage value="5" />
     <canon value="1" />
-    <projectile value="25" />
+    <projectile value="5" />
   </model>
   <model name="Artillerie Lourde" uid="Artillerie L">
     <blindage value="20" />

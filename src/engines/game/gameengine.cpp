@@ -57,6 +57,7 @@ void GameEngine::Start()
 	m_world->SetContactListener(m_listner);
 	m_carte = new Carte(m_world, sf::Vector2i(m_tailleCarte,600), 400, 100, m_seed);
     UniteTerrestreModel::GetInstance();
+    m_gengine->GetSceneManager()->GetParticleManager()->SetWorld(m_world);
 
 
     joueurManager = new JoueurManager(*m_carte);
@@ -96,6 +97,22 @@ void GameEngine::GererExplosions()
     for(const ExplosionPosition &exp : explosions)
     {
         m_carte->AjouterExplosion(exp.position, exp.radius);
+        ParticleParameters params;
+        params.colorFromList=true;
+        params.colorList.push_back(sf::Color(0,255,0));
+        params.colorList.push_back(sf::Color(128,128,128));
+        params.colorList.push_back(sf::Color(108,65,0));
+        params.position=exp.position;
+        params.number=10;
+        params.timeToLive=2000;
+        params.level=0;
+        params.minSize=1;
+        params.maxSize=3;
+        params.minPower=250;
+        params.maxPower=500;
+        params.minAngle=80;
+        params.maxAngle=100;
+        GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticleSystem(params);
     }
     m_carte->FinirDestruction();
     const std::vector<ExplosionImpusle>& impulses = m_listner->GetImpulsions();

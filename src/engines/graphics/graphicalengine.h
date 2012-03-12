@@ -29,6 +29,7 @@
 #include "gui/guislidernumberitem.h"
 #include "gui/guicolorselector.h"
 #include "gui/guirectangleitem.h"
+#include "particlemanager.h"
 
 /// @todo Documenter
 class GraphicalEngine : public Singleton<GraphicalEngine>

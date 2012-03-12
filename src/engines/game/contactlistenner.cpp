@@ -27,7 +27,7 @@ void ContactListenner::BeginContact(b2Contact *contact)
 {
     BodyType *b1 = (BodyType*) contact->GetFixtureA()->GetBody()->GetUserData();
     BodyType *b2 = (BodyType*) contact->GetFixtureB()->GetBody()->GetUserData();
-
+    if(b1==0||b2==0) return;
     if(b1->type==BodyTypeEnum::ProjectileE||b2->type==BodyTypeEnum::ProjectileE)
     {
         Projectile *proj;

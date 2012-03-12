@@ -87,6 +87,8 @@
 		<Unit filename="core/random.h" />
 		<Unit filename="core/singleton.cpp" />
 		<Unit filename="core/singleton.h" />
+		<Unit filename="core/trigo.cpp" />
+		<Unit filename="core/trigo.h" />
 		<Unit filename="engines/engine.cpp" />
 		<Unit filename="engines/engine.h" />
 		<Unit filename="engines/engineevent.cpp" />
