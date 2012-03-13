@@ -103,15 +103,15 @@ void GameEngine::GererExplosions()
         params.colorList.push_back(sf::Color(128,128,128));
         params.colorList.push_back(sf::Color(108,65,0));
         params.position=exp.position;
-        params.number=10;
+        params.number=exp.radius*2;
         params.timeToLive=2000;
-        params.level=0;
+        params.level=-1;
         params.minSize=1;
-        params.maxSize=3;
+        params.maxSize=2;
         params.minPower=250;
         params.maxPower=500;
-        params.minAngle=80;
-        params.maxAngle=100;
+        params.minAngle=exp.angle-10;
+        params.maxAngle=exp.angle+10;
         GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticleSystem(params);
     }
     m_carte->FinirDestruction();

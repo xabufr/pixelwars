@@ -21,4 +21,30 @@ namespace Trigo
     {
         return Translate(ToRad(deg), dist, p);
     }
+    float Angle(const float x1, const float y1, const float x2, const float y2)
+    {
+        float x = x1 - x2;
+        float y = y1 - y2;
+
+        if (y == 0.f)
+        {
+            if (x >= 0.f)
+                return 270.f;
+            else
+                return 90.f;
+        }
+
+        if (x >= 0.f)
+        {
+            return ( ToDeg( -std::atan(y/x) ) + 270.f );
+        }
+        else
+        {
+            return ( ToDeg( -std::atan(y/x) ) + 90.f );
+        }
+    }
+    float Angle(const sf::Vector2f &v1, const sf::Vector2f &v2)
+    {
+        return Angle(v1.x, v1.y, v2.x, v2.y);
+    }
 }

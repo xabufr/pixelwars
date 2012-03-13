@@ -9,7 +9,7 @@ class Projectile;
 struct ExplosionPosition
 {
     sf::Vector2f position;
-    float radius;
+    float radius, angle;
 };
 struct ExplosionImpusle
 {
@@ -21,7 +21,7 @@ class ContactListenner : public b2ContactListener
     public:
         ContactListenner(const std::unordered_map<sf::Uint32, Unite*>&);
         virtual ~ContactListenner();
-        void BeginContact (b2Contact *contact);
+        void PreSolve(b2Contact *contact, const b2Manifold* oldManif);
         void Clear();
         const std::vector<ExplosionPosition>& GetExplosions() const;
         const std::vector<Projectile*>& GetProjectileToDestroy() const;

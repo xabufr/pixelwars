@@ -19,6 +19,7 @@ class Carte
         b2World *m_world;
         b2Body *m_bodyTerrain;
         SceneNodeTextureItem* m_itemTerrain;
+        SceneNodeShapeItem *m_itemDroite, *m_itemGauche;
         SceneNodeShapeItem* m_itemDessousTerrain;
         SceneNode* m_nodeTerrain;
 

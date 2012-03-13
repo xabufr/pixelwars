@@ -4,6 +4,8 @@
 #include "bodytype.h"
 #include "unite.h"
 #include "core/logger.h"
+#include "../../core/trigo.h"
+
 ContactListenner::ContactListenner(const std::unordered_map<sf::Uint32, Unite*> & unites): m_unites(unites)
 {
     //ctor
@@ -23,11 +25,12 @@ const std::vector<Projectile*>& ContactListenner::GetProjectileToDestroy() const
     return m_toDestroy;
 }
 
-void ContactListenner::BeginContact(b2Contact *contact)
+void ContactListenner::PreSolve(b2Contact *contact, const b2Manifold* oldManif)
 {
     BodyType *b1 = (BodyType*) contact->GetFixtureA()->GetBody()->GetUserData();
     BodyType *b2 = (BodyType*) contact->GetFixtureB()->GetBody()->GetUserData();
     if(b1==0||b2==0) return;
+    if((b1->type!=BodyTypeEnum::TerrainE&&b2->type!=BodyTypeEnum::TerrainE)&&(b1->type!=BodyTypeEnum::UniteE&&b2->type!=BodyTypeEnum::UniteE)) return;
     if(b1->type==BodyTypeEnum::ProjectileE||b2->type==BodyTypeEnum::ProjectileE)
     {
         Projectile *proj;
@@ -51,10 +54,18 @@ void ContactListenner::BeginContact(b2Contact *contact)
         exp.position.x = manif.points[0].x*10;
         exp.position.y = -manif.points[0].y*10;
         exp.radius = proj->GetPuissance();
+        exp.angle = Trigo::Angle(proj->GetBody()->GetLinearVelocity().x,proj->GetBody()->GetLinearVelocity().y)+90;
+        if((exp.angle<20&&exp.angle>0)||(exp.angle>340&&exp.angle<380))
+        {
+            exp.angle-=180;
+        }
+        else if(exp.angle>160&&exp.angle<200)
+        {
+            exp.angle+=180;
+        }
         m_explosions.push_back(exp);
         m_toDestroy.push_back(proj);
     }
-
 }
 
 void ContactListenner::Clear()

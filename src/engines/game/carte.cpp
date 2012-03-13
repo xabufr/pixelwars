@@ -8,7 +8,11 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, float valMoy, float dif
     m_world=world;
     m_nodeTerrain = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     m_itemTerrain = new SceneNodeTextureItem;
+    m_itemDroite = new SceneNodeShapeItem;
+    m_itemGauche = new SceneNodeShapeItem;
     m_nodeTerrain->AddItem(m_itemTerrain);
+    m_nodeTerrain->AddItem(m_itemDroite);
+    m_nodeTerrain->AddItem(m_itemGauche);
     m_itemDessousTerrain = new SceneNodeShapeItem;
     m_nodeTerrain->AddItem(m_itemDessousTerrain);
     m_destruction = false;
@@ -44,6 +48,15 @@ void Carte::Generer(const sf::Vector2i& taille, int seed, float valMoy, float di
     m_itemDessousTerrain->SetSize(taille.x, 1000);
     m_itemDessousTerrain->SetColor(sf::Color(128,128,128));
     m_itemDessousTerrain->SetRelativePosition(0, taille.y);
+
+    m_itemDroite->SetSize(1000, taille.y+10000);
+    m_itemGauche->SetSize(1000, taille.y+10000);
+    m_itemDroite->SetColor(sf::Color(0,0,0));
+    m_itemGauche->SetColor(sf::Color(0,0,0));
+
+    m_itemGauche->SetRelativePosition(-1000, -5000);
+    m_itemDroite->SetRelativePosition(taille.x, -5000);
+
     noise::module::Perlin gen;
     gen.SetSeed(seed);
     sf::Uint8 filler[taille.y*4];
