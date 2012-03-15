@@ -66,3 +66,7 @@ void SoundProprities::AddIntervalle(TiXmlNode* node, std::vector<Intervalle>& ta
     tmp.max=max;
     tableau.push_back(tmp);
 }
+std::string SoundProprities::GetUniteTerrestreDestructionSound(UniteTerrestre* unit) const
+{
+    return "test.wav";
+}

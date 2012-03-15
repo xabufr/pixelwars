@@ -269,3 +269,7 @@ void SceneNode::VisibilityChanged()
         n->SetVisible(m_visible);
     }
 }
+const PositionInformations& SceneNode::GetAbsoluteInformations() const
+{
+    return m_absolute;
+}

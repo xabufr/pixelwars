@@ -43,9 +43,9 @@ void ContactListenner::PreSolve(b2Contact *contact, const b2Manifold* oldManif)
         {
             proj=(Projectile*)b2->proprietaire;
         }
-        /*if(aEteTraite(proj))
+        if(aEteTraite(proj))
             return;
-        m_traites.push_back(proj);*/
+        m_traites.push_back(proj);
 
         m_CalculerImpulsions(proj);
         b2WorldManifold manif;

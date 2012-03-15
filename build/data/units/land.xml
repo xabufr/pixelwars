@@ -3,7 +3,7 @@
   <model name="default" uid="default">
     <blindage value="10" />
     <canon value="2" />
-    <projectile value="5" />
+    <projectile value="12" />
   </model>
   <model name="DCA" uid="DCA">
     <blindage value="5" />
@@ -16,8 +16,8 @@
     <projectile value="25" />
   </model>
   <model name="Artillerie Legere" uid="Artillerie Le">
-    <blindage value="10" />
-    <canon value="4" />
-    <projectile value="10" />
+    <blindage value="15" />
+    <canon value="2" />
+    <projectile value="20" />
   </model>
 </root>

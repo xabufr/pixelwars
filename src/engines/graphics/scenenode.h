@@ -48,6 +48,8 @@ class SceneNode
         void SetAbsoluteScale(const sf::Vector2f&);
         void SetAbsoluteScale(float x, float y);
 
+        const PositionInformations& GetAbsoluteInformations() const;
+
     protected:
         virtual void PositionChanged();
         virtual void RotationChanged();

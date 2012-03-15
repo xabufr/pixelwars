@@ -112,6 +112,20 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& ui
 
 UniteTerrestre::~UniteTerrestre()
 {
+    ParticleParameters params;
+    params.colorFromList=true;
+    params.colorList.push_back(sf::Color(128,128,128));
+    params.level=-1;
+    params.minAngle=0;
+    params.maxAngle=360;
+    params.minPower=250;
+    params.maxPower=1000;
+    params.timeToLive=1500;
+    params.number=1000;
+    params.minSize=1;
+    params.maxSize=2;
+    params.position=m_node->GetAbsoluteInformations().position;
+    GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticleSystem(params);
     m_roue1->GetWorld()->DestroyBody(m_roue1);
     m_roue2->GetWorld()->DestroyBody(m_roue2);
     m_tourelle->GetWorld()->DestroyBody(m_tourelle);

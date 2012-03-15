@@ -20,6 +20,7 @@ class SoundProprities: public Singleton<SoundProprities>
     public:
         std::string GetProjectileSound(Projectile*) const;
         std::string GetUniteTerrestreSound(UniteTerrestre*)const;
+        std::string GetUniteTerrestreDestructionSound(UniteTerrestre*) const;
     protected:
         SoundProprities();
         virtual ~SoundProprities();

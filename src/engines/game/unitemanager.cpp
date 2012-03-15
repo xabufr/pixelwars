@@ -42,6 +42,12 @@ void UniteManager::DetruireUnite(sf::Uint32 id)
 {
     delete m_unites[id];
     EnleverUnite(id);
+
+    EngineEvent *eventSon = new EngineEvent;
+    eventSon->To(EngineType::Audio_engine);
+    eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetUniteTerrestreDestructionSound((UniteTerrestre*)m_unites[id]));
+    eventSon->SetMessage(TypeMessage::JouerSon);
+    m_engine->AddEvent(eventSon);
 }
 void UniteManager::DetruireUnite(Unite* unit)
 {
