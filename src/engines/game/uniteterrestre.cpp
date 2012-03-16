@@ -2,6 +2,7 @@
 #include "bodytype.h"
 #include "projectile.h"
 #include "core/exception.h"
+#include "../../core/trigo.h"
 
 UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& uid): Unite(world, pos),
     m_param(UniteTerrestreModel::GetInstance()->Get(uid))
@@ -213,6 +214,14 @@ void UniteTerrestre::SetColor(const sf::Color& col)
     m_itemBody->SetColor(col);
 }
 float UniteTerrestre::GetTailleCanon() const
+{
+    return m_param->tailleCanon;
+}
+float UniteTerrestre::GetShootAngle() const
+{
+    return Trigo::ToDeg(m_tourelle->GetAngle());
+}
+float UniteTerrestre::GetPuissanceExplulsion() const
 {
     return m_param->tailleCanon;
 }

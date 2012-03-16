@@ -17,6 +17,8 @@ class UniteTerrestre : public Unite
         Projectile* Tirer();
         virtual void SetColor(const sf::Color& col);
         float GetTailleCanon() const;
+        virtual float GetShootAngle() const;
+        virtual float GetPuissanceExplulsion() const;
 
     private:
         b2Body *m_roue1, *m_roue2, *m_tourelle;

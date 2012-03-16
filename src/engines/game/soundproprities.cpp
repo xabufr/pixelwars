@@ -68,5 +68,5 @@ void SoundProprities::AddIntervalle(TiXmlNode* node, std::vector<Intervalle>& ta
 }
 std::string SoundProprities::GetUniteTerrestreDestructionSound(UniteTerrestre* unit) const
 {
-    return "test.wav";
+    return "fdetest.wav";
 }

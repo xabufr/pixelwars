@@ -9,6 +9,7 @@
 #include "engines/engineevent.h"
 #include "gameengine.h"
 #include "soundproprities.h"
+#include "../../core/trigo.h"
 
 UniteManager::UniteManager(GameEngine* g_engine, JoueurManager* j_manager): m_joueurManager(j_manager), m_engine(g_engine)
 {
@@ -42,12 +43,6 @@ void UniteManager::DetruireUnite(sf::Uint32 id)
 {
     delete m_unites[id];
     EnleverUnite(id);
-
-    EngineEvent *eventSon = new EngineEvent;
-    eventSon->To(EngineType::Audio_engine);
-    eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetUniteTerrestreDestructionSound((UniteTerrestre*)m_unites[id]));
-    eventSon->SetMessage(TypeMessage::JouerSon);
-    m_engine->AddEvent(eventSon);
 }
 void UniteManager::DetruireUnite(Unite* unit)
 {
@@ -87,6 +82,24 @@ void UniteManager::Update()
         if(unit&&unit->PeutTirer())
         {
             m_projectiles.push_back(unit->Tirer());
+
+            ParticleParameters params;
+            params.position=sf::Vector2f(m_projectiles.back()->GetBody()->GetPosition().x*10, -m_projectiles.back()->GetBody()->GetPosition().y*10);
+            params.minSize=1;
+            params.maxSize=1.5;
+            params.level=-1;
+            params.number=10;
+            params.timeToLive=75*unit->GetPuissanceExplulsion();
+            params.maxPower=800;
+            params.minPower=600;
+            params.colorFromList=false;
+            params.colorMin=sf::Color(255,162,0);
+            params.colorMax=sf::Color(255,238,0);
+            params.minAngle=unit->GetShootAngle()-5;
+            params.maxAngle=unit->GetShootAngle()+5;
+
+            GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticleSystem(params);
+
             EngineEvent *eventSon = new EngineEvent;
             eventSon->To(EngineType::Audio_engine);
             eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetUniteTerrestreSound((UniteTerrestre*)unit));
@@ -109,6 +122,13 @@ void UniteManager::Update()
         {
             m_engine->AddScore(1, m_joueurManager->GetId(m_joueurManager->GetJoueur(it->second))==0?1:0);
             m_joueurManager->SupprimerUnite(it->second);
+
+            EngineEvent *eventSon = new EngineEvent;
+            eventSon->To(EngineType::Audio_engine);
+            eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetUniteTerrestreDestructionSound((UniteTerrestre*)it->second));
+            eventSon->SetMessage(TypeMessage::JouerSon);
+            m_engine->AddEvent(eventSon);
+
             delete it->second;
             it = m_unites.erase(it);
         }
@@ -143,3 +163,4 @@ void UniteManager::SetJoueurManager(JoueurManager *j_manager)
 {
     m_joueurManager = j_manager;
 }
+
