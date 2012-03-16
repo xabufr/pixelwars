@@ -127,7 +127,7 @@ void UniteManager::Update()
             eventSon->To(EngineType::Audio_engine);
             eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetUniteTerrestreDestructionSound((UniteTerrestre*)it->second));
             eventSon->SetMessage(TypeMessage::JouerSon);
-            m_engine->AddEvent(eventSon);
+            //m_engine->AddEvent(eventSon);
 
             delete it->second;
             it = m_unites.erase(it);

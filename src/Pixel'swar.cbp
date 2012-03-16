@@ -109,6 +109,8 @@
 		<Unit filename="engines/game/joueurhumain.h" />
 		<Unit filename="engines/game/joueurmanager.cpp" />
 		<Unit filename="engines/game/joueurmanager.h" />
+		<Unit filename="engines/game/menus/infomessage.cpp" />
+		<Unit filename="engines/game/menus/infomessage.h" />
 		<Unit filename="engines/game/menus/menuoptions.cpp" />
 		<Unit filename="engines/game/menus/menuoptions.h" />
 		<Unit filename="engines/game/menus/menuoptionspartie.cpp" />

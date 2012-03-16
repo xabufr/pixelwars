@@ -26,8 +26,8 @@ GameEngine::~GameEngine()
     m_gengine->GetGuiManager()->RemoveNode(m_windowJ1);
     m_gengine->GetGuiManager()->RemoveNode(m_windowJ2);
 
-    delete joueurManager;
-    delete uniteManager;
+    delete m_joueurManager;
+    delete m_uniteManager;
     delete m_carte;
     delete m_world;
 }
@@ -49,8 +49,8 @@ void GameEngine::Start()
     m_app = m_gengine->GetRenderWindow();
 
 
-    uniteManager = new UniteManager(this);
-    m_listner = new ContactListenner(uniteManager->GetListe());
+    m_uniteManager = new UniteManager(this);
+    m_listner = new ContactListenner(m_uniteManager->GetListe());
     b2Vec2 gravity;
 	gravity.Set(0.0f, -10.0f);
 	m_world = new b2World(gravity);
@@ -60,33 +60,33 @@ void GameEngine::Start()
     m_gengine->GetSceneManager()->GetParticleManager()->SetWorld(m_world);
 
 
-    joueurManager = new JoueurManager(*m_carte);
-    uniteManager->SetJoueurManager(joueurManager);
+    m_joueurManager = new JoueurManager(*m_carte);
+    m_uniteManager->SetJoueurManager(m_joueurManager);
 
-    joueurManager->SetJoueur(0, TypeJoueur::JOUEUR_LOCAL);
-    joueurManager->SetJoueur(1, TypeJoueur::JOUEUR_LOCAL);
-    joueurManager->GetJoueur(0)->SetColor(PlayerParameters::GetInstance()->GetParam(0).couleur);
-    joueurManager->GetJoueur(1)->SetColor(PlayerParameters::GetInstance()->GetParam(1).couleur);
+    m_joueurManager->SetJoueur(0, TypeJoueur::JOUEUR_LOCAL);
+    m_joueurManager->SetJoueur(1, TypeJoueur::JOUEUR_LOCAL);
+    m_joueurManager->GetJoueur(0)->SetColor(PlayerParameters::GetInstance()->GetParam(0).couleur);
+    m_joueurManager->GetJoueur(1)->SetColor(PlayerParameters::GetInstance()->GetParam(1).couleur);
 
     m_windowJ1 = m_gengine->GetGuiManager()->GetRootNode()->AddWindow();
-    m_windowJ1->SetWindowTitle("Joueur 1");
+    m_windowJ1->SetWindowTitle(PlayerParameters::GetInstance()->GetPlayerName(0));
 
     m_windowJ1->SetAbsolutePosition(0,0);
     m_scoreText[0] = new GuiTextItem;
     m_scoreText[1] = new GuiTextItem;
-    m_scoreText[0]->SetText("Score: 0      ");
-    m_scoreText[1]->SetText("Score: 0      ");
-    m_score[0]=0;
-    m_score[1]=0;
+    m_scoreText[0]->SetText("Score: 10      ");
+    m_scoreText[1]->SetText("Score: 10      ");
+    m_score[0]=10;
+    m_score[1]=10;
 
     m_windowJ2 = m_gengine->GetGuiManager()->GetRootNode()->AddWindow();
-    m_windowJ2->SetWindowTitle("Joueur 2");
+    m_windowJ2->SetWindowTitle(PlayerParameters::GetInstance()->GetPlayerName(1));
 
     m_windowJ1->GetContener()->AjouterItem(m_scoreText[0],1,0);
     m_windowJ2->GetContener()->AjouterItem(m_scoreText[1],1,0);
 
-    LoadGuiModels(m_windowJ1, joueurManager->GetJoueur(0));
-    LoadGuiModels(m_windowJ2, joueurManager->GetJoueur(1));
+    LoadGuiModels(m_windowJ1, m_joueurManager->GetJoueur(0));
+    LoadGuiModels(m_windowJ2, m_joueurManager->GetJoueur(1));
     m_windowJ2->SetAbsolutePosition(300,0);
 
 }
@@ -131,16 +131,16 @@ void GameEngine::GererExplosions()
 }
 void GameEngine::DeleteProjectile(Projectile* toDelete)
 {
-    uniteManager->DeleteProjectile(toDelete);
+    m_uniteManager->DeleteProjectile(toDelete);
 }
 
 void GameEngine::EnleverUnit(Unite* unite)
 {
-    uniteManager->DetruireUnite(unite);
+    m_uniteManager->DetruireUnite(unite);
 }
 void GameEngine::EnleverUnit(sf::Uint32 id)
 {
-    uniteManager->DetruireUnite(id);
+    m_uniteManager->DetruireUnite(id);
 }
 void GameEngine::LoadGuiModels(GuiWindowNode* window, Joueur* joueur)
 {
@@ -186,7 +186,7 @@ void GameEngine::CallbackAjoutUnite(GuiItem* item)
     GameEngine* game = (GameEngine*)item->GetData("game");
     Joueur* joueur = (Joueur*)item->GetData("joueur");
     sf::Uint32 id = game->m_lastId++;
-    game->uniteManager->AjouterUniteTerrestre(game->joueurManager->GetId(joueur), id, game->m_world, std::string((char*)item->GetData("model")));
+    game->m_uniteManager->AjouterUniteTerrestre(game->m_joueurManager->GetId(joueur), id, game->m_world, std::string((char*)item->GetData("model")));
 }
 
 void GameEngine::Work()
@@ -211,10 +211,10 @@ void GameEngine::Work()
     m_world->Step(1.f/60.f, 8, 3);
     m_gengine->DrawScene();
     GererExplosions();
-    uniteManager->Update();
-    joueurManager->Input(0, m_inputManager.GetAll());
-    joueurManager->Input(1, m_inputManager.GetAll(1));
-    joueurManager->Update();
+    m_uniteManager->Update();
+    m_joueurManager->Input(0, m_inputManager.GetAll());
+    m_joueurManager->Input(1, m_inputManager.GetAll(1));
+    m_joueurManager->Update();
 }
 void GameEngine::HandleEngineEvent(EngineEvent*)
 {
@@ -235,5 +235,16 @@ void GameEngine::ChangerScores()
 void GameEngine::AddScore(int add, int index)
 {
     m_score[index]+=add;
+    m_score[(index==0?1:0)]-=add;
     ChangerScores();
+}
+bool GameEngine::CanWork() const
+{
+    return m_score[0]>=0&&m_score[1]>=0;
+}
+std::string GameEngine::GetWinner() const
+{
+    if(m_score[0]<m_score[1])
+        return PlayerParameters::GetInstance()->GetPlayerName(1);
+    return PlayerParameters::GetInstance()->GetPlayerName(0);
 }

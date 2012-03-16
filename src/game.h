@@ -15,13 +15,15 @@ class Game
         void SetTailleCarte(int largeur);
         void SetSeed(int);
         Engine* GetEngineFromId(EngineType id);
+        const std::string& GetWinner() const;
+
     protected:
     private:
         NetworkEngine* m_network;
         GameEngine *m_game;
         SoundEngine *m_sound;
         std::vector<Engine*> m_engines;
-
+        std::string m_winner;
         bool m_run;
 
         int m_largeurCarte;

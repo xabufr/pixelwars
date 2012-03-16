@@ -22,6 +22,7 @@ class GameEngine : public Engine
         virtual ~GameEngine();
         void Start();
         EngineType GetEngineId() const;
+        bool CanWork() const;
 
         void Work();
         void HandleEngineEvent(EngineEvent*);
@@ -36,6 +37,7 @@ class GameEngine : public Engine
         void AddScore(int,int);
 
         static void CallbackAjoutUnite(GuiItem*);
+        std::string GetWinner() const;
 
     private:
         ContactListenner *m_listner;
@@ -50,8 +52,8 @@ class GameEngine : public Engine
         Carte *m_carte;
         GraphicalEngine *m_gengine;
 
-        JoueurManager *joueurManager;
-        UniteManager *uniteManager;
+        JoueurManager *m_joueurManager;
+        UniteManager *m_uniteManager;
         GuiWindowNode *m_windowJ1, *m_windowJ2;
         InputManager m_inputManager;
         sf::RenderWindow *m_app;

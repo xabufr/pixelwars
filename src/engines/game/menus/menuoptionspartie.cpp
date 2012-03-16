@@ -3,6 +3,8 @@
 #include "core/conversion.h"
 #include "../gameengine.h"
 #include "game.h"
+#include "infomessage.h"
+
 MenuOptionsPartie::MenuOptionsPartie(TypePartie type)
 {
     m_tailleCarte=2000;
@@ -78,13 +80,16 @@ void MenuOptionsPartie::StartMenuEcranScinde()
     }
     int taille = tailleCarteItem->GetValue();
     engine->GetGuiManager()->RemoveNode(node);
+    std::string tmpMes;
     if(m_start)
     {
         Game game;
         game.SetTailleCarte(taille);
         game.SetSeed(m_seed);
         game.Start();
+        tmpMes = "Le joueur " + game.GetWinner() + " gagne !";
     }
+    InfoMessage info(tmpMes);
 }
 void MenuOptionsPartie::ChangerTailleCarte(GuiItem* item)
 {

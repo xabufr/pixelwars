@@ -86,7 +86,11 @@ void Joueur::SelectFirstUnit()
     if(m_selectedUnit)
         m_selectedUnit->Stop();
     if(m_unites.size()==0)
+    {
+        m_selectedUnit=0;
         return;
+    }
+
     m_selectedUnit=m_unites.begin()->second;
     m_idSelected = m_unites.begin()->first;
 }

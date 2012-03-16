@@ -41,7 +41,11 @@ void Game::Start()
         m_game->Work();
         m_sound->Work();
         this->Work();
+
+        if(!m_game->CanWork())
+            m_run=false;
     }
+    m_winner = m_game->GetWinner();
 }
 void Game::SetTailleCarte(int taille)
 {
@@ -69,4 +73,9 @@ void Game::Work()
         }
         engine->ClearEvents();
     }
+}
+
+const std::string& Game::GetWinner() const
+{
+    return m_winner;
 }
