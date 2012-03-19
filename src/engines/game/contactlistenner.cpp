@@ -121,7 +121,7 @@ void ContactListenner::m_CalculerImpulsions(Projectile* proj)
             if(out.distance<proj->GetPuissance()*0.1)
             {
                 coefDistance = 1-(out.distance/(proj->GetPuissance()*0.1));
-                it.second->SubirDegats(proj->GetPuissance()*coefDistance);
+                it.second->SubirDegats(proj->GetPuissance()*coefDistance*2.5);
             }
         }
     }

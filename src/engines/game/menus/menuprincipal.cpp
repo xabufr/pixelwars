@@ -60,6 +60,8 @@ void MenuPrincipal::Show()
         while(app->PollEvent(event))
         {
             engine->GetGuiManager()->HandleEvent(event);
+            if(event.Type==sf::Event::EventType::KeyPressed && event.Key.Code==sf::Keyboard::Key::Escape)
+                app->Close();
         }
         engine->DrawScene();
         if(m_gameToStart)

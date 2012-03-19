@@ -219,6 +219,9 @@ void MenuOptions::Afficher()
             engine->GetGuiManager()->HandleEvent(event);
             if(event.Type==sf::Event::Closed)
                 cont = false;
+            if(event.Type==sf::Event::EventType::KeyPressed && event.Key.Code==sf::Keyboard::Key::Escape)
+                cont = false;
+
         }
         GraphicalEngine::GetInstance()->DrawScene();
         if(m_changerTouche)

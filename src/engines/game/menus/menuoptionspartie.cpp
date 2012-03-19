@@ -73,6 +73,8 @@ void MenuOptionsPartie::StartMenuEcranScinde()
             engine->GetGuiManager()->HandleEvent(event);
             if(event.Type==sf::Event::Closed)
                 continuer=false;
+            if(event.Type==sf::Event::EventType::KeyPressed && event.Key.Code==sf::Keyboard::Key::Escape)
+                continuer = false;
         }
         engine->DrawScene();
         if(m_start)
@@ -83,13 +85,16 @@ void MenuOptionsPartie::StartMenuEcranScinde()
     std::string tmpMes;
     if(m_start)
     {
-        Game game;
-        game.SetTailleCarte(taille);
-        game.SetSeed(m_seed);
-        game.Start();
-        tmpMes = "Le joueur " + game.GetWinner() + " gagne !";
+        {
+            Game game;
+            game.SetTailleCarte(taille);
+            game.SetSeed(m_seed);
+            game.Start();
+            tmpMes = "Le joueur " + game.GetWinner() + " gagne !";
+        } //Appel du destructeur de game
+        InfoMessage info(tmpMes);
     }
-    InfoMessage info(tmpMes);
+
 }
 void MenuOptionsPartie::ChangerTailleCarte(GuiItem* item)
 {
