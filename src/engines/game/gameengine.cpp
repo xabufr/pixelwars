@@ -207,7 +207,7 @@ void GameEngine::Work()
         m_inputManager.HandleEvent(event);
     }
 
-
+    m_carte->Work();
     m_world->Step(1.f/60.f, 8, 3);
     m_gengine->DrawScene();
     GererExplosions();

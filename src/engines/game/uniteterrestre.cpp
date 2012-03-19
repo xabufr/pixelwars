@@ -116,6 +116,8 @@ UniteTerrestre::~UniteTerrestre()
     ParticleParameters params;
     params.colorFromList=true;
     params.colorList.push_back(sf::Color(128,128,128));
+    params.colorList.push_back(sf::Color(255,149,0));
+    params.colorList.push_back(m_itemBody->GetColor());
     params.level=-1;
     params.minAngle=0;
     params.maxAngle=360;

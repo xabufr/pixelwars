@@ -7,6 +7,9 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, float valMoy, float dif
 {
     m_world=world;
     m_nodeTerrain = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
+    m_nodeCiel = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
+    m_nodeCiel->SetLevel(-10);
+    m_nodeCiel->SetAbsolutePosition(taille.x/2, taille.y);
     m_itemTerrain = new SceneNodeTextureItem;
     m_itemDroite = new SceneNodeShapeItem;
     m_itemGauche = new SceneNodeShapeItem;
@@ -15,10 +18,26 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, float valMoy, float dif
     m_nodeTerrain->AddItem(m_itemGauche);
     m_itemDessousTerrain = new SceneNodeShapeItem;
     m_nodeTerrain->AddItem(m_itemDessousTerrain);
+
+    m_fondCiel = new SceneNodeCircleShapeItem;
+    m_fondCiel->SetRadius(taille.x);
+    m_nodeCiel->AddItem(m_fondCiel);
+    m_fondCiel->SetRelativePosition(-taille.x,-taille.x);
+
+    m_itemSoleil = new SceneNodeSpriteItem;
+    m_itemSoleil->SetImage("data/sun.png");
+
+    m_nodeCiel->AddItem(m_itemSoleil);
+    m_itemSoleil->SetRelativePosition((-m_itemSoleil->GetSize().x/2)+(taille.x/2),-m_itemSoleil->GetSize().y/2);
+
+
+
     m_destruction = false;
     m_modified = false;
     m_tailleZone = 100;
     Generer(taille, seed, valMoy, diff);
+    m_dayDuration = 5*60*1000; //Cycles de 5 minutes
+    m_time.Restart();
 }
 
 Carte::~Carte()
@@ -26,6 +45,7 @@ Carte::~Carte()
     delete (BodyType*) m_bodyTerrain->GetUserData();
     m_world->DestroyBody(m_bodyTerrain);
     GraphicalEngine::GetInstance()->GetSceneManager()->RemoveNode(m_nodeTerrain);
+    GraphicalEngine::GetInstance()->GetSceneManager()->RemoveNode(m_nodeCiel);
 }
 void Carte::DemarrerDestruction()
 {
@@ -45,17 +65,17 @@ void Carte::Generer(const sf::Vector2i& taille, int seed, float valMoy, float di
     m_fixturesMapZone.resize(m_nb_zones);
 
     m_itemTerrain->CreateTexture(taille);
-    m_itemDessousTerrain->SetSize(taille.x, 1000);
+    m_itemDessousTerrain->SetSize(taille.x, 100000);
     m_itemDessousTerrain->SetColor(sf::Color(128,128,128));
     m_itemDessousTerrain->SetRelativePosition(0, taille.y);
 
-    m_itemDroite->SetSize(1000, taille.y+10000);
-    m_itemGauche->SetSize(1000, taille.y+10000);
+    m_itemDroite->SetSize(100000, taille.y+100000);
+    m_itemGauche->SetSize(100000, taille.y+100000);
     m_itemDroite->SetColor(sf::Color(0,0,0));
     m_itemGauche->SetColor(sf::Color(0,0,0));
 
-    m_itemGauche->SetRelativePosition(-1000, -5000);
-    m_itemDroite->SetRelativePosition(taille.x, -5000);
+    m_itemGauche->SetRelativePosition(-100000, -50000);
+    m_itemDroite->SetRelativePosition(taille.x, -50000);
 
     noise::module::Perlin gen;
     gen.SetSeed(seed);
@@ -307,4 +327,21 @@ int Carte::YMin(int x_debut, int x_fin)
         }
     }
     return y_return;
+}
+void Carte::Work()
+{
+    m_UpdateTime();
+    m_nodeCiel->SetAbsoluteRotation(m_nodeCiel->GetAbsoluteInformations().rotation+1);
+}
+void Carte::m_UpdateTime()
+{
+    int demiDay = m_dayDuration/2;
+    if(m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration>demiDay)
+    {
+        m_fondCiel->SetColor(sf::Color(0,0,0));
+    }
+    else
+    {
+        m_fondCiel->SetColor(sf::Color(0,0,128));
+    }
 }

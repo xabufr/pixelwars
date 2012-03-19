@@ -14,16 +14,22 @@ class Carte
         void AjouterExplosion(sf::Vector2f position, float radius);
         int Width();
         int YMin(int x_debut, int x_fin);
+        void Work();
 
     private:
         b2World *m_world;
         b2Body *m_bodyTerrain;
-        SceneNodeTextureItem* m_itemTerrain;
+        SceneNodeTextureItem *m_itemTerrain;
+        SceneNodeSpriteItem *m_itemSoleil;
+        SceneNodeCircleShapeItem *m_fondCiel;
         SceneNodeShapeItem *m_itemDroite, *m_itemGauche;
-        SceneNodeShapeItem* m_itemDessousTerrain;
-        SceneNode* m_nodeTerrain;
+        SceneNodeShapeItem *m_itemDessousTerrain;
+        SceneNode *m_nodeTerrain, *m_nodeCiel;
+        sf::Clock m_time;
+        int m_dayDuration;
 
         void RecalculerTerrain();
+        void m_UpdateTime();
 
         void RecreerTerrain();
         void Fill(sf::Uint8 *toFill, int height);
