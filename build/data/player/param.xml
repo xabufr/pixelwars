@@ -5,16 +5,16 @@
         <vert value="232" />
         <bleu value="209" />
         <touches>
-            <touche name="dezoomer" code="23" />
-            <touche name="droite" code="3" />
             <touche name="changer_unite" code="4" />
+            <touche name="droite" code="3" />
+            <touche name="dezoomer" code="23" />
             <touche name="bas" code="18" />
-            <touche name="zoomer" code="22" />
             <touche name="haut" code="25" />
+            <touche name="zoomer" code="22" />
             <touche name="dezoom" code="77" />
             <touche name="tirer" code="0" />
-            <touche name="gauche" code="16" />
             <touche name="zoom" code="76" />
+            <touche name="gauche" code="16" />
         </touches>
     </player>
     <player numero="1" name="Bastien">
@@ -22,16 +22,16 @@
         <vert value="0" />
         <bleu value="255" />
         <touches>
-            <touche name="changer_unite" code="75" />
-            <touche name="droite" code="72" />
             <touche name="dezoomer" code="68" />
+            <touche name="droite" code="72" />
+            <touche name="changer_unite" code="75" />
             <touche name="bas" code="74" />
-            <touche name="haut" code="73" />
             <touche name="zoomer" code="67" />
+            <touche name="haut" code="73" />
             <touche name="dezoom" code="5" />
             <touche name="tirer" code="58" />
-            <touche name="zoom" code="17" />
             <touche name="gauche" code="71" />
+            <touche name="zoom" code="17" />
         </touches>
     </player>
 </root>

@@ -97,6 +97,8 @@
 		<Unit filename="engines/game/bodytype.h" />
 		<Unit filename="engines/game/carte.cpp" />
 		<Unit filename="engines/game/carte.h" />
+		<Unit filename="engines/game/ciel.cpp" />
+		<Unit filename="engines/game/ciel.h" />
 		<Unit filename="engines/game/contactlistenner.cpp" />
 		<Unit filename="engines/game/contactlistenner.h" />
 		<Unit filename="engines/game/gameengine.cpp" />
@@ -119,6 +121,8 @@
 		<Unit filename="engines/game/menus/menuprincipal.h" />
 		<Unit filename="engines/game/menus/menutouche.cpp" />
 		<Unit filename="engines/game/menus/menutouche.h" />
+		<Unit filename="engines/game/nuage.cpp" />
+		<Unit filename="engines/game/nuage.h" />
 		<Unit filename="engines/game/playerparameters.cpp" />
 		<Unit filename="engines/game/playerparameters.h" />
 		<Unit filename="engines/game/projectile.cpp" />

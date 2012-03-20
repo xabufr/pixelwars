@@ -3023,17 +3023,17 @@
 	"core/logger.h"
 	"../../core/trigo.h"
 
-1332235494 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
+1332253803 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
 	"carte.h"
 	<libnoise/noise.h>
 	"bodytype.h"
 	<SFML2/Graphics.hpp>
-	"../../core/logger.h"
 
-1332237352 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
+1332268413 /home/thomas/pixelwar/pixelwar/src/engines/game/carte.h
 	<Box2D/Box2D.h>
 	"engines/graphics/graphicalengine.h"
 	<deque>
+	"ciel.h"
 
 1327146357 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unite.cpp
 	"unite.h"
@@ -3335,10 +3335,11 @@
 	"unitemanager.h"
 	"inputmanager.h"
 
-1332237352 /home/thomas/pixelwar/pixelwar/src//engines/game/carte.h
+1332268413 /home/thomas/pixelwar/pixelwar/src//engines/game/carte.h
 	<Box2D/Box2D.h>
 	"engines/graphics/graphicalengine.h"
 	<deque>
+	"ciel.h"
 
 1331628955 /home/thomas/pixelwar/pixelwar/src//engines/game/contactlistenner.h
 	<Box2D/Box2D.h>
@@ -3881,5 +3882,26 @@
 	"../../graphics/graphicalengine.h"
 
 1331907177 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/infomessage.h
+	<string>
+
+1332276675 /home/thomas/pixelwar/pixelwar/src/engines/game/ciel.h
+	"../graphics/graphicalengine.h"
+	<vector>
+
+1332276675 /home/thomas/pixelwar/pixelwar/src//engines/game/ciel.h
+	"../graphics/graphicalengine.h"
+	<vector>
+
+1332278641 source:/home/thomas/pixelwar/pixelwar/src/engines/game/ciel.cpp
+	"ciel.h"
+	"nuage.h"
+
+1332278746 /home/thomas/pixelwar/pixelwar/src/engines/game/nuage.h
+	"../graphics/graphicalengine.h"
+
+1332280351 source:/home/thomas/pixelwar/pixelwar/src/engines/game/nuage.cpp
+	"nuage.h"
+	"../../core/random.h"
+	<vector>
 	<string>
 
