@@ -10,7 +10,7 @@ class SceneNodeSpriteItem : public SceneNodeItem
         SceneNodeSpriteItem();
         virtual ~SceneNodeSpriteItem();
         void SetImage(const std::string&);
-
+        void SetColor(const sf::Color&);
         virtual sf::Vector2f GetSize() const;
 
     protected:

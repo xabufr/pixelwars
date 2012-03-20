@@ -9,7 +9,7 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, float valMoy, float dif
     m_nodeTerrain = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     m_nodeCiel = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     m_nodeCiel->SetLevel(-10);
-    m_nodeCiel->SetAbsolutePosition(taille.x/2, taille.y);
+    m_nodeCiel->SetAbsolutePosition(taille.x/2, taille.y/2);
     m_itemTerrain = new SceneNodeTextureItem;
     m_itemDroite = new SceneNodeShapeItem;
     m_itemGauche = new SceneNodeShapeItem;
@@ -20,15 +20,23 @@ Carte::Carte(b2World* world, const sf::Vector2i& taille, float valMoy, float dif
     m_nodeTerrain->AddItem(m_itemDessousTerrain);
 
     m_fondCiel = new SceneNodeCircleShapeItem;
-    m_fondCiel->SetRadius(taille.x);
+    m_fondCielTransition = new SceneNodeCircleShapeItem;
+    m_fondCiel->SetRadius(taille.x*2);
+    m_fondCielTransition->SetRadius(taille.x*3);
     m_nodeCiel->AddItem(m_fondCiel);
-    m_fondCiel->SetRelativePosition(-taille.x,-taille.x);
+    m_nodeCiel->AddItem(m_fondCielTransition);
+    m_fondCiel->SetRelativePosition(-taille.x*2,-taille.x*2);
+    m_fondCielTransition->SetRelativePosition(-taille.x*3,-taille.x*3);
 
     m_itemSoleil = new SceneNodeSpriteItem;
+    m_itemLune = new SceneNodeSpriteItem;
     m_itemSoleil->SetImage("data/sun.png");
+    m_itemLune->SetImage("data/lune.png");
 
     m_nodeCiel->AddItem(m_itemSoleil);
+    m_nodeCiel->AddItem(m_itemLune);
     m_itemSoleil->SetRelativePosition((-m_itemSoleil->GetSize().x/2)+(taille.x/2),-m_itemSoleil->GetSize().y/2);
+    m_itemLune->SetRelativePosition((m_itemLune->GetSize().x/2)-(taille.x*3/4),-m_itemLune->GetSize().y/2);
 
 
 
@@ -331,17 +339,67 @@ int Carte::YMin(int x_debut, int x_fin)
 void Carte::Work()
 {
     m_UpdateTime();
-    m_nodeCiel->SetAbsoluteRotation(m_nodeCiel->GetAbsoluteInformations().rotation+1);
+    float ratio = float(m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration)/float(m_dayDuration);
+    m_nodeCiel->SetAbsoluteRotation(180+360*ratio);
 }
+#include "../../core/logger.h"
+
 void Carte::m_UpdateTime()
 {
     int demiDay = m_dayDuration/2;
-    if(m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration>demiDay)
+    int currTime = m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration;
+    m_itemSoleil->SetColor(sf::Color(255,225,0));
+    if(currTime>demiDay)
     {
-        m_fondCiel->SetColor(sf::Color(0,0,0));
+        m_fondCiel->SetColor(sf::Color(0,0,0));//Nuit
     }
-    else
+    else //Calcul du dégradé jour
     {
-        m_fondCiel->SetColor(sf::Color(0,0,128));
+        float ratio;
+        if(currTime<demiDay/4)
+        {
+            if(currTime<demiDay/8)
+            {
+                ratio = float(currTime)/float(demiDay/8);
+                m_fondCiel->SetColor(sf::Color(255*ratio,121*ratio,31*ratio, 255*ratio));
+                m_fondCielTransition->SetColor(sf::Color(255*ratio,121*ratio,31*ratio, 128*ratio));
+                ratio*=0.5;
+                m_itemSoleil->SetColor(sf::Color(255,76+149*ratio,0));
+            }
+            else
+            {
+                ratio = float(currTime-(demiDay/8))/float(demiDay/8);
+                m_fondCiel->SetColor(sf::Color(255*(1-ratio),70*(ratio)+121,224*ratio+31));
+                m_fondCielTransition->SetColor(sf::Color(255*(1-ratio),70*(ratio)+121,224*ratio+31, 128));
+                ratio=ratio*0.5+0.5;
+                m_itemSoleil->SetColor(sf::Color(255,76+149*ratio,0));
+            }
+        }
+        else if(currTime>demiDay*3/4)
+        {
+            if(currTime>demiDay*7/8)
+            {
+                ratio = float(currTime-(demiDay*7/8))/float(demiDay/8);
+                m_fondCiel->SetColor(sf::Color(255*(1-ratio),121*(1-ratio),31*(1-ratio)));
+                m_fondCielTransition->SetColor(sf::Color(255*(1-ratio),121*(1-ratio),31*(1-ratio), 128*(1-ratio)));
+                ratio=ratio*0.5+0.5;
+                m_itemSoleil->SetColor(sf::Color(255,76+149*(1-ratio),0));
+            }
+            else
+            {
+                ratio = float(currTime-(demiDay*3/4))/float(demiDay/8);
+                m_fondCiel->SetColor(sf::Color(255*(ratio),70*(1-ratio)+121,224*(1-ratio)+31));
+                m_fondCielTransition->SetColor(sf::Color(255*(ratio),70*(1-ratio)+121,224*(1-ratio)+31, 128));
+                ratio*=0.5;
+                m_itemSoleil->SetColor(sf::Color(255,76+149*(1-ratio),0));
+            }
+
+        }
+        else
+        {
+            m_fondCiel->SetColor(sf::Color(0,191,255));
+            m_fondCielTransition->SetColor(sf::Color(0,191,255, 128));
+            m_itemSoleil->SetColor(sf::Color(255,225,0));
+        }
     }
 }
