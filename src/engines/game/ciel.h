@@ -11,7 +11,9 @@ class Ciel
         virtual ~Ciel();
         void Work();
     private:
+        void m_SetVisibleSatrs(bool=true);
         std::vector<Nuage*> m_nuages;
+        std::vector<SceneNodeSpriteItem*> m_etoiles;
         sf::Clock m_time, m_timerDep;
         float m_vent;
         size_t m_nbNuages;
@@ -21,6 +23,7 @@ class Ciel
         SceneNodeSpriteItem *m_itemSoleil, *m_itemLune;
         SceneNodeCircleShapeItem *m_fondCiel, *m_fondCielTransition;
         SceneNode *m_nodeCiel;
+        SceneNode *m_nodeEtoiles;
 
         sf::Vector2f m_taille;
 

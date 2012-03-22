@@ -25,6 +25,8 @@ void JoueurHumain::Update()
     newSize.x = windowSize.x*viewport.Width;
     newSize.y = windowSize.y*viewport.Height;
     m_camera->SetSize(newSize);
+    newSize.x*=m_zoom;
+    newSize.y*=m_zoom;
     if(m_selectedUnit!=0)
     {
         sf::Vector2f ancienCentre(m_camera->GetCenter());
@@ -58,7 +60,10 @@ void JoueurHumain::Update()
     }
     else
     {
-        m_camera->SetCenter(m_xMinCamp+m_tailleCamp*0.5,0);
+        if(m_numero==0)
+            m_camera->SetCenter(m_xMinCamp+newSize.x*0.5,0);
+        else
+            m_camera->SetCenter(m_xMaxCamp-newSize.x*0.5,0);
     }
 
     m_camera->Zoom(m_zoom);

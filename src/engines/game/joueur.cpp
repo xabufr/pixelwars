@@ -3,7 +3,7 @@
 #include "unite.h"
 #include "carte.h"
 #include "uniteterrestremodel.h"
-Joueur::Joueur(Carte &carte, int numero): m_couleur(255,0,0), m_carte(carte)
+Joueur::Joueur(Carte &carte, int numero): m_couleur(255,0,0), m_carte(carte), m_numero(numero)
 {
     m_selectedUnit = 0;
     m_tailleCamp = 250;

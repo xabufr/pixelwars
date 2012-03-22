@@ -28,7 +28,7 @@ void SceneNodeSpriteItem::ScaleChanged()
 }
 void SceneNodeSpriteItem::Draw(sf::RenderWindow* app)
 {
-    if(!m_visible)
+    if(!m_visible||m_spr.GetColor().a==0)
         return;
     sf::Vector2f PosCam(app->GetView().GetCenter()-(app->GetView().GetSize()/2.f));
     sf::FloatRect rect(PosCam.x, PosCam.y, app->GetView().GetSize().x, app->GetView().GetSize().y);

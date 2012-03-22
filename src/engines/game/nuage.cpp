@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-Nuage::Nuage(const sf::Vector2f& pos, int nb)
+Nuage::Nuage(const sf::Vector2f& pos, int nb): m_size(0.f,0.f)
 {
     m_node = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     m_node->SetLevel(-9);
@@ -24,10 +24,10 @@ Nuage::Nuage(const sf::Vector2f& pos, int nb)
         m_partiesNuage[i]->SetImage(listeParticules[Random::Rand(0, nbPartiePos-1)]);
         m_partiesNuage[i]->SetRelativePosition(last_x, -m_partiesNuage[i]->GetSize().y*0.5);
         last_x+= m_partiesNuage[i]->GetSize().x*0.5;
+        if(m_partiesNuage[i]->GetSize().y>m_size.y)
+            m_size.y = m_partiesNuage[i]->GetSize().y;
     }
-    m_transitionTime = 2500;
-    m_timer.Restart();
-    Update();
+    m_size.x = last_x + m_partiesNuage[nb-1]->GetSize().x*0.5;
 }
 
 Nuage::~Nuage()
@@ -49,15 +49,16 @@ const sf::Vector2f& Nuage::GetPosition() const
 {
     return m_node->GetAbsoluteInformations().position;
 }
-void Nuage::Update()
+
+const sf::Vector2f& Nuage::GetSize()
 {
-    int currTime = m_timer.GetElapsedTime().AsMilliseconds();
-    if(currTime<=m_transitionTime)
-    {
-        SetColor(sf::Color(255,255,255,(1.f-float(m_transitionTime-currTime)/float(m_transitionTime))*255));
-    }
-    else
-    {
-        SetColor(sf::Color(255,255,255,255));
-    }
+    return m_size;
+}
+void Nuage::SetPosition(const sf::Vector2f& pos)
+{
+    m_node->SetAbsolutePosition(pos);
+}
+void Nuage::SetX(float x)
+{
+    m_node->SetAbsolutePosition(x, m_node->GetAbsoluteInformations().position.y);
 }

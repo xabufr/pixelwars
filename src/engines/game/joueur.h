@@ -42,6 +42,8 @@ class Joueur
         sf::Uint32 m_idSelected;
         float m_xMinCamp, m_xMaxCamp, m_tailleCamp;
         Carte &m_carte;
+
+        int m_numero;
 };
 
 #endif // JOUEUR_H

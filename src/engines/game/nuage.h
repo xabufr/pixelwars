@@ -11,13 +11,15 @@ class Nuage
         void SetColor(const sf::Color&);
         const sf::Vector2f& GetPosition() const;
         void Update();
+        const sf::Vector2f& GetSize();
+        void SetPosition(const sf::Vector2f&);
+        void SetX(float x);
     protected:
     private:
+        sf::Vector2f m_size;
         int m_nbParties;
         SceneNode *m_node;
         SceneNodeSpriteItem **m_partiesNuage;
-        int m_transitionTime;
-        sf::Clock m_timer;
 };
 
 #endif // NUAGE_H
