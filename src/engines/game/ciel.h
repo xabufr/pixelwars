@@ -15,8 +15,7 @@ class Ciel
         std::vector<Nuage*> m_nuages;
         std::vector<SceneNodeSpriteItem*> m_etoiles;
         sf::Clock m_time, m_timerDep, m_timerVent;
-        float m_vent, m_ventAct, m_ventDiff;
-        bool m_ventTransition;
+        float m_vent;
         int m_timeChangeWind;
         size_t m_nbNuages;
 

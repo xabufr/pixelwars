@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-Nuage::Nuage(const sf::Vector2f& pos, int nb): m_size(0.f,0.f)
+Nuage::Nuage(const sf::Vector2f& pos, int nb, float charge): m_size(0.f,0.f), m_charge(charge)
 {
     m_node = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     m_node->SetLevel(-9);
@@ -14,7 +14,9 @@ Nuage::Nuage(const sf::Vector2f& pos, int nb): m_size(0.f,0.f)
 
     std::vector<std::string> listeParticules = std::vector<std::string>({"data/nuage_1.png",
                                                                         "data/nuage_2.png",
-                                                                        "data/nuage_3.png"});
+                                                                        "data/nuage_3.png",
+                                                                        "data/nuage_4.png",
+                                                                        "data/nuage_5.png"});
     size_t nbPartiePos = listeParticules.size();
     float last_x=0;
     for(int i(0);i<nb;++i)
@@ -28,6 +30,12 @@ Nuage::Nuage(const sf::Vector2f& pos, int nb): m_size(0.f,0.f)
             m_size.y = m_partiesNuage[i]->GetSize().y;
     }
     m_size.x = last_x + m_partiesNuage[nb-1]->GetSize().x*0.5;
+    charge = 1-charge;
+    SetColor(sf::Color(254*charge, 254*charge, 254*charge));
+    m_transitionVent = false;
+    m_vitesse = 0.f;
+    m_vent = 0;
+    m_diffVent = 0;
 }
 
 Nuage::~Nuage()
@@ -61,4 +69,24 @@ void Nuage::SetPosition(const sf::Vector2f& pos)
 void Nuage::SetX(float x)
 {
     m_node->SetAbsolutePosition(x, m_node->GetAbsoluteInformations().position.y);
+}
+void Nuage::Work()
+{
+    if(m_transitionVent)
+    {
+        m_vitesse -= m_diffVent*m_timerVent.GetElapsedTime().AsSeconds();
+        if((m_diffVent>0&&m_vent>=m_vitesse)||(m_diffVent<0&&m_vent<=m_vitesse))
+        {
+            m_transitionVent=false;
+            m_vitesse=m_vent;
+        }
+    }
+    sf::Vector2f dep(m_vitesse*m_timerVent.Restart().AsSeconds()*(((1-m_charge)>0.25)?(1-m_charge):0.25f), 0);
+    Move(dep);
+}
+void Nuage::SetWind(float w)
+{
+    m_diffVent = m_vent-w;
+    m_vent = w;
+    m_transitionVent=true;
 }
