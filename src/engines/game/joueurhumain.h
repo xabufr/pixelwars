@@ -18,7 +18,8 @@ class JoueurHumain: public Joueur
         void Zoomer();
         void Dezoomer();
 
-        float m_zoom;
+        float m_zoom, m_lastValidZoom, m_specialZoom;
+        bool m_useSpecialZoom;
         sf::View *m_camera;
         sf::RenderWindow *m_app;
 };

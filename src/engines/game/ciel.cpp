@@ -37,7 +37,7 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
 
     while(m_nbNuages>m_nuages.size())
     {
-        m_nuages.push_back(new Nuage(sf::Vector2f(Random::Rand(0.f, m_taille.x), Random::Rand(int(-m_taille.y), int(-m_taille.y*4))), Random::Rand(1, 7)));
+        m_nuages.push_back(new Nuage(sf::Vector2f(Random::Rand(0.f, m_taille.x), Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), Random::Rand(1, 7)));
     }
 
     int nbEtoiles = taille.x*2;
@@ -62,6 +62,8 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
 Ciel::~Ciel()
 {
     GraphicalEngine::GetInstance()->GetSceneManager()->RemoveNode(m_nodeCiel);
+    for(auto n: m_nuages)
+        delete n;
 }
 void Ciel::Work()
 {
@@ -151,7 +153,7 @@ void Ciel::m_GererNuages()
 
     while(m_nbNuages>m_nuages.size())
     {
-        m_nuages.push_back(new Nuage(sf::Vector2f(0.f, Random::Rand(int(-m_taille.y), int(-m_taille.y*4))), Random::Rand(1, 7)));
+        m_nuages.push_back(new Nuage(sf::Vector2f(0.f, Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), Random::Rand(1, 7)));
         m_nuages.back()->SetX(-m_nuages.back()->GetSize().x);
     }
 

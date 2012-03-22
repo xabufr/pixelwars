@@ -9,6 +9,7 @@ JoueurHumain::JoueurHumain(Carte &carte, int numero, const sf::FloatRect& portio
     m_camera->SetViewport(portion);
     m_app = GraphicalEngine::GetInstance()->GetRenderWindow();
     m_zoom = 1.f;
+    m_useSpecialZoom = false;
 }
 
 JoueurHumain::~JoueurHumain()
@@ -74,11 +75,24 @@ sf::View* JoueurHumain::GetCam() const
 }
 void JoueurHumain::Zoomer()
 {
-    m_zoom*=2;
+    if(m_app->GetWidth()*m_camera->GetViewport().Width*m_zoom*2>m_carte.Width())
+    {
+        m_useSpecialZoom=true;
+        m_lastValidZoom=m_zoom;
+        m_zoom*= (m_carte.Width())/(m_app->GetWidth()*m_camera->GetViewport().Width*m_zoom);
+    }
+    else
+        m_zoom*=2;
 }
 void JoueurHumain::Dezoomer()
 {
-    m_zoom*=0.5;
+    if(!m_useSpecialZoom)
+        m_zoom*=0.5;
+    else
+    {
+        m_zoom = m_lastValidZoom;
+        m_useSpecialZoom=false;
+    }
 }
 void JoueurHumain::SetInput(const UnitInput& input)
 {
