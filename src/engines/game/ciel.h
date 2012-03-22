@@ -14,8 +14,9 @@ class Ciel
         void m_SetVisibleSatrs(bool=true);
         std::vector<Nuage*> m_nuages;
         std::vector<SceneNodeSpriteItem*> m_etoiles;
-        sf::Clock m_time, m_timerDep;
+        sf::Clock m_time, m_timerDep, m_timerVent;
         float m_vent;
+        int m_timeChangeWind;
         size_t m_nbNuages;
 
         int m_dayDuration;
@@ -28,6 +29,7 @@ class Ciel
         sf::Vector2f m_taille;
 
         void m_GererNuages();
+        void m_ChangeWind();
 };
 
 #endif // CIEL_H

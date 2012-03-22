@@ -57,6 +57,7 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
         etoile->SetAbsolutePosition(Random::Rand(-m_taille.x, m_taille.x), Random::Rand(-m_taille.x, m_taille.x));
         m_nodeEtoiles->AddItem(etoile);
     }
+    m_ChangeWind();
 }
 
 Ciel::~Ciel()
@@ -130,12 +131,14 @@ void Ciel::Work()
     ratio = float(m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration)/float(m_dayDuration);
     m_nodeCiel->SetAbsoluteRotation(180+360*ratio);
     m_GererNuages();
+    if(m_timeChangeWind<=m_timerVent.GetElapsedTime().AsMilliseconds())
+        m_ChangeWind();
 }
 void Ciel::m_GererNuages()
 {
     for(auto i=m_nuages.begin(); i!=m_nuages.end();)
     {
-        if((*i)->GetPosition().x>m_taille.x)
+        if(((*i)->GetPosition().x>m_taille.x&&m_vent>0)||((*i)->GetPosition().x+(*i)->GetSize().x<=0&&m_vent<0))
         {
             delete (*i);
             i=m_nuages.erase(i);
@@ -150,13 +153,11 @@ void Ciel::m_GererNuages()
     {
         n->Move(dep);
     }
-
     while(m_nbNuages>m_nuages.size())
     {
         m_nuages.push_back(new Nuage(sf::Vector2f(0.f, Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), Random::Rand(1, 7)));
-        m_nuages.back()->SetX(-m_nuages.back()->GetSize().x);
+        m_nuages.back()->SetX((m_vent>0)?(-m_nuages.back()->GetSize().x):m_taille.x);
     }
-
 }
 
 void Ciel::m_SetVisibleSatrs(bool b)
@@ -167,4 +168,10 @@ void Ciel::m_SetVisibleSatrs(bool b)
         last = b;
         m_nodeEtoiles->SetVisible(b);
     }
+}
+void Ciel::m_ChangeWind()
+{
+    m_timeChangeWind = Random::Rand(3000, 12000);
+    m_vent = Random::Rand(-500.f, 500.f);
+    m_timerVent.Restart();
 }
