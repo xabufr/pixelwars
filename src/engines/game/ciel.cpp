@@ -136,9 +136,20 @@ void Ciel::Work()
 }
 void Ciel::m_GererNuages()
 {
+    static sf::Clock timer;
+    if(m_ventTransition)
+    {
+        m_ventAct -= m_ventDiff*timer.GetElapsedTime().AsSeconds();
+        if((m_ventDiff>0&&m_vent>=m_ventAct)||(m_ventDiff<0&&m_vent<=m_ventAct))
+        {
+            m_ventTransition=false;
+            m_ventAct=m_vent;
+        }
+    }
+    timer.Restart();
     for(auto i=m_nuages.begin(); i!=m_nuages.end();)
     {
-        if(((*i)->GetPosition().x>m_taille.x&&m_vent>0)||((*i)->GetPosition().x+(*i)->GetSize().x<=0&&m_vent<0))
+        if(((*i)->GetPosition().x>m_taille.x&&m_ventAct>0)||((*i)->GetPosition().x+(*i)->GetSize().x<=0&&m_ventAct<0))
         {
             delete (*i);
             i=m_nuages.erase(i);
@@ -148,7 +159,7 @@ void Ciel::m_GererNuages()
             ++i;
         }
     }
-    sf::Vector2f dep(m_vent*m_timerDep.Restart().AsSeconds(), 0);
+    sf::Vector2f dep(m_ventAct*m_timerDep.Restart().AsSeconds(), 0);
     for(Nuage *n : m_nuages)
     {
         n->Move(dep);
@@ -156,7 +167,7 @@ void Ciel::m_GererNuages()
     while(m_nbNuages>m_nuages.size())
     {
         m_nuages.push_back(new Nuage(sf::Vector2f(0.f, Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), Random::Rand(1, 7)));
-        m_nuages.back()->SetX((m_vent>0)?(-m_nuages.back()->GetSize().x):m_taille.x);
+        m_nuages.back()->SetX((m_ventAct>0)?(-m_nuages.back()->GetSize().x):m_taille.x);
     }
 }
 
@@ -171,7 +182,9 @@ void Ciel::m_SetVisibleSatrs(bool b)
 }
 void Ciel::m_ChangeWind()
 {
-    m_timeChangeWind = Random::Rand(3000, 12000);
-    m_vent = Random::Rand(-500.f, 500.f);
+    m_timeChangeWind = Random::Rand(30000, 120000);
+    m_vent = Random::Rand(-50.f, 50.f);
+    m_ventTransition = true;
+    m_ventDiff = m_ventAct - m_vent;
     m_timerVent.Restart();
 }

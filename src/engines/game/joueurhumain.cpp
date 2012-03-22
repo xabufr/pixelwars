@@ -75,13 +75,13 @@ sf::View* JoueurHumain::GetCam() const
 }
 void JoueurHumain::Zoomer()
 {
-    if(m_app->GetWidth()*m_camera->GetViewport().Width*m_zoom*2>m_carte.Width())
+    if(m_app->GetWidth()*m_camera->GetViewport().Width*m_zoom*2>=m_carte.Width()&&!m_useSpecialZoom)
     {
         m_useSpecialZoom=true;
         m_lastValidZoom=m_zoom;
         m_zoom*= (m_carte.Width())/(m_app->GetWidth()*m_camera->GetViewport().Width*m_zoom);
     }
-    else
+    else if(!m_useSpecialZoom)
         m_zoom*=2;
 }
 void JoueurHumain::Dezoomer()

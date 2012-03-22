@@ -6,6 +6,10 @@
 
 struct UnitInput{
     bool gauche, droite, haut, bas, tirer, changer, zoomer, dezoomer;
+    UnitInput()
+    {
+        gauche = droite = haut = bas = tirer = changer = zoomer = dezoomer = false;
+    }
 };
 class InputManager
 {
