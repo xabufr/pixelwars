@@ -33,5 +33,5 @@ float Random::Rand(float min, float max)
     if(min==max)
         return min;
     float r = (float)rand()/(float)RAND_MAX;
-    return r*(max-min+1)+min;
+    return r*(max-min)+min;
 }

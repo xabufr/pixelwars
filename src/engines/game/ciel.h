@@ -11,7 +11,7 @@ class Ciel
         virtual ~Ciel();
         void Work();
     private:
-        void m_SetVisibleSatrs(bool=true);
+        void m_SetVisibleStars(bool=true);
         std::vector<Nuage*> m_nuages;
         std::vector<SceneNodeSpriteItem*> m_etoiles;
         sf::Clock m_time, m_timerDep, m_timerVent;

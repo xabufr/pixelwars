@@ -5,7 +5,7 @@
 class Nuage
 {
     public:
-        Nuage(const sf::Vector2f&, int nb=5, float charge=0.f);
+        Nuage(const sf::Vector2f&, float maxY, int nb=5, float charge=0.f);
         virtual ~Nuage();
         void Move(const sf::Vector2f&);
         void SetColor(const sf::Color&);
@@ -17,15 +17,17 @@ class Nuage
         void Work();
         void SetWind(float);
 
-    protected:
     private:
-        sf::Clock m_timerVent;
+        sf::Clock m_timerVent, m_timerPluie;
         sf::Vector2f m_size;
         int m_nbParties;
         SceneNode *m_node;
         SceneNodeSpriteItem **m_partiesNuage;
-        float m_vitesse, m_diffVent, m_vent, m_charge;
+        float m_vitesse, m_diffVent, m_vent, m_charge, m_maxY;
         bool m_transitionVent;
+        std::vector<SceneNodeSpriteItem*> m_goutes;
+        int m_coefPluie;
+        void m_GererPluie();
 };
 
 #endif // NUAGE_H

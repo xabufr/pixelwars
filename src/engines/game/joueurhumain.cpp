@@ -87,7 +87,10 @@ void JoueurHumain::Zoomer()
 void JoueurHumain::Dezoomer()
 {
     if(!m_useSpecialZoom)
-        m_zoom*=0.5;
+    {
+        if(m_zoom*0.5>=0.5)
+            m_zoom*=0.5;
+    }
     else
     {
         m_zoom = m_lastValidZoom;

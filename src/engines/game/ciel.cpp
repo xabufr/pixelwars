@@ -29,7 +29,7 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
     m_nodeCiel->AddItem(m_itemSoleil);
     m_nodeCiel->AddItem(m_itemLune);
     m_itemSoleil->SetRelativePosition((-m_itemSoleil->GetSize().x/2)+(taille.x/2),-m_itemSoleil->GetSize().y/2);
-    m_itemLune->SetRelativePosition((m_itemLune->GetSize().x/2)-(taille.x*3/4),-m_itemLune->GetSize().y/2);
+    m_itemLune->SetRelativePosition((m_itemLune->GetSize().x/2)-(taille.x*0.5),-m_itemLune->GetSize().y/2);
 
     m_dayDuration = dayDuration*60*1000;
     m_vent = 40;
@@ -37,7 +37,7 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
 
     while(m_nbNuages>m_nuages.size())
     {
-        m_nuages.push_back(new Nuage(sf::Vector2f(Random::Rand(0.f, m_taille.x), Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), Random::Rand(1, 7), Random::Rand(0.f, 1.f)));
+        m_nuages.push_back(new Nuage(sf::Vector2f(Random::Rand(0.f, m_taille.x), Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), m_taille.y, Random::Rand(1, 7), Random::Rand(0.f, 1.f)));
     }
 
     int nbEtoiles = taille.x*2;
@@ -53,8 +53,8 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
         etoile = new SceneNodeSpriteItem;
         m_etoiles.push_back(etoile);
         etoile->SetAbsoluteScale(rScale, rScale);
-        etoile->SetColor(couleursEtoiles[Random::Rand(0, couleursEtoiles.size()-1)]);
-        etoile->SetImage(dataEtoiles[Random::Rand(0, dataEtoiles.size()-1)]);
+        etoile->SetColor(couleursEtoiles[Random::Rand(0, couleursEtoiles.size())]);
+        etoile->SetImage(dataEtoiles[Random::Rand(0, dataEtoiles.size())]);
         etoile->SetAbsolutePosition(Random::Rand(-m_taille.x, m_taille.x), Random::Rand(-m_taille.x, m_taille.x));
         m_nodeEtoiles->AddItem(etoile);
     }
@@ -76,13 +76,13 @@ void Ciel::Work()
     if(currTime>demiDay)
     {
         m_fondCiel->SetColor(sf::Color(0,0,0,0));//Nuit
-        m_SetVisibleSatrs(true);
+        m_SetVisibleStars(true);
     }
     else //Calcul du dégradé jour
     {
         if(currTime<demiDay/4)
         {
-            m_SetVisibleSatrs(true);
+            m_SetVisibleStars(true);
             if(currTime<demiDay/8)
             {
                 ratio = float(currTime)/float(demiDay/8);
@@ -102,7 +102,7 @@ void Ciel::Work()
         }
         else if(currTime>demiDay*3/4)
         {
-            m_SetVisibleSatrs(true);
+            m_SetVisibleStars(true);
             if(currTime>demiDay*7/8)
             {
                 ratio = float(currTime-(demiDay*7/8))/float(demiDay/8);
@@ -126,7 +126,7 @@ void Ciel::Work()
             m_fondCiel->SetColor(sf::Color(0,191,255));
             m_fondCielTransition->SetColor(sf::Color(0,191,255, 128));
             m_itemSoleil->SetColor(sf::Color(255,225,0));
-            m_SetVisibleSatrs(false);
+            m_SetVisibleStars(false);
         }
     }
     ratio = float(m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration)/float(m_dayDuration);
@@ -156,13 +156,13 @@ void Ciel::m_GererNuages()
     }
     while(m_nbNuages>m_nuages.size())
     {
-        m_nuages.push_back(new Nuage(sf::Vector2f(0.f, Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), Random::Rand(1, 7), Random::Rand(0.f, 1.f)));
+        m_nuages.push_back(new Nuage(sf::Vector2f(0.f, Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), m_taille.y, Random::Rand(1, 7), Random::Rand(0.f, 1.f)));
         m_nuages.back()->SetX((m_vent>0)?(-m_nuages.back()->GetSize().x):m_taille.x);
         m_nuages.back()->SetWind(m_vent);
     }
 }
 
-void Ciel::m_SetVisibleSatrs(bool b)
+void Ciel::m_SetVisibleStars(bool b)
 {
     static bool last=true;
     if(last!=b)
@@ -173,7 +173,7 @@ void Ciel::m_SetVisibleSatrs(bool b)
 }
 void Ciel::m_ChangeWind()
 {
-    m_timeChangeWind = Random::Rand(30000, 12000);
+    m_timeChangeWind = Random::Rand(30000, 120000);
     m_vent = Random::Rand(-138.f, 138.f);
     for(Nuage *n : m_nuages)
     {
