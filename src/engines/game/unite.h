@@ -7,18 +7,18 @@ class Projectile;
 class Unite
 {
     public:
-        Unite(b2World*, b2Vec2 pos);
+        Unite(b2World*, b2Vec2 pos, BodyTypeEnum t = BodyTypeEnum::UniteE);
         virtual ~Unite();
         void SetPosition();
         virtual void Update();
         virtual void Deplacer(const UnitInput&) = 0;
         virtual void Stop()=0;
-        virtual bool PeutTirer()=0;
+        virtual bool PeutTirer();
         virtual Projectile* Tirer()=0;
         virtual bool EstVivant()const;
         virtual void SetColor(const sf::Color& col) = 0;
         virtual float GetShootAngle() const = 0;
-        virtual float GetPuissanceExplulsion() const = 0;
+        virtual float GetPuissanceExpulsion() const = 0;
 
         virtual void SubirDegats(float degat);
 

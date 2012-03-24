@@ -89,7 +89,7 @@ void UniteManager::Update()
             params.maxSize=1.5;
             params.level=-1;
             params.number=10;
-            params.timeToLive=75*unit->GetPuissanceExplulsion();
+            params.timeToLive=75*unit->GetPuissanceExpulsion();
             params.maxPower=800;
             params.minPower=600;
             params.colorFromList=false;

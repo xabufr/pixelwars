@@ -26,7 +26,7 @@ class Nuage
         float m_vitesse, m_diffVent, m_vent, m_charge, m_maxY;
         bool m_transitionVent;
         std::vector<SceneNodeSpriteItem*> m_goutes;
-        int m_coefPluie;
+        float m_coefPluie;
         void m_GererPluie();
 };
 

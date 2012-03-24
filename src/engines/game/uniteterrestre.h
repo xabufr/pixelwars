@@ -13,12 +13,11 @@ class UniteTerrestre : public Unite
         void Deplacer(const UnitInput& input);
         void GetFireParameters(b2Vec2 &pos, b2Vec2 &direction, float &taille, float &poids, float &puissance);
         void Stop();
-        bool PeutTirer();
         Projectile* Tirer();
         virtual void SetColor(const sf::Color& col);
         float GetTailleCanon() const;
         virtual float GetShootAngle() const;
-        virtual float GetPuissanceExplulsion() const;
+        virtual float GetPuissanceExpulsion() const;
 
     private:
         b2Body *m_roue1, *m_roue2, *m_tourelle;

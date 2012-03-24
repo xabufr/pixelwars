@@ -10,6 +10,7 @@
 #include "../engineevent.h"
 #include "core/conversion.h"
 #include "playerparameters.h"
+#include "uniteaerienne.h"
 
 GameEngine::GameEngine()
 {
@@ -88,6 +89,8 @@ void GameEngine::Start()
     LoadGuiModels(m_windowJ1, m_joueurManager->GetJoueur(0));
     LoadGuiModels(m_windowJ2, m_joueurManager->GetJoueur(1));
     m_windowJ2->SetAbsolutePosition(300,0);
+
+    m_uniteManager->AjouterUnite(0, 1, new UniteAerienne(m_world, b2Vec2(10, 10)));
 
 }
 void GameEngine::GererExplosions()

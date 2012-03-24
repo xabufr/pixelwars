@@ -4,7 +4,8 @@
 enum BodyTypeEnum{
         TerrainE=0,
         ProjectileE=1,
-        UniteE=2
+        UniteE=2,
+        UniteAirE=3
         };
 
 struct BodyType

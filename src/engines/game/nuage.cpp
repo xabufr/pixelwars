@@ -37,7 +37,7 @@ Nuage::Nuage(const sf::Vector2f& pos, float maxY, int nb, float charge): m_size(
     m_vent = 0;
     m_diffVent = 0;
     m_timerPluie.Restart();
-    m_coefPluie=100;
+    m_coefPluie=0.125;
 }
 
 Nuage::~Nuage()
@@ -92,7 +92,7 @@ void Nuage::m_GererPluie()
 {
     if(m_charge>0.33)
     {
-        int goutesAAjouter = float(m_coefPluie)*m_charge*m_timerPluie.GetElapsedTime().AsSeconds();
+        int goutesAAjouter = m_coefPluie*m_charge*m_timerPluie.GetElapsedTime().AsMilliseconds();
         for(int i(0);i<goutesAAjouter;++i)
         {
             SceneNodeSpriteItem *item = new SceneNodeSpriteItem;

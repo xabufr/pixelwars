@@ -132,6 +132,8 @@
 		<Unit filename="engines/game/soundproprities.h" />
 		<Unit filename="engines/game/unite.cpp" />
 		<Unit filename="engines/game/unite.h" />
+		<Unit filename="engines/game/uniteaerienne.cpp" />
+		<Unit filename="engines/game/uniteaerienne.h" />
 		<Unit filename="engines/game/unitemanager.cpp" />
 		<Unit filename="engines/game/unitemanager.h" />
 		<Unit filename="engines/game/uniteterrestre.cpp" />

@@ -176,12 +176,7 @@ void UniteTerrestre::Stop()
     jointure2->SetMotorSpeed(0);
     m_jointureTourelle->SetMotorSpeed(0);
 }
-bool UniteTerrestre::PeutTirer()
-{
-    if(m_tempRechargement>m_timerFire.GetElapsedTime().AsMilliseconds())
-        return false;
-    return m_fire;
-}
+
 Projectile* UniteTerrestre::Tirer()
 {
     b2Vec2 pos, direction;
@@ -223,7 +218,7 @@ float UniteTerrestre::GetShootAngle() const
 {
     return Trigo::ToDeg(m_tourelle->GetAngle());
 }
-float UniteTerrestre::GetPuissanceExplulsion() const
+float UniteTerrestre::GetPuissanceExpulsion() const
 {
     return m_param->tailleCanon;
 }

@@ -1,13 +1,13 @@
 #include "unite.h"
 #include "bodytype.h"
 
-Unite::Unite(b2World *world, b2Vec2 pos)
+Unite::Unite(b2World *world, b2Vec2 pos, BodyTypeEnum t)
 {
     m_node = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     b2BodyDef bd;
     bd.type = b2_dynamicBody;
     bd.position=pos;
-    bd.userData = (void*) new BodyType(BodyTypeEnum::UniteE, (void*)this);
+    bd.userData = (void*) new BodyType(t, (void*)this);
     m_body =world->CreateBody(&bd);
     m_fire = false;
     m_node->SetAbsolutePosition(pos.x*10, -pos.y*10);
@@ -35,4 +35,10 @@ bool Unite::EstVivant() const
 b2Body* Unite::GetBody() const
 {
     return m_body;
+}
+bool Unite::PeutTirer()
+{
+    if(m_timerFire.GetElapsedTime().AsMicroseconds()<m_tempRechargement)
+        return false;
+    return m_fire;
 }

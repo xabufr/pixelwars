@@ -47,4 +47,8 @@ namespace Trigo
     {
         return Angle(v1.x, v1.y, v2.x, v2.y);
     }
+    float Distance(const float x1, const float y1, const float x2, const float y2)
+    {
+        return (std::sqrt((x1-x2)*(x1-x2)+(y1-y2)*(y1-y2)));
+    }
 }
