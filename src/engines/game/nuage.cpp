@@ -37,7 +37,7 @@ Nuage::Nuage(const sf::Vector2f& pos, float maxY, int nb, float charge): m_size(
     m_vent = 0;
     m_diffVent = 0;
     m_timerPluie.Restart();
-    m_coefPluie=0.125;
+    m_coefPluie=0.08;
 }
 
 Nuage::~Nuage()

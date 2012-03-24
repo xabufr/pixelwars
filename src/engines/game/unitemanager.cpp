@@ -100,11 +100,11 @@ void UniteManager::Update()
 
             GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticleSystem(params);
 
-            EngineEvent *eventSon = new EngineEvent;
+            /*EngineEvent *eventSon = new EngineEvent;
             eventSon->To(EngineType::Audio_engine);
             eventSon->AddString(IndexMessages::Chemin, SoundProprities::GetInstance()->GetUniteTerrestreSound((UniteTerrestre*)unit));
             eventSon->SetMessage(TypeMessage::JouerSon);
-            m_engine->AddEvent(eventSon);
+            m_engine->AddEvent(eventSon);*/
         }
     }
     for(Projectile *proj: m_projectiles)

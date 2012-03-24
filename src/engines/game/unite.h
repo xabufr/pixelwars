@@ -3,6 +3,8 @@
 #include <Box2D/Box2D.h>
 #include "engines/graphics/graphicalengine.h"
 #include "inputmanager.h"
+#include "bodytype.h"
+
 class Projectile;
 class Unite
 {
@@ -19,6 +21,7 @@ class Unite
         virtual void SetColor(const sf::Color& col) = 0;
         virtual float GetShootAngle() const = 0;
         virtual float GetPuissanceExpulsion() const = 0;
+        BodyTypeEnum GetType() const;
 
         virtual void SubirDegats(float degat);
 

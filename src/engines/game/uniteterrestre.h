@@ -29,8 +29,6 @@ class UniteTerrestre : public Unite
         GuiProgressBarItem *m_barreVie;
         b2Vec2 m_tailleCanon;
         const UniteTerrestreParameters* const m_param;
-
-        bool m_fire;
 };
 
 #endif // UNITETERRESTRE_H

@@ -17,6 +17,10 @@ class UniteAerienne: public Unite
         virtual float GetPuissanceExpulsion() const;
 
         virtual void Update();
+        virtual BodyTypeEnum GetType() const;
+
+        bool SubirDegatsTerrain();
+        float GetExplosionRadius();
 
     protected:
     private:
@@ -24,7 +28,7 @@ class UniteAerienne: public Unite
         struct {
             bool avant, arriere, monte, descend;
         } m_forces;
-        float m_minVelocity, m_acceleration, m_velocity, m_rotationVelocity;
+        float m_minVelocity, m_acceleration, m_rotationVelocity;
 };
 
 #endif // UNITEAERIENNE_H

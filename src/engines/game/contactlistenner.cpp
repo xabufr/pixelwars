@@ -3,6 +3,7 @@
 #include "contactlistenner.h"
 #include "bodytype.h"
 #include "unite.h"
+#include "uniteaerienne.h"
 #include "core/logger.h"
 #include "../../core/trigo.h"
 
@@ -65,6 +66,19 @@ void ContactListenner::PreSolve(b2Contact *contact, const b2Manifold* oldManif)
         }
         m_explosions.push_back(exp);
         m_toDestroy.push_back(proj);
+    }
+    if((b1->type==BodyTypeEnum::UniteAirE||b2->type==BodyTypeEnum::UniteAirE)&&(b1->type==BodyTypeEnum::TerrainE||b2->type==BodyTypeEnum::TerrainE))
+    {
+        UniteAerienne *u;
+        if(b1->type==BodyTypeEnum::UniteAirE)
+        {
+            u=(UniteAerienne*)b1->proprietaire;
+        }
+        else
+        {
+            u=(UniteAerienne*)b2->proprietaire;
+        }
+        u->SubirDegatsTerrain();
     }
 }
 
