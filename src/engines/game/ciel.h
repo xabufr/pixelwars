@@ -22,7 +22,7 @@ class Ciel
         int m_dayDuration;
 
         SceneNodeSpriteItem *m_itemSoleil, *m_itemLune;
-        SceneNodeCircleShapeItem *m_fondCiel, *m_fondCielTransition;
+        SceneNodeCircleShapeItem *m_fondCiel;
         SceneNode *m_nodeCiel;
         SceneNode *m_nodeEtoiles;
 

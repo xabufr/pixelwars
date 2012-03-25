@@ -37,6 +37,7 @@ class GameEngine : public Engine
         void AddScore(int,int);
 
         static void CallbackAjoutUnite(GuiItem*);
+        static void CallbackAjoutAvion(GuiItem*);
         std::string GetWinner() const;
 
     private:

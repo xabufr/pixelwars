@@ -90,7 +90,29 @@ void GameEngine::Start()
     LoadGuiModels(m_windowJ2, m_joueurManager->GetJoueur(1));
     m_windowJ2->SetAbsolutePosition(300,0);
 
-    m_uniteManager->AjouterUnite(0, 1, new UniteAerienne(m_world, b2Vec2(10, 10)));
+    GuiButtonItem *b1, *b2;
+    b1 = new GuiButtonItem;
+    b2 = new GuiButtonItem;
+
+    b1->SetText("Avion");
+    b2->SetText("Avion");
+
+    b1->SetData("this", this);
+    b2->SetData("this", this);
+
+    b1->SetData("joueur", m_joueurManager->GetJoueur(0));
+    b2->SetData("joueur", m_joueurManager->GetJoueur(1));
+
+    b1->SetCallBack("clicked", CallbackAjoutAvion);
+    b2->SetCallBack("clicked", CallbackAjoutAvion);
+
+    b1->SetNormalColor(sf::Color(0,0,0), sf::Color(0,0,0,0));
+    b1->SetMouseOverColor(sf::Color(255,0,0), sf::Color(0,0,0,0));
+    b2->SetNormalColor(sf::Color(0,0,0), sf::Color(0,0,0,0));
+    b2->SetMouseOverColor(sf::Color(255,0,0), sf::Color(0,0,0,0));
+
+    m_windowJ1->GetContener()->AjouterItem(b1, 0, 999);
+    m_windowJ2->GetContener()->AjouterItem(b2, 0, 999);
 
 }
 void GameEngine::GererExplosions()
@@ -191,7 +213,12 @@ void GameEngine::CallbackAjoutUnite(GuiItem* item)
     sf::Uint32 id = game->m_lastId++;
     game->m_uniteManager->AjouterUniteTerrestre(game->m_joueurManager->GetId(joueur), id, game->m_world, std::string((char*)item->GetData("model")));
 }
-
+void GameEngine::CallbackAjoutAvion(GuiItem *item)
+{
+    GameEngine *t = (GameEngine*)item->GetData("this");
+    Joueur *j = (Joueur*)item->GetData("joueur");
+    t->m_uniteManager->AjouterUnite(t->m_joueurManager->GetId(j), t->m_lastId++, new UniteAerienne(t->m_world, j->GetPositionNouvelleUnite(), t->m_joueurManager->GetId(j)));
+}
 void GameEngine::Work()
 {
     sf::Event event;

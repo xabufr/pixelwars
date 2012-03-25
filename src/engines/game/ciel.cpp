@@ -13,13 +13,9 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
     m_nodeEtoiles->SetRelativePosition(0,0);
 
     m_fondCiel = new SceneNodeCircleShapeItem;
-    m_fondCielTransition = new SceneNodeCircleShapeItem;
     m_fondCiel->SetRadius(taille.x*2);
-    m_fondCielTransition->SetRadius(taille.x*3);
     m_nodeCiel->AddItem(m_fondCiel);
-    m_nodeCiel->AddItem(m_fondCielTransition);
     m_fondCiel->SetRelativePosition(-taille.x*2,-taille.x*2);
-    m_fondCielTransition->SetRelativePosition(-taille.x*3,-taille.x*3);
 
     m_itemSoleil = new SceneNodeSpriteItem;
     m_itemLune = new SceneNodeSpriteItem;
@@ -37,10 +33,10 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
 
     while(m_nbNuages>m_nuages.size())
     {
-        m_nuages.push_back(new Nuage(sf::Vector2f(Random::Rand(0.f, m_taille.x), Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), m_taille.y, Random::Rand(1, 7), Random::Rand(0.f, 1.f)));
+        m_nuages.push_back(new Nuage(sf::Vector2f(Random::Rand(0.f, m_taille.x), Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), m_taille.y, Random::Rand(1, 7), 0.f));
     }
 
-    int nbEtoiles = taille.x*2;
+    int nbEtoiles = taille.x*0.5;
     std::vector<std::string> dataEtoiles = std::vector<std::string>({
                                                                     "data/etoile_1.png",
                                                                     "data/etoile_2.png"});
@@ -55,7 +51,9 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
         etoile->SetAbsoluteScale(rScale, rScale);
         etoile->SetColor(couleursEtoiles[Random::Rand(0, couleursEtoiles.size())]);
         etoile->SetImage(dataEtoiles[Random::Rand(0, dataEtoiles.size())]);
-        etoile->SetAbsolutePosition(Random::Rand(-m_taille.x, m_taille.x), Random::Rand(-m_taille.x, m_taille.x));
+        sf::Transform t;
+        t.Rotate(Random::Rand(0.f,360.f));
+        etoile->SetAbsolutePosition(t.TransformPoint(Random::Rand(200.f,m_taille.x),0));
         m_nodeEtoiles->AddItem(etoile);
     }
     m_ChangeWind();
@@ -87,7 +85,6 @@ void Ciel::Work()
             {
                 ratio = float(currTime)/float(demiDay/8);
                 m_fondCiel->SetColor(sf::Color(255*ratio,121*ratio,31*ratio, 255*ratio));
-                m_fondCielTransition->SetColor(sf::Color(255*ratio,121*ratio,31*ratio, 128*ratio));
                 ratio*=0.5;
                 m_itemSoleil->SetColor(sf::Color(255,76+149*ratio,0));
             }
@@ -95,7 +92,6 @@ void Ciel::Work()
             {
                 ratio = float(currTime-(demiDay/8))/float(demiDay/8);
                 m_fondCiel->SetColor(sf::Color(255*(1-ratio),70*(ratio)+121,224*ratio+31));
-                m_fondCielTransition->SetColor(sf::Color(255*(1-ratio),70*(ratio)+121,224*ratio+31, 128));
                 ratio=ratio*0.5+0.5;
                 m_itemSoleil->SetColor(sf::Color(255,76+149*ratio,0));
             }
@@ -107,7 +103,6 @@ void Ciel::Work()
             {
                 ratio = float(currTime-(demiDay*7/8))/float(demiDay/8);
                 m_fondCiel->SetColor(sf::Color(255*(1-ratio),121*(1-ratio),31*(1-ratio), 255*(1-ratio)));
-                m_fondCielTransition->SetColor(sf::Color(255*(1-ratio),121*(1-ratio),31*(1-ratio), 128*(1-ratio)));
                 ratio=ratio*0.5+0.5;
                 m_itemSoleil->SetColor(sf::Color(255,76+149*(1-ratio),0));
             }
@@ -115,7 +110,6 @@ void Ciel::Work()
             {
                 ratio = float(currTime-(demiDay*3/4))/float(demiDay/8);
                 m_fondCiel->SetColor(sf::Color(255*(ratio),70*(1-ratio)+121,224*(1-ratio)+31));
-                m_fondCielTransition->SetColor(sf::Color(255*(ratio),70*(1-ratio)+121,224*(1-ratio)+31, 128));
                 ratio*=0.5;
                 m_itemSoleil->SetColor(sf::Color(255,76+149*(1-ratio),0));
             }
@@ -124,7 +118,6 @@ void Ciel::Work()
         else
         {
             m_fondCiel->SetColor(sf::Color(0,191,255));
-            m_fondCielTransition->SetColor(sf::Color(0,191,255, 128));
             m_itemSoleil->SetColor(sf::Color(255,225,0));
             m_SetVisibleStars(false);
         }

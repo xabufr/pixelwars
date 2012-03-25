@@ -78,7 +78,17 @@ void ContactListenner::PreSolve(b2Contact *contact, const b2Manifold* oldManif)
         {
             u=(UniteAerienne*)b2->proprietaire;
         }
-        u->SubirDegatsTerrain();
+        if(!u->SubirDegatsTerrain())
+        {
+            b2WorldManifold manif;
+            contact->GetWorldManifold(&manif);
+            ExplosionPosition exp;
+            exp.position.x = manif.points[0].x*10;
+            exp.position.y = -manif.points[0].y*10;
+            exp.radius = u->GetExplosionRadius();
+            exp.angle = u->GetShootAngle()+180;
+            m_explosions.push_back(exp);
+        }
     }
 }
 

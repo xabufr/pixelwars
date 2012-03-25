@@ -29,7 +29,7 @@
             <touche name="haut" code="73" />
             <touche name="zoomer" code="67" />
             <touche name="dezoom" code="5" />
-            <touche name="tirer" code="58" />
+            <touche name="tirer" code="57" />
             <touche name="zoom" code="17" />
             <touche name="gauche" code="71" />
         </touches>

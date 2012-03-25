@@ -6,7 +6,7 @@
 class UniteAerienne: public Unite
 {
     public:
-        UniteAerienne(b2World*, b2Vec2 pos);
+        UniteAerienne(b2World*, b2Vec2 pos, int);
         virtual ~UniteAerienne();
 
         virtual void Deplacer(const UnitInput&);
@@ -15,6 +15,7 @@ class UniteAerienne: public Unite
         virtual void SetColor(const sf::Color& col);
         virtual float GetShootAngle() const;
         virtual float GetPuissanceExpulsion() const;
+        virtual bool PeutTirer();
 
         virtual void Update();
         virtual BodyTypeEnum GetType() const;
@@ -24,11 +25,16 @@ class UniteAerienne: public Unite
 
     protected:
     private:
-        SceneNodeShapeItem *m_corpsAvion;
+        SceneNodeSpriteItem *m_corpsAvion;
         struct {
             bool avant, arriere, monte, descend;
         } m_forces;
         float m_minVelocity, m_acceleration, m_rotationVelocity;
+        int m_sens;
+        float m_maxShootTime;
+        bool m_surchauffe;
+        sf::Clock m_timerSurfauffe;
+        sf::Color m_color;
 };
 
 #endif // UNITEAERIENNE_H
