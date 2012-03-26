@@ -16,8 +16,13 @@
     <projectile value="25" />
   </model>
   <model name="Artillerie Legere" uid="Artillerie Le">
-    <blindage value="10" />
+    <blindage value="15" />
     <canon value="2" />
     <projectile value="20" />
+  </model>
+  <model name="Artillerie LL" uid="Artillerie Le">
+    <blindage value="20" />
+    <canon value="1" />
+    <projectile value="25" />
   </model>
 </root>

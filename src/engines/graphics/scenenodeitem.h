@@ -35,6 +35,7 @@ class SceneNodeItem
         virtual const sf::Vector2f& GetRelativeScale() const;
 
         virtual sf::Vector2f GetSize() const = 0;
+        virtual void SetColor(const sf::Color&){};
 
         void Show();
         void Hide();

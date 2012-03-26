@@ -18,18 +18,20 @@ SceneNode *SceneManager::GetRootNode()
 }
 void SceneManager::Draw()
 {
-    m_particleManager->Update();
     std::map<int,std::vector<SceneNode*>>::iterator it;
     sf::RenderWindow *app = GraphicalEngine::GetInstance()->GetRenderWindow();
+    unsigned int taille, taille2, i, j;
     for(it=m_nodesLevel.begin();it!=m_nodesLevel.end();it++)
     {
         const std::vector<SceneNode*> &vecSceneNode = it->second;
-        unsigned int taille = vecSceneNode.size();
-        for(unsigned int i=0;i<taille;++i)
+        taille = vecSceneNode.size();
+        for(i=0;i<taille;++i)
         {
+            if(!vecSceneNode[i]->IsVisible())
+                continue;
             const std::vector<SceneNodeItem*> &vecItem = vecSceneNode[i]->GetChildItems();
-            unsigned int taille2 = vecItem.size();
-            for(unsigned int j=0;j<taille2;++j)
+            taille2 = vecItem.size();
+            for(j=0;j<taille2;++j)
             {
                 vecItem[j]->Draw(app);
             }

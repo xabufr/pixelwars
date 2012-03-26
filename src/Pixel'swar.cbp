@@ -46,12 +46,19 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
+					<Add option="-fexpensive-optimizations" />
+					<Add option="-Os" />
+					<Add option="-O3" />
 					<Add option="-std=c++0x" />
+					<Add directory="/usr/include" />
+					<Add directory="/usr/include/c++/4.6" />
+					<Add directory="./" />
+					<Add directory="/usr/local/include" />
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
 					<Add option="-lsfml-graphics" />
+					<Add option="-lsfml-audio" />
 					<Add option="-lsfml-network" />
 					<Add option="-lsfml-window" />
 					<Add option="-lsfml-system" />

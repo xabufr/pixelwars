@@ -40,7 +40,7 @@ void SceneNodeSpriteItem::Draw(sf::RenderWindow* app)
 }
 sf::Vector2f SceneNodeSpriteItem::GetSize() const
 {
-    return sf::Vector2f(m_spr.GetGlobalBounds().Width, m_spr.GetGlobalBounds().Height);
+    return sf::Vector2f(m_spr.GetTextureRect().Width, m_spr.GetTextureRect().Height);
 }
 void SceneNodeSpriteItem::SetColor(const sf::Color& col)
 {

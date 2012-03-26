@@ -31,7 +31,15 @@ void ContactListenner::PreSolve(b2Contact *contact, const b2Manifold* oldManif)
     BodyType *b1 = (BodyType*) contact->GetFixtureA()->GetBody()->GetUserData();
     BodyType *b2 = (BodyType*) contact->GetFixtureB()->GetBody()->GetUserData();
     if(b1==0||b2==0) return;
-    if((b1->type!=BodyTypeEnum::TerrainE&&b2->type!=BodyTypeEnum::TerrainE)&&(b1->type!=BodyTypeEnum::UniteE&&b2->type!=BodyTypeEnum::UniteE)) return;
+    if(((b1->type==BodyTypeEnum::UniteAirE||b2->type==BodyTypeEnum::UniteAirE)&&
+             (b1->type==BodyTypeEnum::UniteE||b2->type==BodyTypeEnum::UniteE))||
+            (b1->type==BodyTypeEnum::UniteAirE&&b2->type==BodyTypeEnum::UniteAirE))
+    {
+        ((Unite*)b1->proprietaire)->SubirDegats(1000000);
+        ((Unite*)b2->proprietaire)->SubirDegats(1000000);
+    }
+
+    if((b1->type!=BodyTypeEnum::TerrainE&&b2->type!=BodyTypeEnum::TerrainE)&&((b1->type!=BodyTypeEnum::UniteE&&b2->type!=BodyTypeEnum::UniteE)&&(b1->type!=BodyTypeEnum::UniteAirE&&b2->type!=BodyTypeEnum::UniteAirE))) return;
     if(b1->type==BodyTypeEnum::ProjectileE||b2->type==BodyTypeEnum::ProjectileE)
     {
         Projectile *proj;

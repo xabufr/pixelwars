@@ -109,3 +109,4 @@ void SceneNodeItem::SetVisible(bool vis)
 {
     m_visible=vis;
 }
+

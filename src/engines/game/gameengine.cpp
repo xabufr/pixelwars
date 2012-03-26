@@ -128,8 +128,8 @@ void GameEngine::GererExplosions()
         params.colorList.push_back(sf::Color(128,128,128));
         params.colorList.push_back(sf::Color(108,65,0));
         params.position=exp.position;
-        params.number=exp.radius*2;
-        params.timeToLive=2000;
+        params.number=exp.radius;
+        params.timeToLive=1000;
         params.level=-1;
         params.minSize=1;
         params.maxSize=2;
@@ -236,7 +236,6 @@ void GameEngine::Work()
         }
         m_inputManager.HandleEvent(event);
     }
-
     m_carte->Work();
     m_world->Step(1.f/60.f, 8, 3);
     m_gengine->DrawScene();

@@ -24,6 +24,18 @@ struct ParticleParameters
     sf::Vector2f position;
     float minAngle, maxAngle;
     float minPower, maxPower;
+    bool changeScale, useImage;
+    float rotation, gravity;
+    ParticleParameters()
+    {
+        changeScale=false;
+        useImage=false;
+        scaleFin = scaleDebut=1.f;
+        gravity=true;
+
+    }
+    std::string image;
+    float scaleDebut, scaleFin;
 };
 
 struct Particle
@@ -34,6 +46,11 @@ struct Particle
     sf::Clock timer, timerDep;
     sf::Vector2f dir;
     sf::Color color;
+    bool gravity;
+    Particle()
+    {
+        gravity=true;
+    }
 };
 
 class ParticleManager
@@ -46,11 +63,12 @@ class ParticleManager
         SceneNode* AddParticleSystem(const ParticleParameters&);
         void Remove(SceneNode*);
         void SetWorld(b2World *world);
+        void AddParticle(const ParticleParameters&);
 
     protected:
     private:
         static sf::Color m_RandomColor(const ParticleParameters&);
-
+        SceneNode* m_node;
         std::unordered_map<SceneNode*, ParticleParameters> m_nodes;
         std::unordered_map<SceneNodeItem*,SceneNode*> m_nodesItems;
         std::vector<Particle> m_particles;

@@ -25,6 +25,7 @@ class UniteAerienne: public Unite
 
     protected:
     private:
+        void m_AddTrainee();
         SceneNodeSpriteItem *m_corpsAvion;
         struct {
             bool avant, arriere, monte, descend;

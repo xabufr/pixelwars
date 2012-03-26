@@ -129,7 +129,10 @@ void UniteAerienne::Update()
         tr.Rotate(Trigo::ToDeg(m_body->GetAngle()));
         sf::Vector2f v;
         if(m_sens==1)
+        {
             v=tr.TransformPoint(m_acceleration, 0);
+            m_AddTrainee();
+        }
         else
             v=tr.TransformPoint(m_acceleration*0.05, 0);
 
@@ -142,7 +145,10 @@ void UniteAerienne::Update()
         tr.Rotate(Trigo::ToDeg(m_body->GetAngle()));
         sf::Vector2f v;
         if(m_sens==-1)
+        {
             v=tr.TransformPoint(-m_acceleration, 0);
+            m_AddTrainee();
+        }
         else
             v=tr.TransformPoint(-m_acceleration*0.05, 0);
         vec.Set(v.x, v.y);
@@ -164,4 +170,16 @@ bool UniteAerienne::SubirDegatsTerrain()
 float UniteAerienne::GetExplosionRadius()
 {
     return 30.f;
+}
+void UniteAerienne::m_AddTrainee()
+{
+    ParticleParameters p;
+    p.useImage = true;
+    p.image="data/trainee.png";
+    sf::Transform t;
+    t.Rotate(Trigo::ToDeg(-m_body->GetAngle()));
+    p.position=sf::Vector2f(10*m_body->GetPosition().x, -10*m_body->GetPosition().y)+t.TransformPoint(-1.f*m_sens*m_corpsAvion->GetSize().x/2.f, 0);
+    p.timeToLive=2000;
+    p.gravity=false;
+    GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticle(p);
 }

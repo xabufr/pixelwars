@@ -63,6 +63,7 @@ void GraphicalEngine::DrawScene()
         nCam->SetViewport(sf::FloatRect(0,0,1,1));
         nCam->SetCenter(nCam->GetSize()/2.f);
     }*/
+    m_sceneManager->GetParticleManager()->Update();
     for(sf::View *view: *m_listeViews )
     {
         m_app->SetView(*view);

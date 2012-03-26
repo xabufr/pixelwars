@@ -36,7 +36,7 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
         m_nuages.push_back(new Nuage(sf::Vector2f(Random::Rand(0.f, m_taille.x), Random::Rand(int(-m_taille.y*0.1), int(-m_taille.y*1.5))), m_taille.y, Random::Rand(1, 7), 0.f));
     }
 
-    int nbEtoiles = taille.x*0.5;
+    int nbEtoiles = taille.x*0.20;
     std::vector<std::string> dataEtoiles = std::vector<std::string>({
                                                                     "data/etoile_1.png",
                                                                     "data/etoile_2.png"});
