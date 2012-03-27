@@ -183,3 +183,11 @@ void UniteAerienne::m_AddTrainee()
     p.gravity=false;
     GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticle(p);
 }
+const std::string UniteAerienne::GetShootSound() const
+{
+    return "data/avionExplose.wav";
+}
+const std::string UniteAerienne::GetDeathSound() const
+{
+    return "salut.wav";
+}

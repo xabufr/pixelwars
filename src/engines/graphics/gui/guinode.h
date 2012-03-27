@@ -5,6 +5,7 @@
 
 class GuiWindowNode;
 class GuiContener;
+/// @todo Documenter
 class GuiNode : public SceneNode
 {
     public:

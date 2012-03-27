@@ -44,7 +44,7 @@ std::string SoundProprities::GetProjectileSound(Projectile* proj) const
     }
     return "";
 }
-std::string SoundProprities::GetUniteTerrestreSound(UniteTerrestre* unit) const
+std::string SoundProprities::GetUniteTerrestreSound(UniteTerrestre const * unit) const
 {
     for(Intervalle intervalle: m_unitesTerrestreSounds)
     {
@@ -66,7 +66,7 @@ void SoundProprities::AddIntervalle(TiXmlNode* node, std::vector<Intervalle>& ta
     tmp.max=max;
     tableau.push_back(tmp);
 }
-std::string SoundProprities::GetUniteTerrestreDestructionSound(UniteTerrestre* unit) const
+std::string SoundProprities::GetUniteTerrestreDestructionSound(const UniteTerrestre * unit) const
 {
     return "fdetest.wav";
 }

@@ -18,6 +18,8 @@ class UniteTerrestre : public Unite
         float GetTailleCanon() const;
         virtual float GetShootAngle() const;
         virtual float GetPuissanceExpulsion() const;
+        virtual const std::string GetShootSound() const;
+        virtual const std::string GetDeathSound() const;
 
     private:
         b2Body *m_roue1, *m_roue2, *m_tourelle;

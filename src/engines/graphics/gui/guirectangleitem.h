@@ -3,7 +3,7 @@
 
 #include "guiitem.h"
 #include "../scenenodeshapeitem.h"
-
+/// @todo Documenter
 class GuiRectangleItem: public GuiItem
 {
     public:

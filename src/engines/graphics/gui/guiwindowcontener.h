@@ -1,7 +1,7 @@
 #ifndef GUIWINDOWCONTENER_H
 #define GUIWINDOWCONTENER_H
 #include "guicontener.h"
-
+/// @todo Documenter
 class GuiWindowContener: public GuiContener
 {
     public:

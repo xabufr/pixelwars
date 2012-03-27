@@ -3,7 +3,7 @@
 
 #include <SFML2/Graphics.hpp>
 #include "guiitem.h"
-
+/// @todo Documenter
 class GuiTextItem: public GuiItem
 {
     public:

@@ -7,7 +7,7 @@
 #include "guibuttonitem.h"
 #include "guitextitem.h"
 #include "guiwindowcontener.h"
-
+/// @todo Documenter
 class GuiWindowNode: public GuiNode
 {
     public:

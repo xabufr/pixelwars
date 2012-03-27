@@ -77,6 +77,7 @@ void GraphicalEngine::DrawScene()
         m_framerate=(float(m_nbFrames)*1000.f)/float(m_tempFramerate);
         m_nbFrames=0;
         m_timerFramerate.Restart();
+        //Logger::Log()<<m_framerate<<Logger::endl;
     }
     ++m_nbFrames;
 }

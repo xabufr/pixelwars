@@ -3,7 +3,7 @@
 
 #include "guiitem.h"
 #include <SFML2/Graphics.hpp>
-
+/// @todo Documenter
 class GuiTextInputItem: public GuiItem
 {
     public:

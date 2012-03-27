@@ -221,6 +221,7 @@ void GameEngine::CallbackAjoutAvion(GuiItem *item)
 }
 void GameEngine::Work()
 {
+    static sf::Clock clock;
     sf::Event event;
     while(m_app->PollEvent(event))
     {
@@ -237,7 +238,7 @@ void GameEngine::Work()
         m_inputManager.HandleEvent(event);
     }
     m_carte->Work();
-    m_world->Step(1.f/60.f, 8, 3);
+    m_world->Step(clock.Restart().AsSeconds(), 8, 3);
     m_gengine->DrawScene();
     GererExplosions();
     m_uniteManager->Update();

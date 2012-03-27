@@ -3,6 +3,7 @@
 #include "projectile.h"
 #include "core/exception.h"
 #include "../../core/trigo.h"
+#include "soundproprities.h"
 
 UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& uid): Unite(world, pos),
     m_param(UniteTerrestreModel::GetInstance()->Get(uid))
@@ -221,4 +222,12 @@ float UniteTerrestre::GetShootAngle() const
 float UniteTerrestre::GetPuissanceExpulsion() const
 {
     return m_param->tailleCanon;
+}
+const std::string UniteTerrestre::GetShootSound() const
+{
+    return SoundProprities::GetInstance()->GetUniteTerrestreSound(this);
+}
+const std::string UniteTerrestre::GetDeathSound() const
+{
+    return SoundProprities::GetInstance()->GetUniteTerrestreDestructionSound(this);
 }

@@ -22,6 +22,8 @@ class UniteAerienne: public Unite
 
         bool SubirDegatsTerrain();
         float GetExplosionRadius();
+        virtual const std::string GetShootSound() const;
+        virtual const std::string GetDeathSound() const;
 
     protected:
     private:

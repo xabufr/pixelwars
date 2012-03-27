@@ -11,6 +11,7 @@ class GuiTextItem;
 class SceneNodeShapeItem;
 class GuiItem;
 class GuiRectangleItem;
+/// @todo Documenter
 class GuiColorSelector: public GuiContener
 {
     public:

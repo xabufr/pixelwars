@@ -2,6 +2,7 @@
 #define GUIELEMENT_H
 
 #include <SFML2/Graphics.hpp>
+/// @todo Documenter
 enum GuiElementType{TypeNode, TypeItem, TypeContener};
 class GuiElement
 {
