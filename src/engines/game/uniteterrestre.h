@@ -20,6 +20,7 @@ class UniteTerrestre : public Unite
         virtual float GetPuissanceExpulsion() const;
         virtual const std::string GetShootSound() const;
         virtual const std::string GetDeathSound() const;
+        const UniteTerrestreParameters* GetParams() const;
 
     private:
         b2Body *m_roue1, *m_roue2, *m_tourelle;

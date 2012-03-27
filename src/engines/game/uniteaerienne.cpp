@@ -82,7 +82,7 @@ Projectile* UniteAerienne::Tirer()
     sf::Vector2f d = t.TransformPoint(2.3*m_sens, 0);
     sf::Vector2f pos = sf::Vector2f(m_body->GetPosition().x, m_body->GetPosition().y)+d;
     m_body->ApplyLinearImpulse(b2Vec2(-d.x, -d.y), m_body->GetPosition());
-    return new Projectile(m_body->GetWorld(), b2Vec2(pos.x, pos.y), b2Vec2(d.x*10, d.y*10), 0.2, 0.1, 5);
+    return new Projectile(m_body->GetWorld(), b2Vec2(pos.x, pos.y), b2Vec2(d.x*20, d.y*20), 0.2, 0.1, 5);
 }
 
 void UniteAerienne::SetColor(const sf::Color& col)
@@ -185,9 +185,9 @@ void UniteAerienne::m_AddTrainee()
 }
 const std::string UniteAerienne::GetShootSound() const
 {
-    return "data/avionExplose.wav";
+    return "data/sons/tir_long.wav";
 }
 const std::string UniteAerienne::GetDeathSound() const
 {
-    return "salut.wav";
+    return "data/sons/tir_long.wav";
 }

@@ -25,8 +25,7 @@ class SoundProprities: public Singleton<SoundProprities>
         SoundProprities();
         virtual ~SoundProprities();
     private:
-        std::vector<Intervalle> m_projectilesSounds;
-        std::vector<Intervalle> m_unitesTerrestreSounds;
+        std::vector<Intervalle> m_projectilesSounds, m_unitesTerrestreSounds, m_unitesTerrestreDeathSounds;
 
         void AddIntervalle(TiXmlNode*, std::vector<Intervalle>&);
 };

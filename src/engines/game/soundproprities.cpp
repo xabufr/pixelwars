@@ -16,17 +16,26 @@ SoundProprities::SoundProprities()
 
     TiXmlElement *rootNode = fichier.RootElement();
     TiXmlNode *tirsNode = rootNode->FirstChild("tirs");
+    TiXmlNode *deathNode = rootNode->FirstChild("death");
     TiXmlNode *explosionNode = rootNode->FirstChild("explosions");
     TiXmlNode *currNode = 0;
-    while((currNode=explosionNode->IterateChildren("intervalle",currNode)))
-    {
-        AddIntervalle(currNode, m_projectilesSounds);
-    }
+    if(explosionNode)
+        while((currNode=explosionNode->IterateChildren("intervalle",currNode)))
+        {
+            AddIntervalle(currNode, m_projectilesSounds);
+        }
     currNode = 0;
-    while((currNode=tirsNode->IterateChildren("intervalle",currNode)))
-    {
-        AddIntervalle(currNode, m_unitesTerrestreSounds);
-    }
+    if(tirsNode)
+        while((currNode=tirsNode->IterateChildren("intervalle",currNode)))
+        {
+            AddIntervalle(currNode, m_unitesTerrestreSounds);
+        }
+    currNode = 0;
+    if(deathNode)
+        while((currNode=deathNode->IterateChildren("intervalle",currNode)))
+        {
+            AddIntervalle(currNode, m_unitesTerrestreDeathSounds);
+        }
 }
 
 SoundProprities::~SoundProprities()
@@ -68,5 +77,12 @@ void SoundProprities::AddIntervalle(TiXmlNode* node, std::vector<Intervalle>& ta
 }
 std::string SoundProprities::GetUniteTerrestreDestructionSound(const UniteTerrestre * unit) const
 {
-    return "fdetest.wav";
+    for(Intervalle intervalle: m_unitesTerrestreDeathSounds)
+    {
+        if(intervalle.min <= unit->GetParams()->poidsCorp&&intervalle.max>=unit->GetParams()->poidsCorp)
+        {
+            return intervalle.chemin;
+        }
+    }
+    return "";
 }

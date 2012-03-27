@@ -231,3 +231,7 @@ const std::string UniteTerrestre::GetDeathSound() const
 {
     return SoundProprities::GetInstance()->GetUniteTerrestreDestructionSound(this);
 }
+const UniteTerrestreParameters* UniteTerrestre::GetParams() const
+{
+    return m_param;
+}
