@@ -1,5 +1,6 @@
 #include "game.h"
 #include "engines/engineevent.h"
+#include "core/logger.h"
 
 Game::Game()
 {
@@ -34,10 +35,12 @@ Engine* Game::GetEngineFromId(EngineType id)
 }
 void Game::Start()
 {
+    sf::Clock cl;
     m_run=true;
     m_game->Start();
     while(m_run)
     {
+        cl.Restart();
         m_game->Work();
         m_sound->Work();
         this->Work();

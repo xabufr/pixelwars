@@ -185,9 +185,9 @@ void UniteAerienne::m_AddTrainee()
 }
 const std::string UniteAerienne::GetShootSound() const
 {
-    return "data/sons/tir_long.wav";
+    return "data/sons/tir_1.wav";
 }
 const std::string UniteAerienne::GetDeathSound() const
 {
-    return "data/sons/tir_long.wav";
+    return "data/sons/impact3.wav";
 }

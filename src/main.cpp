@@ -11,16 +11,20 @@ int main()
     {
         /*GameEngine game;
         game.Start();*/
-        MenuPrincipal menu;
-        menu.Show();
+        MenuPrincipal *menu = new MenuPrincipal;
+        menu->Show();
+        delete menu;
     }
     catch(AssertException &e)
     {
-        std::cout<<e.What();
+        std::cout<<e.What()<<std::endl;
+        GraphicalEngine::Kill();
+        return 0;
     }
     catch(Exception &e)
     {
-        std::cout<<e.What();
+        std::cout<<e.What()<<std::endl;
+        return 0;
     }
     return 0;
 }
