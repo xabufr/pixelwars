@@ -10,6 +10,6 @@
     <intervalle min="20" max="25" son="data/sons/impact3.wav" />
   </explosions>
   <death>
-    <intervalle min="0" max="10" son="data/sons/explosion.wav" />
+    <intervalle min="0" max="50" son="data/sons/explosion.wav" />
   </death>
 </root>
