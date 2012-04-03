@@ -2,7 +2,7 @@
 #include "../../core/trigo.h"
 #include "projectile.h"
 
-UniteAerienne::UniteAerienne(b2World* world, b2Vec2 pos, int joueur): Unite(world, pos, BodyTypeEnum::UniteAirE)
+UniteAerienne::UniteAerienne(b2World* world, b2Vec2 pos, SoundEngine *sEngine, int joueur): Unite(world, pos, sEngine,BodyTypeEnum::UniteAirE)
 {
     b2PolygonShape sh;
     sh.SetAsBox(2, 0.5);
@@ -28,6 +28,11 @@ UniteAerienne::UniteAerienne(b2World* world, b2Vec2 pos, int joueur): Unite(worl
     m_sens = joueur==0?1:-1;
     m_maxShootTime=0.5f;
     m_surchauffe = false;
+
+    m_sonAvance = m_soundEngine->PlaySound("data/sons/avion.wav");
+    m_soundEngine->RemoveWhenFinished(m_sonAvance, false);
+    m_soundEngine->GetSound(m_sonAvance)->Stop();
+    m_soundEngine->GetSound(m_sonAvance)->SetLoop(true);
 }
 
 UniteAerienne::~UniteAerienne()
@@ -48,6 +53,9 @@ UniteAerienne::~UniteAerienne()
     params.maxSize=2;
     params.position=m_node->GetAbsoluteInformations().position;
     GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticleSystem(params);
+
+    m_soundEngine->RemoveWhenFinished(m_sonAvance, true);
+    m_soundEngine->GetSound(m_sonAvance)->Stop();
 }
 
 bool UniteAerienne::PeutTirer()
@@ -56,6 +64,16 @@ bool UniteAerienne::PeutTirer()
 }
 void UniteAerienne::Deplacer(const UnitInput& in)
 {
+    if(((in.droite&&m_sens==1)||(in.gauche&&m_sens==-1))&&!m_playingForwadSound)
+    {
+        m_playingForwadSound=true;
+        m_soundEngine->GetSound(m_sonAvance)->Play();
+    }
+    else if(((!in.droite&&m_sens==1)||(!in.gauche&&m_sens==-1))&&m_playingForwadSound)
+    {
+        m_playingForwadSound=false;
+        m_soundEngine->GetSound(m_sonAvance)->Stop();
+    }
     m_forces.descend=in.bas;
     m_forces.monte=in.haut;
     m_forces.avant=in.droite;
@@ -73,6 +91,9 @@ void UniteAerienne::Stop()
     m_forces.avant=false;
     m_forces.arriere=false;
     m_fire=false;
+
+    m_playingForwadSound=false;
+    m_soundEngine->GetSound(m_sonAvance)->Stop();
 }
 
 Projectile* UniteAerienne::Tirer()

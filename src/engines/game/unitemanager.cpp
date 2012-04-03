@@ -9,6 +9,7 @@
 #include "engines/engineevent.h"
 #include "gameengine.h"
 #include "soundproprities.h"
+#include "../sound/soundengine.h"
 #include "../../core/trigo.h"
 
 UniteManager::UniteManager(GameEngine* g_engine, JoueurManager* j_manager): m_joueurManager(j_manager), m_engine(g_engine)
@@ -65,9 +66,9 @@ void UniteManager::AjouterUnite(sf::Uint32 id, Unite* unit)
 {
     m_unites[id] = unit;
 }
-void UniteManager::AjouterUniteTerrestre(int joueur, sf::Uint32 id, b2World* world, const std::string& uid)
+void UniteManager::AjouterUniteTerrestre(int joueur, sf::Uint32 id, b2World* world, SoundEngine* s,const std::string& uid)
 {
-    UniteTerrestre *nouvelleUnit = new UniteTerrestre(world, m_joueurManager->GetJoueur(joueur)->GetPositionNouvelleUnite()+b2Vec2(0, 10), uid);
+    UniteTerrestre *nouvelleUnit = new UniteTerrestre(world, m_joueurManager->GetJoueur(joueur)->GetPositionNouvelleUnite()+b2Vec2(0, 10), s,uid);
     AjouterUnite(joueur, id, nouvelleUnit);
 }
 Unite* UniteManager::GetUnite(sf::Uint32 id)

@@ -14,22 +14,23 @@ struct SoundParams
         spacialized=false;
     }
 };
+typedef unsigned int SoundId;
 class SoundEngine : public Engine
 {
     public:
         SoundEngine();
         virtual ~SoundEngine();
 
-        unsigned int PlaySound(const std::string&);
-        unsigned int PlayLocalizedSound(const std::string&);
+        SoundId PlaySound(const std::string&);
+        SoundId PlayLocalizedSound(const std::string&);
 
         void SetListenerPosition(sf::Vector2f pos);
         void SetListenerDirection(sf::Vector2f dir);
         void SetGlobalVolume(float);
 
-        sf::Sound* GetSound(unsigned int);
+        sf::Sound* GetSound(SoundId);
 
-        void RemoveWhenFinished(unsigned int, bool=true);
+        void RemoveWhenFinished(SoundId, bool=true);
 
         virtual void Work();
         virtual void HandleEngineEvent(EngineEvent*);

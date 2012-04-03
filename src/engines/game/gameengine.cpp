@@ -211,13 +211,13 @@ void GameEngine::CallbackAjoutUnite(GuiItem* item)
     GameEngine* game = (GameEngine*)item->GetData("game");
     Joueur* joueur = (Joueur*)item->GetData("joueur");
     sf::Uint32 id = game->m_lastId++;
-    game->m_uniteManager->AjouterUniteTerrestre(game->m_joueurManager->GetId(joueur), id, game->m_world, std::string((char*)item->GetData("model")));
+    game->m_uniteManager->AjouterUniteTerrestre(game->m_joueurManager->GetId(joueur), id, game->m_world, game->m_soundEngine,std::string((char*)item->GetData("model")));
 }
 void GameEngine::CallbackAjoutAvion(GuiItem *item)
 {
     GameEngine *t = (GameEngine*)item->GetData("this");
     Joueur *j = (Joueur*)item->GetData("joueur");
-    t->m_uniteManager->AjouterUnite(t->m_joueurManager->GetId(j), t->m_lastId++, new UniteAerienne(t->m_world, j->GetPositionNouvelleUnite(), t->m_joueurManager->GetId(j)));
+    t->m_uniteManager->AjouterUnite(t->m_joueurManager->GetId(j), t->m_lastId++, new UniteAerienne(t->m_world, j->GetPositionNouvelleUnite(), t->m_soundEngine,t->m_joueurManager->GetId(j)));
 }
 void GameEngine::Work()
 {
@@ -275,4 +275,8 @@ std::string GameEngine::GetWinner() const
     if(m_score[0]<m_score[1])
         return PlayerParameters::GetInstance()->GetPlayerName(1);
     return PlayerParameters::GetInstance()->GetPlayerName(0);
+}
+void GameEngine::SetSoundEngine(SoundEngine *s)
+{
+    m_soundEngine=s;
 }

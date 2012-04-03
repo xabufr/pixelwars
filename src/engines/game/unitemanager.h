@@ -11,6 +11,7 @@ class Joueur;
 class JoueurManager;
 class Projectile;
 class GameEngine;
+class SoundEngine;
 class UniteManager
 {
     public:
@@ -26,7 +27,7 @@ class UniteManager
 
         void AjouterUnite(int, sf::Uint32, Unite*);
         void AjouterUnite(sf::Uint32, Unite*);
-        void AjouterUniteTerrestre(int, sf::Uint32, b2World*, const std::string& uid = "default");
+        void AjouterUniteTerrestre(int, sf::Uint32, b2World*, SoundEngine*,const std::string& uid = "default");
 
         Unite* GetUnite(sf::Uint32);
 

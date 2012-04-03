@@ -1,8 +1,8 @@
 <root>
   <tirs>
-    <intervalle min="0" max="2" son="data/sons/tir_1.wav" />
-    <intervalle min="2" max="3" son="data/sons/tir_2.wav" />
-    <intervalle min="3" max="4" son="data/sons/tir_3.wav" />
+    <intervalle min="0" max="1.99" son="data/sons/tir_1.wav" />
+    <intervalle min="1.99" max="2.99" son="data/sons/tir_2.wav" />
+    <intervalle min="2.99" max="4" son="data/sons/tir_3.wav" />
   </tirs>
   <explosions>
     <intervalle min="5" max="10" son="data/sons/impact1.wav" />

@@ -6,6 +6,7 @@ Game::Game()
 {
     m_game = new GameEngine;
     m_sound = new SoundEngine;
+    m_game->SetSoundEngine(m_sound);
     m_engines.push_back(m_game);
     m_engines.push_back(m_sound);
     EngineEvent::SetGame(this);

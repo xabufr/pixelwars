@@ -1,7 +1,7 @@
 #include "unite.h"
 #include "bodytype.h"
 
-Unite::Unite(b2World *world, b2Vec2 pos, BodyTypeEnum t)
+Unite::Unite(b2World *world, b2Vec2 pos, SoundEngine *sEngine,BodyTypeEnum t): m_soundEngine(sEngine)
 {
     m_node = GraphicalEngine::GetInstance()->GetSceneManager()->GetRootNode()->AddSceneNode();
     b2BodyDef bd;
@@ -11,6 +11,7 @@ Unite::Unite(b2World *world, b2Vec2 pos, BodyTypeEnum t)
     m_body =world->CreateBody(&bd);
     m_fire = false;
     m_node->SetAbsolutePosition(pos.x*10, -pos.y*10);
+    m_playingForwadSound = false;
 }
 
 Unite::~Unite()

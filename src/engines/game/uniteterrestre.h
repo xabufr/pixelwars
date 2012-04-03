@@ -7,7 +7,7 @@ class GuiProgressBarItem;
 class UniteTerrestre : public Unite
 {
     public:
-        UniteTerrestre(b2World*, b2Vec2 pos=b2Vec2(0,0), const std::string& uid="default");
+        UniteTerrestre(b2World*, b2Vec2 pos, SoundEngine *sEngine,const std::string& uid="default");
         virtual ~UniteTerrestre();
         virtual void Update();
         void Deplacer(const UnitInput& input);

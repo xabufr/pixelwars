@@ -5,7 +5,7 @@
 #include "../../core/trigo.h"
 #include "soundproprities.h"
 
-UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& uid): Unite(world, pos),
+UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, SoundEngine *sEngine, const std::string& uid): Unite(world, pos, sEngine),
     m_param(UniteTerrestreModel::GetInstance()->Get(uid))
 {
     UniteTerrestreModel *factory = UniteTerrestreModel::GetInstance();
@@ -110,6 +110,11 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, const std::string& ui
     m_tempRechargement= coef*m_param->tailleCanon;
     m_tempRechargement+= factory->GetReloadTimeMax()-coef*factory->GetCanonMax();
     m_vie=m_param->poidsCorp*10;
+
+    m_sonAvance = m_soundEngine->PlaySound("data/sons/terrestre.wav");
+    m_soundEngine->RemoveWhenFinished(m_sonAvance, false);
+    m_soundEngine->GetSound(m_sonAvance)->Stop();
+    m_soundEngine->GetSound(m_sonAvance)->SetLoop(true);
 }
 
 UniteTerrestre::~UniteTerrestre()
@@ -133,6 +138,8 @@ UniteTerrestre::~UniteTerrestre()
     m_roue1->GetWorld()->DestroyBody(m_roue1);
     m_roue2->GetWorld()->DestroyBody(m_roue2);
     m_tourelle->GetWorld()->DestroyBody(m_tourelle);
+    m_soundEngine->RemoveWhenFinished(m_sonAvance, true);
+    m_soundEngine->GetSound(m_sonAvance)->Stop();
 }
 void UniteTerrestre::Update()
 {
@@ -145,6 +152,11 @@ void UniteTerrestre::Update()
 }
 void UniteTerrestre::Deplacer(const UnitInput& input)
 {
+    if((input.droite||input.gauche)&&!m_playingForwadSound)
+    {
+        m_playingForwadSound=true;
+        m_soundEngine->GetSound(m_sonAvance)->Play();
+    }
     if(input.droite)
     {
         jointure1->SetMotorSpeed(-6.28);
@@ -176,6 +188,8 @@ void UniteTerrestre::Stop()
     jointure1->SetMotorSpeed(0);
     jointure2->SetMotorSpeed(0);
     m_jointureTourelle->SetMotorSpeed(0);
+    m_playingForwadSound=false;
+    m_soundEngine->GetSound(m_sonAvance)->Stop();
 }
 
 Projectile* UniteTerrestre::Tirer()

@@ -4,12 +4,13 @@
 #include "engines/graphics/graphicalengine.h"
 #include "inputmanager.h"
 #include "bodytype.h"
+#include "../sound/soundengine.h"
 
 class Projectile;
 class Unite
 {
     public:
-        Unite(b2World*, b2Vec2 pos, BodyTypeEnum t = BodyTypeEnum::UniteE);
+        Unite(b2World*, b2Vec2 pos, SoundEngine *sEngine,BodyTypeEnum t = BodyTypeEnum::UniteE);
         virtual ~Unite();
         void SetPosition();
         virtual void Update();
@@ -34,9 +35,11 @@ class Unite
         SceneNode *m_node;
         sf::Clock m_timerFire;
         float m_tempRechargement;
+        SoundId m_sonAvance;
+        SoundEngine *m_soundEngine;
 
         float m_vie;
-        bool m_fire;
+        bool m_fire, m_playingForwadSound;
 };
 
 #endif // UNITE_H

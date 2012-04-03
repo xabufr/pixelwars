@@ -6,7 +6,7 @@
 class UniteAerienne: public Unite
 {
     public:
-        UniteAerienne(b2World*, b2Vec2 pos, int);
+        UniteAerienne(b2World*, b2Vec2 pos, SoundEngine *sEngine, int);
         virtual ~UniteAerienne();
 
         virtual void Deplacer(const UnitInput&);

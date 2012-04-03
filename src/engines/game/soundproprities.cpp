@@ -79,7 +79,7 @@ std::string SoundProprities::GetUniteTerrestreDestructionSound(const UniteTerres
 {
     for(Intervalle intervalle: m_unitesTerrestreDeathSounds)
     {
-        if(intervalle.min <= unit->GetParams()->poidsCorp&&intervalle.max>=unit->GetParams()->poidsCorp)
+        if(intervalle.min <= unit->GetParams()->poidsCorp&&intervalle.max>unit->GetParams()->poidsCorp)
         {
             return intervalle.chemin;
         }

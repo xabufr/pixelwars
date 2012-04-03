@@ -69,3 +69,11 @@ EngineType SoundEngine::GetEngineId() const
 {
     return EngineType::Audio_engine;
 }
+sf::Sound* SoundEngine::GetSound(SoundId id)
+{
+    auto it = m_sounds.find(id);
+    if(it==m_sounds.end())
+        return 0;
+    return it->second.sound;
+}
+

@@ -15,6 +15,7 @@ class Projectile;
 class TiXmlNode;
 class GraphicalEngine;
 class GuiWindowNode;
+class SoundEngine;
 class GameEngine : public Engine
 {
     public:
@@ -23,6 +24,7 @@ class GameEngine : public Engine
         void Start();
         EngineType GetEngineId() const;
         bool CanWork() const;
+        void SetSoundEngine(SoundEngine *);
 
         void Work();
         void HandleEngineEvent(EngineEvent*);
@@ -60,6 +62,7 @@ class GameEngine : public Engine
         sf::RenderWindow *m_app;
         GuiTextItem *m_scoreText[2];
         int m_score[2];
+        SoundEngine *m_soundEngine;
 
         int m_tailleCarte, m_seed;
 
