@@ -9,6 +9,7 @@ GuiButtonItem::GuiButtonItem()
     m_clr_nml_fnd=sf::Color(255,255,255);
     m_clr_ovr_txt=sf::Color(255,0,0);
     m_clr_ovr_fnd=sf::Color(255,255,255);
+    m_btn_txt.SetFont(FontManager::GetInstance()->GetFont());
 }
 
 GuiButtonItem::~GuiButtonItem()

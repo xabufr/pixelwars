@@ -30,6 +30,7 @@
 #include "gui/guicolorselector.h"
 #include "gui/guirectangleitem.h"
 #include "particlemanager.h"
+#include "gui/fontmanager.h"
 
 /// @todo Documenter
 class GraphicalEngine : public Singleton<GraphicalEngine>

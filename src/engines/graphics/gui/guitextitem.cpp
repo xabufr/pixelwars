@@ -1,7 +1,9 @@
 #include "guitextitem.h"
+#include "fontmanager.h"
+
 GuiTextItem::GuiTextItem()
 {
-    //ctor
+    m_texte.SetFont(FontManager::GetInstance()->GetFont());
 }
 GuiTextItem::~GuiTextItem()
 {

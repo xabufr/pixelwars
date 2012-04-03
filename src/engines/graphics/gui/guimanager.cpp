@@ -4,6 +4,7 @@
 
 GuiManager::GuiManager(): SceneManager()
 {
+    FontManager::GetInstance()->SetFont("data/times.ttf");
     delete m_rootSceneNode;
     Logger::Log()<<"Création du GuiManager"<<Logger::endl;
     m_rootSceneNode = new GuiNode(this);

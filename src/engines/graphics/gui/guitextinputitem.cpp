@@ -7,6 +7,7 @@ GuiTextInputItem::GuiTextInputItem(): GuiItem(), m_maxSize(100,30)
     m_fond.SetSize(m_maxSize);
     m_pos.SetSize(sf::Vector2f(2,30));
     m_maxCharacters=255;
+    m_text.SetFont(FontManager::GetInstance()->GetFont());
 }
 
 GuiTextInputItem::~GuiTextInputItem()
