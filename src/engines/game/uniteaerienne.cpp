@@ -29,6 +29,8 @@ UniteAerienne::UniteAerienne(b2World* world, b2Vec2 pos, SoundEngine *sEngine, i
     m_maxShootTime=0.5f;
     m_surchauffe = false;
 
+
+
     m_sonAvance = m_soundEngine->PlaySound("data/sons/avion.wav");
     m_soundEngine->RemoveWhenFinished(m_sonAvance, false);
     m_soundEngine->GetSound(m_sonAvance)->Stop();
@@ -67,12 +69,12 @@ void UniteAerienne::Deplacer(const UnitInput& in)
     if(((in.droite&&m_sens==1)||(in.gauche&&m_sens==-1))&&!m_playingForwadSound)
     {
         m_playingForwadSound=true;
-        m_soundEngine->GetSound(m_sonAvance)->Play();
+        m_soundEngine->FadeIn(m_sonAvance, 0.2);
     }
     else if(((!in.droite&&m_sens==1)||(!in.gauche&&m_sens==-1))&&m_playingForwadSound)
     {
         m_playingForwadSound=false;
-        m_soundEngine->GetSound(m_sonAvance)->Stop();
+        m_soundEngine->FadeOut(m_sonAvance, 0.2);
     }
     m_forces.descend=in.bas;
     m_forces.monte=in.haut;

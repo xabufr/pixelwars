@@ -29,8 +29,12 @@ class UniteAerienne: public Unite
     private:
         void m_AddTrainee();
         SceneNodeSpriteItem *m_corpsAvion;
-        struct {
+        struct Forces{
             bool avant, arriere, monte, descend;
+            Forces()
+            {
+                arriere=monte=descend=avant=false;
+            }
         } m_forces;
         float m_minVelocity, m_acceleration, m_rotationVelocity;
         int m_sens;

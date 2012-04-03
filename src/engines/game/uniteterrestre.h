@@ -32,6 +32,9 @@ class UniteTerrestre : public Unite
         GuiProgressBarItem *m_barreVie;
         b2Vec2 m_tailleCanon;
         const UniteTerrestreParameters* const m_param;
+        SoundId m_sonTourelle;
+        bool m_tourelleBouge;
+
 };
 
 #endif // UNITETERRESTRE_H

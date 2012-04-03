@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <root>
-    <player numero="0" name="Fabrice">
-        <rouge value="0" />
-        <vert value="232" />
-        <bleu value="209" />
-        <touches>
-            <touche name="changer_unite" code="4" />
-            <touche name="droite" code="3" />
-            <touche name="dezoomer" code="23" />
-            <touche name="bas" code="18" />
-            <touche name="haut" code="25" />
-            <touche name="zoomer" code="22" />
-            <touche name="dezoom" code="77" />
-            <touche name="tirer" code="0" />
-            <touche name="zoom" code="76" />
-            <touche name="gauche" code="16" />
-        </touches>
-    </player>
-    <player numero="1" name="Bastien">
+    <player numero="0" name="Joueur_1">
         <rouge value="255" />
         <vert value="0" />
-        <bleu value="255" />
+        <bleu value="0" />
         <touches>
-            <touche name="dezoomer" code="68" />
-            <touche name="droite" code="72" />
+            <touche name="dezoomer" code="23" />
+            <touche name="droite" code="3" />
+            <touche name="changer_unite" code="4" />
+            <touche name="bas" code="18" />
+            <touche name="zoomer" code="22" />
+            <touche name="haut" code="25" />
+            <touche name="dezoom" code="77" />
+            <touche name="tirer" code="0" />
+            <touche name="gauche" code="16" />
+            <touche name="zoom" code="76" />
+        </touches>
+    </player>
+    <player numero="1" name="Joueur_2">
+        <rouge value="0" />
+        <vert value="255" />
+        <bleu value="0" />
+        <touches>
             <touche name="changer_unite" code="75" />
+            <touche name="droite" code="72" />
+            <touche name="dezoomer" code="68" />
             <touche name="bas" code="74" />
-            <touche name="zoomer" code="67" />
             <touche name="haut" code="73" />
+            <touche name="zoomer" code="67" />
             <touche name="dezoom" code="5" />
             <touche name="tirer" code="57" />
-            <touche name="gauche" code="71" />
             <touche name="zoom" code="17" />
+            <touche name="gauche" code="71" />
         </touches>
     </player>
 </root>

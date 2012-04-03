@@ -115,6 +115,13 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, SoundEngine *sEngine,
     m_soundEngine->RemoveWhenFinished(m_sonAvance, false);
     m_soundEngine->GetSound(m_sonAvance)->Stop();
     m_soundEngine->GetSound(m_sonAvance)->SetLoop(true);
+
+    m_sonTourelle = m_soundEngine->PlaySound("data/sons/tourelle.wav");
+    m_soundEngine->RemoveWhenFinished(m_sonTourelle, false);
+    m_soundEngine->GetSound(m_sonTourelle)->Stop();
+    m_soundEngine->GetSound(m_sonTourelle)->SetLoop(true);
+
+    m_tourelleBouge = false;
 }
 
 UniteTerrestre::~UniteTerrestre()
@@ -140,6 +147,8 @@ UniteTerrestre::~UniteTerrestre()
     m_tourelle->GetWorld()->DestroyBody(m_tourelle);
     m_soundEngine->RemoveWhenFinished(m_sonAvance, true);
     m_soundEngine->GetSound(m_sonAvance)->Stop();
+    m_soundEngine->RemoveWhenFinished(m_sonTourelle, true);
+    m_soundEngine->GetSound(m_sonTourelle)->Stop();
 }
 void UniteTerrestre::Update()
 {
@@ -150,12 +159,18 @@ void UniteTerrestre::Update()
     m_nodeTourelle->SetAbsoluteRotation(-m_tourelle->GetAngle()*180/3.14);
     m_barreVie->SetValue(m_vie);
 }
+#include "../../core/logger.h"
 void UniteTerrestre::Deplacer(const UnitInput& input)
 {
     if((input.droite||input.gauche)&&!m_playingForwadSound)
     {
         m_playingForwadSound=true;
-        m_soundEngine->GetSound(m_sonAvance)->Play();
+        m_soundEngine->FadeIn(m_sonAvance, 0.25);
+    }
+    else if(m_playingForwadSound&&!input.droite&&!input.gauche)
+    {
+        m_playingForwadSound=false;
+        m_soundEngine->FadeOut(m_sonAvance, 0.25);
     }
     if(input.droite)
     {
@@ -170,6 +185,16 @@ void UniteTerrestre::Deplacer(const UnitInput& input)
     else
     {
         Stop();
+    }
+    if(!m_tourelleBouge&&(input.haut||input.bas))
+    {
+        m_tourelleBouge=true;
+        m_soundEngine->FadeIn(m_sonTourelle, 0.25);
+    }
+    else if(m_tourelleBouge&&!input.haut&&!input.bas)
+    {
+        m_tourelleBouge=false;
+        m_soundEngine->FadeOut(m_sonTourelle, 0.15);
     }
     if(input.haut)
     {
@@ -189,9 +214,8 @@ void UniteTerrestre::Stop()
     jointure2->SetMotorSpeed(0);
     m_jointureTourelle->SetMotorSpeed(0);
     m_playingForwadSound=false;
-    m_soundEngine->GetSound(m_sonAvance)->Stop();
+    m_soundEngine->FadeOut(m_sonAvance, 0.2);
 }
-
 Projectile* UniteTerrestre::Tirer()
 {
     b2Vec2 pos, direction;

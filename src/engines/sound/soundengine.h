@@ -7,11 +7,16 @@ struct SoundParams
 {
     sf::Sound *sound;
     bool removeWhenFinished;
-    bool spacialized;
+    bool spacialized, isFadeIn, isFadeOut;
+    sf::Clock timerIn, timerOut;
+    float timeIn, timeOut;
+    float fadeOutDelta;
     SoundParams()
     {
         removeWhenFinished=true;
         spacialized=false;
+        isFadeIn=false;
+        isFadeOut=false;
     }
 };
 typedef unsigned int SoundId;
@@ -28,6 +33,11 @@ class SoundEngine : public Engine
         void SetListenerDirection(sf::Vector2f dir);
         void SetGlobalVolume(float);
 
+        void FadeIn(SoundId, float);
+        void FadeOut(SoundId, float);
+        void Stop(SoundId);
+        void Play(SoundId);
+
         sf::Sound* GetSound(SoundId);
 
         void RemoveWhenFinished(SoundId, bool=true);
@@ -39,7 +49,7 @@ class SoundEngine : public Engine
 
     protected:
     private:
-        std::unordered_map<unsigned int, SoundParams> m_sounds;
+        std::unordered_map<unsigned int, SoundParams*> m_sounds;
         unsigned int m_last;
 };
 

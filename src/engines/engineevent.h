@@ -9,10 +9,12 @@ namespace TypeMessage
 {
     sf::Uint8 const Quitter = 0;
     sf::Uint8 const JouerSon = 1;
+    sf::Uint8 const JouerSonGetId = 2;
 }
 namespace IndexMessages
 {
     sf::Uint8 const Chemin = 0;
+    sf::Uint8 const IdUnite = 1;
 }
 class Game;
 class Engine;
