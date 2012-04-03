@@ -16,6 +16,8 @@ InfoMessage::InfoMessage(const std::string &message)
     ok->SetRelativePosition(0, 100);
     ok->SetData("this", this);
     ok->SetCallBack("clicked", CallbackOK);
+    ok->SetMouseOverColor(sf::Color(255,0,0), sf::Color(0,0,0));
+    ok->SetNormalColor(sf::Color(255,255,255), sf::Color(0,0,0));
 
     m_run = true;
     GraphicalEngine *engine = GraphicalEngine::GetInstance();

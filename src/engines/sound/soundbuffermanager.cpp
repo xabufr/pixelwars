@@ -20,6 +20,7 @@ sf::SoundBuffer* SoundBufferManager::Get(const std::string& chemin)
     auto it = m_buffers.find(chemin);
     if(it!=m_buffers.end())
         return it->second;
+    Logger::Log()<<"Chargement du son \"" << chemin << "\""<<Logger::endl;
     sf::SoundBuffer *buffer = new sf::SoundBuffer;
     Assert(buffer->LoadFromFile(chemin));
     m_buffers[chemin] = buffer;

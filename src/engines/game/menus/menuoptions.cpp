@@ -111,6 +111,23 @@ MenuOptions::MenuOptions()
         m_btn_dezoom[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("dezoomer", i));
         m_btn_changer[i]->SetText(PlayerParameters::GetInstance()->GetStringTouche("changer_unite", i));
 
+        m_btn_bas[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_bas[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+        m_btn_haut[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_haut[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+        m_btn_gauche[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_gauche[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+        m_btn_droite[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_droite[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+        m_btn_tirer[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_tirer[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+        m_btn_zoom[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_zoom[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+        m_btn_dezoom[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_dezoom[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+        m_btn_changer[i]->SetNormalColor(sf::Color(255,0,0), sf::Color(128,128,128));
+        m_btn_changer[i]->SetMouseOverColor(sf::Color(200,200,0), sf::Color(128,128,128));
+
         btnToucheData data;
         data.index=i;
 

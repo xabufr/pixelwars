@@ -49,6 +49,9 @@ void MenuOptionsPartie::StartMenuEcranScinde()
     btn->SetText("Jouer");
     btn->SetData("this", this);
     btn->SetCallBack("clicked", CommencerPartie);
+    btn->SetNormalColor(sf::Color(255,255,255),sf::Color(0,0,0));
+    btn->SetMouseOverColor(sf::Color(255,0,0),sf::Color(0,0,0));
+
     tailleCarteItem->SetSize(sf::Vector2f(200,20));
     tailleCarteItem->SetRange(2000, 8000);
     tailleCarteItem->SetValue(2000);
