@@ -25,19 +25,19 @@ void ParticleManager::Update()
     std::vector<SceneNodeItem*> toDelete;
     for(Particle &p : m_particles)
     {
-        float time = p.timerDep.Restart().AsSeconds();
+        float time = p.timerDep.restart().asSeconds();
         if(p.gravity)
         {
             p.dir.y+=p.puissance*time;
             p.item->SetRelativePosition(p.item->GetRelativePosition().x+p.dir.x*time, p.item->GetRelativePosition().y+p.dir.y*time);
         }
-        if(p.timer.GetElapsedTime().AsMilliseconds()>p.timeToLive)
+        if(p.timer.getElapsedTime().asMilliseconds()>p.timeToLive)
         {
             toDelete.push_back(p.item);
         }
-        else if(p.timer.GetElapsedTime().AsMilliseconds()>p.timeToLive*0.5)
+        else if(p.timer.getElapsedTime().asMilliseconds()>p.timeToLive*0.5)
         {
-            float ratio = (p.timer.GetElapsedTime().AsMilliseconds()-p.timeToLive*0.5)/(p.timeToLive*0.5);
+            float ratio = (p.timer.getElapsedTime().asMilliseconds()-p.timeToLive*0.5)/(p.timeToLive*0.5);
             p.color.a = 255*(1-ratio);
             p.item->SetColor(p.color);
         }
@@ -107,8 +107,8 @@ void ParticleManager::AddParticle(const ParticleParameters& p)
 
         particle.dir=Trigo::TranslateDeg(angle, particle.puissance);
 
-        particle.timer.Restart();
-        particle.timerDep.Restart();
+        particle.timer.restart();
+        particle.timerDep.restart();
     }
     particle.timeToLive = p.timeToLive;
     particle.item = item;
@@ -151,8 +151,8 @@ SceneNode* ParticleManager::m_CreateNodeFromParameters(const ParticleParameters&
         particle.dir=Trigo::TranslateDeg(angle, particle.puissance);
 
 
-        particle.timer.Restart();
-        particle.timerDep.Restart();
+        particle.timer.restart();
+        particle.timerDep.restart();
         m_particles.push_back(particle);
         m_nodesItems[item] = node;
     }

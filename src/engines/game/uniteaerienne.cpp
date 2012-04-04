@@ -33,8 +33,8 @@ UniteAerienne::UniteAerienne(b2World* world, b2Vec2 pos, SoundEngine *sEngine, i
 
     m_sonAvance = m_soundEngine->PlaySound("data/sons/avion.wav");
     m_soundEngine->RemoveWhenFinished(m_sonAvance, false);
-    m_soundEngine->GetSound(m_sonAvance)->Stop();
-    m_soundEngine->GetSound(m_sonAvance)->SetLoop(true);
+    m_soundEngine->GetSound(m_sonAvance)->stop();
+    m_soundEngine->GetSound(m_sonAvance)->setLoop(true);
 }
 
 UniteAerienne::~UniteAerienne()
@@ -57,7 +57,7 @@ UniteAerienne::~UniteAerienne()
     GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticleSystem(params);
 
     m_soundEngine->RemoveWhenFinished(m_sonAvance, true);
-    m_soundEngine->GetSound(m_sonAvance)->Stop();
+    m_soundEngine->GetSound(m_sonAvance)->stop();
 }
 
 bool UniteAerienne::PeutTirer()
@@ -81,7 +81,7 @@ void UniteAerienne::Deplacer(const UnitInput& in)
     m_forces.avant=in.droite;
     m_forces.arriere=in.gauche;
     if((in.tirer&&!m_fire&&!m_surchauffe)||(!in.tirer&&m_fire&&!m_surchauffe))
-        m_timerSurfauffe.Restart();
+        m_timerSurfauffe.restart();
     m_fire=in.tirer;
 }
 
@@ -95,14 +95,14 @@ void UniteAerienne::Stop()
     m_fire=false;
 
     m_playingForwadSound=false;
-    m_soundEngine->GetSound(m_sonAvance)->Stop();
+    m_soundEngine->GetSound(m_sonAvance)->stop();
 }
 
 Projectile* UniteAerienne::Tirer()
 {
     sf::Transform t;
-    t.Rotate(Trigo::ToDeg(m_body->GetAngle()));
-    sf::Vector2f d = t.TransformPoint(2.3*m_sens, 0);
+    t.rotate(Trigo::ToDeg(m_body->GetAngle()));
+    sf::Vector2f d = t.transformPoint(2.3*m_sens, 0);
     sf::Vector2f pos = sf::Vector2f(m_body->GetPosition().x, m_body->GetPosition().y)+d;
     m_body->ApplyLinearImpulse(b2Vec2(-d.x, -d.y), m_body->GetPosition());
     return new Projectile(m_body->GetWorld(), b2Vec2(pos.x, pos.y), b2Vec2(d.x*20, d.y*20), 0.2, 0.1, 5);
@@ -129,15 +129,15 @@ BodyTypeEnum UniteAerienne::GetType() const
 }
 void UniteAerienne::Update()
 {
-    if(m_timerSurfauffe.GetElapsedTime().AsSeconds()>=m_maxShootTime&&!m_surchauffe&&m_fire)
+    if(m_timerSurfauffe.getElapsedTime().asSeconds()>=m_maxShootTime&&!m_surchauffe&&m_fire)
     {
         m_surchauffe=true;
-        m_timerSurfauffe.Restart();
+        m_timerSurfauffe.restart();
     }
-    else if(m_surchauffe && m_timerSurfauffe.GetElapsedTime().AsSeconds()>=m_maxShootTime*3)
+    else if(m_surchauffe && m_timerSurfauffe.getElapsedTime().asSeconds()>=m_maxShootTime*3)
     {
         m_surchauffe=false;
-        m_timerSurfauffe.Restart();
+        m_timerSurfauffe.restart();
     }
     if(m_body->GetPosition().y>150)
         m_body->SetGravityScale(5);
@@ -149,15 +149,15 @@ void UniteAerienne::Update()
     if(m_forces.avant)
     {
         sf::Transform tr;
-        tr.Rotate(Trigo::ToDeg(m_body->GetAngle()));
+        tr.rotate(Trigo::ToDeg(m_body->GetAngle()));
         sf::Vector2f v;
         if(m_sens==1)
         {
-            v=tr.TransformPoint(m_acceleration, 0);
+            v=tr.transformPoint(m_acceleration, 0);
             m_AddTrainee();
         }
         else
-            v=tr.TransformPoint(m_acceleration*0.05, 0);
+            v=tr.transformPoint(m_acceleration*0.05, 0);
 
         vec.Set(v.x, v.y);
         m_body->ApplyForceToCenter(vec);
@@ -165,15 +165,15 @@ void UniteAerienne::Update()
     if(m_forces.arriere)
     {
         sf::Transform tr;
-        tr.Rotate(Trigo::ToDeg(m_body->GetAngle()));
+        tr.rotate(Trigo::ToDeg(m_body->GetAngle()));
         sf::Vector2f v;
         if(m_sens==-1)
         {
-            v=tr.TransformPoint(-m_acceleration, 0);
+            v=tr.transformPoint(-m_acceleration, 0);
             m_AddTrainee();
         }
         else
-            v=tr.TransformPoint(-m_acceleration*0.05, 0);
+            v=tr.transformPoint(-m_acceleration*0.05, 0);
         vec.Set(v.x, v.y);
         m_body->ApplyForceToCenter(vec);
     }
@@ -200,8 +200,8 @@ void UniteAerienne::m_AddTrainee()
     p.useImage = true;
     p.image="data/trainee.png";
     sf::Transform t;
-    t.Rotate(Trigo::ToDeg(-m_body->GetAngle()));
-    p.position=sf::Vector2f(10*m_body->GetPosition().x, -10*m_body->GetPosition().y)+t.TransformPoint(-1.f*m_sens*m_corpsAvion->GetSize().x/2.f, 0);
+    t.rotate(Trigo::ToDeg(-m_body->GetAngle()));
+    p.position=sf::Vector2f(10*m_body->GetPosition().x, -10*m_body->GetPosition().y)+t.transformPoint(-1.f*m_sens*m_corpsAvion->GetSize().x/2.f, 0);
     p.timeToLive=2000;
     p.gravity=false;
     GraphicalEngine::GetInstance()->GetSceneManager()->GetParticleManager()->AddParticle(p);

@@ -38,29 +38,29 @@ sf::Vector2f GuiItem::GetTextRealSize(const sf::Text& txt)
 {
     sf::Vector2f taille(0,0);
 
-    unsigned int characterSize = txt.GetCharacterSize();
-    const sf::Font &font = txt.GetFont();
-    const sf::String &contenu = txt.GetString();
-    size_t tailleContenu = contenu.GetSize();
+    unsigned int characterSize = txt.getCharacterSize();
+    const sf::Font &font = txt.getFont();
+    const sf::String &contenu = txt.getString();
+    size_t tailleContenu = contenu.getSize();
 
-    bool bold = (txt.GetStyle() & sf::Text::Bold);
+    bool bold = (txt.getStyle() & sf::Text::Bold);
     sf::Uint32 charact;
     size_t currHeight;
     for(size_t i=0;i<tailleContenu;++i)
     {
         charact=contenu[i];
-        const sf::Glyph& currGlyph = font.GetGlyph(charact, characterSize, bold);
-        currHeight = currGlyph.Bounds.Height;
+        const sf::Glyph& currGlyph = font.getGlyph(charact, characterSize, bold);
+        currHeight = currGlyph.bounds.height;
         if(currHeight>taille.y)
             taille.y=currHeight;
-        taille.x+=currGlyph.Advance;
+        taille.x+=currGlyph.advance;
     }
 
     return taille;
 }
 sf::Vector2f GuiItem::GetTextOriginDecalage(const sf::Text& txt)
 {
-    sf::Vector2f taille(txt.GetLocalBounds().Width-1,txt.GetLocalBounds().Height-1);
+    sf::Vector2f taille(txt.getLocalBounds().width-1,txt.getLocalBounds().height-1);
     return (taille-GetTextRealSize(txt));
 }
 

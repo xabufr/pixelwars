@@ -52,8 +52,8 @@ Ciel::Ciel(const sf::Vector2f& taille, float dayDuration)
         etoile->SetColor(couleursEtoiles[Random::Rand(0, couleursEtoiles.size())]);
         etoile->SetImage(dataEtoiles[Random::Rand(0, dataEtoiles.size())]);
         sf::Transform t;
-        t.Rotate(Random::Rand(0.f,360.f));
-        etoile->SetAbsolutePosition(t.TransformPoint(Random::Rand(200.f,m_taille.x),0));
+        t.rotate(Random::Rand(0.f,360.f));
+        etoile->SetAbsolutePosition(t.transformPoint(Random::Rand(200.f,m_taille.x),0));
         m_nodeEtoiles->AddItem(etoile);
     }
     m_ChangeWind();
@@ -69,7 +69,7 @@ void Ciel::Work()
 {
     float ratio;
     int demiDay = m_dayDuration/2;
-    int currTime = m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration;
+    int currTime = m_time.getElapsedTime().asMilliseconds()%m_dayDuration;
     m_itemSoleil->SetColor(sf::Color(255,225,0));
     if(currTime>demiDay)
     {
@@ -122,10 +122,10 @@ void Ciel::Work()
             m_SetVisibleStars(false);
         }
     }
-    ratio = float(m_time.GetElapsedTime().AsMilliseconds()%m_dayDuration)/float(m_dayDuration);
+    ratio = float(m_time.getElapsedTime().asMilliseconds()%m_dayDuration)/float(m_dayDuration);
     m_nodeCiel->SetAbsoluteRotation(180+360*ratio);
 
-    if(m_timeChangeWind<=m_timerVent.GetElapsedTime().AsMilliseconds())
+    if(m_timeChangeWind<=m_timerVent.getElapsedTime().asMilliseconds())
         m_ChangeWind();
     m_GererNuages();
 }
@@ -172,5 +172,5 @@ void Ciel::m_ChangeWind()
     {
         n->SetWind(m_vent);
     }
-    m_timerVent.Restart();
+    m_timerVent.restart();
 }

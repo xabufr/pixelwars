@@ -36,7 +36,7 @@ Nuage::Nuage(const sf::Vector2f& pos, float maxY, int nb, float charge): m_size(
     m_vitesse = 0.f;
     m_vent = 0;
     m_diffVent = 0;
-    m_timerPluie.Restart();
+    m_timerPluie.restart();
     m_coefPluie=0.08;
 }
 
@@ -76,14 +76,14 @@ void Nuage::Work()
 {
     if(m_transitionVent)
     {
-        m_vitesse -= m_diffVent*m_timerVent.GetElapsedTime().AsSeconds();
+        m_vitesse -= m_diffVent*m_timerVent.getElapsedTime().asSeconds();
         if((m_diffVent>0&&m_vent>=m_vitesse)||(m_diffVent<0&&m_vent<=m_vitesse))
         {
             m_transitionVent=false;
             m_vitesse=m_vent;
         }
     }
-    sf::Vector2f dep(m_vitesse*m_timerVent.Restart().AsSeconds()*(((1-m_charge)>0.25)?(1-m_charge):0.25f), 0);
+    sf::Vector2f dep(m_vitesse*m_timerVent.restart().asSeconds()*(((1-m_charge)>0.25)?(1-m_charge):0.25f), 0);
     Move(dep);
 
     m_GererPluie();
@@ -92,7 +92,7 @@ void Nuage::m_GererPluie()
 {
     if(m_charge>0.33)
     {
-        int goutesAAjouter = m_coefPluie*m_charge*m_timerPluie.GetElapsedTime().AsMilliseconds();
+        int goutesAAjouter = m_coefPluie*m_charge*m_timerPluie.getElapsedTime().asMilliseconds();
         for(int i(0);i<goutesAAjouter;++i)
         {
             SceneNodeSpriteItem *item = new SceneNodeSpriteItem;
@@ -101,7 +101,7 @@ void Nuage::m_GererPluie()
             m_node->AddItem(item);
             m_goutes.push_back(item);
         }
-        m_charge-= m_timerPluie.GetElapsedTime().AsSeconds()*0.005;
+        m_charge-= m_timerPluie.getElapsedTime().asSeconds()*0.005;
         float charge = (1-m_charge)*255;
         SetColor(sf::Color(charge, charge, charge));
     }
@@ -109,7 +109,7 @@ void Nuage::m_GererPluie()
     {
         if((*it)->GetRelativePosition().y+m_node->GetAbsoluteInformations().position.y<=m_maxY)
         {
-            (*it)->SetRelativePosition((*it)->GetRelativePosition()+sf::Vector2f(0, 250*m_timerPluie.GetElapsedTime().AsSeconds()));
+            (*it)->SetRelativePosition((*it)->GetRelativePosition()+sf::Vector2f(0, 250*m_timerPluie.getElapsedTime().asSeconds()));
             ++it;
         }
         else
@@ -119,7 +119,7 @@ void Nuage::m_GererPluie()
             it = m_goutes.erase(it);
         }
     }
-    m_timerPluie.Restart();
+    m_timerPluie.restart();
 }
 void Nuage::SetWind(float w)
 {

@@ -22,12 +22,12 @@ sf::Keyboard::Key MenuTouche::GetTouche()
     sf::Event event;
     while(continuer)
     {
-        while(engine->GetRenderWindow()->PollEvent(event))
+        while(engine->GetRenderWindow()->pollEvent(event))
         {
             engine->GetGuiManager()->HandleEvent(event);
-            if(event.Type==sf::Event::EventType::KeyPressed)
+            if(event.type==sf::Event::EventType::KeyPressed)
             {
-                return event.Key.Code;
+                return event.key.code;
             }
         }
         engine->DrawScene();

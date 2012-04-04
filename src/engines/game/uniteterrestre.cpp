@@ -104,7 +104,7 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, SoundEngine *sEngine,
     m_barreVie->SetSize(sf::Vector2f(50,5));
     m_barreVie->SetRelativePosition(-25, factory->GetTailleUnit().y*20+20);
 
-    m_timerFire.Restart();
+    m_timerFire.restart();
     float coef = float(factory->GetReloadTimeMax()-factory->GetReloadTimeMin())/
                           (factory->GetCanonMax()-factory->GetCanonMin());
     m_tempRechargement= coef*m_param->tailleCanon;
@@ -113,13 +113,13 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, SoundEngine *sEngine,
 
     m_sonAvance = m_soundEngine->PlaySound("data/sons/terrestre.wav");
     m_soundEngine->RemoveWhenFinished(m_sonAvance, false);
-    m_soundEngine->GetSound(m_sonAvance)->Stop();
-    m_soundEngine->GetSound(m_sonAvance)->SetLoop(true);
+    m_soundEngine->GetSound(m_sonAvance)->stop();
+    m_soundEngine->GetSound(m_sonAvance)->setLoop(true);
 
     m_sonTourelle = m_soundEngine->PlaySound("data/sons/tourelle.wav");
     m_soundEngine->RemoveWhenFinished(m_sonTourelle, false);
-    m_soundEngine->GetSound(m_sonTourelle)->Stop();
-    m_soundEngine->GetSound(m_sonTourelle)->SetLoop(true);
+    m_soundEngine->GetSound(m_sonTourelle)->stop();
+    m_soundEngine->GetSound(m_sonTourelle)->setLoop(true);
 
     m_tourelleBouge = false;
 }
@@ -146,9 +146,9 @@ UniteTerrestre::~UniteTerrestre()
     m_roue2->GetWorld()->DestroyBody(m_roue2);
     m_tourelle->GetWorld()->DestroyBody(m_tourelle);
     m_soundEngine->RemoveWhenFinished(m_sonAvance, true);
-    m_soundEngine->GetSound(m_sonAvance)->Stop();
+    m_soundEngine->GetSound(m_sonAvance)->stop();
     m_soundEngine->RemoveWhenFinished(m_sonTourelle, true);
-    m_soundEngine->GetSound(m_sonTourelle)->Stop();
+    m_soundEngine->GetSound(m_sonTourelle)->stop();
 }
 void UniteTerrestre::Update()
 {
@@ -221,12 +221,12 @@ Projectile* UniteTerrestre::Tirer()
     b2Vec2 pos, direction;
     float taille, poids, puissance;
 
-    m_timerFire.Restart();
+    m_timerFire.restart();
     taille=0.2;
     float angle = -m_tourelle->GetAngle()*180/3.14;
     sf::Transform trans;
-    trans.Rotate(angle);
-    sf::Vector2f posRel = trans.TransformPoint(m_tailleCanon.x*20+taille*10+1,0);
+    trans.rotate(angle);
+    sf::Vector2f posRel = trans.transformPoint(m_tailleCanon.x*20+taille*10+1,0);
     posRel.x*=0.1;
     posRel.y*=-0.1;
 

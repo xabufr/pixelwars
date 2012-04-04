@@ -24,7 +24,7 @@ InfoMessage::InfoMessage(const std::string &message)
     sf::Event event;
     while(m_run)
     {
-        while(engine->GetRenderWindow()->PollEvent(event))
+        while(engine->GetRenderWindow()->pollEvent(event))
         {
             engine->GetGuiManager()->HandleEvent(event);
         }

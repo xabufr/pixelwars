@@ -109,8 +109,8 @@ void Carte::RecalculerTerrain()
     fd.friction = 0.6f;
 
     const sf::Image& img = m_itemTerrain->GetImage();
-    unsigned int w = img.GetWidth();
-    unsigned int h = img.GetHeight();
+    unsigned int w = img.getSize().x;
+    unsigned int h = img.getSize().y;
     unsigned int x,y;
 
     for(x=0; x<w;++x)
@@ -118,21 +118,21 @@ void Carte::RecalculerTerrain()
         lastTransparent=true;
         for(y=0; y<h; ++y)
         {
-            if((img.GetPixel(x,y).a==0&&!lastTransparent)||
-                (img.GetPixel(x,y).a==255&&lastTransparent))
+            if((img.getPixel(x,y).a==0&&!lastTransparent)||
+                (img.getPixel(x,y).a==255&&lastTransparent))
             {
                 shape.Set(b2Vec2((float(x))*0.1, -float(y)*0.1), b2Vec2((float(x)+1)*0.1, -float(y)*0.1));
                 m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
                 lastTransparent=!lastTransparent;
             }
-            else if(img.GetPixel(x,y).a==255&&x>0&&x<w-1)
+            else if(img.getPixel(x,y).a==255&&x>0&&x<w-1)
             {
-                if(img.GetPixel(x-1,y).a==0)
+                if(img.getPixel(x-1,y).a==0)
                 {
                     shape.Set(b2Vec2((float(x))*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x))*0.1, -(float(y)+0.5)*0.1));
                     m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
                 }
-                if(img.GetPixel(x+1,y).a==0)
+                if(img.getPixel(x+1,y).a==0)
                 {
                     shape.Set(b2Vec2((float(x)+1)*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x)+1)*0.1, -(float(y)+0.5)*0.1));
                     m_fixturesMapZone[DeterminerZone(x+1)].push_back(m_bodyTerrain->CreateFixture(&fd));
@@ -242,8 +242,8 @@ void Carte::RegenererZone(int zone)
     fd.friction = 0.6f;
 
     const sf::Image& img = m_itemTerrain->GetImage();
-    unsigned int w = img.GetWidth()-1;
-    unsigned int h = img.GetHeight();
+    unsigned int w = img.getSize().x-1;
+    unsigned int h = img.getSize().y;
     unsigned int x,y;
     if(w>(unsigned int)((zone+1)*m_tailleZone))
         w=(zone+1)*m_tailleZone;
@@ -257,21 +257,21 @@ void Carte::RegenererZone(int zone)
         lastTransparent=true;
         for(y=0; y<h; ++y)
         {
-            if((img.GetPixel(x,y).a==0&&!lastTransparent)||
-                (img.GetPixel(x,y).a==255&&lastTransparent))
+            if((img.getPixel(x,y).a==0&&!lastTransparent)||
+                (img.getPixel(x,y).a==255&&lastTransparent))
             {
                 shape.Set(b2Vec2((float(x))*0.1, -float(y)*0.1), b2Vec2((float(x)+1)*0.1, -float(y)*0.1));
                 m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
                 lastTransparent=!lastTransparent;
             }
-            else if(img.GetPixel(x,y).a==255&&x>0&&x<w)
+            else if(img.getPixel(x,y).a==255&&x>0&&x<w)
             {
-                if(img.GetPixel(x-1,y).a==0)
+                if(img.getPixel(x-1,y).a==0)
                 {
                     shape.Set(b2Vec2((float(x))*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x))*0.1, -(float(y)+0.5)*0.1));
                     m_fixturesMapZone[DeterminerZone(x)].push_back(m_bodyTerrain->CreateFixture(&fd));
                 }
-                if(img.GetPixel(x+1,y).a==0)
+                if(img.getPixel(x+1,y).a==0)
                 {
                     shape.Set(b2Vec2((float(x)+1)*0.1, -(float(y)-0.5)*0.1), b2Vec2((float(x)+1)*0.1, -(float(y)+0.5)*0.1));
                     m_fixturesMapZone[DeterminerZone(x+1)].push_back(m_bodyTerrain->CreateFixture(&fd));
@@ -294,13 +294,13 @@ int Carte::Width()
 int Carte::YMin(int x_debut, int x_fin)
 {
     const sf::Image &img = m_itemTerrain->GetImage();
-    int y_return = img.GetHeight();
-    int h = img.GetHeight();
+    int y_return = img.getSize().x;
+    int h = img.getSize().y;
     for(int x = x_debut; x <= x_fin; ++x)
     {
         for(int y=0;y<h;++y)
         {
-            if(img.GetPixel(x,y).a!=0)
+            if(img.getPixel(x,y).a!=0)
             {
                 if(y<y_return)
                     y_return=y;

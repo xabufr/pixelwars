@@ -41,7 +41,7 @@ void Game::Start()
     m_game->Start();
     while(m_run)
     {
-        cl.Restart();
+        cl.restart();
         m_game->Work();
         m_sound->Work();
         this->Work();

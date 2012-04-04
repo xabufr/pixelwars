@@ -3,7 +3,7 @@
 
 GuiTextItem::GuiTextItem()
 {
-    m_texte.SetFont(FontManager::GetInstance()->GetFont());
+    m_texte.setFont(FontManager::GetInstance()->GetFont());
 }
 GuiTextItem::~GuiTextItem()
 {
@@ -30,10 +30,10 @@ void GuiTextItem::RotationChanged()
   */
 void GuiTextItem::PositionChanged()
 {
-    m_texte.SetOrigin(-m_relative.position.x, -m_relative.position.y);
-    m_texte.SetPosition(m_parent.position);
-    sf::Vector2f rel = -(m_relative.position*2.f) + sf::Vector2f(m_texte.GetGlobalBounds().Left, m_texte.GetGlobalBounds().Top)-m_parent.position;
-    m_texte.SetOrigin(rel);
+    m_texte.setOrigin(-m_relative.position.x, -m_relative.position.y);
+    m_texte.setPosition(m_parent.position);
+    sf::Vector2f rel = -(m_relative.position*2.f) + sf::Vector2f(m_texte.getGlobalBounds().left, m_texte.getGlobalBounds().top)-m_parent.position;
+    m_texte.setOrigin(rel);
 }
 
 /** @brief Draw
@@ -44,7 +44,7 @@ void GuiTextItem::Draw(sf::RenderWindow* app)
 {
     if(!m_visible)
         return;
-    app->Draw(m_texte);
+    app->draw(m_texte);
 }
 
 /** @brief HandleEvent
@@ -56,25 +56,25 @@ void GuiTextItem::HandleEvent(const sf::Event&)
 }
 void GuiTextItem::SetText(const sf::String& texte)
 {
-    m_texte.SetString(texte);
+    m_texte.setString(texte);
     PositionChanged();
 }
 void GuiTextItem::SetCharacterSize(unsigned int taille)
 {
-    m_texte.SetCharacterSize(taille);
-    SetText(m_texte.GetString());
+    m_texte.setCharacterSize(taille);
+    SetText(m_texte.getString());
 }
 unsigned int GuiTextItem::GetCharacterSize() const
 {
-    return m_texte.GetCharacterSize();
+    return m_texte.getCharacterSize();
 }
 float GuiTextItem::GetWidth() const
 {
-    return m_texte.GetLocalBounds().Width;
+    return m_texte.getLocalBounds().width;
 }
 float GuiTextItem::GetHeigth() const
 {
-    return m_texte.GetLocalBounds().Height;
+    return m_texte.getLocalBounds().height;
 }
 sf::Vector2f GuiTextItem::GetSize() const
 {

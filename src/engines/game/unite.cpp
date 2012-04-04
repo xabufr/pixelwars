@@ -39,7 +39,7 @@ b2Body* Unite::GetBody() const
 }
 bool Unite::PeutTirer()
 {
-    if(m_timerFire.GetElapsedTime().AsMilliseconds()<m_tempRechargement)
+    if(m_timerFire.getElapsedTime().asMilliseconds()<m_tempRechargement)
         return false;
     return m_fire;
 }

@@ -55,13 +55,13 @@ void MenuPrincipal::Show()
     sf::RenderWindow *app = engine->GetRenderWindow();
     sf::Event event;
 
-    while(app->IsOpen())
+    while(app->isOpen())
     {
-        while(app->PollEvent(event))
+        while(app->pollEvent(event))
         {
             engine->GetGuiManager()->HandleEvent(event);
-            if(event.Type==sf::Event::EventType::KeyPressed && event.Key.Code==sf::Keyboard::Key::Escape)
-                app->Close();
+            if(event.type==sf::Event::EventType::KeyPressed && event.key.code==sf::Keyboard::Key::Escape)
+                app->close();
         }
         engine->DrawScene();
         if(m_gameToStart)
@@ -83,7 +83,7 @@ void MenuPrincipal::Show()
 
 void MenuPrincipal::CallbackQuitter(GuiItem* item)
 {
-    GraphicalEngine::GetInstance()->GetRenderWindow()->Close();
+    GraphicalEngine::GetInstance()->GetRenderWindow()->close();
 }
 void MenuPrincipal::JouerScinde(GuiItem* item)
 {

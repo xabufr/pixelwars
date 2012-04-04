@@ -231,12 +231,12 @@ void MenuOptions::Afficher()
     bool cont = true;
     while(cont)
     {
-        while(app->PollEvent(event))
+        while(app->pollEvent(event))
         {
             engine->GetGuiManager()->HandleEvent(event);
-            if(event.Type==sf::Event::Closed)
+            if(event.type==sf::Event::Closed)
                 cont = false;
-            if(event.Type==sf::Event::EventType::KeyPressed && event.Key.Code==sf::Keyboard::Key::Escape)
+            if(event.type==sf::Event::EventType::KeyPressed && event.key.code==sf::Keyboard::Key::Escape)
                 cont = false;
 
         }

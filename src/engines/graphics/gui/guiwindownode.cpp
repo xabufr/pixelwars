@@ -43,7 +43,7 @@ GuiWindowNode::~GuiWindowNode()
 void GuiWindowNode::HandleEvent(const sf::Event& event)
 {
     if(!m_visible) return;
-    if(m_contenerShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
+    if(m_contenerShape->GetGlobalBounds().contains(((GuiManager*)m_manager)->GetMousePosition()))
     {
         ((GuiManager*)m_manager)->LockEvent(this);
     }
@@ -52,9 +52,9 @@ void GuiWindowNode::HandleEvent(const sf::Event& event)
         ((GuiManager*)m_manager)->UnlockEvent();
     }
 
-    if(event.Type==sf::Event::MouseButtonPressed)
+    if(event.type==sf::Event::MouseButtonPressed)
     {
-        if(m_windowShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
+        if(m_windowShape->GetGlobalBounds().contains(((GuiManager*)m_manager)->GetMousePosition()))
         {
             m_moving=true;
             m_posClickMoving = ((GuiManager*)m_manager)->GetMousePosition() - m_absolute.position;
@@ -62,19 +62,19 @@ void GuiWindowNode::HandleEvent(const sf::Event& event)
             ((GuiManager*)m_manager)->ResetLevels();
             SetLevel(1);
         }
-        else if(m_contenerShape->GetGlobalBounds().Contains(((GuiManager*)m_manager)->GetMousePosition()))
+        else if(m_contenerShape->GetGlobalBounds().contains(((GuiManager*)m_manager)->GetMousePosition()))
         {
             ((GuiManager*)m_manager)->ResetLevels();
             SetLevel(1);
         }
     }
-    if(event.Type==sf::Event::MouseButtonReleased)
+    if(event.type==sf::Event::MouseButtonReleased)
     {
         if(m_moving)
             ((GuiManager*)m_manager)->UnlockEvent();
         m_moving=false;
     }
-    if(event.Type==sf::Event::MouseMoved&&m_moving)
+    if(event.type==sf::Event::MouseMoved&&m_moving)
     {
         SetAbsolutePosition(((GuiManager*)m_manager)->GetMousePosition()-m_posClickMoving);
     }
@@ -144,7 +144,7 @@ void GuiWindowNode::CalculerCoord()
     m_windowShape->SetSize(t);
     m_hauteurTitle=t.y;
     if(m_closable)
-        m_btnClose->SetRelativePosition(m_windowShape->GetGlobalBounds().Width-m_btnClose->GetWidth()-3, 0);
+        m_btnClose->SetRelativePosition(m_windowShape->GetGlobalBounds().width-m_btnClose->GetWidth()-3, 0);
     m_contener->SetRelativePosition(0, t.y+1);
     m_contenerShape->SetRelativePosition(0, t.y+1);
 }
@@ -160,6 +160,6 @@ void GuiWindowNode::CalculerTaille()
     {
         m_windowShape->SetSize(tailleContener.x, m_hauteurTitle);
         if(m_closable)
-            m_btnClose->SetRelativePosition(m_windowShape->GetGlobalBounds().Width-m_btnClose->GetWidth()-3, 0);
+            m_btnClose->SetRelativePosition(m_windowShape->GetGlobalBounds().width-m_btnClose->GetWidth()-3, 0);
     }
 }

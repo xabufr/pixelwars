@@ -122,9 +122,9 @@ void SceneNode::SetRelativePosition(const sf::Vector2f& pos)
     if(m_parent)
     {
         sf::Transform trans;
-        trans.Rotate(m_parent->m_absolute.rotation);
-        m_absolute.position.x=m_parent->m_absolute.position.x+trans.TransformPoint(m_relative.position).x;
-        m_absolute.position.y=m_parent->m_absolute.position.y+trans.TransformPoint(m_relative.position).y;
+        trans.rotate(m_parent->m_absolute.rotation);
+        m_absolute.position.x=m_parent->m_absolute.position.x+trans.transformPoint(m_relative.position).x;
+        m_absolute.position.y=m_parent->m_absolute.position.y+trans.transformPoint(m_relative.position).y;
     }
     PositionChanged();
 }

@@ -71,12 +71,12 @@ void MenuOptionsPartie::StartMenuEcranScinde()
     sf::Event event;
     while(continuer)
     {
-        while(app->PollEvent(event))
+        while(app->pollEvent(event))
         {
             engine->GetGuiManager()->HandleEvent(event);
-            if(event.Type==sf::Event::Closed)
+            if(event.type==sf::Event::Closed)
                 continuer=false;
-            if(event.Type==sf::Event::EventType::KeyPressed && event.Key.Code==sf::Keyboard::Key::Escape)
+            if(event.type==sf::Event::EventType::KeyPressed && event.key.code==sf::Keyboard::Key::Escape)
                 continuer = false;
         }
         engine->DrawScene();

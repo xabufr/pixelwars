@@ -31,8 +31,8 @@ void JoueurManager::SetJoueur(int num, TypeJoueur type)
     }
     if(m_nbLocal==2)
     {
-        ((JoueurHumain*)m_joueurs[0])->GetCam()->SetViewport(sf::FloatRect(0,0,0.5,1));
-        ((JoueurHumain*)m_joueurs[1])->GetCam()->SetViewport(sf::FloatRect(0.5,0,0.5,1));
+        ((JoueurHumain*)m_joueurs[0])->GetCam()->setViewport(sf::FloatRect(0,0,0.5,1));
+        ((JoueurHumain*)m_joueurs[1])->GetCam()->setViewport(sf::FloatRect(0.5,0,0.5,1));
     }
 }
 void JoueurManager::AjouterUnite(int id_j, sf::Uint32 id_u, Unite* unite)

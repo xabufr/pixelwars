@@ -25,7 +25,8 @@ GuiItem* GuiManager::AddItem(GuiItem* item)
 void GuiManager::Draw()
 {
     CalculerCamera();
-    GraphicalEngine::GetInstance()->GetRenderWindow()->SetView(m_view);
+    m_view.setSize(sf::Vector2f(GraphicalEngine::GetInstance()->GetRenderWindow()->getSize()));
+    GraphicalEngine::GetInstance()->GetRenderWindow()->setView(m_view);
     for(GuiNode *i : m_toRemove)
     {
         this->RemoveNode((SceneNode*)i);
@@ -36,7 +37,7 @@ void GuiManager::Draw()
 
 void GuiManager::HandleEvent(const sf::Event& event)
 {
-    if(event.Type == sf::Event::Resized)
+    if(event.type == sf::Event::Resized)
     {
         CalculerCamera();
     }
@@ -62,7 +63,7 @@ GuiNode* GuiManager::GetRootNode()
 sf::Vector2f GuiManager::GetMousePosition()
 {
     sf::RenderWindow *app = GraphicalEngine::GetInstance()->GetRenderWindow();
-    return app->ConvertCoords(sf::Mouse::GetPosition(*app).x, sf::Mouse::GetPosition(*app).y, m_view);
+    return app->convertCoords(sf::Mouse::getPosition(*app), m_view);
 }
 void GuiManager::RemoveNode(SceneNode* node)
 {
@@ -84,8 +85,8 @@ void GuiManager::AddToRemoveNode(GuiNode* node)
 void GuiManager::CalculerCamera()
 {
     sf::RenderWindow *app = GraphicalEngine::GetInstance()->GetRenderWindow();
-    m_view.SetSize(app->GetWidth(), app->GetHeight());
-    m_view.SetCenter(app->GetWidth()/2, app->GetHeight()/2);
+    m_view.setSize(app->getSize().x, app->getSize().x);
+    m_view.setCenter(app->getSize().y/2, app->getSize().y/2);
 }
 bool GuiManager::isEventLocked() const
 {

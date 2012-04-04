@@ -6,7 +6,7 @@
 JoueurHumain::JoueurHumain(Carte &carte, int numero, const sf::FloatRect& portion): Joueur(carte, numero)
 {
     m_camera = GraphicalEngine::GetInstance()->GetCameraManager()->AddCamera();
-    m_camera->SetViewport(portion);
+    m_camera->setViewport(portion);
     m_app = GraphicalEngine::GetInstance()->GetRenderWindow();
     m_zoom = 1.f;
     m_useSpecialZoom = false;
@@ -20,17 +20,17 @@ JoueurHumain::~JoueurHumain()
 void JoueurHumain::Update()
 {
     const float tailleZone = 50.f;
-    sf::FloatRect viewport = m_camera->GetViewport();
+    sf::FloatRect viewport = m_camera->getViewport();
     sf::Vector2f newSize(0,0);
-    sf::Vector2f windowSize(m_app->GetWidth(), m_app->GetHeight());
-    newSize.x = windowSize.x*viewport.Width;
-    newSize.y = windowSize.y*viewport.Height;
-    m_camera->SetSize(newSize);
+    sf::Vector2f windowSize(m_app->getSize().x, m_app->getSize().y);
+    newSize.x = windowSize.x*viewport.width;
+    newSize.y = windowSize.y*viewport.height;
+    m_camera->setSize(newSize);
     newSize.x*=m_zoom;
     newSize.y*=m_zoom;
     if(m_selectedUnit!=0)
     {
-        sf::Vector2f ancienCentre(m_camera->GetCenter());
+        sf::Vector2f ancienCentre(m_camera->getCenter());
         sf::Vector2f centre(m_selectedUnit->GetBody()->GetPosition().x*10,
                             -m_selectedUnit->GetBody()->GetPosition().y*10);
         sf::Vector2f move(0,0);
@@ -56,18 +56,18 @@ void JoueurHumain::Update()
         {
             move.x= m_carte.Width()-ancienCentre.x-newSize.x*0.5;
         }
-        m_camera->Move(move);
+        m_camera->move(move);
 
     }
     else
     {
         if(m_numero==0)
-            m_camera->SetCenter(m_xMinCamp+newSize.x*0.5,0);
+            m_camera->setCenter(m_xMinCamp+newSize.x*0.5,0);
         else
-            m_camera->SetCenter(m_xMaxCamp-newSize.x*0.5,0);
+            m_camera->setCenter(m_xMaxCamp-newSize.x*0.5,0);
     }
 
-    m_camera->Zoom(m_zoom);
+    m_camera->zoom(m_zoom);
 }
 sf::View* JoueurHumain::GetCam() const
 {
@@ -75,11 +75,11 @@ sf::View* JoueurHumain::GetCam() const
 }
 void JoueurHumain::Zoomer()
 {
-    if(m_app->GetWidth()*m_camera->GetViewport().Width*m_zoom*2>=m_carte.Width()&&!m_useSpecialZoom)
+    if(m_app->getSize().x*m_camera->getViewport().width*m_zoom*2>=m_carte.Width()&&!m_useSpecialZoom)
     {
         m_useSpecialZoom=true;
         m_lastValidZoom=m_zoom;
-        m_zoom*= (m_carte.Width())/(m_app->GetWidth()*m_camera->GetViewport().Width*m_zoom);
+        m_zoom*= (m_carte.Width())/(m_app->getSize().x*m_camera->getViewport().width*m_zoom);
     }
     else if(!m_useSpecialZoom)
         m_zoom*=2;

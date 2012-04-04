@@ -5,8 +5,8 @@
 
 GuiSliderNumberItem::GuiSliderNumberItem()
 {
-    m_barre.SetSize(sf::Vector2f(100,2));
-    m_slider.SetSize(sf::Vector2f(10,20));
+    m_barre.setSize(sf::Vector2f(100,2));
+    m_slider.setSize(sf::Vector2f(10,20));
     m_min = 0;
     m_max = 100;
     m_value=0;
@@ -19,12 +19,12 @@ GuiSliderNumberItem::~GuiSliderNumberItem()
 }
 sf::Vector2f GuiSliderNumberItem::GetSize() const
 {
-    return sf::Vector2f(m_barre.GetSize().x, m_slider.GetSize().y);
+    return sf::Vector2f(m_barre.getSize().x, m_slider.getSize().y);
 }
 void GuiSliderNumberItem::SetSize(const sf::Vector2f& size)
 {
-    m_barre.SetSize(sf::Vector2f(size.x,2));
-    m_slider.SetSize(sf::Vector2f(m_slider.GetSize().x, size.y));
+    m_barre.setSize(sf::Vector2f(size.x,2));
+    m_slider.setSize(sf::Vector2f(m_slider.getSize().x, size.y));
 }
 void GuiSliderNumberItem::SetRange(float min, float max)
 {
@@ -51,25 +51,25 @@ void GuiSliderNumberItem::SetFocusColor(const sf::Color& col)
 }
 void GuiSliderNumberItem::SetBarColor(const sf::Color& col)
 {
-    m_barre.SetFillColor(col);
+    m_barre.setFillColor(col);
 }
 void GuiSliderNumberItem::HandleEvent(const sf::Event& event)
 {
     if(!m_visible)
         return;
-    if(event.Type == sf::Event::MouseButtonPressed)
+    if(event.type == sf::Event::MouseButtonPressed)
     {
-        if(m_slider.GetGlobalBounds().Contains(GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition()))
+        if(m_slider.getGlobalBounds().contains(GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition()))
         {
             m_focus=true;
-            m_posClick = GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition() - m_slider.GetPosition()+m_slider.GetOrigin();
+            m_posClick = GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition() - m_slider.getPosition()+m_slider.getOrigin();
         }
     }
-    if(event.Type == sf::Event::MouseButtonReleased)
+    if(event.type == sf::Event::MouseButtonReleased)
         m_focus=false;
-    if(m_focus&&event.Type == sf::Event::MouseMoved)
+    if(m_focus&&event.type == sf::Event::MouseMoved)
     {
-        m_slider.SetPosition(GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition().x-m_posClick.x+m_slider.GetOrigin().x, m_slider.GetPosition().y);
+        m_slider.setPosition(GraphicalEngine::GetInstance()->GetGuiManager()->GetMousePosition().x-m_posClick.x+m_slider.getOrigin().x, m_slider.getPosition().y);
         CalculerValue();
     }
 
@@ -78,29 +78,29 @@ void GuiSliderNumberItem::Draw(sf::RenderWindow* app)
 {
     if(!m_visible)
         return;
-    app->Draw(m_barre);
+    app->draw(m_barre);
     if(m_focus)
-        m_slider.SetFillColor(m_couleurFocus);
+        m_slider.setFillColor(m_couleurFocus);
     else
-        m_slider.SetFillColor(m_couleur);
-    app->Draw(m_slider);
+        m_slider.setFillColor(m_couleur);
+    app->draw(m_slider);
 }
 void GuiSliderNumberItem::PositionChanged()
 {
-    m_barre.SetOrigin(-m_relative.position.x, -m_relative.position.y);
-    m_slider.SetOrigin(-m_relative.position.x, -m_relative.position.y);
-    m_barre.SetPosition(m_parent.position.x, m_parent.position.y-1+m_slider.GetSize().y/2);
+    m_barre.setOrigin(-m_relative.position.x, -m_relative.position.y);
+    m_slider.setOrigin(-m_relative.position.x, -m_relative.position.y);
+    m_barre.setPosition(m_parent.position.x, m_parent.position.y-1+m_slider.getSize().y/2);
     ValueChanged();
 }
 void GuiSliderNumberItem::RotationChanged()
 {
-    m_barre.SetRotation(m_parent.rotation+m_relative.rotation);
-    m_slider.SetRotation(m_parent.rotation+m_relative.rotation);
+    m_barre.setRotation(m_parent.rotation+m_relative.rotation);
+    m_slider.setRotation(m_parent.rotation+m_relative.rotation);
 }
 void GuiSliderNumberItem::ScaleChanged()
 {
-    m_barre.SetScale(m_parent.scale.x*m_relative.scale.x, m_parent.scale.y*m_relative.scale.y);
-    m_slider.SetScale(m_parent.scale.x*m_relative.scale.x, m_parent.scale.y*m_relative.scale.y);
+    m_barre.setScale(m_parent.scale.x*m_relative.scale.x, m_parent.scale.y*m_relative.scale.y);
+    m_slider.setScale(m_parent.scale.x*m_relative.scale.x, m_parent.scale.y*m_relative.scale.y);
 }
 void GuiSliderNumberItem::ValueChanged()
 {
@@ -109,12 +109,12 @@ void GuiSliderNumberItem::ValueChanged()
     else if(m_value<m_min)
         m_value=m_min;
     float ratio = (m_value-m_min)/(m_max-m_min);
-    m_slider.SetPosition(m_barre.GetPosition().x+m_barre.GetSize().x*ratio-m_slider.GetSize().x/2, m_barre.GetPosition().y-m_slider.GetSize().y/2);
+    m_slider.setPosition(m_barre.getPosition().x+m_barre.getSize().x*ratio-m_slider.getSize().x/2, m_barre.getPosition().y-m_slider.getSize().y/2);
     CallCallBack("value_changed");
 }
 void GuiSliderNumberItem::CalculerValue()
 {
-    float ratio = (m_slider.GetPosition().x-m_slider.GetOrigin().x+m_slider.GetSize().x*0.5-(m_barre.GetPosition().x-m_barre.GetOrigin().x))/m_barre.GetSize().x;
+    float ratio = (m_slider.getPosition().x-m_slider.getOrigin().x+m_slider.getSize().x*0.5-(m_barre.getPosition().x-m_barre.getOrigin().x))/m_barre.getSize().x;
     m_value = ratio*(m_max-m_min)+m_min;
     ValueChanged();
 }

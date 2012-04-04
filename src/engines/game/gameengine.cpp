@@ -222,14 +222,14 @@ void GameEngine::CallbackAjoutAvion(GuiItem *item)
 void GameEngine::Work()
 {
     sf::Event event;
-    while(m_app->PollEvent(event))
+    while(m_app->pollEvent(event))
     {
         m_gengine->GetGuiManager()->HandleEvent(event);
-        if(event.Type==sf::Event::Closed)
+        if(event.type==sf::Event::Closed)
             SendEndMessage();
-        if(event.Type==sf::Event::KeyReleased)
+        if(event.type==sf::Event::KeyReleased)
         {
-            if(event.Key.Code == sf::Keyboard::Key::Escape)
+            if(event.key.code == sf::Keyboard::Key::Escape)
             {
                 SendEndMessage();
             }

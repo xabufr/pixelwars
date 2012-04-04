@@ -15,7 +15,7 @@ SceneNodeCircleShapeItem::~SceneNodeCircleShapeItem()
   */
 void SceneNodeCircleShapeItem::SetRadius(float rad)
 {
-    m_shape.SetRadius(rad);
+    m_shape.setRadius(rad);
 }
 
 /** @brief SetColor
@@ -24,7 +24,7 @@ void SceneNodeCircleShapeItem::SetRadius(float rad)
   */
 void SceneNodeCircleShapeItem::SetColor(const sf::Color& col)
 {
-    m_shape.SetFillColor(col);
+    m_shape.setFillColor(col);
 }
 
 /** @brief SetOutlineColor
@@ -33,7 +33,7 @@ void SceneNodeCircleShapeItem::SetColor(const sf::Color& col)
   */
 void SceneNodeCircleShapeItem::SetOutlineColor(const sf::Color& col)
 {
-    m_shape.SetOutlineColor(col);
+    m_shape.setOutlineColor(col);
 }
 
 /** @brief SetOutlineThickness
@@ -42,7 +42,7 @@ void SceneNodeCircleShapeItem::SetOutlineColor(const sf::Color& col)
   */
 void SceneNodeCircleShapeItem::SetOutlineThickness(float tick)
 {
-    m_shape.SetOutlineThickness(tick);
+    m_shape.setOutlineThickness(tick);
 }
 
 /** @brief GetGlobalBounds
@@ -51,7 +51,7 @@ void SceneNodeCircleShapeItem::SetOutlineThickness(float tick)
   */
 sf::FloatRect SceneNodeCircleShapeItem::GetGlobalBounds() const
 {
-    return m_shape.GetGlobalBounds();
+    return m_shape.getGlobalBounds();
 }
 
 /** @brief Draw
@@ -62,7 +62,7 @@ void SceneNodeCircleShapeItem::Draw(sf::RenderWindow* app)
 {
     if(!m_visible)
         return;
-    app->Draw(m_shape);
+    app->draw(m_shape);
 }
 
 /** @brief PositionChanged
@@ -71,8 +71,8 @@ void SceneNodeCircleShapeItem::Draw(sf::RenderWindow* app)
   */
 void SceneNodeCircleShapeItem::PositionChanged()
 {
-    m_shape.SetOrigin(-m_relative.position);
-    m_shape.SetPosition(m_parent.position);
+    m_shape.setOrigin(-m_relative.position);
+    m_shape.setPosition(m_parent.position);
 }
 
 /** @brief RotationChanged
@@ -81,7 +81,7 @@ void SceneNodeCircleShapeItem::PositionChanged()
   */
 void SceneNodeCircleShapeItem::RotationChanged()
 {
-    m_shape.SetRotation(m_parent.rotation+m_relative.rotation);
+    m_shape.setRotation(m_parent.rotation+m_relative.rotation);
 }
 
 /** @brief ScaleChanged
@@ -90,10 +90,10 @@ void SceneNodeCircleShapeItem::RotationChanged()
   */
 void SceneNodeCircleShapeItem::ScaleChanged()
 {
-    m_shape.SetScale(m_parent.scale.x*m_relative.scale.x, m_parent.scale.y*m_relative.scale.y);
+    m_shape.setScale(m_parent.scale.x*m_relative.scale.x, m_parent.scale.y*m_relative.scale.y);
 }
 
 sf::Vector2f SceneNodeCircleShapeItem::GetSize() const
 {
-    return sf::Vector2f(m_shape.GetRadius()*2, m_shape.GetRadius()*2);
+    return sf::Vector2f(m_shape.getRadius()*2, m_shape.getRadius()*2);
 }

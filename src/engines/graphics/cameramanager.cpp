@@ -25,13 +25,13 @@ sf::View* CameraManager::AddCamera(const sf::Vector2f& center, const sf::Vector2
 
     if(taille==sf::Vector2f(0,0))
     {
-        cam->SetSize(GraphicalEngine::GetInstance()->GetRenderWindow()->GetWidth(),
-                    GraphicalEngine::GetInstance()->GetRenderWindow()->GetHeight());
+        cam->setSize(GraphicalEngine::GetInstance()->GetRenderWindow()->getSize().x,
+                    GraphicalEngine::GetInstance()->GetRenderWindow()->getSize().y);
     }
     else
-        cam->SetSize(taille);
+        cam->setSize(taille);
 
-    cam->SetCenter(center);
+    cam->setCenter(center);
     m_listeCameras.push_back(cam);
     return cam;
 }

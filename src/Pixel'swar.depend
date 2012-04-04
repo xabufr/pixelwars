@@ -861,7 +861,7 @@
 1316183203 /usr/include/c++/4.6/profile/iterator_tracker.h
 	<ext/type_traits.h>
 
-1328723172 /usr/include/SFML2/Graphics/RenderWindow.hpp
+1333526226 /usr/include/SFML2/Graphics/RenderWindow.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/RenderTarget.hpp>
 	<SFML2/Graphics/Image.hpp>
@@ -1444,7 +1444,7 @@
 	<SFML/System/NonCopyable.hpp>
 	<pthread.h>
 
-1317761729 /usr/include/pthread.h
+1331086303 /usr/include/pthread.h
 	<features.h>
 	<endian.h>
 	<sched.h>
@@ -1553,7 +1553,7 @@
 	<stdint.h>
 	<inttypes.h>
 
-1317761714 /usr/include/inttypes.h
+1331086266 /usr/include/inttypes.h
 	<features.h>
 	<stdint.h>
 	<stddef.h>
@@ -1685,7 +1685,7 @@
 	<SFML2/Graphics.hpp>
 	"positioninformations.h"
 
-1328723172 /usr/include/SFML2/Graphics.hpp
+1333526226 /usr/include/SFML2/Graphics.hpp
 	<SFML2/Window.hpp>
 	<SFML2/Graphics/BlendMode.hpp>
 	<SFML2/Graphics/Color.hpp>
@@ -1748,7 +1748,7 @@
 	<SFML2/Graphics/Texture.hpp>
 	"core/singleton.h"
 
-1328723172 /usr/include/SFML2/Graphics/Texture.hpp
+1333526226 /usr/include/SFML2/Graphics/Texture.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Image.hpp>
 	<SFML2/Window/GlResource.hpp>
@@ -1763,7 +1763,7 @@
 
 1326057197 /home/thomas/Projects/Pixelswar/src/engines/graphics/positioninformations.h
 
-1328723172 /usr/include/SFML2/Graphics/Transform.hpp
+1333526226 /usr/include/SFML2/Graphics/Transform.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Rect.hpp>
 	<SFML2/System/Vector2.hpp>
@@ -1775,7 +1775,7 @@
 1326132295 /home/thomas/Projects/Pixelswar/src/engines/graphics/scenenodeshapeitem.h
 	"scenenodeitem.h"
 
-1328723172 /usr/include/SFML2/Graphics/ConvexShape.hpp
+1333526226 /usr/include/SFML2/Graphics/ConvexShape.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Shape.hpp>
 	<vector>
@@ -1784,7 +1784,7 @@
 	<SFML2/Graphics/View.hpp>
 	<vector>
 
-1328723172 /usr/include/SFML2/Graphics/View.hpp
+1333526226 /usr/include/SFML2/Graphics/View.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Rect.hpp>
 	<SFML2/Graphics/Transform.hpp>
@@ -1828,7 +1828,7 @@
 	<SFML2/System/String.hpp>
 	<SFML2/Graphics/RectangleShape.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/Text.hpp
+1333526226 /usr/include/SFML2/Graphics/Text.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Drawable.hpp>
 	<SFML2/Graphics/Transformable.hpp>
@@ -1839,12 +1839,12 @@
 	<string>
 	<vector>
 
-1328723172 /usr/include/SFML2/System/String.hpp
+1333526226 /usr/include/SFML2/System/String.hpp
 	<SFML2/System/Export.hpp>
 	<locale>
 	<string>
 
-1328723172 /usr/include/SFML2/Graphics/RectangleShape.hpp
+1333526226 /usr/include/SFML2/Graphics/RectangleShape.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Shape.hpp>
 
@@ -2125,7 +2125,7 @@
 
 1268227746 /usr/include/libnoise/misc.h
 
-1328723172 /usr/include/SFML2/System.hpp
+1333526226 /usr/include/SFML2/System.hpp
 	<SFML2/Config.hpp>
 	<SFML2/System/Clock.hpp>
 	<SFML2/System/Err.hpp>
@@ -2222,7 +2222,7 @@
 	"scenenodeitem.h"
 	<SFML2/Graphics/CircleShape.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/CircleShape.hpp
+1333526226 /usr/include/SFML2/Graphics/CircleShape.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Shape.hpp>
 
@@ -2612,7 +2612,7 @@
 	<exception>
 	<string>
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/cameramanager.cpp
+1333528572 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/cameramanager.cpp
 	"cameramanager.h"
 	"core/logger.h"
 	"graphicalengine.h"
@@ -2716,12 +2716,12 @@
 	<SFML2/Graphics.hpp>
 	"guiitem.h"
 
-1328441178 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.cpp
+1333527013 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodetextureitem.cpp
 	"scenenodetextureitem.h"
 	"core/exception.h"
 	"core/logger.h"
 
-1333447500 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextitem.cpp
+1333527616 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextitem.cpp
 	"guitextitem.h"
 	"fontmanager.h"
 
@@ -2762,23 +2762,23 @@
 	<cstdio>
 	<sstream>
 
-1332773532 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.cpp
+1333527875 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeshapeitem.cpp
 	"scenenodeshapeitem.h"
 	<SFML2/Graphics/ConvexShape.hpp>
 
-1331714026 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.cpp
+1333528676 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenode.cpp
 	"scenenode.h"
 	"engines/graphics/scenemanager.h"
 
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/core/singleton.cpp
 	"singleton.h"
 
-1333447313 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.cpp
+1333526441 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guibuttonitem.cpp
 	"guibuttonitem.h"
 	"guimanager.h"
 	"../graphicalengine.h"
 
-1333439187 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
+1333527972 source:/home/thomas/pixelwar/pixelwar/src/engines/game/gameengine.cpp
 	"gameengine.h"
 	"engines/graphics/graphicalengine.h"
 	"core/logger.h"
@@ -2793,20 +2793,20 @@
 	"playerparameters.h"
 	"uniteaerienne.h"
 
-1333447334 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
+1333527665 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/graphicalengine.cpp
 	"graphicalengine.h"
 	"core/logger.h"
 	"engines/graphics/scenemanager.h"
 	"engines/graphics/texturemanager.h"
 
-1326490981 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/texturemanager.cpp
+1333526235 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/texturemanager.cpp
 	"texturemanager.h"
 	"core/logger.h"
 
-1328440791 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.cpp
+1333527787 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodecircleshapeitem.cpp
 	"scenenodecircleshapeitem.h"
 
-1327228379 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiwindownode.cpp
+1333528748 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiwindownode.cpp
 	"guiwindownode.h"
 	"guiitem.h"
 	"guimanager.h"
@@ -2814,7 +2814,7 @@
 1326490981 source:/home/thomas/pixelwar/pixelwar/src/core/consolelogger.cpp
 	"consolelogger.h"
 
-1332773513 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodespriteitem.cpp
+1333527956 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodespriteitem.cpp
 	"scenenodespriteitem.h"
 	"core/logger.h"
 
@@ -2826,13 +2826,13 @@
 	"guicontener.h"
 	"../../../core/logger.h"
 
-1328637525 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiitem.cpp
+1333526304 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiitem.cpp
 	"guiitem.h"
 
 1332767739 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/scenenodeitem.cpp
 	"scenenodeitem.h"
 
-1333447797 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.cpp
+1333533263 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guimanager.cpp
 	"guimanager.h"
 	"core/logger.h"
 	"../graphicalengine.h"
@@ -2858,7 +2858,7 @@
 1326553391 /home/thomas/pixelwar/pixelwar/src/engines/network/networkengine.h
 	"../engine.h"
 
-1333383336 source:/home/thomas/pixelwar/pixelwar/src/game.cpp
+1333528754 source:/home/thomas/pixelwar/pixelwar/src/game.cpp
 	"game.h"
 	"engines/engineevent.h"
 	"core/logger.h"
@@ -2870,7 +2870,7 @@
 	"engines/game/gameengine.h"
 	"engines/type.h"
 
-1333445319 source:/home/thomas/pixelwar/pixelwar/src/engines/sound/soundengine.cpp
+1333528953 source:/home/thomas/pixelwar/pixelwar/src/engines/sound/soundengine.cpp
 	"soundengine.h"
 	"../engineevent.h"
 	"core/logger.h"
@@ -2883,7 +2883,7 @@
 	"engine.h"
 	"engineevent.h"
 
-1328723172 /usr/include/SFML2/Network.hpp
+1333526226 /usr/include/SFML2/Network.hpp
 	<SFML2/System.hpp>
 	<SFML2/Network/Ftp.hpp>
 	<SFML2/Network/Http.hpp>
@@ -3029,7 +3029,7 @@
 	"core/logger.h"
 	"../../core/trigo.h"
 
-1332253803 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
+1333526670 source:/home/thomas/pixelwar/pixelwar/src/engines/game/carte.cpp
 	"carte.h"
 	<libnoise/noise.h>
 	"bodytype.h"
@@ -3041,7 +3041,7 @@
 	<deque>
 	"ciel.h"
 
-1333439066 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unite.cpp
+1333528080 source:/home/thomas/pixelwar/pixelwar/src/engines/game/unite.cpp
 	"unite.h"
 	"bodytype.h"
 
@@ -3057,7 +3057,7 @@
 1326575744 source:/home/thomas/pixelwar/pixelwar/src/engines/game/bodytype.cpp
 	"bodytype.h"
 
-1333444608 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.cpp
+1333528016 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteterrestre.cpp
 	"uniteterrestre.h"
 	"bodytype.h"
 	"projectile.h"
@@ -3074,7 +3074,7 @@
 	<SFML2/Window.hpp>
 	<unordered_map>
 
-1328723172 /usr/include/SFML2/Window.hpp
+1333526226 /usr/include/SFML2/Window.hpp
 	<SFML2/System.hpp>
 	<SFML2/Window/Context.hpp>
 	<SFML2/Window/ContextSettings.hpp>
@@ -3098,7 +3098,7 @@
 	<SFML/Config.hpp>
 	<SFML/System/Vector2.hpp>
 
-1329241152 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
+1333527382 source:/home/thomas/pixelwar/pixelwar/src/engines/game/inputmanager.cpp
 	"inputmanager.h"
 	"playerparameters.h"
 
@@ -3156,7 +3156,7 @@
 	<sstream>
 	"tinystr.h"
 
-1332491073 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
+1333526820 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
 	"joueurhumain.h"
 	"engines/graphics/graphicalengine.h"
 	"unite.h"
@@ -3179,7 +3179,7 @@
 	"carte.h"
 	"uniteterrestremodel.h"
 
-1329245882 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurmanager.cpp
+1333528024 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurmanager.cpp
 	"joueurmanager.h"
 	"carte.h"
 	"joueur.h"
@@ -3237,7 +3237,7 @@
 	"guiwindowcontener.h"
 	"guiwindownode.h"
 
-1327170212 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiprogressbaritem.cpp
+1333528322 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiprogressbaritem.cpp
 	"guiprogressbaritem.h"
 
 1332834284 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guiprogressbaritem.h
@@ -3248,7 +3248,7 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1332162267 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
+1333528786 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
 	"menuprincipal.h"
 	"engines/graphics/graphicalengine.h"
 	"../gameengine.h"
@@ -3263,7 +3263,7 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1333447457 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextinputitem.cpp
+1333527357 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guitextinputitem.cpp
 	"guitextinputitem.h"
 	"../graphicalengine.h"
 	"core/logger.h"
@@ -3280,13 +3280,13 @@
 	<SFML2/Graphics.hpp>
 	"guiitem.h"
 
-1328794814 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guislidernumberitem.cpp
+1333528260 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guislidernumberitem.cpp
 	"guislidernumberitem.h"
 	"../graphicalengine.h"
 	<iostream>
 	"../../../core/logger.h"
 
-1333436950 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
+1333527728 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptions.cpp
 	"menuoptions.h"
 	"engines/graphics/graphicalengine.h"
 	"../playerparameters.h"
@@ -3300,7 +3300,7 @@
 
 1329243610 /home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.h
 
-1333436160 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.cpp
+1333526840 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuoptionspartie.cpp
 	"menuoptionspartie.h"
 	"engines/graphics/graphicalengine.h"
 	"core/conversion.h"
@@ -3375,7 +3375,7 @@
 	<SFML2/Audio.hpp>
 	<unordered_map>
 
-1328723172 /usr/include/SFML2/Audio.hpp
+1333526226 /usr/include/SFML2/Audio.hpp
 	<SFML2/System.hpp>
 	<SFML2/Audio/Listener.hpp>
 	<SFML2/Audio/Music.hpp>
@@ -3432,7 +3432,7 @@
 	<SFML2/Audio.hpp>
 	<unordered_map>
 
-1333436625 source:/home/thomas/pixelwar/pixelwar/src/engines/sound/soundbuffermanager.cpp
+1333528760 source:/home/thomas/pixelwar/pixelwar/src/engines/sound/soundbuffermanager.cpp
 	"soundbuffermanager.h"
 	"core/logger.h"
 
@@ -3498,63 +3498,63 @@
 	"guiitem.h"
 	"../scenenodeshapeitem.h"
 
-1328647278 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guirectangleitem.cpp
+1333528400 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/guirectangleitem.cpp
 	"guirectangleitem.h"
 
-1328723172 /usr/include/SFML2/Config.hpp
+1333526226 /usr/include/SFML2/Config.hpp
 
-1328723172 /usr/include/SFML2/System/Clock.hpp
+1333526226 /usr/include/SFML2/System/Clock.hpp
 	<SFML2/System/Export.hpp>
 	<SFML2/System/Time.hpp>
 
-1328723172 /usr/include/SFML2/System/Export.hpp
+1333526226 /usr/include/SFML2/System/Export.hpp
 	<SFML2/Config.hpp>
 
-1328723172 /usr/include/SFML2/System/Time.hpp
+1333526226 /usr/include/SFML2/System/Time.hpp
 	<SFML2/System/Export.hpp>
 
-1328723172 /usr/include/SFML2/System/Err.hpp
+1333526226 /usr/include/SFML2/System/Err.hpp
 	<SFML2/System/Export.hpp>
 	<ostream>
 
-1328723172 /usr/include/SFML2/System/InputStream.hpp
+1333526226 /usr/include/SFML2/System/InputStream.hpp
 	<SFML2/Config.hpp>
 
-1328723172 /usr/include/SFML2/System/Lock.hpp
+1333526226 /usr/include/SFML2/System/Lock.hpp
 	<SFML2/System/Export.hpp>
 	<SFML2/System/NonCopyable.hpp>
 
-1328723172 /usr/include/SFML2/System/NonCopyable.hpp
+1333526226 /usr/include/SFML2/System/NonCopyable.hpp
 	<SFML2/System/Export.hpp>
 
-1328723172 /usr/include/SFML2/System/Mutex.hpp
+1333526226 /usr/include/SFML2/System/Mutex.hpp
 	<SFML2/System/Export.hpp>
 	<SFML2/System/NonCopyable.hpp>
 
-1328723172 /usr/include/SFML2/System/Sleep.hpp
+1333526226 /usr/include/SFML2/System/Sleep.hpp
 	<SFML2/System/Export.hpp>
 	<SFML2/System/Time.hpp>
 
-1328723172 /usr/include/SFML2/System/Thread.hpp
+1333526226 /usr/include/SFML2/System/Thread.hpp
 	<SFML2/System/Export.hpp>
 	<SFML2/System/NonCopyable.hpp>
 	<cstdlib>
 	<SFML2/System/Thread.inl>
 
-1328722914 /usr/include/SFML2/System/Thread.inl
+1333525804 /usr/include/SFML2/System/Thread.inl
 
-1328723172 /usr/include/SFML2/System/ThreadLocal.hpp
+1333526226 /usr/include/SFML2/System/ThreadLocal.hpp
 	<SFML2/System/Export.hpp>
 	<SFML2/System/NonCopyable.hpp>
 	<cstdlib>
 
-1328723172 /usr/include/SFML2/System/ThreadLocalPtr.hpp
+1333526226 /usr/include/SFML2/System/ThreadLocalPtr.hpp
 	<SFML2/System/ThreadLocal.hpp>
 	<SFML2/System/ThreadLocalPtr.inl>
 
-1328722914 /usr/include/SFML2/System/ThreadLocalPtr.inl
+1333525804 /usr/include/SFML2/System/ThreadLocalPtr.inl
 
-1328723172 /usr/include/SFML2/System/Utf.hpp
+1333526226 /usr/include/SFML2/System/Utf.hpp
 	<SFML2/Config.hpp>
 	<algorithm>
 	<locale>
@@ -3562,53 +3562,53 @@
 	<cstdlib>
 	<SFML2/System/Utf.inl>
 
-1328722914 /usr/include/SFML2/System/Utf.inl
+1333525804 /usr/include/SFML2/System/Utf.inl
 
-1328723172 /usr/include/SFML2/System/Vector2.hpp
+1333526226 /usr/include/SFML2/System/Vector2.hpp
 	<SFML2/System/Vector2.inl>
 
-1328722914 /usr/include/SFML2/System/Vector2.inl
+1333525804 /usr/include/SFML2/System/Vector2.inl
 
-1328723172 /usr/include/SFML2/System/Vector3.hpp
+1333526226 /usr/include/SFML2/System/Vector3.hpp
 	<SFML2/System/Vector3.inl>
 
-1328722914 /usr/include/SFML2/System/Vector3.inl
+1333525804 /usr/include/SFML2/System/Vector3.inl
 
-1328723172 /usr/include/SFML2/Window/Context.hpp
+1333526226 /usr/include/SFML2/Window/Context.hpp
 	<SFML2/Window/Export.hpp>
 	<SFML2/Window/GlResource.hpp>
 	<SFML2/Window/ContextSettings.hpp>
 	<SFML2/System/NonCopyable.hpp>
 
-1328723172 /usr/include/SFML2/Window/Export.hpp
+1333526226 /usr/include/SFML2/Window/Export.hpp
 	<SFML2/Config.hpp>
 
-1328723172 /usr/include/SFML2/Window/GlResource.hpp
+1333526226 /usr/include/SFML2/Window/GlResource.hpp
 	<SFML2/Window/Export.hpp>
 
-1328723172 /usr/include/SFML2/Window/ContextSettings.hpp
+1333526226 /usr/include/SFML2/Window/ContextSettings.hpp
 
-1328723172 /usr/include/SFML2/Window/Event.hpp
+1333526226 /usr/include/SFML2/Window/Event.hpp
 	<SFML2/Config.hpp>
 	<SFML2/Window/Joystick.hpp>
 	<SFML2/Window/Keyboard.hpp>
 	<SFML2/Window/Mouse.hpp>
 
-1328723172 /usr/include/SFML2/Window/Joystick.hpp
+1333526226 /usr/include/SFML2/Window/Joystick.hpp
 	<SFML2/Window/Export.hpp>
 
-1328723172 /usr/include/SFML2/Window/Keyboard.hpp
+1333526226 /usr/include/SFML2/Window/Keyboard.hpp
 	<SFML2/Window/Export.hpp>
 
-1328723172 /usr/include/SFML2/Window/Mouse.hpp
+1333526226 /usr/include/SFML2/Window/Mouse.hpp
 	<SFML2/Window/Export.hpp>
 	<SFML2/System/Vector2.hpp>
 
-1328723172 /usr/include/SFML2/Window/VideoMode.hpp
+1333526226 /usr/include/SFML2/Window/VideoMode.hpp
 	<SFML2/Window/Export.hpp>
 	<vector>
 
-1328723172 /usr/include/SFML2/Window/Window.hpp
+1333526226 /usr/include/SFML2/Window/Window.hpp
 	<SFML2/Window/Export.hpp>
 	<SFML2/Window/ContextSettings.hpp>
 	<SFML2/Window/VideoMode.hpp>
@@ -3620,20 +3620,20 @@
 	<SFML2/System/NonCopyable.hpp>
 	<string>
 
-1328723172 /usr/include/SFML2/Window/WindowHandle.hpp
+1333526226 /usr/include/SFML2/Window/WindowHandle.hpp
 	<SFML2/Config.hpp>
 
-1328723172 /usr/include/SFML2/Window/WindowStyle.hpp
+1333526226 /usr/include/SFML2/Window/WindowStyle.hpp
 
-1328723172 /usr/include/SFML2/Graphics/BlendMode.hpp
+1333526226 /usr/include/SFML2/Graphics/BlendMode.hpp
 
-1328723172 /usr/include/SFML2/Graphics/Color.hpp
+1333526226 /usr/include/SFML2/Graphics/Color.hpp
 	<SFML2/Graphics/Export.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/Export.hpp
+1333526226 /usr/include/SFML2/Graphics/Export.hpp
 	<SFML2/Config.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/Font.hpp
+1333526226 /usr/include/SFML2/Graphics/Font.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Glyph.hpp>
 	<SFML2/Graphics/Texture.hpp>
@@ -3644,35 +3644,35 @@
 	<string>
 	<vector>
 
-1328723172 /usr/include/SFML2/Graphics/Glyph.hpp
+1333526226 /usr/include/SFML2/Graphics/Glyph.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Rect.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/Rect.hpp
+1333526226 /usr/include/SFML2/Graphics/Rect.hpp
 	<SFML2/System/Vector2.hpp>
 	<algorithm>
 	<SFML2/Graphics/Rect.inl>
 
-1328722914 /usr/include/SFML2/Graphics/Rect.inl
+1333525804 /usr/include/SFML2/Graphics/Rect.inl
 
-1328723172 /usr/include/SFML2/Graphics/Image.hpp
+1333526226 /usr/include/SFML2/Graphics/Image.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Color.hpp>
 	<SFML2/Graphics/Rect.hpp>
 	<string>
 	<vector>
 
-1328723172 /usr/include/SFML2/Graphics/RenderStates.hpp
+1333526226 /usr/include/SFML2/Graphics/RenderStates.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/BlendMode.hpp>
 	<SFML2/Graphics/Transform.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/RenderTexture.hpp
+1333526226 /usr/include/SFML2/Graphics/RenderTexture.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Texture.hpp>
 	<SFML2/Graphics/RenderTarget.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/RenderTarget.hpp
+1333526226 /usr/include/SFML2/Graphics/RenderTarget.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Color.hpp>
 	<SFML2/Graphics/Rect.hpp>
@@ -3684,14 +3684,14 @@
 	<SFML2/Graphics/Vertex.hpp>
 	<SFML2/System/NonCopyable.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/PrimitiveType.hpp
+1333526226 /usr/include/SFML2/Graphics/PrimitiveType.hpp
 
-1328723172 /usr/include/SFML2/Graphics/Vertex.hpp
+1333526226 /usr/include/SFML2/Graphics/Vertex.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Color.hpp>
 	<SFML2/System/Vector2.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/Shader.hpp
+1333526226 /usr/include/SFML2/Graphics/Shader.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Transform.hpp>
 	<SFML2/Graphics/Color.hpp>
@@ -3702,22 +3702,22 @@
 	<map>
 	<string>
 
-1328723172 /usr/include/SFML2/Graphics/Shape.hpp
+1333526226 /usr/include/SFML2/Graphics/Shape.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Drawable.hpp>
 	<SFML2/Graphics/Transformable.hpp>
 	<SFML2/Graphics/VertexArray.hpp>
 	<SFML2/System/Vector2.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/Drawable.hpp
+1333526226 /usr/include/SFML2/Graphics/Drawable.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/RenderStates.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/Transformable.hpp
+1333526226 /usr/include/SFML2/Graphics/Transformable.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Transform.hpp>
 
-1328723172 /usr/include/SFML2/Graphics/VertexArray.hpp
+1333526226 /usr/include/SFML2/Graphics/VertexArray.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Vertex.hpp>
 	<SFML2/Graphics/PrimitiveType.hpp>
@@ -3725,21 +3725,21 @@
 	<SFML2/Graphics/Drawable.hpp>
 	<vector>
 
-1328723172 /usr/include/SFML2/Graphics/Sprite.hpp
+1333526226 /usr/include/SFML2/Graphics/Sprite.hpp
 	<SFML2/Graphics/Export.hpp>
 	<SFML2/Graphics/Drawable.hpp>
 	<SFML2/Graphics/Transformable.hpp>
 	<SFML2/Graphics/Vertex.hpp>
 	<SFML2/Graphics/Rect.hpp>
 
-1328723172 /usr/include/SFML2/Audio/Listener.hpp
+1333526226 /usr/include/SFML2/Audio/Listener.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/System/Vector3.hpp>
 
-1328723172 /usr/include/SFML2/Audio/Export.hpp
+1333526226 /usr/include/SFML2/Audio/Export.hpp
 	<SFML2/Config.hpp>
 
-1328723172 /usr/include/SFML2/Audio/Music.hpp
+1333526226 /usr/include/SFML2/Audio/Music.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/Audio/SoundStream.hpp>
 	<SFML2/System/Mutex.hpp>
@@ -3747,42 +3747,42 @@
 	<string>
 	<vector>
 
-1328723172 /usr/include/SFML2/Audio/SoundStream.hpp
+1333526226 /usr/include/SFML2/Audio/SoundStream.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/Audio/SoundSource.hpp>
 	<SFML2/System/Thread.hpp>
 	<SFML2/System/Time.hpp>
 	<cstdlib>
 
-1328723172 /usr/include/SFML2/Audio/SoundSource.hpp
+1333526226 /usr/include/SFML2/Audio/SoundSource.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/System/Vector3.hpp>
 
-1328723172 /usr/include/SFML2/Audio/Sound.hpp
+1333526226 /usr/include/SFML2/Audio/Sound.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/Audio/SoundSource.hpp>
 	<SFML2/System/Time.hpp>
 	<cstdlib>
 
-1328723172 /usr/include/SFML2/Audio/SoundBuffer.hpp
+1333526226 /usr/include/SFML2/Audio/SoundBuffer.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/System/Time.hpp>
 	<string>
 	<vector>
 	<set>
 
-1328723172 /usr/include/SFML2/Audio/SoundBufferRecorder.hpp
+1333526226 /usr/include/SFML2/Audio/SoundBufferRecorder.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/Audio/SoundBuffer.hpp>
 	<SFML2/Audio/SoundRecorder.hpp>
 	<vector>
 
-1328723172 /usr/include/SFML2/Audio/SoundRecorder.hpp
+1333526226 /usr/include/SFML2/Audio/SoundRecorder.hpp
 	<SFML2/Audio/Export.hpp>
 	<SFML2/System/Thread.hpp>
 	<vector>
 
-1328723172 /usr/include/SFML2/Network/Ftp.hpp
+1333526226 /usr/include/SFML2/Network/Ftp.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/Network/TcpSocket.hpp>
 	<SFML2/System/NonCopyable.hpp>
@@ -3790,25 +3790,25 @@
 	<string>
 	<vector>
 
-1328723172 /usr/include/SFML2/Network/Export.hpp
+1333526226 /usr/include/SFML2/Network/Export.hpp
 	<SFML2/Config.hpp>
 
-1328723172 /usr/include/SFML2/Network/TcpSocket.hpp
+1333526226 /usr/include/SFML2/Network/TcpSocket.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/Network/Socket.hpp>
 	<SFML2/System/Time.hpp>
 
-1328723172 /usr/include/SFML2/Network/Socket.hpp
+1333526226 /usr/include/SFML2/Network/Socket.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/Network/SocketHandle.hpp>
 	<SFML2/System/NonCopyable.hpp>
 	<vector>
 
-1328723172 /usr/include/SFML2/Network/SocketHandle.hpp
+1333526226 /usr/include/SFML2/Network/SocketHandle.hpp
 	<SFML2/Config.hpp>
 	<basetsd.h>
 
-1328723172 /usr/include/SFML2/Network/Http.hpp
+1333526226 /usr/include/SFML2/Network/Http.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/Network/IpAddress.hpp>
 	<SFML2/Network/TcpSocket.hpp>
@@ -3817,32 +3817,32 @@
 	<map>
 	<string>
 
-1328723172 /usr/include/SFML2/Network/IpAddress.hpp
+1333526226 /usr/include/SFML2/Network/IpAddress.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/System/Time.hpp>
 	<istream>
 	<ostream>
 	<string>
 
-1328723172 /usr/include/SFML2/Network/Packet.hpp
+1333526226 /usr/include/SFML2/Network/Packet.hpp
 	<SFML2/Network/Export.hpp>
 	<string>
 	<vector>
 
-1328723172 /usr/include/SFML2/Network/SocketSelector.hpp
+1333526226 /usr/include/SFML2/Network/SocketSelector.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/System/Time.hpp>
 
-1328723172 /usr/include/SFML2/Network/TcpListener.hpp
+1333526226 /usr/include/SFML2/Network/TcpListener.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/Network/Socket.hpp>
 
-1328723172 /usr/include/SFML2/Network/UdpSocket.hpp
+1333526226 /usr/include/SFML2/Network/UdpSocket.hpp
 	<SFML2/Network/Export.hpp>
 	<SFML2/Network/Socket.hpp>
 	<vector>
 
-1328802202 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menutouche.cpp
+1333528801 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menutouche.cpp
 	"menutouche.h"
 	"../../graphics/graphicalengine.h"
 
@@ -3850,7 +3850,7 @@
 	<string>
 	<SFML2/Graphics.hpp>
 
-1332767851 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/particlemanager.cpp
+1333527709 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/particlemanager.cpp
 	"particlemanager.h"
 	"graphicalengine.h"
 	"../../core/trigo.h"
@@ -3887,7 +3887,7 @@
 1332595728 source:/home/thomas/pixelwar/pixelwar/src/core/trigo.cpp
 	"trigo.h"
 
-1333436767 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/infomessage.cpp
+1333528810 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/infomessage.cpp
 	"infomessage.h"
 	"../../graphics/graphicalengine.h"
 
@@ -3902,20 +3902,20 @@
 	"../graphics/graphicalengine.h"
 	<vector>
 
-1332831910 source:/home/thomas/pixelwar/pixelwar/src/engines/game/ciel.cpp
+1333527426 source:/home/thomas/pixelwar/pixelwar/src/engines/game/ciel.cpp
 	"ciel.h"
 	"nuage.h"
 
 1332587910 /home/thomas/pixelwar/pixelwar/src/engines/game/nuage.h
 	"../graphics/graphicalengine.h"
 
-1332598403 source:/home/thomas/pixelwar/pixelwar/src/engines/game/nuage.cpp
+1333528073 source:/home/thomas/pixelwar/pixelwar/src/engines/game/nuage.cpp
 	"nuage.h"
 	"../../core/random.h"
 	<vector>
 	<string>
 
-1333443460 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteaerienne.cpp
+1333527107 source:/home/thomas/pixelwar/pixelwar/src/engines/game/uniteaerienne.cpp
 	"uniteaerienne.h"
 	"../../core/trigo.h"
 	"projectile.h"
@@ -3923,7 +3923,7 @@
 1333443371 /home/thomas/pixelwar/pixelwar/src/engines/game/uniteaerienne.h
 	"unite.h"
 
-1333447216 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/fontmanager.cpp
+1333528271 source:/home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/fontmanager.cpp
 	"fontmanager.h"
 
 1333447174 /home/thomas/pixelwar/pixelwar/src/engines/graphics/gui/fontmanager.h

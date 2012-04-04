@@ -31,7 +31,7 @@ const sf::Texture& TextureManager::Get(std::string chemin)
     }
     Logger::Log()<<"Chargement de l'image: '" << chemin << "'"<<Logger::endl;
     sf::Texture* tex = new sf::Texture;
-    tex->LoadFromFile(chemin);
+    tex->loadFromFile(chemin);
     m_storedUniqueTextures[chemin]=tex;
     return *tex;
 }

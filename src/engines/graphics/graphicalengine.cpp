@@ -24,9 +24,9 @@ GraphicalEngine::GraphicalEngine()
 sf::RenderWindow* GraphicalEngine::CreateRenderWindow(sf::VideoMode mode, const std::string &title, sf::Uint32 style, const sf::ContextSettings &settings)
 {
     m_app = new sf::RenderWindow(mode, title, style, settings);
-    m_app->SetFramerateLimit(60);
+    m_app->setFramerateLimit(60);
     m_framerate=0.f;
-    m_timerFramerate.Restart();
+    m_timerFramerate.restart();
     Logger::Log()<<"Création d'une fenêtre de rendu"<<Logger::endl;
     return m_app;
 }
@@ -55,7 +55,7 @@ CameraManager* GraphicalEngine::GetCameraManager() const
 }
 void GraphicalEngine::DrawScene()
 {
-    m_app->Clear();
+    m_app->clear();
 
     /*if(m_listeViews->size()==0)
     {
@@ -67,17 +67,17 @@ void GraphicalEngine::DrawScene()
     m_sceneManager->GetParticleManager()->Update();
     for(sf::View *view: *m_listeViews )
     {
-        m_app->SetView(*view);
+        m_app->setView(*view);
         m_sceneManager->Draw();
     }
-    m_app->SetView(m_app->GetDefaultView());
+    m_app->setView(m_app->getDefaultView());
     m_guiManager->Draw();
-    m_app->Display();
-    if(m_timerFramerate.GetElapsedTime().AsMilliseconds()>int(m_tempFramerate))
+    m_app->display();
+    if(m_timerFramerate.getElapsedTime().asMilliseconds()>int(m_tempFramerate))
     {
         m_framerate=(float(m_nbFrames)*1000.f)/float(m_tempFramerate);
         m_nbFrames=0;
-        m_timerFramerate.Restart();
+        m_timerFramerate.restart();
         //Logger::Log()<<m_framerate<<Logger::endl;
     }
     ++m_nbFrames;

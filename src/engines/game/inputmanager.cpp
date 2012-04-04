@@ -23,15 +23,15 @@ InputManager::~InputManager()
 }
 void InputManager::HandleEvent(const sf::Event& event)
 {
-    if(event.Type == sf::Event::KeyReleased)
+    if(event.type == sf::Event::KeyReleased)
     {
         for(int i=0;i<2;++i)
         {
-            if(event.Key.Code == m_touches[i]["changer_unite"])
+            if(event.key.code == m_touches[i]["changer_unite"])
                 m_input[i].changer=true;
-            else if(event.Key.Code == m_touches[i]["zoomer"])
+            else if(event.key.code == m_touches[i]["zoomer"])
                 m_input[i].zoomer=true;
-            else if(event.Key.Code == m_touches[i]["dezoomer"])
+            else if(event.key.code == m_touches[i]["dezoomer"])
                 m_input[i].dezoomer=true;
         }
     }
@@ -41,7 +41,7 @@ bool InputManager::GetSate(const std::string &clef, int joueur)
     auto it = m_touches[joueur].find(clef);
     if(it==m_touches[joueur].end())
         return false;
-    return m_keyboard.IsKeyPressed(it->second);
+    return m_keyboard.isKeyPressed(it->second);
 }
 
 UnitInput InputManager::GetAll(int joueur)
