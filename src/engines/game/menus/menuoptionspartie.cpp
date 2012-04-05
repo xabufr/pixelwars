@@ -1,8 +1,8 @@
 #include "menuoptionspartie.h"
-#include "engines/graphics/graphicalengine.h"
-#include "core/conversion.h"
+#include "../../graphics/graphicalengine.h"
+#include "../../../core/conversion.h"
 #include "../gameengine.h"
-#include "game.h"
+#include "../../../game.h"
 #include "infomessage.h"
 
 MenuOptionsPartie::MenuOptionsPartie(TypePartie type)

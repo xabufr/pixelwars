@@ -2,7 +2,7 @@
 #define SCENENODESPRITEITEM_H
 
 #include "scenenodeitem.h"
-#include "engines/graphics/texturemanager.h"
+#include "texturemanager.h"
 /// @todo Documenter
 class SceneNodeSpriteItem : public SceneNodeItem
 {

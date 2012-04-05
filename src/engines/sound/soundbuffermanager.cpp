@@ -1,5 +1,5 @@
 #include "soundbuffermanager.h"
-#include "core/logger.h"
+#include "../../core/logger.h"
 template<>
 SoundBufferManager* Singleton<SoundBufferManager>::m_singleton=NULL;
 SoundBufferManager::SoundBufferManager()

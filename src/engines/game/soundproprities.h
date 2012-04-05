@@ -3,7 +3,7 @@
 
 #include <vector>
 #include <string>
-#include "core/singleton.h"
+#include "../../core/singleton.h"
 
 struct Intervalle
 {

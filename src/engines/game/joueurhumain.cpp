@@ -1,5 +1,5 @@
 #include "joueurhumain.h"
-#include "engines/graphics/graphicalengine.h"
+#include "../graphics/graphicalengine.h"
 #include "unite.h"
 #include "carte.h"
 

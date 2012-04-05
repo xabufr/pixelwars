@@ -1,7 +1,7 @@
 #include "graphicalengine.h"
-#include "core/logger.h"
-#include "engines/graphics/scenemanager.h"
-#include "engines/graphics/texturemanager.h"
+#include "../../core/logger.h"
+#include "scenemanager.h"
+#include "texturemanager.h"
 
 template<>
 GraphicalEngine *Singleton<GraphicalEngine>::m_singleton = 0;

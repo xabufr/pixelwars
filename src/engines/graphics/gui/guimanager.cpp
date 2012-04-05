@@ -1,5 +1,5 @@
 #include "guimanager.h"
-#include "core/logger.h"
+#include "../../../core/logger.h"
 #include "../graphicalengine.h"
 
 GuiManager::GuiManager(): SceneManager()

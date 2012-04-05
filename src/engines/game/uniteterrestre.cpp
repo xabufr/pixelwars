@@ -1,7 +1,7 @@
 #include "uniteterrestre.h"
 #include "bodytype.h"
 #include "projectile.h"
-#include "core/exception.h"
+#include "../../core/exception.h"
 #include "../../core/trigo.h"
 #include "soundproprities.h"
 

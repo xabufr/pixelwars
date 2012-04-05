@@ -1,7 +1,7 @@
 #ifndef SOUNDBUFFERMANAGER_H
 #define SOUNDBUFFERMANAGER_H
 
-#include "core/singleton.h"
+#include "../../core/singleton.h"
 #include <SFML2/Audio.hpp>
 #include <unordered_map>
 

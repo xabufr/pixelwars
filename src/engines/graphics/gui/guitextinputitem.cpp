@@ -1,6 +1,6 @@
 #include "guitextinputitem.h"
 #include "../graphicalengine.h"
-#include "core/logger.h"
+#include "../../../core/logger.h"
 
 GuiTextInputItem::GuiTextInputItem(): GuiItem(), m_maxSize(100,30)
 {

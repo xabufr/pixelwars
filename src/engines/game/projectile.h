@@ -2,7 +2,7 @@
 #define PROJECTILE_H
 
 #include <Box2D/Box2D.h>
-#include "engines/graphics/graphicalengine.h"
+#include "../graphics/graphicalengine.h"
 
 class Projectile
 {

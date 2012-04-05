@@ -5,8 +5,8 @@
 #include "projectile.h"
 #include "uniteterrestre.h"
 #include <Box2D/Box2D.h>
-#include "engines/type.h"
-#include "engines/engineevent.h"
+#include "../type.h"
+#include "../engineevent.h"
 #include "gameengine.h"
 #include "soundproprities.h"
 #include "../sound/soundengine.h"

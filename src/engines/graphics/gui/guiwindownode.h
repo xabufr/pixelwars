@@ -2,7 +2,7 @@
 #define GUIWINDOWITEM_H
 
 #include "guinode.h"
-#include "engines/graphics/gui/guinode.h"
+#include "guinode.h"
 #include "../scenenodeshapeitem.h"
 #include "guibuttonitem.h"
 #include "guitextitem.h"

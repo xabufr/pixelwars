@@ -1,6 +1,6 @@
 #include "gameengine.h"
-#include "engines/graphics/graphicalengine.h"
-#include "core/logger.h"
+#include "../graphics/graphicalengine.h"
+#include "../../core/logger.h"
 #include <SFML2/System.hpp>
 #include <Box2D/Box2D.h>
 #include "uniteterrestre.h"
@@ -8,7 +8,7 @@
 #include "uniteterrestremodel.h"
 #include "joueurhumain.h"
 #include "../engineevent.h"
-#include "core/conversion.h"
+#include "../../core/conversion.h"
 #include "playerparameters.h"
 #include "uniteaerienne.h"
 

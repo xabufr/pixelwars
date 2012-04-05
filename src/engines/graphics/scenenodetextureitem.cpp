@@ -1,6 +1,6 @@
 #include "scenenodetextureitem.h"
-#include "core/exception.h"
-#include "core/logger.h"
+#include "../../core/exception.h"
+#include "../../core/logger.h"
 SceneNodeTextureItem::SceneNodeTextureItem()
 {
     m_idTexture = TextureManager::GetInstance()->Create();

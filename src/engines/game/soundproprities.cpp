@@ -2,8 +2,8 @@
 #include <tinyxml.h>
 #include "uniteterrestre.h"
 #include "projectile.h"
-#include "core/exception.h"
-#include "core/logger.h"
+#include "../../core/exception.h"
+#include "../../core/logger.h"
 
 template<>
 SoundProprities *Singleton<SoundProprities>::m_singleton = 0;

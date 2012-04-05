@@ -4,7 +4,7 @@
 #include "bodytype.h"
 #include "unite.h"
 #include "uniteaerienne.h"
-#include "core/logger.h"
+#include "../../core/logger.h"
 #include "../../core/trigo.h"
 
 ContactListenner::ContactListenner(const std::unordered_map<sf::Uint32, Unite*> & unites): m_unites(unites)

@@ -1,7 +1,7 @@
 #ifndef UNITE_H
 #define UNITE_H
 #include <Box2D/Box2D.h>
-#include "engines/graphics/graphicalengine.h"
+#include "../graphics/graphicalengine.h"
 #include "inputmanager.h"
 #include "bodytype.h"
 #include "../sound/soundengine.h"

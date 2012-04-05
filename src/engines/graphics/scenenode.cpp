@@ -1,5 +1,5 @@
 #include "scenenode.h"
-#include "engines/graphics/scenemanager.h"
+#include "scenemanager.h"
 
 SceneNode::SceneNode(SceneManager* mng, SceneNode* parent)
 {

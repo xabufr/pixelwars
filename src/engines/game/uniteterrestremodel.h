@@ -2,7 +2,7 @@
 #define UNITETERRESTREMODEL_H
 #include <unordered_map>
 #include <Box2D/Box2D.h>
-#include "core/singleton.h"
+#include "../../core/singleton.h"
 #include <tinyxml.h>
 
 struct UniteTerrestreParameters

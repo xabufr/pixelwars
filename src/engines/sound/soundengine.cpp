@@ -1,6 +1,6 @@
 #include "soundengine.h"
 #include "../engineevent.h"
-#include "core/logger.h"
+#include "../../core/logger.h"
 
 SoundEngine::SoundEngine()
 {

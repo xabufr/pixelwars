@@ -1,5 +1,5 @@
 #include "menuoptions.h"
-#include "engines/graphics/graphicalengine.h"
+#include "../../graphics/graphicalengine.h"
 #include "../playerparameters.h"
 #include "../../../core/logger.h"
 #include "../../../core/conversion.h"
