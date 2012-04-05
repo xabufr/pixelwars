@@ -81,8 +81,8 @@ UniteTerrestre::UniteTerrestre(b2World* world, b2Vec2 pos, SoundEngine *sEngine,
     m_nodeRoue2 = m_node->AddSceneNode();
     m_itemRoue1 = (SceneNodeSpriteItem*) m_nodeRoue1->AddItem(new SceneNodeSpriteItem);
     m_itemRoue2 = (SceneNodeSpriteItem*) m_nodeRoue2->AddItem(new SceneNodeSpriteItem);
-    m_itemRoue1->SetImage("image_transport_369.png");
-    m_itemRoue2->SetImage("image_transport_369.png");
+    m_itemRoue1->SetImage("data/roue.png");
+    m_itemRoue2->SetImage("data/roue.png");
 
 
     m_nodeRoue1->SetRelativePosition(-factory->GetTailleUnit().x*10,factory->GetTailleUnit().y*10);
