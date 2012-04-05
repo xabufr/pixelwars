@@ -25,7 +25,6 @@
 					<Add option="-D_DEBUG" />
 					<Add directory="/usr/include" />
 					<Add directory="/usr/include/c++/4.6" />
-					<Add directory="./" />
 					<Add directory="/usr/local/include" />
 				</Compiler>
 				<Linker>
@@ -42,17 +41,15 @@
 			<Target title="Release">
 				<Option output="../build/bin/Release/Pixelswar" prefix_auto="1" extension_auto="1" />
 				<Option working_dir="../build/" />
-				<Option object_output="../buid/obj/Release/" />
+				<Option object_output="../build/obj/Release/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-fexpensive-optimizations" />
 					<Add option="-Os" />
 					<Add option="-O3" />
-					<Add option="-std=c++0x" />
 					<Add directory="/usr/include" />
 					<Add directory="/usr/include/c++/4.6" />
-					<Add directory="./" />
 					<Add directory="/usr/local/include" />
 				</Compiler>
 				<Linker>
@@ -74,6 +71,7 @@
 		</Compiler>
 		<Linker>
 			<Add option="-lsfml-graphics" />
+			<Add option="-lsfml-audio" />
 			<Add option="-lsfml-network" />
 			<Add option="-lsfml-window" />
 			<Add option="-lsfml-system" />
