@@ -9,7 +9,7 @@
 MenuPrincipal::MenuPrincipal()
 {
     GraphicalEngine* engine = GraphicalEngine::GetInstance();
-    engine->CreateRenderWindow(sf::VideoMode(600,400), "Test");
+    engine->CreateRenderWindow(sf::VideoMode(600,400), "PixelWar");
     m_contenerMenu = engine->GetGuiManager()->GetRootNode()->AddContener();
 
     m_btn_quitter = new GuiButtonItem;

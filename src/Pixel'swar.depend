@@ -3156,9 +3156,9 @@
 	<sstream>
 	"tinystr.h"
 
-1333526820 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
+1333630018 source:/home/thomas/pixelwar/pixelwar/src/engines/game/joueurhumain.cpp
 	"joueurhumain.h"
-	"engines/graphics/graphicalengine.h"
+	"../graphics/graphicalengine.h"
 	"unite.h"
 	"carte.h"
 
@@ -3248,7 +3248,7 @@
 	"guiitem.h"
 	<SFML2/Graphics.hpp>
 
-1333629848 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
+1333647439 source:/home/thomas/pixelwar/pixelwar/src/engines/game/menus/menuprincipal.cpp
 	"menuprincipal.h"
 	"../../graphics/graphicalengine.h"
 	"../gameengine.h"
