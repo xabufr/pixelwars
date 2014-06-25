@@ -68,6 +68,7 @@
 		<Compiler>
 			<Add option="-std=c++0x" />
 			<Add option="-Wall" />
+			<Add directory="/usr/local/lib" />
 		</Compiler>
 		<Linker>
 			<Add option="-lsfml-graphics" />

@@ -1,7 +1,7 @@
 #ifndef CAMERAMANAGER_H
 #define CAMERAMANAGER_H
 
-#include <SFML2/Graphics/View.hpp>
+#include <SFML/Graphics/View.hpp>
 #include <vector>
 /// @todo Documenter
 class CameraManager

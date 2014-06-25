@@ -3,7 +3,7 @@
 
 #include "scenenode.h"
 #include <map>
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class ParticleManager;
 class SceneManager

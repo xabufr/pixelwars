@@ -1,7 +1,7 @@
 #ifndef SCENENODECIRCLESHAPEITEM_H
 #define SCENENODECIRCLESHAPEITEM_H
 #include "scenenodeitem.h"
-#include <SFML2/Graphics/CircleShape.hpp>
+#include <SFML/Graphics/CircleShape.hpp>
 
 class SceneNodeCircleShapeItem: public SceneNodeItem
 {

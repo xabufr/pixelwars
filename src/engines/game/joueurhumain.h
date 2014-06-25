@@ -2,7 +2,7 @@
 #define JOUEURHUMAIN_H
 
 #include "joueur.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 class Carte;
 class JoueurHumain: public Joueur
 {

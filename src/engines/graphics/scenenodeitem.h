@@ -1,7 +1,7 @@
 #ifndef SCENENODEITEM_H
 #define SCENENODEITEM_H
 
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "positioninformations.h"
 /// @todo Documenter
 class SceneNodeItem

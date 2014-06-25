@@ -1,7 +1,7 @@
 #ifndef INPUTMANAGER_H
 #define INPUTMANAGER_H
 
-#include <SFML2/Window.hpp>
+#include <SFML/Window.hpp>
 #include <unordered_map>
 
 struct UnitInput{

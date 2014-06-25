@@ -1,7 +1,7 @@
 #ifndef GUITEXTITEM_H
 #define GUITEXTITEM_H
 
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "guiitem.h"
 /// @todo Documenter
 class GuiTextItem: public GuiItem

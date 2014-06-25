@@ -3,8 +3,8 @@
 
 #include <unordered_map>
 #include <vector>
-#include <SFML2/Graphics.hpp>
-#include <SFML2/System.hpp>
+#include <SFML/Graphics.hpp>
+#include <SFML/System.hpp>
 #include "../../core/random.h"
 #include <Box2D/Box2D.h>
 

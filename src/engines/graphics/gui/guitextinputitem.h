@@ -2,7 +2,7 @@
 #define GUITEXTINPUTITEM_H
 
 #include "guiitem.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 /// @todo Documenter
 class GuiTextInputItem: public GuiItem
 {

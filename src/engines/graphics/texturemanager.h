@@ -3,7 +3,7 @@
 
 #include <unordered_map>
 #include <string>
-#include <SFML2/Graphics/Texture.hpp>
+#include <SFML/Graphics/Texture.hpp>
 #include "../../core/singleton.h"
 
 typedef sf::Uint32 TextureId;

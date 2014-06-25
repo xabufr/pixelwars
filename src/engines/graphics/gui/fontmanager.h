@@ -3,7 +3,7 @@
 
 #include "../../../core/singleton.h"
 #include <string>
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class FontManager: public Singleton<FontManager>
 {

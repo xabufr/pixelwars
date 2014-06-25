@@ -2,7 +2,7 @@
 #define GUICOLORSELECTOR_H
 
 #include "guicontener.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class SceneManager;
 class SceneNode;

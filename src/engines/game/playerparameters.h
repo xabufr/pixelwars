@@ -2,7 +2,7 @@
 #define PLAYERPARAMETERS_H
 
 #include "../../core/singleton.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <tinyxml.h>
 #include <unordered_map>
 

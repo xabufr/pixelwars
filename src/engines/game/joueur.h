@@ -2,9 +2,9 @@
 #define JOUEUR_H
 
 #include <unordered_map>
-#include <SFML2/System.hpp>
+#include <SFML/System.hpp>
 #include <Box2D/Box2D.h>
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 struct UnitInput;
 class Unite;

@@ -1,6 +1,6 @@
 #ifndef GUISLIDERNUMBERITEM_H
 #define GUISLIDERNUMBERITEM_H
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "guiitem.h"
 /// @todo Documenter
 class GuiSliderNumberItem: public GuiItem

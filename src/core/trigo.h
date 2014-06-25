@@ -1,7 +1,7 @@
 #ifndef TRIGO_H
 #define TRIGO_H
 
-#include <SFML2/System.hpp>
+#include <SFML/System.hpp>
 #include <Box2D/Common/b2Math.h>
 
 #define PI 3.1415928653

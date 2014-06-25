@@ -1,9 +1,9 @@
 #ifndef ENGINEEVENT_H
 #define ENGINEEVENT_H
-#include <SFML2/System.hpp>
+#include <SFML/System.hpp>
 #include <unordered_map>
 #include <vector>
-#include <SFML2/Network.hpp>
+#include <SFML/Network.hpp>
 
 namespace TypeMessage
 {

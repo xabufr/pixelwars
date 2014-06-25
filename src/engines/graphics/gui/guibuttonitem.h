@@ -2,9 +2,9 @@
 #define GUIBUTTONITEM_H
 
 #include "guiitem.h"
-#include <SFML2/Graphics/Text.hpp>
-#include <SFML2/System/String.hpp>
-#include <SFML2/Graphics/RectangleShape.hpp>
+#include <SFML/Graphics/Text.hpp>
+#include <SFML/System/String.hpp>
+#include <SFML/Graphics/RectangleShape.hpp>
 /// @todo Documenter
 class GuiButtonItem : public GuiItem
 {

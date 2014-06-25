@@ -2,7 +2,7 @@
 #define PROGRESSBAR_H
 
 #include "guiitem.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 /// @todo Documenter
 class GuiProgressBarItem: public GuiItem
 {

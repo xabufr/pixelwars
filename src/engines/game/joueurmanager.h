@@ -1,7 +1,7 @@
 #ifndef JOUEURMANAGER_H
 #define JOUEURMANAGER_H
 
-#include <SFML2/System.hpp>
+#include <SFML/System.hpp>
 #include <unordered_map>
 
 class Joueur;

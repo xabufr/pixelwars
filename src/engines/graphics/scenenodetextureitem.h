@@ -2,7 +2,7 @@
 #define SCENENODETEXTUREITEM_H
 
 #include "scenenodeitem.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include "texturemanager.h"
 /// @todo Documenter
 class SceneNodeTextureItem : public SceneNodeItem

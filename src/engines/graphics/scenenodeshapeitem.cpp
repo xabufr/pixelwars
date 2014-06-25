@@ -1,5 +1,5 @@
 #include "scenenodeshapeitem.h"
-#include <SFML2/Graphics/ConvexShape.hpp>
+#include <SFML/Graphics/ConvexShape.hpp>
 
 SceneNodeShapeItem::SceneNodeShapeItem()
 {

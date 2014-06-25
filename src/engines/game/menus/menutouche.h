@@ -1,7 +1,7 @@
 #ifndef MENUTOUCHE_H
 #define MENUTOUCHE_H
 #include <string>
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 class GuiTextItem;
 class GuiNode;

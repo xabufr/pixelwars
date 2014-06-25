@@ -1,7 +1,7 @@
 #include "carte.h"
-#include <libnoise/noise.h>
+#include <noise/noise.h>
 #include "bodytype.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 Carte::Carte(b2World* world, const sf::Vector2i& taille, float valMoy, float diff, int seed): m_ciel(sf::Vector2f(taille.x, taille.y), 5.f)
 {

@@ -1,7 +1,7 @@
 #include "gameengine.h"
 #include "../graphics/graphicalengine.h"
 #include "../../core/logger.h"
-#include <SFML2/System.hpp>
+#include <SFML/System.hpp>
 #include <Box2D/Box2D.h>
 #include "uniteterrestre.h"
 #include "projectile.h"

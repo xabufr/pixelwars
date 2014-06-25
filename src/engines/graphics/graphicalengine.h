@@ -5,7 +5,7 @@
 #include <vector>
 #include <unordered_map>
 
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 
 #include "scenenodetextureitem.h"
 #include "scenenodespriteitem.h"

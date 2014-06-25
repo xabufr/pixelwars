@@ -1,6 +1,6 @@
 #ifndef ENGINE_H
 #define ENGINE_H
-#include <SFML2/System.hpp>
+#include <SFML/System.hpp>
 #include "type.h"
 class EngineEvent;
 class Engine

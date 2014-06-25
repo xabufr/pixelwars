@@ -1,7 +1,7 @@
 #ifndef GUICONTENER_H
 #define GUICONTENER_H
 #include "guinode.h"
-#include <SFML2/Graphics.hpp>
+#include <SFML/Graphics.hpp>
 #include <deque>
 #include "guielement.h"
 /// @todo Documenter

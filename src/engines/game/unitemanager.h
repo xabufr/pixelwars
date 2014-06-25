@@ -2,7 +2,7 @@
 #define UNITEMANAGER_H
 
 #include <unordered_map>
-#include <SFML2/System.hpp>
+#include <SFML/System.hpp>
 #include <deque>
 
 class b2World;
