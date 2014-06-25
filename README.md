@@ -2,7 +2,8 @@ pixelwars
 =========
 
 Projet BTS, jeu 2d
-Source documentation at https://xabufr.github.io/pixelwars/doxygen/index.html
+
+[Source documentation here.](https://xabufr.github.io/pixelwars/doxygen/index.html)
 
 #Dependencies
 
