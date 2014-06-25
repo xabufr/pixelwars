@@ -2,6 +2,7 @@ pixelwars
 =========
 
 Projet BTS, jeu 2d
+Source documentation at https://xabufr.github.io/pixelwars/doxygen/index.html
 
 #Dependencies
 
@@ -22,3 +23,4 @@ make -jX # where X is your number of processor cores
 cd build
 ./pixelwars
 ```
+
