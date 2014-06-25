@@ -14,7 +14,7 @@ Projet BTS, jeu 2d
 #Compilation
 ``` bash
 cmake .
-make -jX where X is your number of processor cores
+make -jX # where X is your number of processor cores
 ```
 
 #Run
