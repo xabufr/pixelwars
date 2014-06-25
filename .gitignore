@@ -1,0 +1,6 @@
+build/meteor-falls
+src/doxygen/
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
